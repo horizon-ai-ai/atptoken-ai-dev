@@ -1,0 +1,32 @@
+User-Agent: Googlebot
+User-Agent: Bingbot
+User-Agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /console/
+Disallow: /signin/
+Disallow: /signup/
+Disallow: /forgot/
+Disallow: /reset/
+Disallow: /reset-password/
+Disallow: /onboarding/
+Disallow: /invitations/
+Disallow: /billing/
+
+User-Agent: GPTBot
+Disallow: /
+
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /console/
+Disallow: /signin/
+Disallow: /signup/
+Disallow: /forgot/
+Disallow: /reset/
+Disallow: /reset-password/
+Disallow: /onboarding/
+Disallow: /invitations/
+Disallow: /billing/
+
+Sitemap: https://atptoken.ai/sitemap.xml

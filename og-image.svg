@@ -1,0 +1,29 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F8FAFC"/>
+  <rect x="60" y="58" width="1080" height="514" rx="36" fill="white" stroke="#E2E8F0" stroke-width="2"/>
+  <circle cx="1010" cy="132" r="150" fill="#0EA5E9" fill-opacity="0.12"/>
+  <circle cx="930" cy="500" r="180" fill="#F97316" fill-opacity="0.12"/>
+  <circle cx="160" cy="520" r="170" fill="#14B8A6" fill-opacity="0.12"/>
+  <path d="M138 156H264C295 156 320 181 320 212V338C320 369 295 394 264 394H138C107 394 82 369 82 338V212C82 181 107 156 138 156Z" fill="#0F172A"/>
+  <path d="M201 205C222 242 244 267 244 292C244 316 225 334 201 334C177 334 158 316 158 292C158 267 180 242 201 205Z" fill="url(#paint0_linear)"/>
+  <path d="M173 290C170 300 174 311 184 316" stroke="white" stroke-opacity="0.75" stroke-width="8" stroke-linecap="round"/>
+  <text x="376" y="214" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="70" font-weight="800">ATPToken</text>
+  <text x="379" y="278" fill="#F97316" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="700">One key. Every model.</text>
+  <text x="380" y="344" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="500">OpenAI-compatible AI gateway with project-scoped keys,</text>
+  <text x="380" y="386" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="500">model discovery, request logs, and pay-as-you-go credits.</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">
+    <rect x="380" y="452" width="178" height="52" rx="14" fill="#FFF7ED" stroke="#FED7AA"/>
+    <text x="404" y="486" fill="#EA580C">OpenAI API</text>
+    <rect x="580" y="452" width="170" height="52" rx="14" fill="#F0F9FF" stroke="#BAE6FD"/>
+    <text x="604" y="486" fill="#0284C7">Anthropic</text>
+    <rect x="772" y="452" width="132" height="52" rx="14" fill="#F0FDFA" stroke="#99F6E4"/>
+    <text x="796" y="486" fill="#0F766E">Gemini</text>
+  </g>
+  <defs>
+    <linearGradient id="paint0_linear" x1="158" y1="205" x2="244" y2="334" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="0.55" stop-color="#14B8A6"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+  </defs>
+</svg>
