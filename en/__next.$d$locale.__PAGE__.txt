@@ -1,12 +1,12 @@
 1:"$Sreact.fragment"
-2:I[26631,["/_next/static/chunks/3m873d_yildjy.js","/_next/static/chunks/1mi_8ht6cz_yw.js","/_next/static/chunks/1-27nxop0omd2.js","/_next/static/chunks/0r0seml7i7rhn.js"],"PublicNav"]
-3:I[59319,["/_next/static/chunks/3m873d_yildjy.js","/_next/static/chunks/1mi_8ht6cz_yw.js","/_next/static/chunks/1-27nxop0omd2.js","/_next/static/chunks/0r0seml7i7rhn.js"],"Hero"]
-4:I[92472,["/_next/static/chunks/3m873d_yildjy.js","/_next/static/chunks/1mi_8ht6cz_yw.js","/_next/static/chunks/1-27nxop0omd2.js","/_next/static/chunks/0r0seml7i7rhn.js"],"HowItWorks"]
-5:I[96770,["/_next/static/chunks/3m873d_yildjy.js","/_next/static/chunks/1mi_8ht6cz_yw.js","/_next/static/chunks/1-27nxop0omd2.js","/_next/static/chunks/0r0seml7i7rhn.js"],"Pillars"]
-6:I[95571,["/_next/static/chunks/3m873d_yildjy.js","/_next/static/chunks/1mi_8ht6cz_yw.js","/_next/static/chunks/1-27nxop0omd2.js","/_next/static/chunks/0r0seml7i7rhn.js"],"Features"]
-7:I[46326,["/_next/static/chunks/3m873d_yildjy.js","/_next/static/chunks/1mi_8ht6cz_yw.js","/_next/static/chunks/1-27nxop0omd2.js","/_next/static/chunks/0r0seml7i7rhn.js"],"CtaCards"]
-8:I[28003,["/_next/static/chunks/3m873d_yildjy.js","/_next/static/chunks/1mi_8ht6cz_yw.js","/_next/static/chunks/1-27nxop0omd2.js","/_next/static/chunks/0r0seml7i7rhn.js"],"Footer"]
-9:I[96,["/_next/static/chunks/3m873d_yildjy.js","/_next/static/chunks/1mi_8ht6cz_yw.js"],"OutletBoundary"]
+2:I[26631,["/_next/static/chunks/0_8l71yrgawy7.js","/_next/static/chunks/1mi_8ht6cz_yw.js","/_next/static/chunks/1-27nxop0omd2.js","/_next/static/chunks/0r0seml7i7rhn.js"],"PublicNav"]
+3:I[59319,["/_next/static/chunks/0_8l71yrgawy7.js","/_next/static/chunks/1mi_8ht6cz_yw.js","/_next/static/chunks/1-27nxop0omd2.js","/_next/static/chunks/0r0seml7i7rhn.js"],"Hero"]
+4:I[92472,["/_next/static/chunks/0_8l71yrgawy7.js","/_next/static/chunks/1mi_8ht6cz_yw.js","/_next/static/chunks/1-27nxop0omd2.js","/_next/static/chunks/0r0seml7i7rhn.js"],"HowItWorks"]
+5:I[96770,["/_next/static/chunks/0_8l71yrgawy7.js","/_next/static/chunks/1mi_8ht6cz_yw.js","/_next/static/chunks/1-27nxop0omd2.js","/_next/static/chunks/0r0seml7i7rhn.js"],"Pillars"]
+6:I[95571,["/_next/static/chunks/0_8l71yrgawy7.js","/_next/static/chunks/1mi_8ht6cz_yw.js","/_next/static/chunks/1-27nxop0omd2.js","/_next/static/chunks/0r0seml7i7rhn.js"],"Features"]
+7:I[46326,["/_next/static/chunks/0_8l71yrgawy7.js","/_next/static/chunks/1mi_8ht6cz_yw.js","/_next/static/chunks/1-27nxop0omd2.js","/_next/static/chunks/0r0seml7i7rhn.js"],"CtaCards"]
+8:I[28003,["/_next/static/chunks/0_8l71yrgawy7.js","/_next/static/chunks/1mi_8ht6cz_yw.js","/_next/static/chunks/1-27nxop0omd2.js","/_next/static/chunks/0r0seml7i7rhn.js"],"Footer"]
+9:I[96,["/_next/static/chunks/0_8l71yrgawy7.js","/_next/static/chunks/1mi_8ht6cz_yw.js"],"OutletBoundary"]
 a:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"flex min-h-screen flex-col bg-white text-neutral-900","children":[["$","$L2",null,{}],["$","main",null,{"className":"flex-1","children":[["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","$L6",null,{}],["$","$L7",null,{}]]}],["$","$L8",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/1-27nxop0omd2.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/0r0seml7i7rhn.js","async":true}]],["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"OPu4bkT-pHg0Ndw7HKWtn"}
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"flex min-h-screen flex-col bg-white text-neutral-900","children":[["$","$L2",null,{}],["$","main",null,{"className":"flex-1","children":[["$","$L3",null,{}],["$","$L4",null,{}],["$","$L5",null,{}],["$","$L6",null,{}],["$","$L7",null,{}]]}],["$","$L8",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/1-27nxop0omd2.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/0r0seml7i7rhn.js","async":true}]],["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"SSO3nx0tqtPxeJjU7EUxv"}
 b:null
