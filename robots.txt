@@ -1,7 +1,6 @@
 User-Agent: Googlebot
 User-Agent: Bingbot
 User-Agent: OAI-SearchBot
-User-Agent: GPTBot
 Allow: /
 Disallow: /api/
 Disallow: /console/
@@ -13,6 +12,9 @@ Disallow: /reset-password/
 Disallow: /onboarding/
 Disallow: /invitations/
 Disallow: /billing/
+
+User-Agent: GPTBot
+Disallow: /
 
 User-Agent: *
 Allow: /
