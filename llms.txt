@@ -1,0 +1,53 @@
+# ATP Token
+
+> ATP Token is an AI model management gateway by Horizon AI. One project-scoped API key routes OpenAI-compatible, Anthropic (Claude), Gemini, DeepSeek, Qwen and Kimi requests — plus image, video, audio and embedding models — through a single OpenAI-compatible endpoint, with per-project access control, request logs and pay-as-you-go credits.
+
+ATP Token centralizes AI usage governance and billing: organizations, workspaces and projects each get scoped model access and budgets, so every request is attributable and auditable in one console.
+
+## Core capabilities
+- Unified API: one key for models from OpenAI, Anthropic, Google, DeepSeek, Alibaba (Qwen), Moonshot (Kimi) and more; switch models by changing one parameter.
+- Governance: organization → workspace → project hierarchy with per-project model permissions and credit budgets.
+- Observability: request logs and per-model usage tracking for cost attribution.
+- Billing: pay-as-you-go credits, no monthly fee, USD 5 minimum top-up.
+
+## Docs
+- [Overview](https://atptoken.ai/docs/overview/)
+- [Quickstart](https://atptoken.ai/docs/quickstart/)
+- [How it works](https://atptoken.ai/docs/how-it-works/)
+- [Authentication](https://atptoken.ai/docs/auth/)
+- [FAQ](https://atptoken.ai/docs/faq/)
+- [Model discovery](https://atptoken.ai/docs/models/)
+- [Media models](https://atptoken.ai/docs/media/)
+- [Provider routing](https://atptoken.ai/docs/provider-routing/)
+- [Pricing](https://atptoken.ai/docs/pricing-model/)
+- [Set up your org](https://atptoken.ai/docs/console-setup/)
+- [Workspaces & projects](https://atptoken.ai/docs/resources/)
+- [Managing API keys](https://atptoken.ai/docs/console-keys/)
+- [Team & roles](https://atptoken.ai/docs/team/)
+- [Usage & logs](https://atptoken.ai/docs/monitoring/)
+- [How credits work](https://atptoken.ai/docs/credits/)
+- [Top up & wallet](https://atptoken.ai/docs/topup/)
+- [Tracking spend](https://atptoken.ai/docs/spend/)
+- [/v1/chat/completions](https://atptoken.ai/docs/chat/)
+- [/v1/messages](https://atptoken.ai/docs/messages/)
+- [/v1/models/{model}:generateContent](https://atptoken.ai/docs/gemini/)
+- [/v1/files](https://atptoken.ai/docs/files/)
+- [OpenAI SSE](https://atptoken.ai/docs/sse-openai/)
+- [Anthropic SSE](https://atptoken.ai/docs/sse-anthropic/)
+- [Errors](https://atptoken.ai/docs/errors/)
+- [Image generation](https://atptoken.ai/docs/media-image/)
+- [Video generation](https://atptoken.ai/docs/media-video/)
+- [Speech (TTS)](https://atptoken.ai/docs/media-audio/)
+- [Coding agents](https://atptoken.ai/docs/agents/)
+- [Agent Skills](https://atptoken.ai/docs/agent-skills/)
+- [OpenAI SDK](https://atptoken.ai/docs/sdk-openai/)
+- [Anthropic SDK](https://atptoken.ai/docs/sdk-anthropic/)
+- [Google GenAI SDK](https://atptoken.ai/docs/sdk-google/)
+- [Run Claude Code on ATP](https://atptoken.ai/docs/cb-claude-code/)
+- [Team with budget caps](https://atptoken.ai/docs/cb-budget-caps/)
+- [Migrate from OpenAI](https://atptoken.ai/docs/cb-migrate-openai/)
+
+## More
+- [Pricing](https://atptoken.ai/pricing/)
+- [Enterprise plan](https://atptoken.ai/enterprise-plan/)
+- [Horizon AI (parent company)](https://www.horizon-ai.ai)
