@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 560" width="1440" height="560" fill="none" role="presentation">
+  <!-- /landing hero 背景:三種介面(圓/方/三角)插進同一條閘道線,出口一滴燼橘。 -->
+  <defs>
+    <filter id="g" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="2" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0" result="s"/>
+      <feComponentTransfer in="s" result="a"><feFuncA type="linear" slope="0.14"/></feComponentTransfer>
+      <feComposite in="a" in2="SourceAlpha" operator="in" result="m"/>
+      <feBlend in="SourceGraphic" in2="m" mode="multiply"/>
+    </filter>
+  </defs>
+  <g filter="url(#g)">
+    <circle cx="948" cy="150" r="42" fill="#e5e1da"/>
+    <rect x="906" y="252" width="84" height="84" rx="10" fill="#c9c2b6"/>
+    <path d="M948 396l46 80h-92z" fill="#e5e1da"/>
+    <rect x="1030" y="140" width="300" height="22" rx="11" fill="#b0aca6"/>
+    <rect x="1030" y="284" width="300" height="22" rx="11" fill="#b0aca6"/>
+    <rect x="1030" y="424" width="300" height="22" rx="11" fill="#b0aca6"/>
+    <rect x="1300" y="120" width="60" height="330" rx="30" fill="#f04d3b"/>
+    <circle cx="1330" cy="285" r="18" fill="#f1efec"/>
+  </g>
+  <g stroke="#2a2a28" stroke-width="1.4" stroke-linecap="round" opacity="0.45" fill="none">
+    <path d="M1050 100h180"/><path d="M1222 92l10 8-10 8"/>
+    <path d="M1372 480c8-8 16 8 24 0"/>
+  </g>
+  <g stroke="#ffb45b" stroke-width="3" stroke-linecap="round">
+    <path d="M1380 200v-16"/><path d="M1380 400v-16"/>
+  </g>
+</svg>

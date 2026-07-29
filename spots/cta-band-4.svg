@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" fill="none" role="presentation">
+  <!-- CTA 背景 variant 4:分層階梯(組織 → 工作區 → 專案),最底層是計量 -->
+  <defs>
+    <filter id="g4" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="33" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0" result="s"/>
+      <feComponentTransfer in="s" result="a"><feFuncA type="linear" slope="0.09"/></feComponentTransfer>
+      <feComposite in="a" in2="SourceAlpha" operator="in" result="m"/>
+      <feBlend in="SourceGraphic" in2="m" mode="screen"/>
+    </filter>
+  </defs>
+  <g filter="url(#g4)">
+    <rect x="80" y="34" width="1040" height="14" rx="7" fill="#ffffff" opacity="0.06"/>
+    <rect x="200" y="56" width="920" height="14" rx="7" fill="#ffffff" opacity="0.07"/>
+    <rect x="340" y="240" width="780" height="16" rx="8" fill="#ffffff" opacity="0.06"/>
+    <rect x="700" y="238" width="420" height="20" rx="10" fill="#f04d3b" opacity="0.32"/>
+    
+    <g fill="#ffb45b" opacity="0.45">
+      <rect x="1044" y="212" width="12" height="12" rx="3"/><rect x="1070" y="212" width="12" height="12" rx="3"/>
+      <rect x="1096" y="212" width="12" height="12" rx="3"/>
+    </g>
+  </g>
+  <g stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.22">
+    <path d="M200 48v14"/><path d="M340 262v14"/>
+    <path d="M186 54l14 12 14-12"/>
+    <path d="M1150 70l14-14"/>
+  </g>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" fill="none" role="presentation">
+  <!-- CTA 背景 variant 3:同心弧收束成單一輸出(閘道的幾何,不是雨)。
+       裝飾全部壓在上下帶,中間留給標題與按鈕。 -->
+  <defs>
+    <filter id="g3" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="21" result="n" />
+      <feColorMatrix in="n" type="saturate" values="0" result="s" />
+      <feComponentTransfer in="s" result="a"><feFuncA type="linear" slope="0.09" /></feComponentTransfer>
+      <feComposite in="a" in2="SourceAlpha" operator="in" result="m" />
+      <feBlend in="SourceGraphic" in2="m" mode="screen" />
+    </filter>
+  </defs>
+  <g filter="url(#g3)">
+    <rect x="0" y="26" width="620" height="12" rx="6" fill="#ffffff" opacity="0.07" />
+    <rect x="0" y="52" width="480" height="10" rx="5" fill="#ffffff" opacity="0.05" />
+    <rect x="0" y="252" width="720" height="12" rx="6" fill="#ffffff" opacity="0.06" />
+    <rect x="720" y="248" width="480" height="18" rx="9" fill="#f04d3b" opacity="0.34" />
+  </g>
+  <g stroke="#ffffff" fill="none" stroke-linecap="round">
+    <path d="M1200 20a80 80 0 0 0-80 80" stroke-width="1.4" opacity="0.2" />
+    <path d="M1200 -14a114 114 0 0 0-114 114" stroke-width="1.2" opacity="0.14" />
+    <path d="M1200 54a46 46 0 0 0-46 46" stroke-width="1.6" opacity="0.26" />
+  </g>
+  <path d="M1200 88a12 12 0 0 0-12 12" stroke="#f57666" stroke-width="2.4" fill="none" opacity="0.55" />
+  <g stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.2">
+    <path d="M620 32h60l40 216" />
+    <path d="M480 57h120" />
+    <path d="M700 262h20" />
+    <path d="M40 276c8-8 16 8 24 0s16 8 24 0" />
+    <path d="M1150 274l14-14" />
+  </g>
+  <g stroke="#ffb45b" stroke-width="2" stroke-linecap="round" opacity="0.4">
+    <path d="M780 240v-8" /><path d="M840 236v-12" /><path d="M900 240v-8" />
+    <path d="M960 236v-12" /><path d="M1020 240v-8" />
+  </g>
+</svg>
