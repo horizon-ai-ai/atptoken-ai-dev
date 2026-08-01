@@ -6,4 +6,4 @@
 :HL["/_next/static/media/noto_sans_tc_latin_var-s.p.269smj0rs6i8x.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/spots/hero-landing.svg","image"]
 :HL["/spots/cta-band-1.svg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"landing","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"xRroGYo4-xKuh8gzVpiR9"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"landing","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"gQDiCflnh2IJUBkxH3kaO"}
