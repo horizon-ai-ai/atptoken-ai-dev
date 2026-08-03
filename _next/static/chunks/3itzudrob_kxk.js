@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,9906,e=>{"use strict";var t=e.i(43476),i=e.i(33499);e.s(["LocalizedText",0,function({value:e}){let{lang:n}=(0,i.useI18n)();return(0,t.jsx)(t.Fragment,{children:e[n]??e.en})}])}]);

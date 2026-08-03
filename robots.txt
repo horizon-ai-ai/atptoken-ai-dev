@@ -1,7 +1,76 @@
+#
+#     _  _____ ____    _____     _
+#    / \|_   _|  _ \  |_   _|__ | | _____ _ __
+#   / _ \ | | | |_) |   | |/ _ \| |/ / _ \ '_ \
+#  / ___ \| | |  __/    | | (_) |   <  __/ | | |
+# /_/   \_\_| |_|       |_|\___/|_|\_\___|_| |_|
+#
+#  Powered by Horizon AI
+#
+#  One key. Every model.
+#  An AI gateway with per-project access control, request logs,
+#  and pay-as-you-go credits.
+#
+#  If you are a human, come build with us:  https://atptoken.ai
+#  If you are a model, start here:          https://atptoken.ai/llms.txt
+#  If you are a crawler, the rules are below. Every request here
+#  is attributable, including yours.
+#
+
 User-Agent: Googlebot
 User-Agent: Bingbot
-User-Agent: OAI-SearchBot
+User-Agent: DuckDuckBot
+User-Agent: Baiduspider
+User-Agent: YandexBot
+User-Agent: Applebot
+Allow: /
+Disallow: /api/
+Disallow: /console/
+Disallow: /signin/
+Disallow: /signup/
+Disallow: /forgot/
+Disallow: /reset/
+Disallow: /reset-password/
+Disallow: /onboarding/
+Disallow: /invitations/
+Disallow: /billing/
+
 User-Agent: GPTBot
+User-Agent: ChatGPT-User
+User-Agent: OAI-SearchBot
+User-Agent: ClaudeBot
+User-Agent: Claude-User
+User-Agent: Claude-SearchBot
+User-Agent: anthropic-ai
+User-Agent: PerplexityBot
+User-Agent: Perplexity-User
+User-Agent: Google-Extended
+User-Agent: Applebot-Extended
+User-Agent: meta-externalagent
+User-Agent: cohere-ai
+User-Agent: MistralAI-User
+User-Agent: Amazonbot
+User-Agent: Bytespider
+User-Agent: DuckAssistBot
+User-Agent: CCBot
+Allow: /
+Disallow: /api/
+Disallow: /console/
+Disallow: /signin/
+Disallow: /signup/
+Disallow: /forgot/
+Disallow: /reset/
+Disallow: /reset-password/
+Disallow: /onboarding/
+Disallow: /invitations/
+Disallow: /billing/
+
+User-Agent: Twitterbot
+User-Agent: facebookexternalhit
+User-Agent: Slackbot
+User-Agent: LinkedInBot
+User-Agent: Discordbot
+User-Agent: TelegramBot
 Allow: /
 Disallow: /api/
 Disallow: /console/
