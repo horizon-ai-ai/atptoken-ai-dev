@@ -1,0 +1,40 @@
+{
+  "id": "full-body-garment",
+  "kind": "video",
+  "prompt": "A Nigerian woman in her early 30s, tightly coiled hair cropped close, high forehead, calm level expression, tall lean build, wearing a floor-length unbranded rust linen coat open over a black tank and straight black trousers, flat sandals, no labels or readable text. She takes three unhurried steps toward camera and stops, letting the coat's panels swing forward and settle. Real-time movement only. A bare plaster corridor in the late afternoon, one tall window out of frame left casting a long shadow across the floor. Medium full shot, single movement: locked-off static, eye level, 50mm spherical lens at 24fps, deep focus, sharp head to feet. Soft side daylight with a grey bounce opposite, desaturated warm-neutral grade, visible linen weave and drape, natural skin texture with visible pores, 35mm film grain. Negative: blurry, distorted faces, extra fingers, warped text, oversaturated, watermark, no digital sharpness, no CGI gloss, no plastic skin, no over-smoothed textures",
+  "entries": [
+    {
+      "model": "happyhorse-1.1-t2v",
+      "file": "happyhorse-1.1-t2v.mp4",
+      "createdAt": "2026-08-04",
+      "width": 720,
+      "height": 1280,
+      "durationSec": 5,
+      "poster": "happyhorse-1.1-t2v.jpg"
+    },
+    {
+      "model": "seedance-2-0",
+      "file": "seedance-2-0.mp4",
+      "createdAt": "2026-08-04",
+      "width": 720,
+      "height": 1280,
+      "durationSec": 5,
+      "poster": "seedance-2-0.jpg"
+    },
+    {
+      "model": "wan-2-7-t2v",
+      "file": "wan-2-7-t2v.mp4",
+      "createdAt": "2026-08-04",
+      "width": 720,
+      "height": 1280,
+      "durationSec": 5,
+      "poster": "wan-2-7-t2v.jpg"
+    }
+  ],
+  "paramsRequested": {
+    "duration": 5,
+    "resolution": "720p",
+    "ratio": "9:16"
+  },
+  "paramsUniform": true
+}

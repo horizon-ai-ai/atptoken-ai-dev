@@ -1,0 +1,121 @@
+[
+  {
+    "id": "eiffel-blueprint-sketch",
+    "image": "/model-gallery/eiffel-blueprint-sketch.png"
+  },
+  {
+    "id": "chocolate-macro-drip",
+    "image": "/model-gallery/chocolate-macro-drip.png"
+  },
+  {
+    "id": "cypress-road-tuscany",
+    "image": "/model-gallery/cypress-road-tuscany.png"
+  },
+  {
+    "id": "collage-portrait-art",
+    "image": "/model-gallery/collage-portrait-art.png"
+  },
+  {
+    "id": "studio-perfume-bottle",
+    "image": "/model-gallery/studio-perfume-bottle.png"
+  },
+  {
+    "id": "desert-dune-golden-hour",
+    "image": "/model-gallery/desert-dune-golden-hour.png"
+  },
+  {
+    "id": "streetwear-editorial-model",
+    "image": "/model-gallery/streetwear-editorial-model.png"
+  },
+  {
+    "id": "vintage-camera-flatlay",
+    "image": "/model-gallery/vintage-camera-flatlay.png"
+  },
+  {
+    "id": "bioluminescent-jellyfish-tank",
+    "image": "/model-gallery/bioluminescent-jellyfish-tank.png"
+  },
+  {
+    "id": "server-room-glow",
+    "image": "/model-gallery/server-room-glow.png"
+  },
+  {
+    "id": "liquid-metal-ribbon",
+    "image": "/model-gallery/liquid-metal-ribbon.png"
+  },
+  {
+    "id": "runner-finish-line-dust",
+    "image": "/model-gallery/runner-finish-line-dust.png"
+  },
+  {
+    "id": "matcha-latte-pour",
+    "image": "/model-gallery/matcha-latte-pour.png"
+  },
+  {
+    "id": "gothic-cathedral-interior",
+    "image": "/model-gallery/gothic-cathedral-interior.png"
+  },
+  {
+    "id": "red-fox-snow-portrait",
+    "image": "/model-gallery/red-fox-snow-portrait.png"
+  },
+  {
+    "id": "floating-smartwatch-product",
+    "image": "/model-gallery/floating-smartwatch-product.png"
+  },
+  {
+    "id": "ski-jump-launch",
+    "image": "/model-gallery/ski-jump-launch.mp4",
+    "poster": "/model-gallery/ski-jump-launch.jpg"
+  },
+  {
+    "id": "barista-portrait-steam",
+    "image": "/model-gallery/barista-portrait-steam.mp4",
+    "poster": "/model-gallery/barista-portrait-steam.jpg"
+  },
+  {
+    "id": "drone-over-coastline",
+    "image": "/model-gallery/drone-over-coastline.mp4",
+    "poster": "/model-gallery/drone-over-coastline.jpg"
+  },
+  {
+    "id": "runway-model-walk",
+    "image": "/model-gallery/runway-model-walk.mp4",
+    "poster": "/model-gallery/runway-model-walk.jpg"
+  },
+  {
+    "id": "robot-arm-assembly-line",
+    "image": "/model-gallery/robot-arm-assembly-line.mp4",
+    "poster": "/model-gallery/robot-arm-assembly-line.jpg"
+  },
+  {
+    "id": "horse-gallop-field",
+    "image": "/model-gallery/horse-gallop-field.mp4",
+    "poster": "/model-gallery/horse-gallop-field.jpg"
+  },
+  {
+    "id": "rock-climber-cliff-edge",
+    "image": "/model-gallery/rock-climber-cliff-edge.mp4",
+    "poster": "/model-gallery/rock-climber-cliff-edge.jpg"
+  },
+  {
+    "id": "perfume-bottle-rotate-hero",
+    "image": "/model-gallery/perfume-bottle-rotate-hero.mp4",
+    "poster": "/model-gallery/perfume-bottle-rotate-hero.jpg"
+  },
+  {
+    "id": "paint-swirl-abstract-macro",
+    "image": "/model-gallery/paint-swirl-abstract-macro.mp4",
+    "poster": "/model-gallery/paint-swirl-abstract-macro.jpg"
+  },
+  {
+    "id": "old-town-alley-lanterns",
+    "image": "/model-gallery/old-town-alley-lanterns.mp4",
+    "poster": "/model-gallery/old-town-alley-lanterns.jpg"
+  },
+  {
+    "id": "night-market-street-portrait",
+    "image": "/model-gallery/night-market-street-portrait.mp4",
+    "poster": "/model-gallery/night-market-street-portrait.jpg"
+  }
+]

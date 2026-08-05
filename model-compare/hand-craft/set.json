@@ -1,0 +1,40 @@
+{
+  "id": "hand-craft",
+  "kind": "video",
+  "prompt": "Hands only, no face in frame: a woman's hands in her 50s, olive skin, prominent knuckles, short unpainted nails, a thin worn gold band on the left ring finger, forearms dusted with clay, grey linen sleeves pushed to the elbow. She centres a wet clay cylinder on a spinning wheel, thumbs pressing down to open the wall while her right palm steadies the outside. Real-time movement only. A cramped studio at midday, a bucket of slip and a wire tool on the bench edge, unglazed pots drying behind, unbranded, no readable text. Close-up, single movement: locked-off static, slightly high angle, 50mm spherical lens at 24fps, shallow depth of field at f/2.8. One north window as the only source with a white bounce opposite, warm neutral grade, natural skin texture with visible pores and clay grit, 35mm film grain. Negative: blurry, distorted hands, extra fingers, warped text, oversaturated, watermark, no digital sharpness, no CGI gloss, no plastic skin, no over-smoothed textures",
+  "entries": [
+    {
+      "model": "happyhorse-1.1-t2v",
+      "file": "happyhorse-1.1-t2v.mp4",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 5,
+      "poster": "happyhorse-1.1-t2v.jpg"
+    },
+    {
+      "model": "seedance-2-0",
+      "file": "seedance-2-0.mp4",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 5,
+      "poster": "seedance-2-0.jpg"
+    },
+    {
+      "model": "wan-2-7-t2v",
+      "file": "wan-2-7-t2v.mp4",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 5,
+      "poster": "wan-2-7-t2v.jpg"
+    }
+  ],
+  "paramsRequested": {
+    "duration": 5,
+    "resolution": "720p",
+    "ratio": "16:9"
+  },
+  "paramsUniform": true
+}

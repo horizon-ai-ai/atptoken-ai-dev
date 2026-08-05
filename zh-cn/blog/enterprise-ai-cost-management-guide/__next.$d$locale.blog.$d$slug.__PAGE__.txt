@@ -1,6 +1,69 @@
 1:"$Sreact.fragment"
-2:I[51713,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js","/_next/static/chunks/1chh84bzgbaxu.js","/_next/static/chunks/1vu59d80ahi02.js","/_next/static/chunks/3bgctz23woyi1.js"],"default"]
-3:I[97367,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js"],"OutletBoundary"]
-4:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-cn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"博客\",\"item\":\"https://atptoken.ai/zh-cn/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"企业 AI 成本管理完整指南：token、点数、密钥与上限（2026）\",\"item\":\"https://atptoken.ai/zh-cn/blog/enterprise-ai-cost-management-guide/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"企业 AI 成本管理完整指南：token、点数、密钥与上限（2026）\",\"description\":\"企业 AI 成本管理涵盖 token 经济学、点数结算、项目密钥、花费上限、agent tax 与稽核纪录，让多供应商 AI 花费可归属、可控。\",\"datePublished\":\"2026-08-05\",\"dateModified\":\"2026-08-05\",\"inLanguage\":\"zh-Hans-CN\",\"keywords\":\"企业 AI 成本管理, AI 治理, ATP\",\"url\":\"https://atptoken.ai/zh-cn/blog/enterprise-ai-cost-management-guide/\",\"mainEntityOfPage\":\"https://atptoken.ai/zh-cn/blog/enterprise-ai-cost-management-guide/\",\"image\":\"https://atptoken.ai/og-image.png\",\"author\":{\"@type\":\"Person\",\"name\":\"hung-chien\",\"jobTitle\":\"AI 增长与品牌经理\",\"worksFor\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}},\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"},\"isPartOf\":{\"@type\":\"Blog\",\"@id\":\"https://atptoken.ai/#blog\",\"name\":\"ATP Token 博客\",\"url\":\"https://atptoken.ai/blog/\",\"description\":\"ATP Token 团队的实务笔记：企业 AI 治理、AI Token 用量账务，以及用一把密钥管理多个模型的日常。\",\"inLanguage\":\"zh-Hans-CN\",\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}}}"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"什么是企业 AI 成本管理？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"公司如何计量模型用量、指定主人、设定花费天花板，并跨项目与供应商稽核请求，使 AI 花费可预测、可归属。\"}},{\"@type\":\"Question\",\"name\":\"Token 与点数在 AI 账务中有何不同？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Token 是模型对输入输出的计价单位；点数是把多模型用量换成财务可分配、可对账的结算单位。\"}},{\"@type\":\"Question\",\"name\":\"如何把 AI 成本归到团队？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"核发项目级 API 密钥、每笔请求记录项目与模型，并沿组织阶层汇总点数。共用密钥做不到真归属。\"}},{\"@type\":\"Question\",\"name\":\"AI agent 如何改变成本管理？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Agent 透过重送上下文、工具与重试放大每项工作的 token——即 agent tax。应管理每次完成任务成本，并以硬 cap 隔离 agent 项目。\"}},{\"@type\":\"Question\",\"name\":\"AI 成本控制堆叠需要什么？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"含白名单的模型存取层、阶层预算、逐请求纪录、相容 SDK 的闸道，加上每周复核与每季密钥清理流程。\"}}]}"}}]],["$","$L2",null,{"slug":"enterprise-ai-cost-management-guide"}]],[["$","script","script-0",{"src":"/_next/static/chunks/1chh84bzgbaxu.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/1vu59d80ahi02.js","async":true}],["$","script","script-2",{"src":"/_next/static/chunks/3bgctz23woyi1.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"iDhM2ZpK9XE_EvXRvdheN"}
-5:null
+3:I[51713,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/23c7vkgbyik20.js","/_next/static/chunks/3syyi7daqg4i4.js"],"default"]
+9:I[97367,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+2:T4f9,{"@context":"https://schema.org","@type":"BlogPosting","headline":"企业 AI 成本管理完整指南：token、点数、密钥与上限（2026）","description":"企业 AI 成本管理涵盖 token 经济学、点数结算、项目密钥、花费上限、agent tax 与稽核纪录，让多供应商 AI 花费可归属、可控。","datePublished":"2026-08-05","dateModified":"2026-08-05","inLanguage":"zh-Hans-CN","keywords":"企业 AI 成本管理, AI 治理, ATP","url":"https://atptoken.ai/zh-cn/blog/enterprise-ai-cost-management-guide/","mainEntityOfPage":"https://atptoken.ai/zh-cn/blog/enterprise-ai-cost-management-guide/","image":"https://atptoken.ai/og/blog/enterprise-ai-cost-management-guide.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI 增长与品牌经理","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token 博客","url":"https://atptoken.ai/blog/","description":"ATP Token 团队的实务笔记：企业 AI 治理、AI Token 用量账务，以及用一把密钥管理多个模型的日常。","inLanguage":"zh-Hans-CN","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}4:T1784,<p>企业 AI 成本管理是公司用来计量 LLM 与相关 AI 用量、指定主人、执行天花板并稽核请求的操作系统。本支柱指南写给平台、财务与领导层。</p>
+<p><strong>四层一起做：</strong> （1）token 经济学（2）点数结算（3）<a class="doc-term" href="/zh-cn/docs/resources" data-def="权限与帐务的最小单位；金钥、允许模型、点数预算都挂在 project 上。">项目</a>所有权（4）执行期 cap 与复核。缺一层，账单就变惊喜——见<a href="/zh-cn/blog/why-ai-bills-explode-after-go-live">上线后为何炸</a>、<a href="/zh-cn/blog/how-to-read-your-ai-bill">读懂账单</a>。</p>
+<h2 id="第一层-token-经济学">第一层：Token 经济学</h2>
+<p>输入／输出、上下文、快取、reasoning 吃掉 max_tokens（<a href="/zh-cn/docs/errors">错误</a>）。内部指标：每千次呼叫平均成本。<a href="/zh-cn/docs/models">模型</a>、<a href="/zh-cn/pricing">定价</a>、<a href="/zh-cn/docs/pricing-model">计价模式</a>。</p>
+<h2 id="第二层-点数结算">第二层：点数结算</h2>
+<p>多供应商费率需要同一语言。点数沿组织→工作区→项目流动（<a href="/zh-cn/docs/credits" class="doc-term-def" data-def="计费单位。1 美元 = 100 点；用量依各模型牌价换算成点数扣抵。">点数</a>、<a href="/zh-cn/docs/topup" class="doc-term-def" data-def="为钱包加值点数，最低 5 美元，用多少付多少。">储值</a>）。</p>
+<h2 id="第三层-所有权">第三层：所有权</h2>
+<p><a href="/zh-cn/blog/one-project-one-key">一项目一密钥</a>。<a href="/zh-cn/docs/console-setup" class="doc-term-def" data-def="帐号的最上层，底下再分 workspace 与 project。">组织</a>、<a href="/zh-cn/docs/console-keys" class="doc-term-def" data-def="以 atp- 开头的金钥，继承所属 project 的允许模型清单与点数余额。">密钥</a>、<a href="/zh-cn/docs/team">团队</a>。</p>
+<h2 id="第四层-上限与监控">第四层：上限与监控</h2>
+<p>分配即天花板（<a href="/zh-cn/blog/ai-spending-caps-that-work">花费上限</a>、<a href="/zh-cn/docs/cb-budget-caps">预算配方</a>）。<a href="/zh-cn/docs/monitoring">监控</a>、<a href="/zh-cn/docs/spend">费用</a>。节奏：日告警、周排序、月对账、季清理（<a href="/zh-cn/blog/ai-governance-checklist">治理清单</a>）。</p>
+<h2 id="agent-tax">Agent tax</h2>
+<p><a href="/zh-cn/blog/what-is-the-agent-tax">Agent tax</a>、<a href="/zh-cn/blog/coding-agents-cost-control-checklist">coding agent 清单</a>。加上<strong>每次完成任务成本</strong>。</p>
+<h2 id="多供应商与闸道">多供应商与闸道</h2>
+<p><a href="/zh-cn/blog/openai-api-vs-enterprise-ai-gateway">原厂 API vs 闸道</a>、<a href="/zh-cn/blog/ai-gateway-comparison-2026">闸道选型 2026</a>、<a href="/zh-cn/docs/provider-routing" class="doc-term-def" data-def="同一个模型 id 由一组供应商服务，其中一家降级时自动改走另一家。">路由</a>、<a href="/zh-cn/blog/model-catalog-vs-access-control">菜单 vs 权限</a>。</p>
+<h2 id="依规模">依规模</h2>
+<table>
+<thead>
+<tr>
+<th>规模</th>
+<th>最小成本系统</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;10</td>
+<td>项目密钥、两个 cap、每周看 log</td>
+</tr>
+<tr>
+<td>50–200</td>
+<td>产品工作区、白名单、点数月结</td>
+</tr>
+<tr>
+<td>500+</td>
+<td>BU 分配、稽核级请求留存、季权限复核</td>
+</tr>
+</tbody></table>
+<h2 id="30-天路线图">30 天路线图</h2>
+<p>W1 盘点密钥与供应商；W2 阶层与前三大系统迁移；W3 分配＋告警、agent 隔离；W4 第一次点数月结与 runbook。<a href="/zh-cn/docs/how-it-works">how it works</a>、<a href="/zh-cn/docs/cb-migrate-openai">迁移</a>。</p>
+<h2 id="指标看板">指标看板</h2>
+<p>项目已分配 vs 已消耗、每千次成本、每次 agent 任务成本、402/403 率、闲置密钥撤销数。</p>
+<h2 id="更现代的做法">更现代的做法</h2>
+<p>ATP Token 是 Horizon AI 在多服务 AI 导入中的治理与账务整合产品：阶层、白名单、点数、纪录，相容 OpenAI / Anthropic / Gemini。导入计划见 <a href="https://www.horizon-ai.ai/en" target="_blank" rel="noopener noreferrer">Horizon AI</a>。</p>
+<p><a href="/zh-cn/docs/quickstart">快速开始 →</a> · <a href="/zh-cn/enterprise-plan">企业方案 →</a></p>
+<h2 id="常见问题">常见问题</h2>
+<h3 id="什么是企业-ai-成本管理">什么是企业 AI 成本管理？</h3>
+<p>公司如何计量模型用量、指定主人、设定花费天花板，并跨项目与供应商稽核请求，使 AI 花费可预测、可归属。</p>
+<h3 id="token-与点数在-ai-账务中有何不同">Token 与点数在 AI 账务中有何不同？</h3>
+<p>Token 是模型对输入输出的计价单位；点数是把多模型用量换成财务可分配、可对账的结算单位。</p>
+<h3 id="如何把-ai-成本归到团队">如何把 AI 成本归到团队？</h3>
+<p>核发项目级 API 密钥、每笔请求记录项目与模型，并沿组织阶层汇总点数。共用密钥做不到真归属。</p>
+<h3 id="ai-agent-如何改变成本管理">AI agent 如何改变成本管理？</h3>
+<p>Agent 透过重送上下文、工具与重试放大每项工作的 token——即 agent tax。应管理每次完成任务成本，并以硬 cap 隔离 agent 项目。</p>
+<h3 id="ai-成本控制堆叠需要什么">AI 成本控制堆叠需要什么？</h3>
+<p>含白名单的模型存取层、阶层预算、逐请求纪录、相容 SDK 的闸道，加上每周复核与每季密钥清理流程。</p>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><a href="/zh-cn/blog/why-ai-bills-explode-after-go-live">上线后 AI 账单为什么会炸</a></li>
+<li><a href="/zh-cn/blog/what-is-the-agent-tax">什么是 agent tax</a></li>
+<li><a href="/zh-cn/blog/ai-governance-checklist">企业 AI 治理清单</a></li>
+</ul>
+<p><a href="/zh-cn/pricing">查看定价 →</a></p>0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-cn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"博客\",\"item\":\"https://atptoken.ai/zh-cn/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"企业 AI 成本管理完整指南：token、点数、密钥与上限（2026）\",\"item\":\"https://atptoken.ai/zh-cn/blog/enterprise-ai-cost-management-guide/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"什么是企业 AI 成本管理？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"公司如何计量模型用量、指定主人、设定花费天花板，并跨项目与供应商稽核请求，使 AI 花费可预测、可归属。\"}},{\"@type\":\"Question\",\"name\":\"Token 与点数在 AI 账务中有何不同？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Token 是模型对输入输出的计价单位；点数是把多模型用量换成财务可分配、可对账的结算单位。\"}},{\"@type\":\"Question\",\"name\":\"如何把 AI 成本归到团队？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"核发项目级 API 密钥、每笔请求记录项目与模型，并沿组织阶层汇总点数。共用密钥做不到真归属。\"}},{\"@type\":\"Question\",\"name\":\"AI agent 如何改变成本管理？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Agent 透过重送上下文、工具与重试放大每项工作的 token——即 agent tax。应管理每次完成任务成本，并以硬 cap 隔离 agent 项目。\"}},{\"@type\":\"Question\",\"name\":\"AI 成本控制堆叠需要什么？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"含白名单的模型存取层、阶层预算、逐请求纪录、相容 SDK 的闸道，加上每周复核与每季密钥清理流程。\"}}]}"}}]],["$","$L3",null,{"data":{"lang":"zh-CN","post":{"slug":"enterprise-ai-cost-management-guide","title":"企业 AI 成本管理完整指南：token、点数、密钥与上限（2026）","metaTitle":"企业 AI 成本管理完整指南（2026）","description":"企业 AI 成本管理涵盖 token 经济学、点数结算、项目密钥、花费上限、agent tax 与稽核纪录，让多供应商 AI 花费可归属、可控。","date":"2026-08-05","tags":["企业 AI 成本管理","AI 治理","ATP"],"author":"hung-chien","authorTitle":"AI 增长与品牌经理","tldr":["企业 AI 成本管理是单位、所有权、天花板与稽核组成的系统，而不是一张费率试算表。","四层一起运作：token 经济学、点数结算、项目所有权、执行期上限与复核节奏。","Agent 与多供应商会打破座位制预算；量测每次任务成本并依项目分配。"],"faq":[{"q":"什么是企业 AI 成本管理？","a":"公司如何计量模型用量、指定主人、设定花费天花板，并跨项目与供应商稽核请求，使 AI 花费可预测、可归属。"},{"q":"Token 与点数在 AI 账务中有何不同？","a":"Token 是模型对输入输出的计价单位；点数是把多模型用量换成财务可分配、可对账的结算单位。"},{"q":"如何把 AI 成本归到团队？","a":"核发项目级 API 密钥、每笔请求记录项目与模型，并沿组织阶层汇总点数。共用密钥做不到真归属。"},{"q":"AI agent 如何改变成本管理？","a":"Agent 透过重送上下文、工具与重试放大每项工作的 token——即 agent tax。应管理每次完成任务成本，并以硬 cap 隔离 agent 项目。"},{"q":"AI 成本控制堆叠需要什么？","a":"含白名单的模型存取层、阶层预算、逐请求纪录、相容 SDK 的闸道，加上每周复核与每季密钥清理流程。"}],"readingMinutes":3,"cover":"enterprise-ai-cost-management-guide","html":"$4"},"newer":{"slug":"one-project-one-key","title":"一项目一密钥：为什么共用 API key 是最贵的 AI 技术债（2026）","date":"2026-08-07"},"older":{"slug":"what-is-the-agent-tax","title":"什么是 agent tax？多步 AI agent 为何让 token 账单膨胀（2026）","date":"2026-07-31"}}}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Pm_9oQ2SKm1LxFNP6wq7a"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/23c7vkgbyik20.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/3syyi7daqg4i4.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

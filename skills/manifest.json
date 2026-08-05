@@ -1,9 +1,10 @@
 {
-  "version": "2026-07-25",
+  "version": "2026-08-04",
   "source": {
     "repository": "horizon-ai-ai/token-api",
     "commit": "8575f33cd10105d366563671d2e4730462d69704"
   },
+  "notes": "atptoken-image, atptoken-video, atptoken-gateway and its files reference were corrected on 2026-08-04 against production api.atptoken.ai and now diverge from source.commit: media lives only at .../generations/tasks, asset:// references are unsupported, image edits use top-level reference_assets:[{url}], and POST /v1/files returns `id` (not gw_file_id).",
   "skills": [
     {
       "id": "atptoken-gateway",

@@ -1,6 +1,73 @@
 1:"$Sreact.fragment"
-2:I[51713,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js","/_next/static/chunks/1chh84bzgbaxu.js","/_next/static/chunks/1vu59d80ahi02.js","/_next/static/chunks/3bgctz23woyi1.js"],"default"]
-3:I[97367,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js"],"OutletBoundary"]
-4:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-tw/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"部落格\",\"item\":\"https://atptoken.ai/zh-tw/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"OpenAI API vs 企業 AI 閘道：何時直連需要控制層（2026）\",\"item\":\"https://atptoken.ai/zh-tw/blog/openai-api-vs-enterprise-ai-gateway/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"OpenAI API vs 企業 AI 閘道：何時直連需要控制層（2026）\",\"description\":\"直連 OpenAI（或 Anthropic、Gemini）擅長模型能力。企業 AI 閘道補上專案金鑰、白名單、統一點數與稽核——在多團隊、多供應商時最有價值。\",\"datePublished\":\"2026-08-19\",\"dateModified\":\"2026-08-19\",\"inLanguage\":\"zh-Hant-TW\",\"keywords\":\"AI 閘道, OpenAI API, ATP\",\"url\":\"https://atptoken.ai/zh-tw/blog/openai-api-vs-enterprise-ai-gateway/\",\"mainEntityOfPage\":\"https://atptoken.ai/zh-tw/blog/openai-api-vs-enterprise-ai-gateway/\",\"image\":\"https://atptoken.ai/og-image.png\",\"author\":{\"@type\":\"Person\",\"name\":\"hung-chien\",\"jobTitle\":\"AI 成長與品牌經理\",\"worksFor\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}},\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"},\"isPartOf\":{\"@type\":\"Blog\",\"@id\":\"https://atptoken.ai/#blog\",\"name\":\"ATP Token 部落格\",\"url\":\"https://atptoken.ai/blog/\",\"description\":\"ATP Token 團隊的實務筆記：企業 AI 治理、AI Token 用量帳務，以及用一把金鑰管理多個模型的日常。\",\"inLanguage\":\"zh-Hant-TW\",\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}}}"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"OpenAI API 與 AI 閘道有何不同？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"OpenAI API 是模型供應商介面。企業 AI 閘道位於客戶端與一家或多家供應商之間，負責金鑰、模型授權、路由、計量與紀錄，並常保持與既有 SDK 相容的請求本體。\"}},{\"@type\":\"Question\",\"name\":\"公司何時不該再只直連 OpenAI？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"當多團隊共用花費、導入第二家供應商、財務要專案歸屬，或資安要集中撤銷與白名單時。此前直連加供應商基本限額可能夠用。\"}},{\"@type\":\"Question\",\"name\":\"AI 閘道會取代 OpenAI 嗎？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"不會。閘道不取代模型品質或訓練，而是在供應商存取外增加治理與帳務整合。\"}},{\"@type\":\"Question\",\"name\":\"從 OpenAI 遷到相容閘道有多難？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"若閘道講 OpenAI 線格式，通常改 base URL 與 API 金鑰。模型 id 需對齊閘道目錄與專案白名單。\"}},{\"@type\":\"Question\",\"name\":\"能否在同一企業閘道使用 Anthropic 與 Gemini？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"支援多格式的閘道可接受 OpenAI / Anthropic / Gemini 風格客戶端，並以專案金鑰約束。\"}}]}"}}]],["$","$L2",null,{"slug":"openai-api-vs-enterprise-ai-gateway"}]],[["$","script","script-0",{"src":"/_next/static/chunks/1chh84bzgbaxu.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/1vu59d80ahi02.js","async":true}],["$","script","script-2",{"src":"/_next/static/chunks/3bgctz23woyi1.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"iDhM2ZpK9XE_EvXRvdheN"}
-5:null
+3:I[51713,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/23c7vkgbyik20.js","/_next/static/chunks/3syyi7daqg4i4.js"],"default"]
+9:I[97367,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+2:T4f8,{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenAI API vs 企業 AI 閘道：何時直連需要控制層（2026）","description":"直連 OpenAI（或 Anthropic、Gemini）擅長模型能力。企業 AI 閘道補上專案金鑰、白名單、統一點數與稽核——在多團隊、多供應商時最有價值。","datePublished":"2026-08-19","dateModified":"2026-08-19","inLanguage":"zh-Hant-TW","keywords":"AI 閘道, OpenAI API, ATP","url":"https://atptoken.ai/zh-tw/blog/openai-api-vs-enterprise-ai-gateway/","mainEntityOfPage":"https://atptoken.ai/zh-tw/blog/openai-api-vs-enterprise-ai-gateway/","image":"https://atptoken.ai/og/blog/openai-api-vs-enterprise-ai-gateway.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI 成長與品牌經理","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token 部落格","url":"https://atptoken.ai/blog/","description":"ATP Token 團隊的實務筆記：企業 AI 治理、AI Token 用量帳務，以及用一把金鑰管理多個模型的日常。","inLanguage":"zh-Hant-TW","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}4:Tea9,<p>企業 AI 閘道是客戶端與模型供應商之間的控制層；直連 OpenAI 等是供應商原生推論介面。</p>
+<p><strong>沒有普遍贏家。</strong> 直連贏在單一小隊簡單；閘道贏在<a class="doc-term" href="/zh-tw/docs/console-setup" data-def="帳號的最上層，底下再分 workspace 與 project。">組織</a>→<a class="doc-term" href="/zh-tw/docs/resources" data-def="權限與帳務的最小單位；金鑰、允許模型、點數預算都掛在 project 上。">專案</a>→金鑰、多供應商結算與稽核。ATP 類平台是<strong>治理與帳務整合</strong>，不是取代模型實驗室。見<a href="/zh-tw/docs/how-it-works">系統如何運作</a>、<a href="/zh-tw/docs/cb-migrate-openai">遷移</a>。</p>
+<h2 id="對照表">對照表</h2>
+<table>
+<thead>
+<tr>
+<th>維度</th>
+<th>直連原廠 API</th>
+<th>企業 AI 閘道</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主職</td>
+<td>模型推論</td>
+<td>存取、預算、歸屬、路由</td>
+</tr>
+<tr>
+<td>金鑰</td>
+<td>原廠 key</td>
+<td>你方階層中的專案金鑰</td>
+</tr>
+<tr>
+<td>多供應商</td>
+<td>多帳戶</td>
+<td>單一平面＋專案白名單</td>
+</tr>
+<tr>
+<td>帳單</td>
+<td>各家發票</td>
+<td><a class="doc-term" href="/zh-tw/docs/credits" data-def="計費單位。1 美元 = 100 點；用量依各模型牌價換算成點數扣抵。">點數</a>／統一計量</td>
+</tr>
+<tr>
+<td>最適</td>
+<td>專注產品團隊</td>
+<td>多團隊企業導入</td>
+</tr>
+</tbody></table>
+<h2 id="何時直連夠用">何時直連夠用</h2>
+<p>一產品、一供應商、少數金鑰、財務暫可接受原廠後台。</p>
+<h2 id="何時控制層划算">何時控制層划算</h2>
+<p>第二供應商或模態、coding agent 與正式共用預算、財務要問哪個團隊、資安要撤銷與白名單預設。</p>
+<h2 id="遷移形狀">遷移形狀</h2>
+<p>本體不變；改 base URL 與 key；對齊模型 id；開白名單；分配點數；在<a href="/zh-tw/docs/monitoring">紀錄</a>驗證。</p>
+<h2 id="更現代的做法">更現代的做法</h2>
+<p>Horizon AI 導入常以閘道為標準，讓 PoC 第一天就有權限與計量。ATP Token 實作階層、白名單、點數 cap 與請求 log，並相容三大格式。</p>
+<p><a href="/zh-tw/docs/quickstart">快速開始 →</a></p>
+<h2 id="常見問題">常見問題</h2>
+<h3 id="openai-api-與-ai-閘道有何不同">OpenAI API 與 AI 閘道有何不同？</h3>
+<p>OpenAI API 是模型供應商介面。企業 AI 閘道位於客戶端與一家或多家供應商之間，負責金鑰、模型授權、路由、計量與紀錄。</p>
+<h3 id="公司何時不該再只直連-openai">公司何時不該再只直連 OpenAI？</h3>
+<p>當多團隊共用花費、導入第二家供應商、財務要專案歸屬，或資安要集中撤銷與白名單時。</p>
+<h3 id="ai-閘道會取代-openai-嗎">AI 閘道會取代 OpenAI 嗎？</h3>
+<p>不會。閘道不取代模型品質或訓練，而是增加治理與帳務整合。</p>
+<h3 id="從-openai-遷到相容閘道有多難">從 OpenAI 遷到相容閘道有多難？</h3>
+<p>通常改 base URL 與 API 金鑰；模型 id 需對齊目錄與白名單。</p>
+<h3 id="能否在同一企業閘道使用-anthropic-與-gemini">能否在同一企業閘道使用 Anthropic 與 Gemini？</h3>
+<p>支援多格式的閘道可以，並以專案金鑰約束。</p>
+<h2 id="延伸閱讀">延伸閱讀</h2>
+<ul>
+<li><a href="/zh-tw/blog/ai-gateway-comparison-2026">AI 閘道選型 2026</a></li>
+<li><a href="/zh-tw/blog/why-ai-bills-explode-after-go-live">上線後 AI 帳單為什麼會炸</a></li>
+<li><a href="/zh-tw/docs/how-it-works">系統如何運作</a></li>
+</ul>
+<p><a href="/zh-tw/enterprise-plan">申請企業方案 →</a></p>0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-tw/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"部落格\",\"item\":\"https://atptoken.ai/zh-tw/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"OpenAI API vs 企業 AI 閘道：何時直連需要控制層（2026）\",\"item\":\"https://atptoken.ai/zh-tw/blog/openai-api-vs-enterprise-ai-gateway/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"OpenAI API 與 AI 閘道有何不同？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"OpenAI API 是模型供應商介面。企業 AI 閘道位於客戶端與一家或多家供應商之間，負責金鑰、模型授權、路由、計量與紀錄，並常保持與既有 SDK 相容的請求本體。\"}},{\"@type\":\"Question\",\"name\":\"公司何時不該再只直連 OpenAI？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"當多團隊共用花費、導入第二家供應商、財務要專案歸屬，或資安要集中撤銷與白名單時。此前直連加供應商基本限額可能夠用。\"}},{\"@type\":\"Question\",\"name\":\"AI 閘道會取代 OpenAI 嗎？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"不會。閘道不取代模型品質或訓練，而是在供應商存取外增加治理與帳務整合。\"}},{\"@type\":\"Question\",\"name\":\"從 OpenAI 遷到相容閘道有多難？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"若閘道講 OpenAI 線格式，通常改 base URL 與 API 金鑰。模型 id 需對齊閘道目錄與專案白名單。\"}},{\"@type\":\"Question\",\"name\":\"能否在同一企業閘道使用 Anthropic 與 Gemini？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"支援多格式的閘道可接受 OpenAI / Anthropic / Gemini 風格客戶端，並以專案金鑰約束。\"}}]}"}}]],["$","$L3",null,{"data":{"lang":"zh-TW","post":{"slug":"openai-api-vs-enterprise-ai-gateway","title":"OpenAI API vs 企業 AI 閘道：何時直連需要控制層（2026）","metaTitle":"OpenAI API vs 企業 AI 閘道（2026）","description":"直連 OpenAI（或 Anthropic、Gemini）擅長模型能力。企業 AI 閘道補上專案金鑰、白名單、統一點數與稽核——在多團隊、多供應商時最有價值。","date":"2026-08-19","tags":["AI 閘道","OpenAI API","ATP"],"author":"hung-chien","authorTitle":"AI 成長與品牌經理","tldr":["單一產品團隊、單一供應商時直連是合理預設；多團隊、多金鑰、多供應商需要同一控制平面時，閘道才划算。","比較治理、歸屬、多格式存取與維運，而不是宣稱取代模型原廠。","若線格式相容，遷移多半是 base_url 與 key；難的是組織設計。"],"faq":[{"q":"OpenAI API 與 AI 閘道有何不同？","a":"OpenAI API 是模型供應商介面。企業 AI 閘道位於客戶端與一家或多家供應商之間，負責金鑰、模型授權、路由、計量與紀錄，並常保持與既有 SDK 相容的請求本體。"},{"q":"公司何時不該再只直連 OpenAI？","a":"當多團隊共用花費、導入第二家供應商、財務要專案歸屬，或資安要集中撤銷與白名單時。此前直連加供應商基本限額可能夠用。"},{"q":"AI 閘道會取代 OpenAI 嗎？","a":"不會。閘道不取代模型品質或訓練，而是在供應商存取外增加治理與帳務整合。"},{"q":"從 OpenAI 遷到相容閘道有多難？","a":"若閘道講 OpenAI 線格式，通常改 base URL 與 API 金鑰。模型 id 需對齊閘道目錄與專案白名單。"},{"q":"能否在同一企業閘道使用 Anthropic 與 Gemini？","a":"支援多格式的閘道可接受 OpenAI / Anthropic / Gemini 風格客戶端，並以專案金鑰約束。"}],"readingMinutes":2,"cover":"openai-api-vs-enterprise-ai-gateway","html":"$4"},"newer":{"slug":"ai-gateway-comparison-2026","title":"AI 閘道選型 2026：路由、可觀測與治理的一條光譜","date":"2026-08-21"},"older":{"slug":"coding-agents-cost-control-checklist","title":"工作場合的 coding agent：10 點成本控制清單（2026）","date":"2026-08-14"}}}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Pm_9oQ2SKm1LxFNP6wq7a"}
+5:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/23c7vkgbyik20.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/3syyi7daqg4i4.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

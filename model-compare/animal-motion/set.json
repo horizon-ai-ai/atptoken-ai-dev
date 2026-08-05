@@ -1,0 +1,40 @@
+{
+  "id": "animal-motion",
+  "kind": "video",
+  "prompt": "A rough-coated border collie, black and white with one blue eye, trots along a wet stone-walled path and stops to shake the rain out of its coat, ears flattening and water flying off in a ring. Real-time movement only, no slow motion. An open upland pasture just after a shower, low cloud on the ridge behind, wet bracken either side of the path, no people, unbranded, no readable text. Medium shot, single movement: tracking shot at shoulder height alongside the dog, low angle, 35mm spherical lens at 24fps, shallow depth of field at f/2.8. Flat overcast diffusion with a weak break of sun on the ridge, desaturated cool green grade, real wet fur texture, subtle 35mm film grain. Negative: blurry, distorted anatomy, extra limbs, warped text, oversaturated, watermark, no digital sharpness, no CGI gloss, no over-smoothed textures",
+  "entries": [
+    {
+      "model": "happyhorse-1.1-t2v",
+      "file": "happyhorse-1.1-t2v.mp4",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 5,
+      "poster": "happyhorse-1.1-t2v.jpg"
+    },
+    {
+      "model": "seedance-2-0",
+      "file": "seedance-2-0.mp4",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 5,
+      "poster": "seedance-2-0.jpg"
+    },
+    {
+      "model": "wan-2-7-t2v",
+      "file": "wan-2-7-t2v.mp4",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 5,
+      "poster": "wan-2-7-t2v.jpg"
+    }
+  ],
+  "paramsRequested": {
+    "duration": 5,
+    "resolution": "720p",
+    "ratio": "16:9"
+  },
+  "paramsUniform": true
+}

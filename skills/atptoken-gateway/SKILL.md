@@ -39,10 +39,19 @@ You do **not** send organization / project / model-routing headers — the gatew
 | Anthropic SDK / Claude clients | `atptoken-anthropic` | `POST /v1/messages`, `POST /v1/messages/count_tokens` |
 | Google Gemini SDK | `atptoken-gemini` | `POST /v1beta/models/{model}:generateContent` |
 | Video generation (async) | `atptoken-video` | `POST /omni/media/v1/contents/generations/tasks` (+ poll) |
-| Image generation | `atptoken-image` | `POST /omni/media/v1/images/generations` |
-| Audio / TTS | `atptoken-audio` | `POST /omni/media/v1/audio/generations` |
+| Image generation / editing (async) | `atptoken-image` | `POST /omni/media/v1/images/generations/tasks` (+ poll) |
+| Audio / TTS | `atptoken-audio` | `POST /omni/media/v1/audio/generations/tasks` |
 
-The chat/embeddings surface lives under `/v1`; generative **media** (video, image, audio) lives under `/omni/media/v1` — see the `atptoken-video` / `atptoken-image` / `atptoken-audio` skills. The surface is just the **wire format you prefer** — any chat surface can reach any available model. An OpenAI-format request can be served by a model that is natively Anthropic or Gemini, transparently.
+The chat/embeddings surface lives under `/v1`; generative **media** (video, image, audio) lives under `/omni/media/v1` — see the `atptoken-video` / `atptoken-image` / `atptoken-audio` skills.
+
+> **Verified 2026-08-04:** every media modality is served **only** at
+> `.../generations/tasks`. The bare paths `POST /omni/media/v1/images/generations` and
+> `POST /omni/media/v1/audio/generations`, and the Gemini-style
+> `POST /omni/media/v1/models/{model}:generateContent`, all return `404 Not Found`.
+> Earlier revisions of these skills documented them as synchronous surfaces. Create a
+> task and poll. (The audio path was confirmed to exist by a routing probe; its exact
+> request/response shape has not been re-verified — read `atptoken-audio` and expect the
+> task pattern.) The surface is just the **wire format you prefer** — any chat surface can reach any available model. An OpenAI-format request can be served by a model that is natively Anthropic or Gemini, transparently.
 
 ## Discover available models
 
@@ -92,6 +101,11 @@ Quick summary:
 ## File inputs
 
 The gateway can store a file and give you a reference ID to use in later requests. See `references/files.md`.
+
+**Media endpoints are the exception** (verified 2026-08-04): they do **not** accept an
+`asset://` reference to an uploaded file. Resolve the upload to a public URL first —
+`GET /v1/files/{id}` without following the redirect gives you a no-auth presigned URL in
+the `Location` header (~15-minute TTL). Details in `references/files.md`.
 
 ## More
 

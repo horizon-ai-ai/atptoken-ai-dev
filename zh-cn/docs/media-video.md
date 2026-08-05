@@ -44,7 +44,37 @@ curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks \
 | seed | integer | |
 | watermark | boolean | |
 
-**`content[]` 区块** — 每个区块是 `{ "type": "text" | "image_url" | "video_url" | "audio_url", ... }`。只有文字 → 文生视频；含图片 → 图生视频。`image_url`/`video_url` 带 `{ "url": "<https | base64 | asset://pid.id>" }`；`role` 为 `first_frame` / `last_frame` / `reference_image` / `reference_video`。
+**`content[]` 区块** — 每个区块是 `{ "type": "text" | "image_url" | "video_url" | "audio_url", ... }`。只有文字 → 文生视频；含图片 → 图生视频。`image_url`/`video_url` 带 `{ "url": "…" }`；`role` 为 `first_frame` / `last_frame` / `reference_image` / `reference_video`。
+
+#### `url` 接受哪些形式
+
+> **2026-08-04 对 production 实测**
+>
+> **视频端点只接受公开 `https://` URL。**
+>
+> | 形式 | 视频端点 | 图片端点 |
+> | --- | --- | --- |
+> | 公开 `https://…` URL | 可用 | 可用 |
+> | `data:image/…;base64,…` | **被拦**——`invalid_parameters: The parameter combination is not supported.` | 可用 |
+> | `asset://<id>`／`asset://<pid>.<id>` | **不支持** | **不支持** |
+>
+> 本页旧版把 `asset://` 列为合法形式，实际不是：两种写法、两个端点都在生成阶段失败，返回 `provider_error / generation_failed`。不要浪费调用去试。
+
+要引用自己上传的档案，先把它换成公开 URL：
+
+```
+# 1. upload — the response key is `id` (an_<ULID>), not gw_file_id
+curl -s https://api.atptoken.ai/v1/files \
+  -H "Authorization: Bearer atp-..." -F "file=@./first-frame.png"
+# → 201 { "id": "an_01H...", "object": "file", "bytes": 152340, ... }
+
+# 2. resolve to a no-auth URL — read the 302 Location, do NOT follow it
+curl -sD - -o /dev/null https://api.atptoken.ai/v1/files/an_01H... \
+  -H "Authorization: Bearer atp-..." | grep -i '^location:'
+# → location: https://<object-store>/gateway-files/...?<presigned>  (~15-minute TTL)
+```
+
+把那个 `Location` 值当 `url` 用。它免验证即可下载——正是上游 provider 需要的——但约 15 分钟就过期，所以请在创建任务前才解析，不要缓存。
 
 #### 轮询至终态
 
@@ -113,6 +143,10 @@ curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks \
   { "type": "image_url", "image_url": { "url": "https://example.com/room.jpg" }, "role": "reference_image" }
 ]
 ```
+
+> **多图合成请先小量验证**
+>
+> 2026-08-04 对 production 实测一次：`kling-o3-pro-reference` 带两张 `reference_image`、prompt 写「把 [Image 1] 放进 [Image 2] 的场景」，任务被接受、有出片、也照常计费——但**那个合成指示没有被执行**，产出沿用了 Image 1 自己的背景。这是单次测试、素材为合成图，不足以断定功能坏掉；但也请不要假设 `[Image N]` 跨图合成一定生效：先跑一支短的低分辨率片子看过，再决定要不要批量生成。
 
 **视频编辑**（`happyhorse-1.0-video-edit`）— **请使用 DashScope 兼容端点，不是统一端点。** 统一端点会以 `400 video-edit requires a source video` 拒绝此模型。改以 `input.media[]` 建立任务，并轮询 `GET /omni/media/v1/tasks/{id}`：
 

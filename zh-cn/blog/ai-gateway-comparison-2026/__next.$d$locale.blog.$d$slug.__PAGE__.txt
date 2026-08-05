@@ -1,6 +1,68 @@
 1:"$Sreact.fragment"
-2:I[51713,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js","/_next/static/chunks/1chh84bzgbaxu.js","/_next/static/chunks/1vu59d80ahi02.js","/_next/static/chunks/3bgctz23woyi1.js"],"default"]
-3:I[97367,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js"],"OutletBoundary"]
-4:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-cn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"博客\",\"item\":\"https://atptoken.ai/zh-cn/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"AI 闸道选型 2026：路由、可观测与治理的一条光谱\",\"item\":\"https://atptoken.ai/zh-cn/blog/ai-gateway-comparison-2026/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"AI 闸道选型 2026：路由、可观测与治理的一条光谱\",\"description\":\"2026 年 AI 闸道可分为路由中枢、可观测层与企业治理／账务平面。依团队规模、多供应商与稽核需求对号入座。\",\"datePublished\":\"2026-08-21\",\"dateModified\":\"2026-08-21\",\"inLanguage\":\"zh-Hans-CN\",\"keywords\":\"AI 闸道, LLM gateway, ATP\",\"url\":\"https://atptoken.ai/zh-cn/blog/ai-gateway-comparison-2026/\",\"mainEntityOfPage\":\"https://atptoken.ai/zh-cn/blog/ai-gateway-comparison-2026/\",\"image\":\"https://atptoken.ai/og-image.png\",\"author\":{\"@type\":\"Person\",\"name\":\"hung-chien\",\"jobTitle\":\"AI 增长与品牌经理\",\"worksFor\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}},\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"},\"isPartOf\":{\"@type\":\"Blog\",\"@id\":\"https://atptoken.ai/#blog\",\"name\":\"ATP Token 博客\",\"url\":\"https://atptoken.ai/blog/\",\"description\":\"ATP Token 团队的实务笔记：企业 AI 治理、AI Token 用量账务，以及用一把密钥管理多个模型的日常。\",\"inLanguage\":\"zh-Hans-CN\",\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}}}"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"什么是 AI 闸道？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"位于应用与模型供应商之间的中介层，依产品可负责认证、路由、政策、计量或可观测，同时让应用保持稳定客户端界面。\"}},{\"@type\":\"Question\",\"name\":\"2026 有哪些类型的 AI 闸道？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"三类常见：优化多模型与统一储值的路由中枢；聚焦追踪与品质的可观测层；聚焦组织阶层、预算、白名单与稽核的治理平面。\"}},{\"@type\":\"Question\",\"name\":\"如何选择企业 AI 闸道？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"从失败模式出发：要项目归属、花费上限与撤销，还是主要要模型多样性。评分阶层深度、SDK 相容、日志与预算平面归属。\"}},{\"@type\":\"Question\",\"name\":\"LiteLLM 等于企业治理平台吗？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"自架路由解决开发者存取与弹性；企业治理还包含组织结构、点数分配、角色管理与财务向结算。\"}},{\"@type\":\"Question\",\"name\":\"路由与治理能并用吗？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"可以。研发用路由中枢、正式用治理平面。失败的是正式流量跑在无 cap 的共用 key 上。\"}}]}"}}]],["$","$L2",null,{"slug":"ai-gateway-comparison-2026"}]],[["$","script","script-0",{"src":"/_next/static/chunks/1chh84bzgbaxu.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/1vu59d80ahi02.js","async":true}],["$","script","script-2",{"src":"/_next/static/chunks/3bgctz23woyi1.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"iDhM2ZpK9XE_EvXRvdheN"}
-5:null
+2:I[51713,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/23c7vkgbyik20.js","/_next/static/chunks/3syyi7daqg4i4.js"],"default"]
+8:I[97367,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js"],"OutletBoundary"]
+9:"$Sreact.suspense"
+3:Teb9,<p>AI 闸道选型是把「应用与模型供应商之间的产品」放到同一光谱上比较。</p>
+<p><strong>为你害怕的失败模式而买。</strong> 怕试不了模型→路由；怕看不见品质→可观测；怕解释不了或停不了花费→治理。我们用公开产品姿态与 ATP 文件评治理列（<a href="/zh-cn/docs/how-it-works">how it works</a>、<a href="/zh-cn/docs/console-setup" class="doc-term-def" data-def="帐号的最上层，底下再分 workspace 与 project。">console setup</a>），<strong>不排名谁最便宜</strong>。</p>
+<h2 id="光谱">光谱</h2>
+<table>
+<thead>
+<tr>
+<th>集群</th>
+<th>优化</th>
+<th>弱在</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>路由中枢</td>
+<td>模型广、一储值、快切</td>
+<td>深组织预算、正式稽核角色</td>
+</tr>
+<tr>
+<td>可观测</td>
+<td>追踪、评测</td>
+<td>依<a class="doc-term" href="/zh-cn/docs/resources" data-def="权限与帐务的最小单位；金钥、允许模型、点数预算都挂在 project 上。">项目</a>强制花费天花板</td>
+</tr>
+<tr>
+<td>治理／账务</td>
+<td>阶层、cap、归属、撤销</td>
+<td>单靠长尾模型动物园</td>
+</tr>
+<tr>
+<td>自架路由</td>
+<td>基础建设全控</td>
+<td>开箱财务工作流</td>
+</tr>
+</tbody></table>
+<h2 id="类别能力矩阵">类别能力矩阵</h2>
+<p>路由强在多模型；治理强在项目阶层与分配；可观测强在品质追踪。详见英文长表逻辑与<a href="/zh-cn/blog/openrouter-vs-enterprise-governance">OpenRouter vs 治理</a>。</p>
+<h2 id="代表模式-诚实">代表模式（诚实）</h2>
+<p>OpenRouter 类：开发者多模型强，企业缺口多在阶层与 cap。<br>可观测类：答品质／延迟，账单仍可能惊喜。<br>自架（LiteLLM 类）：控制最大、维运自担。<br>ATP Token：组织→工作区→项目→密钥；白名单；<a class="doc-term" href="/zh-cn/docs/credits" data-def="计费单位。1 美元 = 100 点；用量依各模型牌价换算成点数扣抵。">点数</a>；请求 log；多格式（<a href="/zh-cn/docs/overview">overview</a>）。</p>
+<h2 id="决策树">决策树</h2>
+<p>单供应商单团队→直连；多模型少人→路由；多人共钱→治理；要 eval→加可观测但不要丢 cap。</p>
+<h2 id="更现代的做法">更现代的做法</h2>
+<p>ATP Token 为「谁能花、哪个模型、多少天花板、哪份 log」而建，并进入 Horizon AI 导入项目。</p>
+<p><a href="/zh-cn/docs/quickstart">快速开始 →</a></p>
+<h2 id="常见问题">常见问题</h2>
+<h3 id="什么是-ai-闸道">什么是 AI 闸道？</h3>
+<p>位于应用与模型供应商之间的中介层，可负责认证、路由、政策、计量或可观测。</p>
+<h3 id="2026-有哪些类型的-ai-闸道">2026 有哪些类型的 AI 闸道？</h3>
+<p>路由中枢、可观测层、治理／账务平面三类常见。</p>
+<h3 id="如何选择企业-ai-闸道">如何选择企业 AI 闸道？</h3>
+<p>从失败模式出发，评分阶层、SDK、日志与预算平面。</p>
+<h3 id="litellm-等于企业治理平台吗">LiteLLM 等于企业治理平台吗？</h3>
+<p>自架路由≠完整企业治理（组织、分配、角色、财务结算）。</p>
+<h3 id="路由与治理能并用吗">路由与治理能并用吗？</h3>
+<p>可以；避免正式流量无 cap 共用 key。</p>
+<h2 id="延伸阅读">延伸阅读</h2>
+<ul>
+<li><a href="/zh-cn/blog/openrouter-vs-enterprise-governance">OpenRouter vs 企业治理</a></li>
+<li><a href="/zh-cn/blog/openai-api-vs-enterprise-ai-gateway">OpenAI API vs 企业 AI 闸道</a></li>
+<li><a href="/zh-cn/blog/enterprise-ai-cost-management-guide">企业 AI 成本管理指南</a></li>
+</ul>
+<p><a href="/zh-cn/enterprise-plan">申请企业方案 →</a></p>0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-cn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"博客\",\"item\":\"https://atptoken.ai/zh-cn/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"AI 闸道选型 2026：路由、可观测与治理的一条光谱\",\"item\":\"https://atptoken.ai/zh-cn/blog/ai-gateway-comparison-2026/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"AI 闸道选型 2026：路由、可观测与治理的一条光谱\",\"description\":\"2026 年 AI 闸道可分为路由中枢、可观测层与企业治理／账务平面。依团队规模、多供应商与稽核需求对号入座。\",\"datePublished\":\"2026-08-21\",\"dateModified\":\"2026-08-21\",\"inLanguage\":\"zh-Hans-CN\",\"keywords\":\"AI 闸道, LLM gateway, ATP\",\"url\":\"https://atptoken.ai/zh-cn/blog/ai-gateway-comparison-2026/\",\"mainEntityOfPage\":\"https://atptoken.ai/zh-cn/blog/ai-gateway-comparison-2026/\",\"image\":\"https://atptoken.ai/og/blog/ai-gateway-comparison-2026.jpg\",\"author\":{\"@type\":\"Person\",\"name\":\"hung-chien\",\"jobTitle\":\"AI 增长与品牌经理\",\"worksFor\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}},\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"},\"isPartOf\":{\"@type\":\"Blog\",\"@id\":\"https://atptoken.ai/#blog\",\"name\":\"ATP Token 博客\",\"url\":\"https://atptoken.ai/blog/\",\"description\":\"ATP Token 团队的实务笔记：企业 AI 治理、AI Token 用量账务，以及用一把密钥管理多个模型的日常。\",\"inLanguage\":\"zh-Hans-CN\",\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}}}"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"什么是 AI 闸道？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"位于应用与模型供应商之间的中介层，依产品可负责认证、路由、政策、计量或可观测，同时让应用保持稳定客户端界面。\"}},{\"@type\":\"Question\",\"name\":\"2026 有哪些类型的 AI 闸道？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"三类常见：优化多模型与统一储值的路由中枢；聚焦追踪与品质的可观测层；聚焦组织阶层、预算、白名单与稽核的治理平面。\"}},{\"@type\":\"Question\",\"name\":\"如何选择企业 AI 闸道？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"从失败模式出发：要项目归属、花费上限与撤销，还是主要要模型多样性。评分阶层深度、SDK 相容、日志与预算平面归属。\"}},{\"@type\":\"Question\",\"name\":\"LiteLLM 等于企业治理平台吗？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"自架路由解决开发者存取与弹性；企业治理还包含组织结构、点数分配、角色管理与财务向结算。\"}},{\"@type\":\"Question\",\"name\":\"路由与治理能并用吗？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"可以。研发用路由中枢、正式用治理平面。失败的是正式流量跑在无 cap 的共用 key 上。\"}}]}"}}]],["$","$L2",null,{"data":{"lang":"zh-CN","post":{"slug":"ai-gateway-comparison-2026","title":"AI 闸道选型 2026：路由、可观测与治理的一条光谱","metaTitle":"AI 闸道选型 2026：怎么选","description":"2026 年 AI 闸道可分为路由中枢、可观测层与企业治理／账务平面。依团队规模、多供应商与稽核需求对号入座。","date":"2026-08-21","tags":["AI 闸道","LLM gateway","ATP"],"author":"hung-chien","authorTitle":"AI 增长与品牌经理","tldr":["2026 的 AI 闸道聚成路由中枢、可观测层、治理／账务平面——买错集群会浪费一年。","评分看阶层、白名单、归属、多格式 SDK 与故障切换，而不只模型数量。","许多堆叠会叠加；企业问题是谁拥有预算与撤销平面。"],"faq":[{"q":"什么是 AI 闸道？","a":"位于应用与模型供应商之间的中介层，依产品可负责认证、路由、政策、计量或可观测，同时让应用保持稳定客户端界面。"},{"q":"2026 有哪些类型的 AI 闸道？","a":"三类常见：优化多模型与统一储值的路由中枢；聚焦追踪与品质的可观测层；聚焦组织阶层、预算、白名单与稽核的治理平面。"},{"q":"如何选择企业 AI 闸道？","a":"从失败模式出发：要项目归属、花费上限与撤销，还是主要要模型多样性。评分阶层深度、SDK 相容、日志与预算平面归属。"},{"q":"LiteLLM 等于企业治理平台吗？","a":"自架路由解决开发者存取与弹性；企业治理还包含组织结构、点数分配、角色管理与财务向结算。"},{"q":"路由与治理能并用吗？","a":"可以。研发用路由中枢、正式用治理平面。失败的是正式流量跑在无 cap 的共用 key 上。"}],"readingMinutes":2,"cover":"ai-gateway-comparison-2026","html":"$3"},"newer":{"slug":"openrouter-vs-enterprise-governance","title":"OpenRouter vs 企业 AI 治理平台：各自适合谁（2026）","date":"2026-08-26"},"older":{"slug":"openai-api-vs-enterprise-ai-gateway","title":"OpenAI API vs 企业 AI 闸道：何时直连需要控制层（2026）","date":"2026-08-19"}}}]],["$L4","$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Pm_9oQ2SKm1LxFNP6wq7a"}
+4:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
+5:["$","script","script-1",{"src":"/_next/static/chunks/23c7vkgbyik20.js","async":true}]
+6:["$","script","script-2",{"src":"/_next/static/chunks/3syyi7daqg4i4.js","async":true}]
+7:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
+a:null

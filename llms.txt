@@ -13,7 +13,7 @@ ATP Token centralizes AI usage governance and billing: organizations, workspaces
 - Billing: pay-as-you-go credits, no monthly fee, USD 5 minimum top-up (1 USD = 100 credits). List rates are published per model.
 
 ## Models
-Browse the catalog (59 public models; text: 25, image: 7, video: 25, audio: 1, embedding: 1):
+Browse the catalog (63 public models; text: 29, image: 7, video: 25, audio: 1, embedding: 1):
 - [Model catalog](https://atptoken.ai/models/)
 - [Pricing / rate table](https://atptoken.ai/pricing/)
 
@@ -67,7 +67,7 @@ Every documentation page is also served as plain Markdown: append `.md` to the p
 - [/v1/chat/completions](https://atptoken.ai/docs/chat.md): Use this endpoint with any OpenAI SDK client. The request body follows OpenAI's chat completions schema unchanged. The model field must be a value re…
 - [/v1/messages](https://atptoken.ai/docs/messages.md): Anthropic Messages requests are accepted and normalized by the Gateway. The top-level system field must be a string. The array form used by Anthropic…
 - [/v1/models/{model}:generateContent](https://atptoken.ai/docs/gemini.md): Gemini REST-style generateContent and streamGenerateContent routes are supported under both /v1 and /v1beta (the Google GenAI SDK default). Authentic…
-- [/v1/files](https://atptoken.ai/docs/files.md): Upload a file to the Gateway and reference it in subsequent chat or messages requests by the returned gw_file_id (format an_<ULID>).
+- [/v1/files](https://atptoken.ai/docs/files.md): Upload a file to the Gateway and reference it in subsequent chat or messages requests by the returned id (format an_<ULID>).
 - [OpenAI SSE](https://atptoken.ai/docs/sse-openai.md): When you set stream: true on /v1/chat/completions, the Gateway streams the upstream provider response as OpenAI-format SSE chunks. The final chunk co…
 - [Anthropic SSE](https://atptoken.ai/docs/sse-anthropic.md): /v1/messages with stream: true emits this event sequence regardless of which upstream provider served the request:
 - [Errors](https://atptoken.ai/docs/errors.md): All error responses include a request_id — quote it when contacting support. The error envelope follows whichever SDK format you called (OpenAI / Ant…
@@ -100,6 +100,28 @@ Every documentation page is also served as plain Markdown: append `.md` to the p
 - [Migrate from OpenAI](https://atptoken.ai/docs/cb-migrate-openai.md): Moving an existing OpenAI integration to ATP is usually a two-line change: swap the base URL to the Gateway and the API key to a project key. Your re…
 
 - [Docs home](https://atptoken.ai/docs/): browsable HTML version of everything above.
+
+## Articles
+Long-form pieces on AI cost governance, key management, and gateway architecture.
+Same convention as the docs above — append `.md` to any article URL for plain text.
+Each Markdown twin leads with the article's TL;DR and closes with its FAQ.
+
+- [Shadow AI in the enterprise: from personal keys to a governed control plane (2026)](https://atptoken.ai/blog/shadow-ai-governed-control-plane.md): Shadow AI is unapproved AI usage on personal keys and tools. Blocking everything fails; a governed control plane with project keys, allowlists, and logs restores visibility.
+- [Why AI bills explode after go-live: 5 control gaps and how to close them (2026)](https://atptoken.ai/blog/why-ai-bills-explode-after-go-live.md): Enterprise AI bills spike after go-live when five control gaps open at once: project keys, spending caps, per-request attribution, model allowlists, and post-launch monitoring.
+- [OpenRouter vs enterprise AI governance platforms: who each is for (2026)](https://atptoken.ai/blog/openrouter-vs-enterprise-governance.md): OpenRouter-class routing hubs optimize multi-model access and one wallet. Enterprise governance platforms optimize project keys, budgets, allowlists, and audit. Here is how to choose.
+- [OpenAI API vs enterprise AI gateway: when direct vendor access needs a control layer (2026)](https://atptoken.ai/blog/openai-api-vs-enterprise-ai-gateway.md): Direct OpenAI (or Anthropic, Gemini) APIs excel at model quality. An enterprise AI gateway adds project keys, allowlists, unified credits, and audit—when multi-vendor and multi-team usage begins.
+- [AI spending caps that work: treat allocation as the budget ceiling (2026)](https://atptoken.ai/blog/ai-spending-caps-that-work.md): Enterprise AI spending caps fail when they sit only on a company card. Set project-level credit allocation as the ceiling, alert before cut-off, and track allocated vs consumed.
+- [Enterprise AI cost management: the complete guide to tokens, credits, keys, and caps (2026)](https://atptoken.ai/blog/enterprise-ai-cost-management-guide.md): Enterprise AI cost management covers token economics, credit settlement, project keys, spending caps, agent tax, and audit logs—so multi-vendor AI spend stays attributable and controllable.
+- [How to read your AI bill: a 3-layer guide to tokens, credits, and per-request attribution (2026)](https://atptoken.ai/blog/how-to-read-your-ai-bill.md): AI cost management guide: how to read an AI bill in three layers — token pricing, credits, and per-request records that tie every dollar to a project.
+- [Enterprise AI governance checklist: 12 checks for adopting multiple AI services (2026)](https://atptoken.ai/blog/ai-governance-checklist.md): An enterprise AI governance checklist: 12 checks across keys, model permissions, data boundaries, and budget attribution for multi-vendor AI adoption.
+- [From seats to tokens: how AI breaks SaaS budgeting (2026)](https://atptoken.ai/blog/from-seats-to-tokens-ai-budgeting.md): AI turns seat-based SaaS budgets into token and credit metering. Learn new metrics, department allocations, and controls when usage—not headcount—drives cost.
+- [What is the agent tax? Why multi-step AI agents inflate token bills (2026)](https://atptoken.ai/blog/what-is-the-agent-tax.md): The agent tax is the extra token cost of multi-step AI agents that resend context, call tools, and retry. Learn how it works, how to measure it, and how to control it.
+- [Model catalog vs access control: why GET /v1/models is not your key’s permission (2026)](https://atptoken.ai/blog/model-catalog-vs-access-control.md): A model catalog lists what a platform offers. Access control decides what a project key may call. Confusing the two causes 403s, shadow spend, and false security.
+- [AI gateway comparison 2026: routing, observability, and governance on one spectrum](https://atptoken.ai/blog/ai-gateway-comparison-2026.md): Compare AI gateways in 2026 across routing hubs, observability tools, and enterprise governance planes. Match the layer to team size, multi-vendor needs, and audit requirements.
+- [Coding agents at work: a 10-point cost control checklist (2026)](https://atptoken.ai/blog/coding-agents-cost-control-checklist.md): Control Claude Code, Codex, and other coding-agent spend with project keys, model allowlists, step budgets, separate sandboxes, and per-request audit logs.
+- [One project, one key: why shared API keys are the most expensive AI debt (2026)](https://atptoken.ai/blog/one-project-one-key.md): Shared AI API keys destroy attribution and make revokes dangerous. One project, one key ties every request to an owner, budget, and audit trail.
+
+- [Blog index](https://atptoken.ai/blog/): browsable HTML version of everything above.
 
 ## More
 - [Pricing](https://atptoken.ai/pricing/)

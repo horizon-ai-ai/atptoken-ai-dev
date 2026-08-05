@@ -1,11 +1,121 @@
 1:"$Sreact.fragment"
-9:I[51713,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js","/_next/static/chunks/1chh84bzgbaxu.js","/_next/static/chunks/1vu59d80ahi02.js","/_next/static/chunks/3bgctz23woyi1.js"],"default"]
-a:I[97367,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js"],"OutletBoundary"]
-b:"$Sreact.suspense"
-2:T4b6,{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenRouter vs enterprise AI governance platforms: who each is for (2026)","description":"OpenRouter-class routing hubs optimize multi-model access and one wallet. Enterprise governance platforms optimize project keys, budgets, allowlists, and audit. Here is how to choose.","datePublished":"2026-08-26","dateModified":"2026-08-26","inLanguage":"en","keywords":"OpenRouter, AI governance, ATP","url":"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/","mainEntityOfPage":"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/","image":"https://atptoken.ai/og-image.png","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T666,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is OpenRouter an enterprise AI governance platform?","acceptedAnswer":{"@type":"Answer","text":"OpenRouter is best understood as a multi-model routing and billing hub for developers. Enterprise governance platforms add organization hierarchy, project-scoped keys, formal budgets, and admin roles aimed at company-wide control."}},{"@type":"Question","name":"When should I use OpenRouter vs a governance gateway?","acceptedAnswer":{"@type":"Answer","text":"Use a routing hub when a small team needs fast access to many models. Move production multi-team workloads to a governance plane when finance needs attribution and security needs revoke and allowlists."}},{"@type":"Question","name":"Can OpenRouter and ATP Token be used together?","acceptedAnswer":{"@type":"Answer","text":"Architecturally, research can stay on a routing hub while production sits on a governance gateway. What you should avoid is uncapped production traffic without project owners."}},{"@type":"Question","name":"What does ATP Token optimize for compared to routing hubs?","acceptedAnswer":{"@type":"Answer","text":"ATP Token optimizes for organization → workspace → project structure, credit allocation as caps, project model allowlists, and per-request audit with multi-format SDK compatibility."}},{"@type":"Question","name":"Does a governance platform mean fewer models?","acceptedAnswer":{"@type":"Answer","text":"It means models are explicitly allowed per project. The platform catalog can still be broad; the difference is permission, not curiosity alone."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"OpenRouter vs enterprise AI governance platforms: who each is for (2026)\",\"item\":\"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"iDhM2ZpK9XE_EvXRvdheN"}
-4:["$","$L9",null,{"slug":"openrouter-vs-enterprise-governance"}]
-5:["$","script","script-0",{"src":"/_next/static/chunks/1chh84bzgbaxu.js","async":true}]
-6:["$","script","script-1",{"src":"/_next/static/chunks/1vu59d80ahi02.js","async":true}]
-7:["$","script","script-2",{"src":"/_next/static/chunks/3bgctz23woyi1.js","async":true}]
-8:["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]
-c:null
+9:I[51713,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/23c7vkgbyik20.js","/_next/static/chunks/3syyi7daqg4i4.js"],"default"]
+b:I[97367,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+2:T4d9,{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenRouter vs enterprise AI governance platforms: who each is for (2026)","description":"OpenRouter-class routing hubs optimize multi-model access and one wallet. Enterprise governance platforms optimize project keys, budgets, allowlists, and audit. Here is how to choose.","datePublished":"2026-08-26","dateModified":"2026-08-26","inLanguage":"en","keywords":"OpenRouter, AI governance, ATP","url":"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/","mainEntityOfPage":"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/","image":"https://atptoken.ai/og/blog/openrouter-vs-enterprise-governance.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T666,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is OpenRouter an enterprise AI governance platform?","acceptedAnswer":{"@type":"Answer","text":"OpenRouter is best understood as a multi-model routing and billing hub for developers. Enterprise governance platforms add organization hierarchy, project-scoped keys, formal budgets, and admin roles aimed at company-wide control."}},{"@type":"Question","name":"When should I use OpenRouter vs a governance gateway?","acceptedAnswer":{"@type":"Answer","text":"Use a routing hub when a small team needs fast access to many models. Move production multi-team workloads to a governance plane when finance needs attribution and security needs revoke and allowlists."}},{"@type":"Question","name":"Can OpenRouter and ATP Token be used together?","acceptedAnswer":{"@type":"Answer","text":"Architecturally, research can stay on a routing hub while production sits on a governance gateway. What you should avoid is uncapped production traffic without project owners."}},{"@type":"Question","name":"What does ATP Token optimize for compared to routing hubs?","acceptedAnswer":{"@type":"Answer","text":"ATP Token optimizes for organization → workspace → project structure, credit allocation as caps, project model allowlists, and per-request audit with multi-format SDK compatibility."}},{"@type":"Question","name":"Does a governance platform mean fewer models?","acceptedAnswer":{"@type":"Answer","text":"It means models are explicitly allowed per project. The platform catalog can still be broad; the difference is permission, not curiosity alone."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"OpenRouter vs enterprise AI governance platforms: who each is for (2026)\",\"item\":\"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Pm_9oQ2SKm1LxFNP6wq7a"}
+a:T19a6,<p>OpenRouter-class AI gateways are multi-model routing hubs with unified developer billing; enterprise AI governance platforms are control planes for <a class="doc-term" href="/en/docs/console-setup" data-def="The top level of an account. Workspaces and projects sit underneath it.">organization</a> hierarchy, <a class="doc-term" href="/en/docs/resources" data-def="The unit that permissions and billing hang off — keys, allowed models, and credit budget all belong to one.">project</a> budgets, allowlists, and audit. This comparison helps teams pick the right default for each stage of adoption.</p>
+<p><strong>Honest split:</strong> routing hubs win on speed-to-many-models; governance platforms win on <strong>who / how much / which model / prove it</strong>. Neither replaces model labs. Category context: <a href="/en/blog/ai-gateway-comparison-2026">AI gateway comparison 2026</a>.</p>
+<h2 id="comparison-table">Comparison table</h2>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>OpenRouter-class routing</th>
+<th>Enterprise governance (e.g. ATP Token)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Primary user</td>
+<td>Developer / small team</td>
+<td>Platform + finance + security</td>
+</tr>
+<tr>
+<td>Money model</td>
+<td>Unified wallet / <a class="doc-term" href="/en/docs/topup" data-def="Adding credits to the wallet. Minimum 5 USD, pay as you go.">top-up</a></td>
+<td>Hierarchical credits &amp; allocation</td>
+</tr>
+<tr>
+<td>Access unit</td>
+<td>Account / key</td>
+<td>Project-scoped key</td>
+</tr>
+<tr>
+<td>Model policy</td>
+<td>Broad catalog access</td>
+<td>Project allowlist enforced pre-provider</td>
+</tr>
+<tr>
+<td>Stop-spend</td>
+<td>Balance / account limits</td>
+<td>Project cap + org visibility</td>
+</tr>
+<tr>
+<td>Audit story</td>
+<td>Usage stats</td>
+<td>Request logs tied to org tree</td>
+</tr>
+<tr>
+<td>Multi-SDK enterprise</td>
+<td>Often OpenAI-compatible</td>
+<td>OpenAI + Anthropic + Gemini styles (<a href="/en/docs/auth">auth</a>)</td>
+</tr>
+</tbody></table>
+<h2 id="where-routing-hubs-shine">Where routing hubs shine</h2>
+<ul>
+<li>Prototyping across many model ids  </li>
+<li>Personal or tiny team wallets  </li>
+<li>Rapid eval of new releases</li>
+</ul>
+<p>Documented strengths in the developer community are real; the gap is organizational, not “skill issue.”</p>
+<h2 id="where-governance-platforms-shine">Where governance platforms shine</h2>
+<ul>
+<li>Many squads, one AI budget (<a href="/en/blog/enterprise-ai-cost-management-guide">cost management</a>)  </li>
+<li>Coding agents that must not eat production (<a href="/en/blog/coding-agents-cost-control-checklist">coding agents</a>)  </li>
+<li>Need for 403 on unauthorized models and 402 on empty project balance (<a href="/en/docs/how-it-works">how it works</a>)  </li>
+<li>Offboarding without rotating a company skeleton key (<a href="/en/blog/one-project-one-key">one project, one key</a>)</li>
+</ul>
+<h2 id="limits-both-sides">Limits (both sides)</h2>
+<p><strong>Routing:</strong> weak default story for BU allocations and formal roles.<br><strong>Governance:</strong> must stay disciplined on catalog UX and developer happiness; control without ergonomics drives shadow tools (<a href="/en/blog/shadow-ai-governed-control-plane">shadow AI</a>).</p>
+<p><strong>ATP Token</strong> publishes hierarchy, credits, keys, and logs in docs (<a href="/en/docs/overview">overview</a>, <a href="/en/docs/credits" class="doc-term-def" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">credits</a>, <a href="/en/docs/monitoring">monitoring</a>). We do not claim fee superiority here.</p>
+<h2 id="decision-guide">Decision guide</h2>
+<table>
+<thead>
+<tr>
+<th>If you…</th>
+<th>Prefer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Are three engineers evaluating models</td>
+<td>Routing hub</td>
+</tr>
+<tr>
+<td>Are twenty engineers shipping agents</td>
+<td>Governance plane</td>
+</tr>
+<tr>
+<td>Need board-level AI spend narrative</td>
+<td>Governance plane</td>
+</tr>
+<tr>
+<td>Need maximum long-tail model ids tomorrow</td>
+<td>Routing hub (± allowlisted subset in prod)</td>
+</tr>
+</tbody></table>
+<h2 id="a-more-modern-approach">A more modern approach</h2>
+<p>Production should not run on “whoever stored the key in 1Password.” Horizon AI adoption programs standardize governance early; ATP Token is the product surface for that standard—compatible clients, project allowlists, credit caps, request audit.</p>
+<p><a href="/en/docs/quickstart">Quickstart →</a></p>
+<h2 id="faqs">FAQs</h2>
+<h3 id="is-openrouter-an-enterprise-ai-governance-platform">Is OpenRouter an enterprise AI governance platform?</h3>
+<p>OpenRouter is best understood as a multi-model routing and billing hub for developers. Enterprise governance platforms add organization hierarchy, project-scoped keys, formal budgets, and admin roles aimed at company-wide control.</p>
+<h3 id="when-should-i-use-openrouter-vs-a-governance-gateway">When should I use OpenRouter vs a governance gateway?</h3>
+<p>Use a routing hub when a small team needs fast access to many models. Move production multi-team workloads to a governance plane when finance needs attribution and security needs revoke and allowlists.</p>
+<h3 id="can-openrouter-and-atp-token-be-used-together">Can OpenRouter and ATP Token be used together?</h3>
+<p>Architecturally, research can stay on a routing hub while production sits on a governance gateway. What you should avoid is uncapped production traffic without project owners.</p>
+<h3 id="what-does-atp-token-optimize-for-compared-to-routing-hubs">What does ATP Token optimize for compared to routing hubs?</h3>
+<p>ATP Token optimizes for organization → workspace → project structure, credit allocation as caps, project model allowlists, and per-request audit with multi-format SDK compatibility.</p>
+<h3 id="does-a-governance-platform-mean-fewer-models">Does a governance platform mean fewer models?</h3>
+<p>It means models are explicitly allowed per project. The platform catalog can still be broad; the difference is permission, not curiosity alone.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="/en/blog/ai-gateway-comparison-2026">AI gateway comparison 2026</a></li>
+<li><a href="/en/blog/openai-api-vs-enterprise-ai-gateway">OpenAI API vs enterprise AI gateway</a></li>
+<li><a href="/en/blog/why-ai-bills-explode-after-go-live">Why AI bills explode after go-live</a></li>
+</ul>
+<p>Pick routing for exploration velocity; pick governance when the org chart hits the invoice.</p>
+<p><a href="/en/enterprise-plan">Enterprise plan →</a></p>4:["$","$L9",null,{"data":{"lang":"en","post":{"slug":"openrouter-vs-enterprise-governance","title":"OpenRouter vs enterprise AI governance platforms: who each is for (2026)","metaTitle":"OpenRouter vs AI governance platforms (2026)","description":"OpenRouter-class routing hubs optimize multi-model access and one wallet. Enterprise governance platforms optimize project keys, budgets, allowlists, and audit. Here is how to choose.","date":"2026-08-26","tags":["OpenRouter","AI governance","ATP"],"author":"hung-chien","authorTitle":"AI Growth & Brand Manager","tldr":["OpenRouter-class products excel at developer multi-model access with unified top-up; governance platforms excel when many teams share money and risk.","Compare owner hierarchy, spending caps, model allowlists, and audit—not a single fee percentage.","Some companies use both: routing in research, governance in production."],"faq":[{"q":"Is OpenRouter an enterprise AI governance platform?","a":"OpenRouter is best understood as a multi-model routing and billing hub for developers. Enterprise governance platforms add organization hierarchy, project-scoped keys, formal budgets, and admin roles aimed at company-wide control."},{"q":"When should I use OpenRouter vs a governance gateway?","a":"Use a routing hub when a small team needs fast access to many models. Move production multi-team workloads to a governance plane when finance needs attribution and security needs revoke and allowlists."},{"q":"Can OpenRouter and ATP Token be used together?","a":"Architecturally, research can stay on a routing hub while production sits on a governance gateway. What you should avoid is uncapped production traffic without project owners."},{"q":"What does ATP Token optimize for compared to routing hubs?","a":"ATP Token optimizes for organization → workspace → project structure, credit allocation as caps, project model allowlists, and per-request audit with multi-format SDK compatibility."},{"q":"Does a governance platform mean fewer models?","a":"It means models are explicitly allowed per project. The platform catalog can still be broad; the difference is permission, not curiosity alone."}],"readingMinutes":3,"cover":"openrouter-vs-enterprise-governance","html":"$a"},"newer":{"slug":"model-catalog-vs-access-control","title":"Model catalog vs access control: why GET /v1/models is not your key’s permission (2026)","date":"2026-08-28"},"older":{"slug":"ai-gateway-comparison-2026","title":"AI gateway comparison 2026: routing, observability, and governance on one spectrum","date":"2026-08-21"}}}]
+5:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/23c7vkgbyik20.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/3syyi7daqg4i4.js","async":true}]
+8:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

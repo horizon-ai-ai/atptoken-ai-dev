@@ -1,0 +1,94 @@
+{
+  "id": "commercial-ad",
+  "kind": "video",
+  "prompt": "A Korean woman, late 20s, sleek straight black hair, poised confident expression, slender build, wearing a crisp white blazer, turns gracefully toward camera while holding up a matte black skincare bottle, tilting it slightly to catch the light. Seamless white studio backdrop, clean minimalist set. Medium shot, single movement: slow 180-degree orbit around her, eye level, 50mm lens, shallow depth of field. Bright even softbox lighting, clean high-key commercial grade, 24fps film look. Negative: blurry, distorted faces, extra fingers, warped text, oversaturated, watermark.",
+  "entries": [
+    {
+      "model": "happyhorse-1.1-t2v",
+      "file": "happyhorse-1.1-t2v.mp4",
+      "poster": "happyhorse-1.1-t2v.jpg",
+      "createdAt": "2026-08-04",
+      "width": 1920,
+      "height": 1080,
+      "durationSec": 6
+    },
+    {
+      "model": "kling-o3-pro",
+      "file": "kling-o3-pro.mp4",
+      "poster": "kling-o3-pro.jpg",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 10
+    },
+    {
+      "model": "kling-o3-standard",
+      "file": "kling-o3-standard.mp4",
+      "poster": "kling-o3-standard.jpg",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 10
+    },
+    {
+      "model": "kling-v3-pro",
+      "file": "kling-v3-pro.mp4",
+      "poster": "kling-v3-pro.jpg",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 10
+    },
+    {
+      "model": "kling-v3-standard",
+      "file": "kling-v3-standard.mp4",
+      "poster": "kling-v3-standard.jpg",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 10
+    },
+    {
+      "model": "seedance-2-0",
+      "file": "seedance-2-0.mp4",
+      "poster": "seedance-2-0.jpg",
+      "createdAt": "2026-08-04",
+      "width": 1920,
+      "height": 1080,
+      "durationSec": 8
+    },
+    {
+      "model": "seedance-2-0-fast",
+      "file": "seedance-2-0-fast.mp4",
+      "poster": "seedance-2-0-fast.jpg",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 5
+    },
+    {
+      "model": "seedance-2-0-mini",
+      "file": "seedance-2-0-mini.mp4",
+      "poster": "seedance-2-0-mini.jpg",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 5
+    },
+    {
+      "model": "wan-2-7-t2v",
+      "file": "wan-2-7-t2v.mp4",
+      "poster": "wan-2-7-t2v.jpg",
+      "createdAt": "2026-08-04",
+      "width": 1920,
+      "height": 1080,
+      "durationSec": 10
+    }
+  ],
+  "paramsRequested": {
+    "duration": 5,
+    "resolution": "720p",
+    "ratio": "16:9"
+  },
+  "paramsUniform": false
+}

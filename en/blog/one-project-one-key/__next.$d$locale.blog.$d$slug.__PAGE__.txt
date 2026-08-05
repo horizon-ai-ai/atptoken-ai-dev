@@ -1,11 +1,87 @@
 1:"$Sreact.fragment"
-9:I[51713,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js","/_next/static/chunks/1chh84bzgbaxu.js","/_next/static/chunks/1vu59d80ahi02.js","/_next/static/chunks/3bgctz23woyi1.js"],"default"]
-a:I[97367,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js"],"OutletBoundary"]
-b:"$Sreact.suspense"
-2:T485,{"@context":"https://schema.org","@type":"BlogPosting","headline":"One project, one key: why shared API keys are the most expensive AI debt (2026)","description":"Shared AI API keys destroy attribution and make revokes dangerous. One project, one key ties every request to an owner, budget, and audit trail.","datePublished":"2026-08-07","dateModified":"2026-08-07","inLanguage":"en","keywords":"API keys, Enterprise AI governance, ATP","url":"https://atptoken.ai/en/blog/one-project-one-key/","mainEntityOfPage":"https://atptoken.ai/en/blog/one-project-one-key/","image":"https://atptoken.ai/og-image.png","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T617,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does one project, one key mean?","acceptedAnswer":{"@type":"Answer","text":"It means every production workload gets its own project-scoped API key that inherits that project's allowed models and credit balance, so every request has a clear owner for spend and access."}},{"@type":"Question","name":"Why are shared API keys risky for AI usage?","acceptedAnswer":{"@type":"Answer","text":"Shared keys hide which system spent tokens, block safe revocation on offboarding, and turn any leak into an organization-wide incident instead of a project-scoped blast radius."}},{"@type":"Question","name":"How should enterprises issue LLM API keys?","acceptedAnswer":{"@type":"Answer","text":"Create a project per system or product surface, enable only needed models, allocate a budget, issue a key shown once, store it in a secret manager, and revoke from the console when the project ends."}},{"@type":"Question","name":"What happens when someone leaves if keys follow projects?","acceptedAnswer":{"@type":"Answer","text":"You remove their membership or project access; you do not rotate a single key that half the company depends on. Project keys stay with the workload, not the person."}},{"@type":"Question","name":"How do I migrate off a shared AI key?","acceptedAnswer":{"@type":"Answer","text":"Inventory callers, create project keys per system, dual-run with low caps, cut traffic system by system, then revoke the shared key and keep it in the audit roster."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/en/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/en/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"One project, one key: why shared API keys are the most expensive AI debt (2026)\",\"item\":\"https://atptoken.ai/en/blog/one-project-one-key/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"iDhM2ZpK9XE_EvXRvdheN"}
-4:["$","$L9",null,{"slug":"one-project-one-key"}]
-5:["$","script","script-0",{"src":"/_next/static/chunks/1chh84bzgbaxu.js","async":true}]
-6:["$","script","script-1",{"src":"/_next/static/chunks/1vu59d80ahi02.js","async":true}]
-7:["$","script","script-2",{"src":"/_next/static/chunks/3bgctz23woyi1.js","async":true}]
-8:["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]
-c:null
+9:I[51713,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/23c7vkgbyik20.js","/_next/static/chunks/3syyi7daqg4i4.js"],"default"]
+b:I[97367,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+2:T498,{"@context":"https://schema.org","@type":"BlogPosting","headline":"One project, one key: why shared API keys are the most expensive AI debt (2026)","description":"Shared AI API keys destroy attribution and make revokes dangerous. One project, one key ties every request to an owner, budget, and audit trail.","datePublished":"2026-08-07","dateModified":"2026-08-07","inLanguage":"en","keywords":"API keys, Enterprise AI governance, ATP","url":"https://atptoken.ai/en/blog/one-project-one-key/","mainEntityOfPage":"https://atptoken.ai/en/blog/one-project-one-key/","image":"https://atptoken.ai/og/blog/one-project-one-key.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T617,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does one project, one key mean?","acceptedAnswer":{"@type":"Answer","text":"It means every production workload gets its own project-scoped API key that inherits that project's allowed models and credit balance, so every request has a clear owner for spend and access."}},{"@type":"Question","name":"Why are shared API keys risky for AI usage?","acceptedAnswer":{"@type":"Answer","text":"Shared keys hide which system spent tokens, block safe revocation on offboarding, and turn any leak into an organization-wide incident instead of a project-scoped blast radius."}},{"@type":"Question","name":"How should enterprises issue LLM API keys?","acceptedAnswer":{"@type":"Answer","text":"Create a project per system or product surface, enable only needed models, allocate a budget, issue a key shown once, store it in a secret manager, and revoke from the console when the project ends."}},{"@type":"Question","name":"What happens when someone leaves if keys follow projects?","acceptedAnswer":{"@type":"Answer","text":"You remove their membership or project access; you do not rotate a single key that half the company depends on. Project keys stay with the workload, not the person."}},{"@type":"Question","name":"How do I migrate off a shared AI key?","acceptedAnswer":{"@type":"Answer","text":"Inventory callers, create project keys per system, dual-run with low caps, cut traffic system by system, then revoke the shared key and keep it in the audit roster."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/en/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/en/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"One project, one key: why shared API keys are the most expensive AI debt (2026)\",\"item\":\"https://atptoken.ai/en/blog/one-project-one-key/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Pm_9oQ2SKm1LxFNP6wq7a"}
+a:T1a53,<p>One <a class="doc-term" href="/en/docs/resources" data-def="The unit that permissions and billing hang off — keys, allowed models, and credit budget all belong to one.">project</a>, one key is the rule that each AI workload uses a project-scoped API key that inherits that project&#39;s model allowlist and budget—so spend, access, and revocation all have a single owner. This guide is for platform and security teams still running production traffic on a shared vendor key.</p>
+<p>The conclusion first: <strong>shared keys optimize for speed on day one and maximize blast radius on day one hundred.</strong> Attribution, caps, and incident response all require project-scoped credentials. This is item one of the <a href="/en/blog/ai-governance-checklist">enterprise AI governance checklist</a> and the root of several <a href="/en/blog/why-ai-bills-explode-after-go-live">post-go-live control gaps</a>.</p>
+<h2 id="why-shared-keys-feel-fine-until-they-do-not">Why shared keys feel fine until they do not</h2>
+<table>
+<thead>
+<tr>
+<th>Shared key “win”</th>
+<th>Hidden cost after scale</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>One secret in CI</td>
+<td>Every pipeline owns the same blast radius</td>
+</tr>
+<tr>
+<td>Fast onboarding</td>
+<td>Offboarding becomes “who still uses this?”</td>
+</tr>
+<tr>
+<td>Simple docs</td>
+<td>Finance cannot map spend to a product</td>
+</tr>
+<tr>
+<td>One rate limit pool</td>
+<td>Noisy neighbors starve critical paths</td>
+</tr>
+</tbody></table>
+<p>When the bill jumps, <a href="/en/docs/monitoring">request logs</a> that only know one key can say which model was hot—not which team.</p>
+<h2 id="what-one-project-one-key-requires">What “one project, one key” requires</h2>
+<p>From <a href="/en/docs/console-setup" class="doc-term-def" data-def="The top level of an account. Workspaces and projects sit underneath it.">set up your organization</a> and <a href="/en/docs/console-keys" class="doc-term-def" data-def="A key that starts with atp-. It inherits its project's allowed models and credit balance.">managing API keys</a>:</p>
+<ol>
+<li><strong>Organization</strong> — billing and team boundary  </li>
+<li><strong>Workspace</strong> — credit container for related work  </li>
+<li><strong>Project</strong> — allowed models + credit balance  </li>
+<li><strong>API key</strong> — scoped to exactly one project</li>
+</ol>
+<p>The secret is shown once (<code>atp-</code> prefix on ATP), stored outside git, revocable immediately, retained in the roster for audit.</p>
+<h2 id="by-environment">By environment</h2>
+<h3 id="production">Production</h3>
+<p>One key per deployable service. Never share with local laptops.</p>
+<h3 id="staging">Staging</h3>
+<p>Separate project and low cap. Staging bugs should not drain production allocation (<a href="/en/docs/cb-budget-caps">budget caps</a>).</p>
+<h3 id="experiments-and-coding-agents">Experiments and coding agents</h3>
+<p>Disposable projects, cheap models on the allowlist, caps low enough to burn. See <a href="/en/blog/what-is-the-agent-tax">agent tax</a> and <a href="/en/docs/cb-claude-code">Claude Code on ATP</a>.</p>
+<h2 id="by-team-size">By team size</h2>
+<p>Small teams: three projects—prod, staging, sandbox—are enough.<br>Mid-size: one project per product surface.<br>Enterprise: align projects to cost centers; roles at workspace/project (<a href="/en/docs/team">team</a>).</p>
+<h2 id="migration-plan-off-a-skeleton-key">Migration plan off a skeleton key</h2>
+<ol>
+<li>Inventory every caller of the shared secret.  </li>
+<li>Create projects and issue keys (<a href="/en/docs/console-keys" class="doc-term-def" data-def="A key that starts with atp-. It inherits its project's allowed models and credit balance.">console keys</a>).  </li>
+<li>Dual-run with tight <a href="/en/docs/credits" class="doc-term-def" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">allocations</a>.  </li>
+<li>Cut over service by service.  </li>
+<li>Revoke the shared key; confirm zero traffic in <a href="/en/docs/monitoring">logs</a>.  </li>
+<li>Document the incident path: revoke → trace → reissue.</li>
+</ol>
+<h2 id="a-more-modern-approach">A more modern approach</h2>
+<p>Policy PDFs that say “do not share keys” lose to convenience. Platforms that <strong>cannot issue non-project keys</strong> make the right path the easy path. ATP Token binds every key to a project’s models and credits; revoked keys stay visible for audit. Wire formats stay OpenAI / Anthropic / Gemini-compatible—migration is usually base_url and key (<a href="/en/docs/cb-migrate-openai">migrate from OpenAI</a>).</p>
+<p><a href="/en/docs/quickstart">Quickstart →</a></p>
+<h2 id="faqs">FAQs</h2>
+<h3 id="what-does-one-project-one-key-mean">What does one project, one key mean?</h3>
+<p>It means every production workload gets its own project-scoped API key that inherits that project&#39;s allowed models and credit balance, so every request has a clear owner for spend and access.</p>
+<h3 id="why-are-shared-api-keys-risky-for-ai-usage">Why are shared API keys risky for AI usage?</h3>
+<p>Shared keys hide which system spent tokens, block safe revocation on offboarding, and turn any leak into an organization-wide incident instead of a project-scoped blast radius.</p>
+<h3 id="how-should-enterprises-issue-llm-api-keys">How should enterprises issue LLM API keys?</h3>
+<p>Create a project per system or product surface, enable only needed models, allocate a budget, issue a key shown once, store it in a secret manager, and revoke from the console when the project ends.</p>
+<h3 id="what-happens-when-someone-leaves-if-keys-follow-projects">What happens when someone leaves if keys follow projects?</h3>
+<p>You remove their membership or project access; you do not rotate a single key that half the company depends on. Project keys stay with the workload, not the person.</p>
+<h3 id="how-do-i-migrate-off-a-shared-ai-key">How do I migrate off a shared AI key?</h3>
+<p>Inventory callers, create project keys per system, dual-run with low caps, cut traffic system by system, then revoke the shared key and keep it in the audit roster.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="/en/blog/why-ai-bills-explode-after-go-live">Why AI bills explode after go-live</a></li>
+<li><a href="/en/blog/how-to-read-your-ai-bill">How to read your AI bill</a></li>
+<li><a href="/en/docs/console-keys" class="doc-term-def" data-def="A key that starts with atp-. It inherits its project's allowed models and credit balance.">Managing API keys</a></li>
+</ul>
+<p>If every request has a project owner, the bill becomes a map instead of a mystery.</p>
+<p><a href="/en/enterprise-plan">Enterprise plan →</a></p>4:["$","$L9",null,{"data":{"lang":"en","post":{"slug":"one-project-one-key","title":"One project, one key: why shared API keys are the most expensive AI debt (2026)","metaTitle":"One project, one key: API key governance (2026)","description":"Shared AI API keys destroy attribution and make revokes dangerous. One project, one key ties every request to an owner, budget, and audit trail.","date":"2026-08-07","tags":["API keys","Enterprise AI governance","ATP"],"author":"hung-chien","authorTitle":"AI Growth & Brand Manager","tldr":["One project, one key means each workload owns a scoped credential that inherits that project's models and budget—not a company-wide skeleton key.","Shared keys fail two jobs at once: you cannot attribute spend, and you cannot revoke without breaking everyone.","Migrate by inventorying keys, splitting production from experiments, and retiring shared secrets on a dated plan."],"faq":[{"q":"What does one project, one key mean?","a":"It means every production workload gets its own project-scoped API key that inherits that project's allowed models and credit balance, so every request has a clear owner for spend and access."},{"q":"Why are shared API keys risky for AI usage?","a":"Shared keys hide which system spent tokens, block safe revocation on offboarding, and turn any leak into an organization-wide incident instead of a project-scoped blast radius."},{"q":"How should enterprises issue LLM API keys?","a":"Create a project per system or product surface, enable only needed models, allocate a budget, issue a key shown once, store it in a secret manager, and revoke from the console when the project ends."},{"q":"What happens when someone leaves if keys follow projects?","a":"You remove their membership or project access; you do not rotate a single key that half the company depends on. Project keys stay with the workload, not the person."},{"q":"How do I migrate off a shared AI key?","a":"Inventory callers, create project keys per system, dual-run with low caps, cut traffic system by system, then revoke the shared key and keep it in the audit roster."}],"readingMinutes":3,"cover":"one-project-one-key","html":"$a"},"newer":{"slug":"ai-spending-caps-that-work","title":"AI spending caps that work: treat allocation as the budget ceiling (2026)","date":"2026-08-12"},"older":{"slug":"enterprise-ai-cost-management-guide","title":"Enterprise AI cost management: the complete guide to tokens, credits, keys, and caps (2026)","date":"2026-08-05"}}}]
+5:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/23c7vkgbyik20.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/3syyi7daqg4i4.js","async":true}]
+8:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

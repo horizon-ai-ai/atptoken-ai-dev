@@ -1,0 +1,32 @@
+{
+  "id": "shibuya-crossing-image",
+  "kind": "image",
+  "prompt": "The decisive moment: a Korean man, late 20s, sharp jaw, short side-parted black hair, warm brown eyes, calm smile, lean build, charcoal wool overcoat, open-collar white shirt and a Korean woman, mid-20s, wavy shoulder-length black hair, dark eyes, shy warm smile, petite build, red wool trench coat with a matching belt, small gold hoop earrings, mid-turn in a slow dance at Shibuya Crossing at night, hands clasped, facing each other, her coat caught mid-swirl. Pedestrians blur past behind them; unbranded billboards glow red, blue, white, no readable text; rain-slicked crosswalk reflects neon. Medium shot, eye level, 35mm lens, shallow depth of field, crowd and billboards in soft bokeh. Neon rim light on wet pavement, warm romantic cinematic grade, extreme detail, photorealistic. Negative: blurry, distorted faces, extra fingers, warped text, oversaturated, watermark.",
+  "entries": [
+    {
+      "model": "gpt-image-2",
+      "file": "gpt-image-2.png",
+      "createdAt": "2026-08-04",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "model": "nano-banana-2",
+      "file": "nano-banana-2.png",
+      "createdAt": "2026-08-04",
+      "width": 1408,
+      "height": 768
+    },
+    {
+      "model": "nano-banana-pro",
+      "file": "nano-banana-pro.png",
+      "createdAt": "2026-08-04",
+      "width": 1408,
+      "height": 768
+    }
+  ],
+  "paramsRequested": {
+    "size": "1536x1024"
+  },
+  "paramsUniform": false
+}

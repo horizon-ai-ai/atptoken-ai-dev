@@ -1,11 +1,175 @@
 1:"$Sreact.fragment"
-9:I[51713,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js","/_next/static/chunks/1chh84bzgbaxu.js","/_next/static/chunks/1vu59d80ahi02.js","/_next/static/chunks/3bgctz23woyi1.js"],"default"]
-a:I[97367,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js"],"OutletBoundary"]
-b:"$Sreact.suspense"
-2:T4bf,{"@context":"https://schema.org","@type":"BlogPosting","headline":"Why AI bills explode after go-live: 5 control gaps and how to close them (2026)","description":"Enterprise AI bills spike after go-live when five control gaps open at once: project keys, spending caps, per-request attribution, model allowlists, and post-launch monitoring.","datePublished":"2026-07-29","dateModified":"2026-07-29","inLanguage":"en","keywords":"AI billing, Enterprise AI governance, ATP","url":"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/","mainEntityOfPage":"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/","image":"https://atptoken.ai/og-image.png","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T6da,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why does an AI bill spike right after go-live?","acceptedAnswer":{"@type":"Answer","text":"Usage shape changes after launch—longer context, more retries, multi-step agents that resend the same context—while caps and attribution are still missing. Unit prices may be flat while total spend multiplies within weeks."}},{"@type":"Question","name":"Where should an enterprise set AI spending caps?","acceptedAnswer":{"@type":"Answer","text":"At the project (or equivalent workload) layer, not only on one company card. Project caps contain blast radius; a single org total only tells you that spend exploded, not where."}},{"@type":"Question","name":"Why do shared API keys make AI bills hard to control?","acceptedAnswer":{"@type":"Answer","text":"A shared key strips every request of an owner. When spend runs hot you know 'someone' is burning money, not which system to throttle, revoke, or audit. Attribution and containment both start with one project, one key."}},{"@type":"Question","name":"Can we close these gaps without a governance platform?","acceptedAnswer":{"@type":"Answer","text":"Yes. Inventory keys in a spreadsheet, set vendor alerts, enforce a model allowlist, and ship request logs into existing monitoring. A platform's job is to make those steps the default, not the only path."}},{"@type":"Question","name":"How do coding agents change AI billing risk versus chat APIs?","acceptedAnswer":{"@type":"Answer","text":"Coding agents often run with long context, tool loops, and retries, so tokens per unit of work dwarf single-turn chat. If they share keys and budgets with production, experimental traffic can consume the formal budget."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Why AI bills explode after go-live: 5 control gaps and how to close them (2026)\",\"item\":\"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"iDhM2ZpK9XE_EvXRvdheN"}
-4:["$","$L9",null,{"slug":"why-ai-bills-explode-after-go-live"}]
-5:["$","script","script-0",{"src":"/_next/static/chunks/1chh84bzgbaxu.js","async":true}]
-6:["$","script","script-1",{"src":"/_next/static/chunks/1vu59d80ahi02.js","async":true}]
-7:["$","script","script-2",{"src":"/_next/static/chunks/3bgctz23woyi1.js","async":true}]
-8:["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]
-c:null
+9:I[51713,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/23c7vkgbyik20.js","/_next/static/chunks/3syyi7daqg4i4.js"],"default"]
+b:I[97367,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+2:T4e1,{"@context":"https://schema.org","@type":"BlogPosting","headline":"Why AI bills explode after go-live: 5 control gaps and how to close them (2026)","description":"Enterprise AI bills spike after go-live when five control gaps open at once: project keys, spending caps, per-request attribution, model allowlists, and post-launch monitoring.","datePublished":"2026-07-29","dateModified":"2026-07-29","inLanguage":"en","keywords":"AI billing, Enterprise AI governance, ATP","url":"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/","mainEntityOfPage":"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/","image":"https://atptoken.ai/og/blog/why-ai-bills-explode-after-go-live.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T6da,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why does an AI bill spike right after go-live?","acceptedAnswer":{"@type":"Answer","text":"Usage shape changes after launch—longer context, more retries, multi-step agents that resend the same context—while caps and attribution are still missing. Unit prices may be flat while total spend multiplies within weeks."}},{"@type":"Question","name":"Where should an enterprise set AI spending caps?","acceptedAnswer":{"@type":"Answer","text":"At the project (or equivalent workload) layer, not only on one company card. Project caps contain blast radius; a single org total only tells you that spend exploded, not where."}},{"@type":"Question","name":"Why do shared API keys make AI bills hard to control?","acceptedAnswer":{"@type":"Answer","text":"A shared key strips every request of an owner. When spend runs hot you know 'someone' is burning money, not which system to throttle, revoke, or audit. Attribution and containment both start with one project, one key."}},{"@type":"Question","name":"Can we close these gaps without a governance platform?","acceptedAnswer":{"@type":"Answer","text":"Yes. Inventory keys in a spreadsheet, set vendor alerts, enforce a model allowlist, and ship request logs into existing monitoring. A platform's job is to make those steps the default, not the only path."}},{"@type":"Question","name":"How do coding agents change AI billing risk versus chat APIs?","acceptedAnswer":{"@type":"Answer","text":"Coding agents often run with long context, tool loops, and retries, so tokens per unit of work dwarf single-turn chat. If they share keys and budgets with production, experimental traffic can consume the formal budget."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Why AI bills explode after go-live: 5 control gaps and how to close them (2026)\",\"item\":\"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Pm_9oQ2SKm1LxFNP6wq7a"}
+a:T3fb7,<p>An enterprise AI bill spike after go-live is a sudden overrun on large language model or related AI usage where the team cannot answer who spent the money, which model drove it, or which change caused the jump. This guide is for platform engineers, finance partners, and managers who sign off on AI spend for the first time.</p>
+<p>The answer up front: post-launch explosions are almost never a quiet vendor price change. They are <strong>five control gaps</strong> that open at the same moment traffic becomes real. Each gap has a fix; the sequence that works is fixed too—<strong>give every dollar an owner, give every <a class="doc-term" href="/en/docs/resources" data-def="The unit that permissions and billing hang off — keys, allowed models, and credit budget all belong to one.">project</a> a ceiling, then make every request replayable</strong>. Below: symptoms, consequences, and repairs you can run as a one-week stop-the-bleeding list. For the unit structure of a bill, pair this with <a href="/en/blog/how-to-read-your-ai-bill">how to read your AI bill</a>.</p>
+<h2 id="why-go-live-is-the-fuse">Why go-live is the fuse</h2>
+<p>Pilot traffic is short, small, and clean. After launch three things land together:</p>
+<ol>
+<li><strong>Real context gets longer</strong> — users paste whole documents; chat history stacks.  </li>
+<li><strong>Call patterns get heavier</strong> — agents, tool calls, and retries turn one job into a chain of requests.  </li>
+<li><strong>Headcount on the system jumps</strong> — a few engineers become a full business line.</li>
+</ol>
+<p>The price sheet may not move while <strong>tokens per job</strong> and <strong>who can call without a ceiling</strong> do. Without a control layer, those three factors multiply into one month-end total. Public failure stories—no usage limits, coding-agent cost per engineer, finance unable to name a team—map cleanly onto the five gaps below.</p>
+<h2 id="five-control-gaps-at-a-glance">Five control gaps at a glance</h2>
+<table>
+<thead>
+<tr>
+<th>Gap</th>
+<th>Typical post-launch symptom</th>
+<th>Minimum fix</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1. No project-scoped keys</td>
+<td>You only know &quot;the company is burning money&quot;</td>
+<td>One project, one revocable key</td>
+</tr>
+<tr>
+<td>2. No spending caps</td>
+<td>First signal is the invoice or an outage</td>
+<td>Project allocation = ceiling; alert before cut</td>
+</tr>
+<tr>
+<td>3. No per-request attribution</td>
+<td>Monthly total with no who / which model</td>
+<td>Log project, key, model, tokens per call</td>
+</tr>
+<tr>
+<td>4. No model allowlist</td>
+<td>Anyone can hit the dearest frontier model</td>
+<td>Project allowlist; deny before upstream</td>
+</tr>
+<tr>
+<td>5. No post-launch monitoring cadence</td>
+<td>Problems surface at month-end</td>
+<td>Weekly trend by project; investigate outliers</td>
+</tr>
+</tbody></table>
+<h2 id="gap-one-no-project-scoped-keys-spend-has-no-owner">Gap one: no project-scoped keys — spend has no owner</h2>
+<h3 id="symptom">Symptom</h3>
+<p>Several services, scripts, or personal tools share one API key. Nobody rotates it on offboarding because nobody knows who else depends on it.</p>
+<h3 id="why-it-explodes-after-go-live">Why it explodes after go-live</h3>
+<p>Low pilot volume hides the cost of sharing. After launch any one subsystem can spike, and your only moves are kill the key for everyone or watch the total climb.</p>
+<h3 id="fix">Fix</h3>
+<p>Make the <strong>project</strong> the unit of governance, not the person: one project, one key; permissions and budget hang off the project. When someone leaves, you revoke project access—not a company-wide skeleton key. Secrets shown once at creation, revocable anytime, retained for audit is the baseline in <a href="/en/docs/console-keys" class="doc-term-def" data-def="A key that starts with atp-. It inherits its project's allowed models and credit balance.">managing API keys</a> and item one of the <a href="/en/blog/ai-governance-checklist">enterprise AI governance checklist</a>.</p>
+<blockquote>
+<p>A shared key is the most expensive technical debt in governance: when something goes wrong you know &quot;someone,&quot; never &quot;who.&quot;</p>
+</blockquote>
+<h2 id="gap-two-no-spending-caps-the-blast-has-no-boundary">Gap two: no spending caps — the blast has no boundary</h2>
+<h3 id="symptom-2">Symptom</h3>
+<p>The vendor account or card runs until it cannot. The first formal signal is a 402, a support ticket, or an invoice finance did not forecast.</p>
+<h3 id="why-it-explodes-after-go-live-2">Why it explodes after go-live</h3>
+<p>Agents and batch jobs can run unattended for hours. Without a project ceiling, one hot path consumes the whole organization budget—the failure mode behind repeated public write-ups of &quot;no usage limits.&quot;</p>
+<h3 id="fix-2">Fix</h3>
+<p>Set a spendable allocation at the <strong>project</strong> layer and treat that allocation as the cap. Credits flow organization → workspace → project; a project spends only what it was given, and overspend should flag and stop or degrade—not silently charge the corporate total. Sequence: <a href="/en/docs/cb-budget-caps">set up a team with budget caps</a>. Meaning of Available / Allocated / Consumed: <a href="/en/docs/credits" class="doc-term-def" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">how credits work</a>.</p>
+<p>Alert before cut-off. If Usage cannot show Allocated versus Consumed, the budget is not alive after launch. See <a href="/en/docs/spend">tracking spend</a>.</p>
+<h2 id="gap-three-no-per-request-attribution-the-month-cannot-explain-itself">Gap three: no per-request attribution — the month cannot explain itself</h2>
+<h3 id="symptom-3">Symptom</h3>
+<p>Finance sees a 3× revision; engineering says pricing did not change; nobody can name a model or a deploy within an hour.</p>
+<h3 id="why-it-explodes-after-go-live-3">Why it explodes after go-live</h3>
+<p>Launch multiplies change: longer prompts, model swaps, retry policy, new agent steps. Without &quot;one request&quot; as the atomic record, teams debate opinions instead of ruling out hypotheses.</p>
+<h3 id="fix-3">Fix</h3>
+<p>Write at least project, key, model, input/output tokens, status, and time on every call. Totals are outcomes, not analysis. Role-based reading is in <a href="/en/blog/how-to-read-your-ai-bill">how to read your AI bill</a>; console Usage and request logs are in <a href="/en/docs/monitoring">usage and logs</a>.</p>
+<p>Keep <strong>average cost per thousand requests</strong> as the internal metric: it folds model choice, prompt length, and caching into one number better than staring at unit price tables.</p>
+<h2 id="gap-four-no-model-allowlist-the-expensive-path-becomes-the-default">Gap four: no model allowlist — the expensive path becomes the default</h2>
+<h3 id="symptom-4">Symptom</h3>
+<p>Policy says &quot;mid-tier by default&quot;; logs show frontier models everywhere. Someone hard-coded this season&#39;s strongest model for convenience.</p>
+<h3 id="why-it-explodes-after-go-live-4">Why it explodes after go-live</h3>
+<p>Call volume magnifies price gaps. Without a project allowlist, switching models is a one-line edit—not a decision that needs a reason.</p>
+<h3 id="fix-4">Fix</h3>
+<p>Maintain an <strong>allowed model list</strong> per project; reject anything outside it before traffic reaches a provider (for example 403). <code>GET /v1/models</code> is the platform menu, not the key&#39;s permission—see <a href="/en/docs/models">models</a> and <a href="/en/docs/how-it-works">how it works</a>. An allowlist turns &quot;who may use the dearest model&quot; into an answerable governance question instead of a code-review accident.</p>
+<h2 id="gap-five-no-post-launch-monitoring-cadence-issues-live-until-invoice-day">Gap five: no post-launch monitoring cadence — issues live until invoice day</h2>
+<h3 id="symptom-5">Symptom</h3>
+<p>Nobody opens usage weekly. Anomalies arrive with the bill or a customer complaint. Permission and quota changes in Activity go unreviewed.</p>
+<h3 id="why-it-explodes-after-go-live-5">Why it explodes after go-live</h3>
+<p>Controls checked once before launch drift after: new keys, wider allowlists, higher caps. Governance is a cycle, not a launch ceremony.</p>
+<h3 id="fix-5">Fix</h3>
+<p>Run a light cadence:</p>
+<table>
+<thead>
+<tr>
+<th>Cadence</th>
+<th>Look at</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Daily (automated)</td>
+<td>Project balance and error alerts</td>
+<td>Platform / on-call</td>
+</tr>
+<tr>
+<td>Weekly</td>
+<td>Spend ranked by project and model; map outliers to deploys</td>
+<td>Platform + project owners</td>
+</tr>
+<tr>
+<td>Monthly</td>
+<td>Credit reconciliation, projects in debt, idle keys</td>
+<td>Finance + platform</td>
+</tr>
+<tr>
+<td>Quarterly</td>
+<td>Permission cleanup, dead projects, allowlist diet</td>
+<td>Security / internal audit alignment</td>
+</tr>
+</tbody></table>
+<p>Security and admin events (sign-ins, invites, quota changes) should be queryable apart from pure usage—see Activity under <a href="/en/docs/monitoring">usage and logs</a>. The full 12-check loop is in the <a href="/en/blog/ai-governance-checklist">enterprise AI governance checklist</a>.</p>
+<h2 id="by-team-size-which-gaps-to-close-first-in-a-week">By team size: which gaps to close first in a week</h2>
+<h3 id="under-10-people">Under 10 people</h3>
+<p>Close <strong>gaps one, two, and three</strong>: project keys, caps, and visible request records. No committee required—configuration only.</p>
+<h3 id="50-to-200-people">50 to 200 people</h3>
+<p>Add <strong>gap four</strong>. Cross-team usage diverges; the allowlist decides who may call which model. Separate personal wallets from team allocation so business lines do not put spend on individual cards (<a href="/en/docs/topup" class="doc-term-def" data-def="Adding credits to the wallet. Minimum 5 USD, pay as you go.">top up and wallet</a>).</p>
+<h3 id="500-and-up">500 and up</h3>
+<p><strong>Gap five</strong> becomes the center of gravity. Launch is the start; quarterly inventory and per-request auditability decide whether next year&#39;s budget survives. Get the hierarchy right from day one: <a href="/en/docs/console-setup" class="doc-term-def" data-def="The top level of an account. Workspaces and projects sit underneath it.">set up your organization</a>.</p>
+<h2 id="by-workload-what-is-most-likely-to-detonate">By workload: what is most likely to detonate</h2>
+<h3 id="coding-agents-and-internal-dev-assistants">Coding agents and internal dev assistants</h3>
+<p>Long context, multi-step tools, high retry rates—tokens per unit of work dwarf chat. <strong>Split</strong> them from production projects and budgets; experimental caps should be cheap enough to burn. For wiring patterns see <a href="/en/docs/cb-claude-code">run Claude Code on ATP</a>—the point is key and project boundaries, not the tool brand.</p>
+<h3 id="support-and-high-frequency-short-calls">Support and high-frequency short calls</h3>
+<p>Cheap per call, huge volume. Risk sits in <strong>attribution and model tiering</strong>: lock high-frequency paths to smaller models; reserve frontier for escalations.</p>
+<h3 id="batch-and-overnight-pipelines">Batch and overnight pipelines</h3>
+<p>Unattended work amplifies gaps two and five. Caps and alerts before launch; hard limits on retry storms, or retries become a hidden cost line.</p>
+<h3 id="multi-vendor-adoption">Multi-vendor adoption</h3>
+<p>When rate cards and currencies disagree, finance disengages without one settlement unit and project-level ownership. That is why credits and a single billing plane exist—see <a href="/en/docs/credits" class="doc-term-def" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">how credits work</a>.</p>
+<h2 id="one-week-stop-the-bleeding-checklist">One-week stop-the-bleeding checklist</h2>
+<ol>
+<li><strong>Inventory</strong> every live API key, system, and whether it is shared.  </li>
+<li><strong>Split</strong> one project, one key per production system; schedule shared keys for retirement.  </li>
+<li><strong>Cap</strong> each project with a written monthly budget turned into an enforceable allocation.  </li>
+<li><strong>Narrow</strong> allowlists to required models; frontier is not the default.  </li>
+<li><strong>Instrument</strong> per-request records and a weekly &quot;spend by project&quot; view.  </li>
+<li><strong>Rehearse</strong> key leak: revoke, trace logs, reissue—one page.  </li>
+<li><strong>Align language</strong> so engineering and finance share tokens / credits / project (<a href="/en/blog/how-to-read-your-ai-bill">read the AI bill</a>).</li>
+</ol>
+<p><a href="/en/pricing">See pricing and billing modes →</a></p>
+<h2 id="a-more-modern-approach-close-the-five-gaps-by-default">A more modern approach: close the five gaps by default</h2>
+<p>Spreadsheets, vendor consoles, and discipline can patch every gap for a while. The more modern path is a <strong>governance and billing integration layer</strong> that closes them by default: organization → workspace → project answers whose budget; project keys inherit allowlists and allocations; exhausted balance rejects clearly (for example 402); unauthorized models never leave the gateway (for example 403); every request lands in a filterable audit trail.</p>
+<p>ATP Token is built on that path. It stays compatible with OpenAI, Anthropic, and Gemini wire formats—integration is usually a base_url and a key—and meters usage in credits allocated down the hierarchy. It does not replace model vendors; it is the plane where access, usage, and billing converge when you adopt more than one AI service.</p>
+<p><a href="/en/docs/quickstart">Start with the quickstart →</a></p>
+<h2 id="faqs">FAQs</h2>
+<h3 id="why-does-an-ai-bill-spike-right-after-go-live">Why does an AI bill spike right after go-live?</h3>
+<p>Usage shape changes after launch—longer context, more retries, multi-step agents that resend the same context—while caps and attribution are still missing. Unit prices may be flat while total spend multiplies within weeks.</p>
+<h3 id="where-should-an-enterprise-set-ai-spending-caps">Where should an enterprise set AI spending caps?</h3>
+<p>At the project (or equivalent workload) layer, not only on one company card. Project caps contain blast radius; a single org total only tells you that spend exploded, not where.</p>
+<h3 id="why-do-shared-api-keys-make-ai-bills-hard-to-control">Why do shared API keys make AI bills hard to control?</h3>
+<p>A shared key strips every request of an owner. When spend runs hot you know &quot;someone&quot; is burning money, not which system to throttle, revoke, or audit. Attribution and containment both start with one project, one key.</p>
+<h3 id="can-we-close-these-gaps-without-a-governance-platform">Can we close these gaps without a governance platform?</h3>
+<p>Yes. Inventory keys in a spreadsheet, set vendor alerts, enforce a model allowlist, and ship request logs into existing monitoring. A platform&#39;s job is to make those steps the default, not the only path.</p>
+<h3 id="how-do-coding-agents-change-ai-billing-risk-versus-chat-apis">How do coding agents change AI billing risk versus chat APIs?</h3>
+<p>Coding agents often run with long context, tool loops, and retries, so tokens per unit of work dwarf single-turn chat. If they share keys and budgets with production, experimental traffic can consume the formal budget.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="/en/blog/enterprise-ai-cost-management-guide">Enterprise AI cost management: the complete guide to tokens, credits, keys, and caps</a></li>
+<li><a href="/en/blog/what-is-the-agent-tax">What is the agent tax? Why multi-step AI agents inflate token bills</a></li>
+<li><a href="/en/blog/ai-spending-caps-that-work">AI spending caps that work: treat allocation as the budget ceiling</a></li>
+</ul>
+<p>Go-live should not mean bill loss of control. Each of the five gaps has a repair; in one week, give money an owner, projects a ceiling, and requests a replay trail—and the explosion becomes a table in your weekly meeting.</p>
+<p><a href="/en/enterprise-plan">Apply for the enterprise plan →</a></p>4:["$","$L9",null,{"data":{"lang":"en","post":{"slug":"why-ai-bills-explode-after-go-live","title":"Why AI bills explode after go-live: 5 control gaps and how to close them (2026)","metaTitle":"AI bills explode after go-live: 5 gaps (2026)","description":"Enterprise AI bills spike after go-live when five control gaps open at once: project keys, spending caps, per-request attribution, model allowlists, and post-launch monitoring.","date":"2026-07-29","tags":["AI billing","Enterprise AI governance","ATP"],"author":"hung-chien","authorTitle":"AI Growth & Brand Manager","tldr":["Post-launch bill spikes are rarely secret price hikes. They are five control gaps opening together: no project-scoped keys, no spending caps, no per-request attribution, no model allowlist, and no post-go-live monitoring cadence.","Stop the bleeding in one week: one project, one key; a hard project budget; and request records you can filter. Most 'explosions' become explainable reports.","Judge control quality by two signals, not the monthly total alone: every dollar has an owner, and someone is notified before the balance hits zero."],"faq":[{"q":"Why does an AI bill spike right after go-live?","a":"Usage shape changes after launch—longer context, more retries, multi-step agents that resend the same context—while caps and attribution are still missing. Unit prices may be flat while total spend multiplies within weeks."},{"q":"Where should an enterprise set AI spending caps?","a":"At the project (or equivalent workload) layer, not only on one company card. Project caps contain blast radius; a single org total only tells you that spend exploded, not where."},{"q":"Why do shared API keys make AI bills hard to control?","a":"A shared key strips every request of an owner. When spend runs hot you know 'someone' is burning money, not which system to throttle, revoke, or audit. Attribution and containment both start with one project, one key."},{"q":"Can we close these gaps without a governance platform?","a":"Yes. Inventory keys in a spreadsheet, set vendor alerts, enforce a model allowlist, and ship request logs into existing monitoring. A platform's job is to make those steps the default, not the only path."},{"q":"How do coding agents change AI billing risk versus chat APIs?","a":"Coding agents often run with long context, tool loops, and retries, so tokens per unit of work dwarf single-turn chat. If they share keys and budgets with production, experimental traffic can consume the formal budget."}],"readingMinutes":9,"cover":"why-ai-bills-explode-after-go-live","html":"$a"},"newer":{"slug":"what-is-the-agent-tax","title":"What is the agent tax? Why multi-step AI agents inflate token bills (2026)","date":"2026-07-31"},"older":{"slug":"how-to-read-your-ai-bill","title":"How to read your AI bill: a 3-layer guide to tokens, credits, and per-request attribution (2026)","date":"2026-07-21"}}}]
+5:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/23c7vkgbyik20.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/3syyi7daqg4i4.js","async":true}]
+8:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

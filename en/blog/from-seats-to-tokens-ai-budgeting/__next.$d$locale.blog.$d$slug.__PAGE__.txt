@@ -1,11 +1,74 @@
 1:"$Sreact.fragment"
-9:I[51713,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js","/_next/static/chunks/1chh84bzgbaxu.js","/_next/static/chunks/1vu59d80ahi02.js","/_next/static/chunks/3bgctz23woyi1.js"],"default"]
-a:I[97367,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js"],"OutletBoundary"]
-b:"$Sreact.suspense"
-2:T49c,{"@context":"https://schema.org","@type":"BlogPosting","headline":"From seats to tokens: how AI breaks SaaS budgeting (2026)","description":"AI turns seat-based SaaS budgets into token and credit metering. Learn new metrics, department allocations, and controls when usage—not headcount—drives cost.","datePublished":"2026-09-04","dateModified":"2026-09-04","inLanguage":"en","keywords":"AI budgeting, Usage-based pricing, ATP","url":"https://atptoken.ai/en/blog/from-seats-to-tokens-ai-budgeting/","mainEntityOfPage":"https://atptoken.ai/en/blog/from-seats-to-tokens-ai-budgeting/","image":"https://atptoken.ai/og-image.png","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T5df,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does token-based AI pricing differ from seat-based SaaS?","acceptedAnswer":{"@type":"Answer","text":"Seat pricing scales with named users. Token pricing scales with usage volume and shape—prompt size, output length, retries, and agent steps—so cost can spike without hiring."}},{"@type":"Question","name":"What metrics replace cost per seat for AI?","acceptedAnswer":{"@type":"Answer","text":"Credits consumed vs allocated by project, average cost per thousand requests, and cost per completed agent task. Monthly totals alone cannot drive decisions."}},{"@type":"Question","name":"How should departments budget for AI in 2026?","acceptedAnswer":{"@type":"Answer","text":"Give each product or BU a project allocation in a shared settlement unit, review burn weekly, and keep experimental sandboxes on separate low caps."}},{"@type":"Question","name":"Why do AI features inside SaaS products complicate ERP budgets?","acceptedAnswer":{"@type":"Answer","text":"Vendors add usage meters—tokens, AI actions, document processing—on top of seats. Without caps and reporting rights, adoption growth becomes an unplanned line item."}},{"@type":"Question","name":"What is the first step to modernize AI budgeting?","acceptedAnswer":{"@type":"Answer","text":"Inventory all AI usage paths and keys, pick one settlement unit, assign project owners, and put enforceable allocations on production workloads."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/en/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/en/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"From seats to tokens: how AI breaks SaaS budgeting (2026)\",\"item\":\"https://atptoken.ai/en/blog/from-seats-to-tokens-ai-budgeting/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"iDhM2ZpK9XE_EvXRvdheN"}
-4:["$","$L9",null,{"slug":"from-seats-to-tokens-ai-budgeting"}]
-5:["$","script","script-0",{"src":"/_next/static/chunks/1chh84bzgbaxu.js","async":true}]
-6:["$","script","script-1",{"src":"/_next/static/chunks/1vu59d80ahi02.js","async":true}]
-7:["$","script","script-2",{"src":"/_next/static/chunks/3bgctz23woyi1.js","async":true}]
-8:["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]
-c:null
+9:I[51713,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/23c7vkgbyik20.js","/_next/static/chunks/3syyi7daqg4i4.js"],"default"]
+b:I[97367,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+2:T4bd,{"@context":"https://schema.org","@type":"BlogPosting","headline":"From seats to tokens: how AI breaks SaaS budgeting (2026)","description":"AI turns seat-based SaaS budgets into token and credit metering. Learn new metrics, department allocations, and controls when usage—not headcount—drives cost.","datePublished":"2026-09-04","dateModified":"2026-09-04","inLanguage":"en","keywords":"AI budgeting, Usage-based pricing, ATP","url":"https://atptoken.ai/en/blog/from-seats-to-tokens-ai-budgeting/","mainEntityOfPage":"https://atptoken.ai/en/blog/from-seats-to-tokens-ai-budgeting/","image":"https://atptoken.ai/og/blog/from-seats-to-tokens-ai-budgeting.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T5df,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does token-based AI pricing differ from seat-based SaaS?","acceptedAnswer":{"@type":"Answer","text":"Seat pricing scales with named users. Token pricing scales with usage volume and shape—prompt size, output length, retries, and agent steps—so cost can spike without hiring."}},{"@type":"Question","name":"What metrics replace cost per seat for AI?","acceptedAnswer":{"@type":"Answer","text":"Credits consumed vs allocated by project, average cost per thousand requests, and cost per completed agent task. Monthly totals alone cannot drive decisions."}},{"@type":"Question","name":"How should departments budget for AI in 2026?","acceptedAnswer":{"@type":"Answer","text":"Give each product or BU a project allocation in a shared settlement unit, review burn weekly, and keep experimental sandboxes on separate low caps."}},{"@type":"Question","name":"Why do AI features inside SaaS products complicate ERP budgets?","acceptedAnswer":{"@type":"Answer","text":"Vendors add usage meters—tokens, AI actions, document processing—on top of seats. Without caps and reporting rights, adoption growth becomes an unplanned line item."}},{"@type":"Question","name":"What is the first step to modernize AI budgeting?","acceptedAnswer":{"@type":"Answer","text":"Inventory all AI usage paths and keys, pick one settlement unit, assign project owners, and put enforceable allocations on production workloads."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/en/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/en/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"From seats to tokens: how AI breaks SaaS budgeting (2026)\",\"item\":\"https://atptoken.ai/en/blog/from-seats-to-tokens-ai-budgeting/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Pm_9oQ2SKm1LxFNP6wq7a"}
+a:T149a,<p>From seats to tokens describes the budgeting shift when software cost drivers move from named-user licenses to metered model usage—tokens, credits, and AI actions. This guide is for finance and platform partners rewriting chargeback models for enterprise AI.</p>
+<p><strong>Headcount no longer predicts the bill.</strong> Agents and long context let ten people spend like a hundred. Build budgets on <strong>allocation, attribution, and task economics</strong>. Foundation: <a href="/en/blog/enterprise-ai-cost-management-guide">enterprise AI cost management</a>, <a href="/en/blog/how-to-read-your-ai-bill">read your AI bill</a>.</p>
+<h2 id="why-seat-logic-fails">Why seat logic fails</h2>
+<table>
+<thead>
+<tr>
+<th>Seat-era assumption</th>
+<th>Token-era reality</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>More users → more cost</td>
+<td>Same users, longer prompts → more cost</td>
+</tr>
+<tr>
+<td>Monthly predictability</td>
+<td>Spiky agent and batch jobs</td>
+</tr>
+<tr>
+<td>Department = license count</td>
+<td>Department = <a class="doc-term" href="/en/docs/resources" data-def="The unit that permissions and billing hang off — keys, allowed models, and credit budget all belong to one.">project</a> allocation</td>
+</tr>
+<tr>
+<td>Procurement annual</td>
+<td>Continuous top-up + contract credits</td>
+</tr>
+</tbody></table>
+<h2 id="new-primitive-settlement-unit">New primitive: settlement unit</h2>
+<p>Credits convert heterogeneous model rates into one balance (<a href="/en/docs/credits" class="doc-term-def" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">credits</a>, <a href="/en/docs/topup" class="doc-term-def" data-def="Adding credits to the wallet. Minimum 5 USD, pay as you go.">topup</a>). Without them, multi-vendor AI is several foreign languages in AP.</p>
+<h2 id="new-primitive-project-owner">New primitive: project owner</h2>
+<p><a href="/en/blog/one-project-one-key">One project, one key</a>. Chargeback without owners is theater.</p>
+<h2 id="new-primitive-cap-with-alert">New primitive: cap with alert</h2>
+<p><a href="/en/blog/ai-spending-caps-that-work">Spending caps</a>. Spreadsheet ceilings on unlimited cards recreate every public overrun story (<a href="/en/blog/why-ai-bills-explode-after-go-live">bills explode</a>).</p>
+<h2 id="metrics-finance-can-run">Metrics finance can run</h2>
+<ol>
+<li>Allocated vs consumed by project (weekly)  </li>
+<li>Cost per thousand requests (engineering)  </li>
+<li>Cost per agent task (<a href="/en/blog/what-is-the-agent-tax">agent tax</a>)  </li>
+<li>402/403 rates as control health</li>
+</ol>
+<h2 id="by-organization-shape">By organization shape</h2>
+<p><strong>Central platform pays:</strong> allocate to products like cloud accounts.<br><strong>BU pays:</strong> workspace per BU, clear top-up path.<br><strong>Hybrid:</strong> platform funds sandbox; BU funds production.</p>
+<h2 id="a-more-modern-approach">A more modern approach</h2>
+<p>ERP and SaaS will keep bolting AI meters onto seats. Enterprises still need a <strong>governance and billing integration layer</strong> for API-shaped usage. ATP Token provides hierarchical credits and request-level audit with SDK-compatible access so finance and engineering share one plane—aligned with Horizon AI adoption methodology.</p>
+<p><a href="/en/pricing">Pricing →</a> · <a href="/en/docs/quickstart">Quickstart →</a></p>
+<h2 id="faqs">FAQs</h2>
+<h3 id="how-does-token-based-ai-pricing-differ-from-seat-based-saas">How does token-based AI pricing differ from seat-based SaaS?</h3>
+<p>Seat pricing scales with named users. Token pricing scales with usage volume and shape—prompt size, output length, retries, and agent steps—so cost can spike without hiring.</p>
+<h3 id="what-metrics-replace-cost-per-seat-for-ai">What metrics replace cost per seat for AI?</h3>
+<p>Credits consumed vs allocated by project, average cost per thousand requests, and cost per completed agent task. Monthly totals alone cannot drive decisions.</p>
+<h3 id="how-should-departments-budget-for-ai-in-2026">How should departments budget for AI in 2026?</h3>
+<p>Give each product or BU a project allocation in a shared settlement unit, review burn weekly, and keep experimental sandboxes on separate low caps.</p>
+<h3 id="why-do-ai-features-inside-saas-products-complicate-erp-budgets">Why do AI features inside SaaS products complicate ERP budgets?</h3>
+<p>Vendors add usage meters—tokens, AI actions, document processing—on top of seats. Without caps and reporting rights, adoption growth becomes an unplanned line item.</p>
+<h3 id="what-is-the-first-step-to-modernize-ai-budgeting">What is the first step to modernize AI budgeting?</h3>
+<p>Inventory all AI usage paths and keys, pick one settlement unit, assign project owners, and put enforceable allocations on production workloads.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="/en/blog/enterprise-ai-cost-management-guide">Enterprise AI cost management guide</a></li>
+<li><a href="/en/blog/ai-spending-caps-that-work">AI spending caps that work</a></li>
+<li><a href="/en/blog/what-is-the-agent-tax">What is the agent tax</a></li>
+</ul>
+<p>Budget the job, not only the headcount.</p>
+<p><a href="/en/enterprise-plan">Enterprise plan →</a></p>4:["$","$L9",null,{"data":{"lang":"en","post":{"slug":"from-seats-to-tokens-ai-budgeting","title":"From seats to tokens: how AI breaks SaaS budgeting (2026)","metaTitle":"From seats to tokens: AI budgeting (2026)","description":"AI turns seat-based SaaS budgets into token and credit metering. Learn new metrics, department allocations, and controls when usage—not headcount—drives cost.","date":"2026-09-04","tags":["AI budgeting","Usage-based pricing","ATP"],"author":"hung-chien","authorTitle":"AI Growth & Brand Manager","tldr":["Seat budgets assume cost tracks headcount; token budgets track jobs, context, and agents—so the same headcount can 10× spend overnight.","Finance needs credits as a single unit, project owners, and caps that alert before hard stops.","Renegotiate internal chargeback: cost per task and cost per thousand requests replace cost per seat."],"faq":[{"q":"How does token-based AI pricing differ from seat-based SaaS?","a":"Seat pricing scales with named users. Token pricing scales with usage volume and shape—prompt size, output length, retries, and agent steps—so cost can spike without hiring."},{"q":"What metrics replace cost per seat for AI?","a":"Credits consumed vs allocated by project, average cost per thousand requests, and cost per completed agent task. Monthly totals alone cannot drive decisions."},{"q":"How should departments budget for AI in 2026?","a":"Give each product or BU a project allocation in a shared settlement unit, review burn weekly, and keep experimental sandboxes on separate low caps."},{"q":"Why do AI features inside SaaS products complicate ERP budgets?","a":"Vendors add usage meters—tokens, AI actions, document processing—on top of seats. Without caps and reporting rights, adoption growth becomes an unplanned line item."},{"q":"What is the first step to modernize AI budgeting?","a":"Inventory all AI usage paths and keys, pick one settlement unit, assign project owners, and put enforceable allocations on production workloads."}],"readingMinutes":2,"cover":"from-seats-to-tokens-ai-budgeting","html":"$a"},"newer":null,"older":{"slug":"shadow-ai-governed-control-plane","title":"Shadow AI in the enterprise: from personal keys to a governed control plane (2026)","date":"2026-09-02"}}}]
+5:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/23c7vkgbyik20.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/3syyi7daqg4i4.js","async":true}]
+8:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

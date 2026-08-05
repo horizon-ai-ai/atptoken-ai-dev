@@ -1,0 +1,32 @@
+{
+  "id": "movie-scene-image",
+  "kind": "image",
+  "prompt": "The decisive moment: a Swedish woman, early 30s, platinum blonde pixie cut, piercing pale blue eyes, intense determined expression, athletic build, wearing a tactical dark grey jacket, standing amid drifting smoke in a rain-soaked alley, one hand gripping a flashlight raised beside her face, rain streaking through the beam of light. Medium shot, low angle, 35mm lens, deep focus. Low-key chiaroscuro lighting, high-contrast cinematic grade, extreme detail, photorealistic. Negative: blurry, distorted faces, extra fingers, warped text, oversaturated, watermark.",
+  "entries": [
+    {
+      "model": "gpt-image-2",
+      "file": "gpt-image-2.png",
+      "createdAt": "2026-08-04",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "model": "nano-banana-2",
+      "file": "nano-banana-2.png",
+      "createdAt": "2026-08-04",
+      "width": 1408,
+      "height": 768
+    },
+    {
+      "model": "nano-banana-pro",
+      "file": "nano-banana-pro.png",
+      "createdAt": "2026-08-04",
+      "width": 1408,
+      "height": 768
+    }
+  ],
+  "paramsRequested": {
+    "size": "1024x1536"
+  },
+  "paramsUniform": false
+}

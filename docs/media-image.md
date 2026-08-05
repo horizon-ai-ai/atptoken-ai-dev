@@ -30,8 +30,42 @@ curl https://api.atptoken.ai/omni/media/v1/images/generations/tasks \
 | size | string | model-specific; OpenAI images commonly use `1024x1024` |
 | quality | string | forwarded to OpenAI-dialect upstreams (e.g. `high` / `medium`) |
 | n | integer | number of images, 1–4 (default `1`) |
+| reference_assets | array | **top-level** input images for edit-style models — `[{ "url": "…" }]`. See below. |
 
 Reuse the same `Idempotency-Key` when retrying a create after a network failure; use a fresh key for a genuinely new task.
+
+#### Input images for edit-style models — `reference_assets`
+
+> **Verified against production 2026-08-04**
+>
+> Edit-style models (`nano-banana-pro-edit`, `qwen-image-edit-max`, …) take their input images in a **top-level `reference_assets` array of objects**. `content[]`, `image` and `image_url` are all rejected with `422 Invalid input.reference_assets: required.`, and a plain array of URL strings is rejected as `Invalid input.reference_assets`. It must be `[{ "url": "…" }]`.
+
+```
+curl https://api.atptoken.ai/omni/media/v1/images/generations/tasks \
+  -H "Authorization: Bearer atp-..." -H "Content-Type: application/json" \
+  -H "Idempotency-Key: img-edit-001" \
+  -d '{
+    "model": "nano-banana-pro-edit",
+    "prompt": "Background: a sunlit marble kitchen counter. Preserve the product exactly — same shape, label text, colors and proportions as the reference.",
+    "n": 1,
+    "reference_assets": [
+      { "url": "https://example.com/product.png" }
+    ]
+  }'
+# → 202 { "id": "img_..." }
+```
+
+**What `url` accepts** (image endpoint, verified 2026-08-04):
+
+| Form | Image endpoint | Notes |
+| --- | --- | --- |
+| public `https://…` URL | works | must be fetchable by the upstream **without authentication** |
+| `data:image/png;base64,…` | works | the whole payload travels in the request body — keep it small |
+| `asset://<id>` / `asset://<pid>.<id>` | **not supported** | every attempt fails at generation time with `provider_error / generation_failed` |
+
+The simplest way to turn an upload into a usable URL: `POST /v1/files` (the response key is **`id`**), then `GET /v1/files/{id}` **without following the redirect** and use the `Location` header — an object-store presigned URL that needs no auth and lives about 15 minutes. See [/v1/files](https://atptoken.ai/docs/files/).
+
+`prompt` is still required on an edit call. A short instruction is enough, but the field cannot be omitted.
 
 #### How per-image billing picks a size tier
 
@@ -63,6 +97,7 @@ curl https://api.atptoken.ai/omni/media/v1/images/generations/tasks/img_... \
 - `status` transitions `queued` → `running` → `succeeded` / `failed` / `cancelled` / `expired`.
 - A succeeded task's `data[].url` is a signed URL with a **30-minute TTL**; after expiry the task still reports `succeeded` with `expired: true` and a null `url` — download promptly (re-create to regenerate).
 - `usage` reports token usage for billing transparency; a `failed` task carries a structured `error` object.
+- **The extension in `data[].url` is not a reliable format signal** (verified 2026-08-04): a URL ending in `.png` can carry JPEG bytes. If the format matters — you are re-uploading the result, or converting it — sniff the bytes (magic number) rather than trusting the filename.
 
 | Method | Path | Action |
 | --- | --- | --- |

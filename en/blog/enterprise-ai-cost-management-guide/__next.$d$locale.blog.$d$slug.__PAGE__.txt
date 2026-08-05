@@ -1,11 +1,107 @@
 1:"$Sreact.fragment"
-9:I[51713,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js","/_next/static/chunks/1chh84bzgbaxu.js","/_next/static/chunks/1vu59d80ahi02.js","/_next/static/chunks/3bgctz23woyi1.js"],"default"]
-a:I[97367,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js"],"OutletBoundary"]
-b:"$Sreact.suspense"
-2:T4ea,{"@context":"https://schema.org","@type":"BlogPosting","headline":"Enterprise AI cost management: the complete guide to tokens, credits, keys, and caps (2026)","description":"Enterprise AI cost management covers token economics, credit settlement, project keys, spending caps, agent tax, and audit logs—so multi-vendor AI spend stays attributable and controllable.","datePublished":"2026-08-05","dateModified":"2026-08-05","inLanguage":"en","keywords":"Enterprise AI cost management, AI governance, ATP","url":"https://atptoken.ai/en/blog/enterprise-ai-cost-management-guide/","mainEntityOfPage":"https://atptoken.ai/en/blog/enterprise-ai-cost-management-guide/","image":"https://atptoken.ai/og-image.png","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T60b,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is enterprise AI cost management?","acceptedAnswer":{"@type":"Answer","text":"Enterprise AI cost management is how a company meters model usage, assigns ownership, sets spending ceilings, and audits requests across projects and vendors so AI spend is forecastable and attributable."}},{"@type":"Question","name":"How do tokens and credits differ in AI billing?","acceptedAnswer":{"@type":"Answer","text":"Tokens are the model pricing unit for input and output text. Credits are a settlement unit that converts multi-model usage into one balance finance can allocate and reconcile."}},{"@type":"Question","name":"What is the best way to attribute AI costs to teams?","acceptedAnswer":{"@type":"Answer","text":"Issue project-scoped API keys, log every request with project and model, and roll credits up the organization hierarchy. Shared keys make true attribution impossible."}},{"@type":"Question","name":"How do AI agents change cost management?","acceptedAnswer":{"@type":"Answer","text":"Agents multiply tokens per job through context resend, tools, and retries—the agent tax. Manage cost per completed task and isolate agent projects with hard caps."}},{"@type":"Question","name":"What tools belong in an AI cost control stack?","acceptedAnswer":{"@type":"Answer","text":"A model access layer with allowlists, hierarchical budgets, per-request logs, and SDK-compatible gateways—plus process for weekly review and quarterly key cleanup."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/en/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/en/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Enterprise AI cost management: the complete guide to tokens, credits, keys, and caps (2026)\",\"item\":\"https://atptoken.ai/en/blog/enterprise-ai-cost-management-guide/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"iDhM2ZpK9XE_EvXRvdheN"}
-4:["$","$L9",null,{"slug":"enterprise-ai-cost-management-guide"}]
-5:["$","script","script-0",{"src":"/_next/static/chunks/1chh84bzgbaxu.js","async":true}]
-6:["$","script","script-1",{"src":"/_next/static/chunks/1vu59d80ahi02.js","async":true}]
-7:["$","script","script-2",{"src":"/_next/static/chunks/3bgctz23woyi1.js","async":true}]
-8:["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]
-c:null
+9:I[51713,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/23c7vkgbyik20.js","/_next/static/chunks/3syyi7daqg4i4.js"],"default"]
+b:I[97367,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+2:T50d,{"@context":"https://schema.org","@type":"BlogPosting","headline":"Enterprise AI cost management: the complete guide to tokens, credits, keys, and caps (2026)","description":"Enterprise AI cost management covers token economics, credit settlement, project keys, spending caps, agent tax, and audit logs—so multi-vendor AI spend stays attributable and controllable.","datePublished":"2026-08-05","dateModified":"2026-08-05","inLanguage":"en","keywords":"Enterprise AI cost management, AI governance, ATP","url":"https://atptoken.ai/en/blog/enterprise-ai-cost-management-guide/","mainEntityOfPage":"https://atptoken.ai/en/blog/enterprise-ai-cost-management-guide/","image":"https://atptoken.ai/og/blog/enterprise-ai-cost-management-guide.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T60b,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is enterprise AI cost management?","acceptedAnswer":{"@type":"Answer","text":"Enterprise AI cost management is how a company meters model usage, assigns ownership, sets spending ceilings, and audits requests across projects and vendors so AI spend is forecastable and attributable."}},{"@type":"Question","name":"How do tokens and credits differ in AI billing?","acceptedAnswer":{"@type":"Answer","text":"Tokens are the model pricing unit for input and output text. Credits are a settlement unit that converts multi-model usage into one balance finance can allocate and reconcile."}},{"@type":"Question","name":"What is the best way to attribute AI costs to teams?","acceptedAnswer":{"@type":"Answer","text":"Issue project-scoped API keys, log every request with project and model, and roll credits up the organization hierarchy. Shared keys make true attribution impossible."}},{"@type":"Question","name":"How do AI agents change cost management?","acceptedAnswer":{"@type":"Answer","text":"Agents multiply tokens per job through context resend, tools, and retries—the agent tax. Manage cost per completed task and isolate agent projects with hard caps."}},{"@type":"Question","name":"What tools belong in an AI cost control stack?","acceptedAnswer":{"@type":"Answer","text":"A model access layer with allowlists, hierarchical budgets, per-request logs, and SDK-compatible gateways—plus process for weekly review and quarterly key cleanup."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/en/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/en/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Enterprise AI cost management: the complete guide to tokens, credits, keys, and caps (2026)\",\"item\":\"https://atptoken.ai/en/blog/enterprise-ai-cost-management-guide/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Pm_9oQ2SKm1LxFNP6wq7a"}
+a:T217f,<p>Enterprise AI cost management is the operating system a company uses to meter large language model and related AI usage, assign owners, enforce ceilings, and audit requests across teams and vendors. This pillar guide is for platform, finance, and leadership stakeholders building multi-model AI into production.</p>
+<p><strong>Operate four layers together:</strong> (1) token economics, (2) credit settlement, (3) <a class="doc-term" href="/en/docs/resources" data-def="The unit that permissions and billing hang off — keys, allowed models, and credit budget all belong to one.">project</a> ownership, (4) runtime caps and review. Miss one layer and the bill becomes a surprise—the pattern in <a href="/en/blog/why-ai-bills-explode-after-go-live">why bills explode after go-live</a>. Deep unit reading: <a href="/en/blog/how-to-read-your-ai-bill">how to read your AI bill</a>.</p>
+<h2 id="layer-1-token-economics-pricing-unit">Layer 1 — Token economics (pricing unit)</h2>
+<p>Input vs output pricing, context length, cache hits, reasoning budgets that consume <code>max_tokens</code> without visible text (<a href="/en/docs/errors">errors</a>). Internal metric: <strong>average cost per thousand requests</strong>. Catalog and rates: <a href="/en/docs/models">models</a>, <a href="/en/pricing">pricing</a>, <a href="/en/docs/pricing-model">pricing model</a>.</p>
+<h2 id="layer-2-credits-settlement-unit">Layer 2 — Credits (settlement unit)</h2>
+<p>Multi-vendor rate cards need one language. Credits (on ATP, 1 credit = USD 0.01) flow organization → workspace → project (<a href="/en/docs/credits" class="doc-term-def" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">credits</a>, <a href="/en/docs/topup" class="doc-term-def" data-def="Adding credits to the wallet. Minimum 5 USD, pay as you go.">topup</a>). Finance reconciles one plane; engineering still sees model-level detail in logs.</p>
+<h2 id="layer-3-ownership-project-and-key">Layer 3 — Ownership (project and key)</h2>
+<p><a href="/en/blog/one-project-one-key">One project, one key</a>. Hierarchy in <a href="/en/docs/console-setup" class="doc-term-def" data-def="The top level of an account. Workspaces and projects sit underneath it.">console setup</a>; issuance in <a href="/en/docs/console-keys" class="doc-term-def" data-def="A key that starts with atp-. It inherits its project's allowed models and credit balance.">console keys</a>; roles in <a href="/en/docs/team">team</a>. Without ownership, layers 1–2 only explain <em>what</em> was spent, not <em>who</em>.</p>
+<h2 id="layer-4-caps-and-monitoring-runtime-control">Layer 4 — Caps and monitoring (runtime control)</h2>
+<p>Allocation as ceiling (<a href="/en/blog/ai-spending-caps-that-work">spending caps</a>, <a href="/en/docs/cb-budget-caps">cb-budget-caps</a>). Usage, request logs, Activity (<a href="/en/docs/monitoring">monitoring</a>, <a href="/en/docs/spend">spend</a>). Cadence: daily alerts, weekly project ranking, monthly reconciliation, quarterly cleanup (<a href="/en/blog/ai-governance-checklist">governance checklist</a>).</p>
+<h2 id="the-agent-tax-inside-cost-management">The agent tax inside cost management</h2>
+<p>Multi-step agents change the unit of work (<a href="/en/blog/what-is-the-agent-tax">agent tax</a>, <a href="/en/blog/coding-agents-cost-control-checklist">coding agents checklist</a>). Add <strong>cost per completed task</strong> next to cost per request or the dashboard lies.</p>
+<h2 id="multi-vendor-and-gateway-choices">Multi-vendor and gateway choices</h2>
+<p>Direct vendor APIs vs control layer: <a href="/en/blog/openai-api-vs-enterprise-ai-gateway">OpenAI API vs enterprise AI gateway</a>. Spectrum of tools: <a href="/en/blog/ai-gateway-comparison-2026">AI gateway comparison</a>. Routing and failover: <a href="/en/docs/provider-routing" class="doc-term-def" data-def="One model id is served by a pool of providers; a degraded one is routed around automatically.">provider routing</a>. Menu vs permission: <a href="/en/blog/model-catalog-vs-access-control">model catalog vs access control</a>.</p>
+<h2 id="by-team-size">By team size</h2>
+<table>
+<thead>
+<tr>
+<th>Size</th>
+<th>Minimum viable cost system</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;10</td>
+<td>Project keys, two caps (prod/sandbox), weekly log glance</td>
+</tr>
+<tr>
+<td>50–200</td>
+<td>Workspaces per product, allowlists, finance monthly close in credits</td>
+</tr>
+<tr>
+<td>500+</td>
+<td>BU allocations, audit-ready request retention, quarterly access review</td>
+</tr>
+</tbody></table>
+<h2 id="by-industry-lens">By industry lens</h2>
+<p><strong>Software:</strong> speed with default sandbox caps.<br><strong>Finance / regulated:</strong> data boundaries + request audit as shared language.<br><strong>Support-heavy:</strong> volume attribution decides next year’s budget.</p>
+<h2 id="30-day-implementation-roadmap">30-day implementation roadmap</h2>
+<p><strong>Week 1:</strong> Inventory keys and vendors; kill obvious shared secrets.<br><strong>Week 2:</strong> Stand hierarchy; migrate top three systems to project keys.<br><strong>Week 3:</strong> Allocations + alerts; separate agents.<br><strong>Week 4:</strong> First monthly close in credits; publish internal runbook.  </p>
+<p>Wire formats can stay stable (<a href="/en/docs/how-it-works">how it works</a>, <a href="/en/docs/cb-migrate-openai">migrate</a>).</p>
+<h2 id="metrics-scoreboard">Metrics scoreboard</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Owner</th>
+<th>Cadence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Credits consumed vs allocated by project</td>
+<td>Platform + finance</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>Cost per thousand requests</td>
+<td>Engineering</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>Cost per agent task</td>
+<td>Agent owners</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>402 / 403 rates</td>
+<td>Platform</td>
+<td>Daily</td>
+</tr>
+<tr>
+<td>Idle keys revoked</td>
+<td>Security</td>
+<td>Monthly</td>
+</tr>
+</tbody></table>
+<h2 id="a-more-modern-approach">A more modern approach</h2>
+<p>Spreadsheets track intentions; gateways enforce them. ATP Token is Horizon AI’s governance and billing integration product for multi-service AI adoption: one console for hierarchy, allowlists, credits, and logs, with OpenAI / Anthropic / Gemini-compatible access. Adoption programs on <a href="https://www.horizon-ai.ai/en" target="_blank" rel="noopener noreferrer">Horizon AI</a> use this foundation so PoCs ship with cost controls on day one.</p>
+<p><a href="/en/docs/quickstart">Quickstart →</a> · <a href="/en/enterprise-plan">Enterprise plan →</a></p>
+<h2 id="faqs">FAQs</h2>
+<h3 id="what-is-enterprise-ai-cost-management">What is enterprise AI cost management?</h3>
+<p>Enterprise AI cost management is how a company meters model usage, assigns ownership, sets spending ceilings, and audits requests across projects and vendors so AI spend is forecastable and attributable.</p>
+<h3 id="how-do-tokens-and-credits-differ-in-ai-billing">How do tokens and credits differ in AI billing?</h3>
+<p>Tokens are the model pricing unit for input and output text. Credits are a settlement unit that converts multi-model usage into one balance finance can allocate and reconcile.</p>
+<h3 id="what-is-the-best-way-to-attribute-ai-costs-to-teams">What is the best way to attribute AI costs to teams?</h3>
+<p>Issue project-scoped API keys, log every request with project and model, and roll credits up the organization hierarchy. Shared keys make true attribution impossible.</p>
+<h3 id="how-do-ai-agents-change-cost-management">How do AI agents change cost management?</h3>
+<p>Agents multiply tokens per job through context resend, tools, and retries—the agent tax. Manage cost per completed task and isolate agent projects with hard caps.</p>
+<h3 id="what-tools-belong-in-an-ai-cost-control-stack">What tools belong in an AI cost control stack?</h3>
+<p>A model access layer with allowlists, hierarchical budgets, per-request logs, and SDK-compatible gateways—plus process for weekly review and quarterly key cleanup.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="/en/blog/why-ai-bills-explode-after-go-live">Why AI bills explode after go-live</a></li>
+<li><a href="/en/blog/what-is-the-agent-tax">What is the agent tax</a></li>
+<li><a href="/en/blog/ai-governance-checklist">Enterprise AI governance checklist</a></li>
+</ul>
+<p>Cost management is not a month-end debate. It is a hierarchy you can see, a cap you can enforce, and a log you can trust.</p>
+<p><a href="/en/pricing">See pricing →</a></p>4:["$","$L9",null,{"data":{"lang":"en","post":{"slug":"enterprise-ai-cost-management-guide","title":"Enterprise AI cost management: the complete guide to tokens, credits, keys, and caps (2026)","metaTitle":"Enterprise AI cost management guide (2026)","description":"Enterprise AI cost management covers token economics, credit settlement, project keys, spending caps, agent tax, and audit logs—so multi-vendor AI spend stays attributable and controllable.","date":"2026-08-05","tags":["Enterprise AI cost management","AI governance","ATP"],"author":"hung-chien","authorTitle":"AI Growth & Brand Manager","tldr":["Enterprise AI cost management is the system of units, ownership, ceilings, and audit that turns multi-model usage into budgets finance can run—not a single rate-card spreadsheet.","Operate on four layers: token economics, credit settlement, project ownership, and runtime caps—plus a weekly review cadence.","Agents and multi-vendor adoption break seat-era budgeting; measure cost per task and allocate by project."],"faq":[{"q":"What is enterprise AI cost management?","a":"Enterprise AI cost management is how a company meters model usage, assigns ownership, sets spending ceilings, and audits requests across projects and vendors so AI spend is forecastable and attributable."},{"q":"How do tokens and credits differ in AI billing?","a":"Tokens are the model pricing unit for input and output text. Credits are a settlement unit that converts multi-model usage into one balance finance can allocate and reconcile."},{"q":"What is the best way to attribute AI costs to teams?","a":"Issue project-scoped API keys, log every request with project and model, and roll credits up the organization hierarchy. Shared keys make true attribution impossible."},{"q":"How do AI agents change cost management?","a":"Agents multiply tokens per job through context resend, tools, and retries—the agent tax. Manage cost per completed task and isolate agent projects with hard caps."},{"q":"What tools belong in an AI cost control stack?","a":"A model access layer with allowlists, hierarchical budgets, per-request logs, and SDK-compatible gateways—plus process for weekly review and quarterly key cleanup."}],"readingMinutes":4,"cover":"enterprise-ai-cost-management-guide","html":"$a"},"newer":{"slug":"one-project-one-key","title":"One project, one key: why shared API keys are the most expensive AI debt (2026)","date":"2026-08-07"},"older":{"slug":"what-is-the-agent-tax","title":"What is the agent tax? Why multi-step AI agents inflate token bills (2026)","date":"2026-07-31"}}}]
+5:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/23c7vkgbyik20.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/3syyi7daqg4i4.js","async":true}]
+8:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

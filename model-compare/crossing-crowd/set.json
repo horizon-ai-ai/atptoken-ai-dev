@@ -1,0 +1,40 @@
+{
+  "id": "crossing-crowd",
+  "kind": "video",
+  "prompt": "A Japanese man in his late 20s, short side-parted black hair, sharp jaw, calm expression, lean build, in a charcoal wool overcoat over an open-collar white shirt, stands still in the middle of a five-way scramble crossing while pedestrians flood past him in every direction. Real-time movement only. Night after rain: stacked LED billboards ring the intersection in red, blue and white, all unbranded with no readable text; the wet crosswalk paint doubles every light. Medium shot, single movement: slow dolly push-in, eye level, 35mm spherical lens at 24fps, shallow depth of field at f/2 with the crowd and screens in soft bokeh. Screen light as the main source with a cool ambient fill, teal-and-orange grade, natural skin texture with visible pores, 35mm film grain. Negative: blurry, distorted faces, extra fingers, warped text, readable signage, oversaturated, watermark, no digital sharpness, no CGI gloss, no plastic skin, no over-smoothed textures",
+  "entries": [
+    {
+      "model": "happyhorse-1.1-t2v",
+      "file": "happyhorse-1.1-t2v.mp4",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 5,
+      "poster": "happyhorse-1.1-t2v.jpg"
+    },
+    {
+      "model": "seedance-2-0",
+      "file": "seedance-2-0.mp4",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 5,
+      "poster": "seedance-2-0.jpg"
+    },
+    {
+      "model": "wan-2-7-t2v",
+      "file": "wan-2-7-t2v.mp4",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 5,
+      "poster": "wan-2-7-t2v.jpg"
+    }
+  ],
+  "paramsRequested": {
+    "duration": 5,
+    "resolution": "720p",
+    "ratio": "16:9"
+  },
+  "paramsUniform": true
+}

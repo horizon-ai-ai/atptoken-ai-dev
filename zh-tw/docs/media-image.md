@@ -30,8 +30,42 @@ curl https://api.atptoken.ai/omni/media/v1/images/generations/tasks \
 | size | string | 依模型而異；OpenAI 圖像常用 `1024x1024` |
 | quality | string | 轉發給 OpenAI 方言上游（如 `high`／`medium`） |
 | n | integer | 張數 1–4（預設 `1`） |
+| reference_assets | array | 編輯類模型的輸入圖，放在**頂層**——`[{ "url": "…" }]`。見下。 |
 
 網路失敗重試建立時沿用同一個 `Idempotency-Key`；真正的新任務用新 key。
+
+#### 編輯類模型的輸入圖——`reference_assets`
+
+> **2026-08-04 對 production 實測**
+>
+> 編輯類模型（`nano-banana-pro-edit`、`qwen-image-edit-max` …）的輸入圖要放在**頂層 `reference_assets` 陣列、元素是物件**。`content[]`、`image`、`image_url` 三種寫法都會被擋 `422 Invalid input.reference_assets: required.`；給一個純字串陣列也會被擋 `Invalid input.reference_assets`。必須是 `[{ "url": "…" }]`。
+
+```
+curl https://api.atptoken.ai/omni/media/v1/images/generations/tasks \
+  -H "Authorization: Bearer atp-..." -H "Content-Type: application/json" \
+  -H "Idempotency-Key: img-edit-001" \
+  -d '{
+    "model": "nano-banana-pro-edit",
+    "prompt": "Background: a sunlit marble kitchen counter. Preserve the product exactly — same shape, label text, colors and proportions as the reference.",
+    "n": 1,
+    "reference_assets": [
+      { "url": "https://example.com/product.png" }
+    ]
+  }'
+# → 202 { "id": "img_..." }
+```
+
+**`url` 接受哪些形式**（圖片端點，2026-08-04 實測）：
+
+| 形式 | 圖片端點 | 說明 |
+| --- | --- | --- |
+| 公開 `https://…` URL | 可用 | 上游必須能**免驗證**抓取 |
+| `data:image/png;base64,…` | 可用 | 整段內容都塞在 request body，別放太大的檔 |
+| `asset://<id>`／`asset://<pid>.<id>` | **不支援** | 每次都在生成階段失敗，回 `provider_error / generation_failed` |
+
+把上傳檔案換成可用 URL 的最簡做法：`POST /v1/files`（回應的 key 是 **`id`**），再對 `GET /v1/files/{id}` **不跟隨重導**、取 `Location` header——那是物件儲存的 presigned URL，免驗證、時效約 15 分鐘。見 [/v1/files](https://atptoken.ai/zh-tw/docs/files/)。
+
+編輯呼叫仍然必填 `prompt`。帶一句簡短指示就夠，但這個欄位不能省略。
 
 #### 按張計費怎麼判尺寸檔位
 
@@ -63,6 +97,7 @@ curl https://api.atptoken.ai/omni/media/v1/images/generations/tasks/img_... \
 - `status` 流轉：`queued` → `running` → `succeeded`／`failed`／`cancelled`／`expired`。
 - 成功任務的 `data[].url` 是 **30 分鐘時效**的簽章 URL；過期後任務仍顯示 `succeeded` 但 `expired: true`、`url` 為 null——請立即下載（要重拿只能重新生成）。
 - `usage` 回報 token 用量供帳務核對；`failed` 任務帶結構化 `error` 物件。
+- **`data[].url` 的副檔名不能當格式依據**（2026-08-04 實測）：結尾寫 `.png` 的 URL 實際位元組可能是 JPEG。若格式會影響後續處理（例如把結果再上傳、或做轉檔），請用位元組（magic number）判斷，不要相信檔名。
 
 | Method | Path | 動作 |
 | --- | --- | --- |

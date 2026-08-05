@@ -44,7 +44,37 @@ curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks \
 | seed | integer | |
 | watermark | boolean | |
 
-**`content[]` blocks** — Each block is `{ "type": "text" | "image_url" | "video_url" | "audio_url", ... }`. Text only → text-to-video; include an image → image-to-video. `image_url`/`video_url` take `{ "url": "<https | base64 | asset://pid.id>" }`; `role` is `first_frame` / `last_frame` / `reference_image` / `reference_video`.
+**`content[]` blocks** — Each block is `{ "type": "text" | "image_url" | "video_url" | "audio_url", ... }`. Text only → text-to-video; include an image → image-to-video. `image_url`/`video_url` take `{ "url": "…" }`; `role` is `first_frame` / `last_frame` / `reference_image` / `reference_video`.
+
+#### What `url` accepts
+
+> **Verified against production 2026-08-04**
+>
+> **The video endpoint accepts public `https://` URLs only.**
+>
+> | Form | Video endpoint | Image endpoint |
+> | --- | --- | --- |
+> | public `https://…` URL | works | works |
+> | `data:image/…;base64,…` | **rejected** — `invalid_parameters: The parameter combination is not supported.` | works |
+> | `asset://<id>` / `asset://<pid>.<id>` | **not supported** | **not supported** |
+>
+> `asset://` was previously documented here as a valid form. It is not: both spellings, on both endpoints, fail at generation time with `provider_error / generation_failed`. Do not spend calls on it.
+
+To reference something you uploaded, turn the upload into a public URL:
+
+```
+# 1. upload — the response key is `id` (an_<ULID>), not gw_file_id
+curl -s https://api.atptoken.ai/v1/files \
+  -H "Authorization: Bearer atp-..." -F "file=@./first-frame.png"
+# → 201 { "id": "an_01H...", "object": "file", "bytes": 152340, ... }
+
+# 2. resolve to a no-auth URL — read the 302 Location, do NOT follow it
+curl -sD - -o /dev/null https://api.atptoken.ai/v1/files/an_01H... \
+  -H "Authorization: Bearer atp-..." | grep -i '^location:'
+# → location: https://<object-store>/gateway-files/...?<presigned>  (~15-minute TTL)
+```
+
+Use that `Location` value as the `url`. It needs no authentication, which is what the upstream provider requires — but it expires in about 15 minutes, so resolve it immediately before creating the task rather than caching it.
 
 #### Poll until terminal
 
@@ -113,6 +143,10 @@ curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks \
   { "type": "image_url", "image_url": { "url": "https://example.com/room.jpg" }, "role": "reference_image" }
 ]
 ```
+
+> **Validate multi-image composition on a small run first**
+>
+> In one test against production (2026-08-04) a `kling-o3-pro-reference` task with two `reference_image` blocks and the prompt *"place [Image 1] in the scene of [Image 2]"* was accepted, rendered and billed — but the composition instruction was **not** carried out: the output kept Image 1's own background. That was a single test with synthetic source images, so it is not evidence the feature is broken. It does mean you should not assume `[Image N]` cross-image composition works: run one short, low-resolution clip and look at it before committing a batch.
 
 **Video editing** (`happyhorse-1.0-video-edit`) — **use the DashScope-compatible endpoint, not the unified one.** The unified endpoint rejects this model with `400 video-edit requires a source video`. Create the task with `input.media[]` and poll `GET /omni/media/v1/tasks/{id}`:
 

@@ -1,0 +1,18 @@
+{
+  "id": "packshot-image",
+  "kind": "image",
+  "prompt": "The decisive moment: an unbranded matte black cylindrical jar with a brushed metal lid stands upright and centred on a low mirrored turntable, no label and no readable text, the lid caught just as it settles a millimetre proud of the thread. A seamless mid-grey studio backdrop, a soft pool of reflection under the jar, nothing else in frame. Medium close-up composed with the jar centred and even negative space either side, eye level with the jar's midpoint, 85mm lens, deep focus keeping the whole jar sharp. Two large softboxes at grazing angles raking the matte surface with a white bounce on the shadow side, cool neutral commercial grade, real matte texture and metal sheen, photorealistic, extreme detail. Negative: blurry, warped text, labels, logos, extra objects, oversaturated, watermark, no digital sharpness, no CGI gloss, no over-smoothed textures",
+  "entries": [
+    {
+      "model": "gpt-image-2",
+      "file": "gpt-image-2.png",
+      "createdAt": "2026-08-04",
+      "width": 1536,
+      "height": 1152
+    }
+  ],
+  "paramsRequested": {
+    "size": "1536x1152"
+  },
+  "paramsUniform": true
+}

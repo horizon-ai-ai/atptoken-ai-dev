@@ -1,0 +1,40 @@
+{
+  "id": "liquid-pour",
+  "kind": "video",
+  "prompt": "A tall clear glass on a dark slate counter takes a steady pour of iced tea from a stainless jug held just above the rim, the stream twisting as it lands and the ice lifting and settling. No faces in frame. Real-time movement only, no slow motion. A dim kitchen at dusk, water already spilled on the slate, a cut lemon half at the frame edge, unbranded, no readable text. Medium close-up, single movement: locked-off static, eye level with the glass rim, 85mm spherical lens at 24fps, shallow depth of field at f/2.8. One tall narrow softbox behind the glass backlighting the liquid with a black card opposite, cool neutral grade, real refraction and surface foam, subtle 35mm film grain. Negative: blurry, warped text, labels, logos, extra objects, oversaturated, watermark, no digital sharpness, no CGI gloss, no over-smoothed textures",
+  "entries": [
+    {
+      "model": "happyhorse-1.1-t2v",
+      "file": "happyhorse-1.1-t2v.mp4",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 5,
+      "poster": "happyhorse-1.1-t2v.jpg"
+    },
+    {
+      "model": "seedance-2-0",
+      "file": "seedance-2-0.mp4",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 5,
+      "poster": "seedance-2-0.jpg"
+    },
+    {
+      "model": "wan-2-7-t2v",
+      "file": "wan-2-7-t2v.mp4",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 5,
+      "poster": "wan-2-7-t2v.jpg"
+    }
+  ],
+  "paramsRequested": {
+    "duration": 5,
+    "resolution": "720p",
+    "ratio": "16:9"
+  },
+  "paramsUniform": true
+}

@@ -1,11 +1,100 @@
 1:"$Sreact.fragment"
-9:I[51713,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js","/_next/static/chunks/1chh84bzgbaxu.js","/_next/static/chunks/1vu59d80ahi02.js","/_next/static/chunks/3bgctz23woyi1.js"],"default"]
-a:I[97367,["/_next/static/chunks/2pvdhyoloddhn.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/37bsi-s5zcx3-.js"],"OutletBoundary"]
-b:"$Sreact.suspense"
-2:T4a4,{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI spending caps that work: treat allocation as the budget ceiling (2026)","description":"Enterprise AI spending caps fail when they sit only on a company card. Set project-level credit allocation as the ceiling, alert before cut-off, and track allocated vs consumed.","datePublished":"2026-08-12","dateModified":"2026-08-12","inLanguage":"en","keywords":"AI budget, Spending caps, ATP","url":"https://atptoken.ai/en/blog/ai-spending-caps-that-work/","mainEntityOfPage":"https://atptoken.ai/en/blog/ai-spending-caps-that-work/","image":"https://atptoken.ai/og-image.png","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T5f9,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an AI spending cap?","acceptedAnswer":{"@type":"Answer","text":"An AI spending cap is a hard or soft limit on how much a team or project may spend on model usage in a period. Soft caps alert; hard caps stop or degrade traffic when the allocation is exhausted."}},{"@type":"Question","name":"Where should AI budget limits be set?","acceptedAnswer":{"@type":"Answer","text":"At the project or workload layer so one runaway system cannot consume the whole company budget. Org-level totals are for reporting; project allocations are for control."}},{"@type":"Question","name":"What is the difference between allocated and consumed credits?","acceptedAnswer":{"@type":"Answer","text":"Allocated credits are pushed down to a child workspace or project as its ceiling. Consumed credits are what API calls actually spent. Watching both shows burn rate before the balance hits zero."}},{"@type":"Question","name":"How do I stop an AI bill without freezing the company?","acceptedAnswer":{"@type":"Answer","text":"Cap and pause the hot project first using project-scoped keys and allocations. Company-wide freezes are what you do when everything shares one key and one wallet."}},{"@type":"Question","name":"Should experimental AI work share production budgets?","acceptedAnswer":{"@type":"Answer","text":"No. Give experiments a separate project with a low allocation. Coding agents and sandboxes are common sources of uncapped burn."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/en/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/en/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"AI spending caps that work: treat allocation as the budget ceiling (2026)\",\"item\":\"https://atptoken.ai/en/blog/ai-spending-caps-that-work/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"iDhM2ZpK9XE_EvXRvdheN"}
-4:["$","$L9",null,{"slug":"ai-spending-caps-that-work"}]
-5:["$","script","script-0",{"src":"/_next/static/chunks/1chh84bzgbaxu.js","async":true}]
-6:["$","script","script-1",{"src":"/_next/static/chunks/1vu59d80ahi02.js","async":true}]
-7:["$","script","script-2",{"src":"/_next/static/chunks/3bgctz23woyi1.js","async":true}]
-8:["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]
-c:null
+9:I[51713,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/23c7vkgbyik20.js","/_next/static/chunks/3syyi7daqg4i4.js"],"default"]
+b:I[97367,["/_next/static/chunks/2bymuvblid37s.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/0uambh2e9w014.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+2:T4be,{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI spending caps that work: treat allocation as the budget ceiling (2026)","description":"Enterprise AI spending caps fail when they sit only on a company card. Set project-level credit allocation as the ceiling, alert before cut-off, and track allocated vs consumed.","datePublished":"2026-08-12","dateModified":"2026-08-12","inLanguage":"en","keywords":"AI budget, Spending caps, ATP","url":"https://atptoken.ai/en/blog/ai-spending-caps-that-work/","mainEntityOfPage":"https://atptoken.ai/en/blog/ai-spending-caps-that-work/","image":"https://atptoken.ai/og/blog/ai-spending-caps-that-work.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T5f9,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an AI spending cap?","acceptedAnswer":{"@type":"Answer","text":"An AI spending cap is a hard or soft limit on how much a team or project may spend on model usage in a period. Soft caps alert; hard caps stop or degrade traffic when the allocation is exhausted."}},{"@type":"Question","name":"Where should AI budget limits be set?","acceptedAnswer":{"@type":"Answer","text":"At the project or workload layer so one runaway system cannot consume the whole company budget. Org-level totals are for reporting; project allocations are for control."}},{"@type":"Question","name":"What is the difference between allocated and consumed credits?","acceptedAnswer":{"@type":"Answer","text":"Allocated credits are pushed down to a child workspace or project as its ceiling. Consumed credits are what API calls actually spent. Watching both shows burn rate before the balance hits zero."}},{"@type":"Question","name":"How do I stop an AI bill without freezing the company?","acceptedAnswer":{"@type":"Answer","text":"Cap and pause the hot project first using project-scoped keys and allocations. Company-wide freezes are what you do when everything shares one key and one wallet."}},{"@type":"Question","name":"Should experimental AI work share production budgets?","acceptedAnswer":{"@type":"Answer","text":"No. Give experiments a separate project with a low allocation. Coding agents and sandboxes are common sources of uncapped burn."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/en/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/en/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"AI spending caps that work: treat allocation as the budget ceiling (2026)\",\"item\":\"https://atptoken.ai/en/blog/ai-spending-caps-that-work/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Pm_9oQ2SKm1LxFNP6wq7a"}
+a:T1997,<p>An AI spending cap is a limit on how much model usage a <a class="doc-term" href="/en/docs/resources" data-def="The unit that permissions and billing hang off — keys, allowed models, and credit budget all belong to one.">project</a> or team may consume in a period—enforced as an allocation or hard stop, not only as a slide in a budget deck. This guide is for platform and finance teams who need ceilings that survive go-live.</p>
+<p>Answer first: <strong>the allocation is the cap.</strong> Push credits down <a class="doc-term" href="/en/docs/console-setup" data-def="The top level of an account. Workspaces and projects sit underneath it.">organization</a> → workspace → project, alert before exhaustion, and isolate experiments. Unlimited cards plus “please don’t overspend” is how public overrun stories start. See the recipe in <a href="/en/docs/cb-budget-caps">set up a team with budget caps</a> and the vocabulary in <a href="/en/docs/credits" class="doc-term-def" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">how credits work</a>.</p>
+<h2 id="why-company-only-caps-fail">Why company-only caps fail</h2>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Failure mode</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>One corporate card</td>
+<td>No blast-radius boundary</td>
+</tr>
+<tr>
+<td>Monthly spreadsheet target</td>
+<td>No runtime enforcement</td>
+</tr>
+<tr>
+<td>Vendor soft limit only</td>
+<td>No project owner in your org chart</td>
+</tr>
+<tr>
+<td>Cut everything when scared</td>
+<td>Healthy products die with the runaway</td>
+</tr>
+</tbody></table>
+<p>Post-launch spikes are control problems as much as model problems (<a href="/en/blog/why-ai-bills-explode-after-go-live">five gaps</a>).</p>
+<h2 id="hierarchy-available-received-allocated-consumed">Hierarchy: Available, Received, Allocated, Consumed</h2>
+<p>From <a href="/en/docs/credits" class="doc-term-def" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">credits</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Available</td>
+<td>Spendable or allocatable here</td>
+</tr>
+<tr>
+<td>Received</td>
+<td>Received from the parent</td>
+</tr>
+<tr>
+<td>Allocated</td>
+<td>Pushed to children</td>
+</tr>
+<tr>
+<td>Consumed</td>
+<td>Spent on API calls (project)</td>
+</tr>
+</tbody></table>
+<p>Projects that exceed allocation should surface as <strong>in debt</strong> until topped up—not as silent corporate bleed. Wallet vs team allocation: <a href="/en/docs/topup" class="doc-term-def" data-def="Adding credits to the wallet. Minimum 5 USD, pay as you go.">top up</a>.</p>
+<h2 id="design-rules-for-caps-that-teams-accept">Design rules for caps that teams accept</h2>
+<ol>
+<li><strong>Alert before hard stop</strong> — page owners at 70–80% consumed.  </li>
+<li><strong>Separate prod and experiment</strong> — different projects (<a href="/en/blog/one-project-one-key">one project, one key</a>).  </li>
+<li><strong>Match model allowlists to budget</strong> — frontier only where allocation justifies it (<a href="/en/docs/models">models</a>).  </li>
+<li><strong>Review weekly</strong> — <a href="/en/docs/spend">tracking spend</a> ranked by project.  </li>
+<li><strong>Document 402</strong> — empty balance is a controlled failure (<a href="/en/docs/errors">errors</a>).</li>
+</ol>
+<h2 id="by-team-size-and-use-case">By team size and use case</h2>
+<p><strong>Small:</strong> one production allocation + one sandbox.<br><strong>Mid:</strong> per product project caps; shared platform workspace.<br><strong>Enterprise:</strong> BU workspaces; quarterly reallocation; audit on Activity (<a href="/en/docs/monitoring">monitoring</a>).</p>
+<p><strong>Agents:</strong> caps must assume <a href="/en/blog/what-is-the-agent-tax">agent tax</a>—task cost, not single-call cost.<br><strong>Batch:</strong> overnight jobs need explicit ceilings or they become the monthly story.</p>
+<h2 id="one-week-rollout">One-week rollout</h2>
+<p>Inventory unrestricted accounts → create projects → allocate → wire alerts → dual-run → revoke unlimited paths. Full governance loop: <a href="/en/blog/ai-governance-checklist">checklist</a>.</p>
+<h2 id="a-more-modern-approach">A more modern approach</h2>
+<p>Caps fail when enforcement is tribal knowledge. ATP Token treats project credit balance as the runtime ceiling and meters every request in credits under organization → workspace → project. Compatible with major SDK formats so caps attach without rewriting product code.</p>
+<p><a href="/en/pricing">Pricing →</a> · <a href="/en/docs/quickstart">Quickstart →</a></p>
+<h2 id="faqs">FAQs</h2>
+<h3 id="what-is-an-ai-spending-cap">What is an AI spending cap?</h3>
+<p>An AI spending cap is a hard or soft limit on how much a team or project may spend on model usage in a period. Soft caps alert; hard caps stop or degrade traffic when the allocation is exhausted.</p>
+<h3 id="where-should-ai-budget-limits-be-set">Where should AI budget limits be set?</h3>
+<p>At the project or workload layer so one runaway system cannot consume the whole company budget. Org-level totals are for reporting; project allocations are for control.</p>
+<h3 id="what-is-the-difference-between-allocated-and-consumed-credits">What is the difference between allocated and consumed credits?</h3>
+<p>Allocated credits are pushed down to a child workspace or project as its ceiling. Consumed credits are what API calls actually spent. Watching both shows burn rate before the balance hits zero.</p>
+<h3 id="how-do-i-stop-an-ai-bill-without-freezing-the-company">How do I stop an AI bill without freezing the company?</h3>
+<p>Cap and pause the hot project first using project-scoped keys and allocations. Company-wide freezes are what you do when everything shares one key and one wallet.</p>
+<h3 id="should-experimental-ai-work-share-production-budgets">Should experimental AI work share production budgets?</h3>
+<p>No. Give experiments a separate project with a low allocation. Coding agents and sandboxes are common sources of uncapped burn.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="/en/blog/why-ai-bills-explode-after-go-live">Why AI bills explode after go-live</a></li>
+<li><a href="/en/blog/how-to-read-your-ai-bill">How to read your AI bill</a></li>
+<li><a href="/en/docs/cb-budget-caps">Team budget caps recipe</a></li>
+</ul>
+<p>Budgets become real when the gateway can say no.</p>
+<p><a href="/en/enterprise-plan">Enterprise plan →</a></p>4:["$","$L9",null,{"data":{"lang":"en","post":{"slug":"ai-spending-caps-that-work","title":"AI spending caps that work: treat allocation as the budget ceiling (2026)","metaTitle":"AI spending caps that work (2026 guide)","description":"Enterprise AI spending caps fail when they sit only on a company card. Set project-level credit allocation as the ceiling, alert before cut-off, and track allocated vs consumed.","date":"2026-08-12","tags":["AI budget","Spending caps","ATP"],"author":"hung-chien","authorTitle":"AI Growth & Brand Manager","tldr":["A spending cap that works is a project-level allocation you can enforce—not a spreadsheet target next to an unlimited vendor account.","Alert before cut-off: teams need time to fix prompts or models before 402 stops traffic.","Read Available, Allocated, and Consumed at every hierarchy level so finance and engineering share one view."],"faq":[{"q":"What is an AI spending cap?","a":"An AI spending cap is a hard or soft limit on how much a team or project may spend on model usage in a period. Soft caps alert; hard caps stop or degrade traffic when the allocation is exhausted."},{"q":"Where should AI budget limits be set?","a":"At the project or workload layer so one runaway system cannot consume the whole company budget. Org-level totals are for reporting; project allocations are for control."},{"q":"What is the difference between allocated and consumed credits?","a":"Allocated credits are pushed down to a child workspace or project as its ceiling. Consumed credits are what API calls actually spent. Watching both shows burn rate before the balance hits zero."},{"q":"How do I stop an AI bill without freezing the company?","a":"Cap and pause the hot project first using project-scoped keys and allocations. Company-wide freezes are what you do when everything shares one key and one wallet."},{"q":"Should experimental AI work share production budgets?","a":"No. Give experiments a separate project with a low allocation. Coding agents and sandboxes are common sources of uncapped burn."}],"readingMinutes":3,"cover":"ai-spending-caps-that-work","html":"$a"},"newer":{"slug":"coding-agents-cost-control-checklist","title":"Coding agents at work: a 10-point cost control checklist (2026)","date":"2026-08-14"},"older":{"slug":"one-project-one-key","title":"One project, one key: why shared API keys are the most expensive AI debt (2026)","date":"2026-08-07"}}}]
+5:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/23c7vkgbyik20.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/3syyi7daqg4i4.js","async":true}]
+8:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

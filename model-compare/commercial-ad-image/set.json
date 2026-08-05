@@ -1,0 +1,32 @@
+{
+  "id": "commercial-ad-image",
+  "kind": "image",
+  "prompt": "The decisive moment: a Brazilian woman, late 20s, glossy voluminous curls, radiant confident smile, slender build, wearing a fitted emerald green dress, holding up a sleek gold perfume bottle at chest height, light catching the glass facets, against a seamless emerald studio backdrop. Medium shot, eye level, 85mm lens, shallow depth of field. Bright even softbox lighting, clean high-key commercial grade, extreme detail, photorealistic. Negative: blurry, distorted faces, extra fingers, warped text, oversaturated, watermark.",
+  "entries": [
+    {
+      "model": "gpt-image-2",
+      "file": "gpt-image-2.png",
+      "createdAt": "2026-08-04",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "model": "nano-banana-2",
+      "file": "nano-banana-2.png",
+      "createdAt": "2026-08-04",
+      "width": 1408,
+      "height": 768
+    },
+    {
+      "model": "nano-banana-pro",
+      "file": "nano-banana-pro.png",
+      "createdAt": "2026-08-04",
+      "width": 1408,
+      "height": 768
+    }
+  ],
+  "paramsRequested": {
+    "size": "1024x1536"
+  },
+  "paramsUniform": false
+}

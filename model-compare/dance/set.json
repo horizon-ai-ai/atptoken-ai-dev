@@ -1,0 +1,85 @@
+{
+  "id": "dance",
+  "kind": "video",
+  "prompt": "A Brazilian woman, mid-20s, tight box braids in a high bun, fierce focused expression, athletic toned build, wearing a fitted black dance leotard, executes a sharp rhythmic hip-hop routine, popping and locking her arms in time with an unheard beat, sweat glistening under the lights. A bare dance studio with a mirrored wall and warm spotlight overhead. Wide shot, single movement: locked-off static, eye level, 24mm lens, deep focus. Warm spotlight against a dim studio background, punchy high-energy grade, 24fps film look. Negative: blurry, distorted faces, extra fingers, warped text, oversaturated, watermark.",
+  "entries": [
+    {
+      "model": "happyhorse-1.1-t2v",
+      "file": "happyhorse-1.1-t2v.mp4",
+      "poster": "happyhorse-1.1-t2v.jpg",
+      "createdAt": "2026-08-04",
+      "width": 1920,
+      "height": 1080,
+      "durationSec": 6
+    },
+    {
+      "model": "kling-o3-pro",
+      "file": "kling-o3-pro.mp4",
+      "poster": "kling-o3-pro.jpg",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 10
+    },
+    {
+      "model": "kling-o3-standard",
+      "file": "kling-o3-standard.mp4",
+      "poster": "kling-o3-standard.jpg",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 10
+    },
+    {
+      "model": "kling-v3-pro",
+      "file": "kling-v3-pro.mp4",
+      "poster": "kling-v3-pro.jpg",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 10
+    },
+    {
+      "model": "kling-v3-standard",
+      "file": "kling-v3-standard.mp4",
+      "poster": "kling-v3-standard.jpg",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 10
+    },
+    {
+      "model": "seedance-2-0",
+      "file": "seedance-2-0.mp4",
+      "poster": "seedance-2-0.jpg",
+      "createdAt": "2026-08-04",
+      "width": 1920,
+      "height": 1080,
+      "durationSec": 8
+    },
+    {
+      "model": "seedance-2-0-fast",
+      "file": "seedance-2-0-fast.mp4",
+      "poster": "seedance-2-0-fast.jpg",
+      "createdAt": "2026-08-04",
+      "width": 1280,
+      "height": 720,
+      "durationSec": 5
+    },
+    {
+      "model": "wan-2-7-t2v",
+      "file": "wan-2-7-t2v.mp4",
+      "poster": "wan-2-7-t2v.jpg",
+      "createdAt": "2026-08-04",
+      "width": 1920,
+      "height": 1080,
+      "durationSec": 10
+    }
+  ],
+  "paramsRequested": {
+    "duration": 5,
+    "resolution": "720p",
+    "ratio": "16:9"
+  },
+  "paramsUniform": false
+}

@@ -65,8 +65,38 @@ curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks \
 
 **`content[]` block**: `{ "type": "text"|"image_url"|"video_url"|"audio_url", ... }`
 - `text` — the prompt text (`type: text`)
-- `image_url` / `video_url` — `{ "url": "<url>" }`. `url` accepts an https URL, a base64 data string, or `asset://<pid>.<id>` (an uploaded asset).
+- `image_url` / `video_url` — `{ "url": "<url>" }`. **The video endpoint accepts public `https://` URLs only** — see below.
 - `role` — `first_frame` / `last_frame` / `reference_image` / `reference_video` / `reference_audio`
+
+### What `url` accepts — verified 2026-08-04 against production
+
+| Form | Video endpoint | Image endpoint |
+|---|---|---|
+| public `https://…` URL | **works** | works |
+| `data:image/…;base64,…` | **REJECTED** — `invalid_parameters: The parameter combination is not supported.` | works |
+| `asset://<id>` or `asset://<pid>.<id>` | **NOT SUPPORTED** | NOT SUPPORTED |
+
+An earlier revision of this skill listed `asset://<pid>.<id>` as a valid form. **It is
+not.** Both spellings, on both the video and image endpoints, fail at generation time
+with `provider_error / generation_failed` — eight calls, zero successes. Do not attempt
+it, and do not fall back to base64 on the video endpoint either.
+
+**To reference a file you uploaded**, resolve it to a URL the upstream can fetch without
+auth: read the `Location` header of `GET /v1/files/{id}` **without following the
+redirect**.
+
+```bash
+FILE_ID=$(curl -s https://api.atptoken.ai/v1/files \
+  -H "Authorization: Bearer $ATP_KEY" -F "file=@./first-frame.png" | jq -r .id)
+# NOTE: the response key is `id` (an_<ULID>), not `gw_file_id`.
+
+FRAME_URL=$(curl -sD - -o /dev/null "https://api.atptoken.ai/v1/files/$FILE_ID" \
+  -H "Authorization: Bearer $ATP_KEY" | grep -i '^location:' | cut -d' ' -f2 | tr -d '\r')
+# presigned object-store URL: no auth, ~15-minute TTL. Resolve it immediately before
+# creating the task — do not cache it, and do not store it in a manifest.
+```
+
+Then pass `$FRAME_URL` as `content[].image_url.url` with `role: "first_frame"`.
 
 **Idempotency** (retry-safe create): send one of `Idempotency-Key`, `X-Idempotency-Key`, `X-Thankyou-Task-Id`. The same key returns the original task id without creating a duplicate (no double charge). No key → a fresh task every call.
 
@@ -102,6 +132,17 @@ curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks \
 `200 {}` when queued (→ cancelled) or terminal (record deleted); **`409`** if the task is already `running` (can't cancel a running task); `404` if not found / not yours.
 
 ---
+
+### Multi-image reference (`[Image N]` composition) — validate before batching
+
+Reference models (`kling-*-reference`, `happyhorse-1.1-r2v`, …) take several
+`role: "reference_image"` blocks and the prompt refers to them as `[Image 1]`,
+`[Image 2]`, …. In one production test (2026-08-04) `kling-o3-pro-reference` with two
+reference images and the prompt *"place [Image 1] in the scene of [Image 2]"* was
+accepted, rendered and **billed** — but the composition was not performed: the output
+kept Image 1's own background. One test with synthetic source images is not proof the
+feature is broken, so this is a warning, not a "does not work". **Render one short
+low-resolution clip and inspect it before committing a batch or a user-facing flow.**
 
 ## DashScope-native dialect (Alibaba Wan SDK drop-in)
 

@@ -1,0 +1,32 @@
+{
+  "id": "department-store",
+  "kind": "image",
+  "prompt": "The decisive moment: a Japanese woman in her early 30s, a sleek chin-length bob with a soft side part, warm hazel eyes, a composed content smile with closed lips, slender upright posture, wearing a cream cashmere turtleneck under a tailored camel wool coat draped over one arm, a slim gold watch on her wrist, pausing mid-step in the atrium of a luxury department store, one gloved hand reaching toward a glowing glass display case of gift boxes, her gaze lifted toward the ornate glass-domed ceiling above. Warm holiday light spills from tiered crystal chandeliers; polished marble floors reflect rows of illuminated boutique storefronts; soft bokeh of distant shoppers recedes into the background. Wide shot composed with the domed ceiling's radial lines converging above her, low angle, 35mm lens, shallow depth of field with the storefronts falling into soft focus behind her. Warm tungsten chandelier light against cool marble reflections, honey-and-cream color grade, extreme detail, photorealistic. Negative: blurry, distorted faces, extra fingers, warped text, oversaturated, watermark, low resolution.",
+  "entries": [
+    {
+      "model": "gpt-image-2",
+      "file": "gpt-image-2.png",
+      "createdAt": "2026-08-04",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "model": "nano-banana-2",
+      "file": "nano-banana-2.png",
+      "createdAt": "2026-08-04",
+      "width": 1408,
+      "height": 768
+    },
+    {
+      "model": "nano-banana-pro",
+      "file": "nano-banana-pro.png",
+      "createdAt": "2026-08-04",
+      "width": 1408,
+      "height": 768
+    }
+  ],
+  "paramsRequested": {
+    "size": "1536x1024"
+  },
+  "paramsUniform": false
+}

@@ -1,0 +1,32 @@
+{
+  "id": "short-form-image",
+  "kind": "image",
+  "prompt": "The decisive moment: a Filipino man, early 20s, spiked black hair, wide exaggerated surprised expression, mouth open, slim build, wearing a bright red hoodie, pointing excitedly at something off-frame with wide eyes, against a punchy yellow gradient background with playful blurred confetti shapes. Close-up, eye level, 24mm lens, deep focus. Vibrant saturated ring-light glow, punchy high-contrast grade, extreme detail, photorealistic. Negative: blurry, distorted faces, extra fingers, warped text, oversaturated, watermark.",
+  "entries": [
+    {
+      "model": "gpt-image-2",
+      "file": "gpt-image-2.png",
+      "createdAt": "2026-08-04",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "model": "nano-banana-2",
+      "file": "nano-banana-2.png",
+      "createdAt": "2026-08-04",
+      "width": 1408,
+      "height": 768
+    },
+    {
+      "model": "nano-banana-pro",
+      "file": "nano-banana-pro.png",
+      "createdAt": "2026-08-04",
+      "width": 1408,
+      "height": 768
+    }
+  ],
+  "paramsRequested": {
+    "size": "1024x1536"
+  },
+  "paramsUniform": false
+}
