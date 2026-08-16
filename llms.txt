@@ -13,7 +13,7 @@ ATP Token centralizes AI usage governance and billing: organizations, workspaces
 - Billing: pay-as-you-go credits, no monthly fee, USD 5 minimum top-up (1 USD = 100 credits). List rates are published per model.
 
 ## Models
-Browse the catalog (64 public models; text: 30, image: 7, video: 25, audio: 1, embedding: 1):
+Browse the catalog (69 public models; text: 34, image: 9, video: 24, audio: 1, embedding: 1):
 - [Model catalog](https://atptoken.ai/models/)
 - [Pricing / rate table](https://atptoken.ai/pricing/)
 
@@ -45,6 +45,7 @@ Every documentation page is also served as plain Markdown: append `.md` to the p
 
 - [Model discovery](https://atptoken.ai/docs/models.md): Lists every model available on the platform. Use it to get exact, current model IDs instead of copying names from a marketing page or provider dashbo…
 - [Media models](https://atptoken.ai/docs/media.md): Beyond text, the catalog includes image, video, audio (text-to-speech) and embedding models. They share the same account, credits and project scoping…
+- [Seedance 2.0](https://atptoken.ai/docs/seedance-2-0.md): Seedance 2.0 is the current video generation model on ATP. It supports text-to-video, image-to-video, first and last frame control, reference images,…
 - [Provider routing](https://atptoken.ai/docs/provider-routing.md): Each model on the platform is served by a pool of one or more upstream providers. You call a single model id; the Gateway chooses a provider for the…
 - [Pricing](https://atptoken.ai/docs/pricing-model.md): Billing is usage-based, measured on input + output tokens. Each model has its own rate; the exact per-model economics are resolved by the gateway's p…
 

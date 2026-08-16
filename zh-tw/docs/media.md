@@ -36,6 +36,8 @@ cost = video_tokens × per-1M rate for the resolution tier
 - **4K 尚未開放**；超過 1080p 的請求會在建立任務前被拒絕。
 - **任務失敗不計費。**
 
+目前影片模型的參數與範例見 [Seedance 2.0](https://atptoken.ai/zh-tw/docs/seedance-2-0/)。
+
 ### 圖像
 
 文生圖為同步生成——送出 prompt、回傳圖片 URL。價格將於正式上線時公布；在那之前模型在價格頁標示為 **Preview**。

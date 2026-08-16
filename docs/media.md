@@ -36,6 +36,8 @@ Worth knowing before you render:
 - **4K is not yet available**; requests above 1080p are rejected before any task is created.
 - **Failed tasks are not billed.**
 
+For the current video model parameters and examples, see [Seedance 2.0](https://atptoken.ai/docs/seedance-2-0/).
+
 ### Image
 
 Text-to-image generation runs synchronously — prompt in, image URL back. List pricing will be published at launch; the model appears on the pricing page as **Preview** until then.
