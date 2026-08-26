@@ -2,9 +2,9 @@
 
 > Source: https://atptoken.ai/docs/console-api/
 
-Everything you can see in the web console is also available as a REST API at `https://admin.atptoken.ai/api` — real-time balances, monthly usage per model, billing events, the model catalog, and your org/workspace/project tree. Use it to drive dashboards, budget alarms, or automatic model switching.
+Everything you can see in the ATP Token web console is also available as a REST API at `https://admin.atptoken.ai/api` — real-time balances, monthly usage per model, billing events, the model catalog, and your org/workspace/project tree. Use it to drive dashboards, budget alarms, or automatic model switching.
 
-The full, always-in-sync specification is served as a live Swagger UI at [admin.atptoken.ai/api/docs](https://admin.atptoken.ai/api/docs) — every endpoint on the pages that follow can be tried there directly.
+The full, always-in-sync specification is served as a live Swagger UI at [admin.atptoken.ai/api/docs](https://admin.atptoken.ai/api/docs) — every endpoint on the pages that follow can be tried there directly. A static, agent-readable mirror of the same surface — with operation IDs and typed parameters for function-calling tools — is published at [/openapi.json](https://atptoken.ai/openapi.json/).
 
 > **Two different credentials — do not mix them**
 >

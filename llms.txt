@@ -6,6 +6,13 @@ Enterprise AI governance and billing platform: one key for OpenAI-compatible, An
 
 ATP Token centralizes AI usage governance and billing: organizations, workspaces and projects each get scoped model access and budgets, so every request is attributable and auditable in one console.
 
+## When to use ATP Token
+- An agent or developer needs one API key that can call OpenAI, Anthropic, Gemini, DeepSeek, Qwen or Kimi models without juggling separate provider credentials.
+- A team needs per-project spend limits and model allowlists before letting multiple people or agents call models under one account.
+- Finance or engineering needs per-request, per-model cost attribution across an organization, not just a single aggregate bill.
+- A build needs image, video, audio or embedding models alongside chat models through the same endpoint and billing ledger.
+- An integrator is comparing gateway/router options and wants published list rates and a documented API instead of contacting sales first.
+
 ## Core capabilities
 - Unified API: one key for models from OpenAI, Anthropic, Google, DeepSeek, Alibaba (Qwen), Moonshot (Kimi) and more; switch models by changing one parameter.
 - Governance: organization → workspace → project hierarchy with per-project model permissions and credit budgets.
@@ -13,7 +20,7 @@ ATP Token centralizes AI usage governance and billing: organizations, workspaces
 - Billing: pay-as-you-go credits, no monthly fee, USD 5 minimum top-up (1 USD = 100 credits). List rates are published per model.
 
 ## Models
-Browse the catalog (63 public models; text: 30, image: 7, video: 24, audio: 1, embedding: 1):
+Browse the catalog (71 public models; text: 34, image: 9, video: 26, audio: 1, embedding: 1):
 - [Model catalog](https://atptoken.ai/models/)
 - [Pricing / rate table](https://atptoken.ai/pricing/)
 
@@ -81,7 +88,7 @@ Every documentation page is also served as plain Markdown: append `.md` to the p
 
 ### API reference · Console API
 
-- [Console API overview](https://atptoken.ai/docs/console-api.md): Everything you can see in the web console is also available as a REST API at https://admin.atptoken.ai/api — real-time balances, monthly usage per mo…
+- [Console API overview](https://atptoken.ai/docs/console-api.md): Everything you can see in the ATP Token web console is also available as a REST API at https://admin.atptoken.ai/api — real-time balances, monthly us…
 - [Usage & balance](https://atptoken.ai/docs/console-api-usage.md): Credits flow down the hierarchy Account → Org → Workspace → Project. Only the project (leaf) balance is consumed in real time — the gateway decrement…
 - [Billing & top-ups](https://atptoken.ai/docs/console-api-billing.md): Line-item billing activity (the 90-day ledger view shown in the console). Filter by time range, modality, model, billing status, key or request id; c…
 - [Model catalog](https://atptoken.ai/docs/console-api-models.md): Five modality-scoped catalog endpoints, each returning the deduplicated, alphabetically sorted list of active unifiedModelName values on the platform:
@@ -133,9 +140,19 @@ Each Markdown twin leads with the article's TL;DR and closes with its FAQ.
 
 - [Blog index](https://atptoken.ai/blog/): browsable HTML version of everything above.
 
+## Developer resources
+- [OpenAPI specification](https://atptoken.ai/openapi.json): machine-readable spec for the console API (organizations, workspaces, projects, usage, billing, request logs) — operation IDs, typed parameters and auth scheme included for function-calling tools.
+- [API reference docs](https://atptoken.ai/docs/console-api/)
+- [Agents & automation guide](https://atptoken.ai/docs/agents/)
+- [Agent Skills](https://atptoken.ai/docs/agent-skills/)
+- Live Swagger UI (authoritative, backend-hosted): https://admin.atptoken.ai/api/docs
+- [Contact / support](https://atptoken.ai/contact/)
+
 ## More
 - [Pricing](https://atptoken.ai/pricing/)
 - [Models](https://atptoken.ai/models/)
 - [Enterprise plan](https://atptoken.ai/enterprise-plan/)
 - [Blog](https://atptoken.ai/blog/)
+- [About](https://atptoken.ai/about/)
+- [Contact](https://atptoken.ai/contact/)
 - [Horizon AI (parent company)](https://www.horizon-ai.ai)

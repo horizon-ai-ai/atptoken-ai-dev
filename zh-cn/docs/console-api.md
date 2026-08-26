@@ -2,9 +2,9 @@
 
 > Source: https://atptoken.ai/zh-cn/docs/console-api/
 
-网页 Console 看得到的资料，都有对应的 REST API：`https://admin.atptoken.ai/api` —— 即时余额、每月各模型用量、计费活动、模型目录、组织／工作区／专案结构。可用来做仪表板、预算告警、或自动切换模型。
+ATP Token 网页 Console 看得到的资料，都有对应的 REST API：`https://admin.atptoken.ai/api` —— 即时余额、每月各模型用量、计费活动、模型目录、组织／工作区／专案结构。可用来做仪表板、预算告警、或自动切换模型。
 
-完整且永远与实作同步的规格是线上 Swagger：[admin.atptoken.ai/api/docs](https://admin.atptoken.ai/api/docs)，以下各页的每个端点都能在那里直接试打。
+完整且永远与实作同步的规格是线上 Swagger：[admin.atptoken.ai/api/docs](https://admin.atptoken.ai/api/docs)，以下各页的每个端点都能在那里直接试打。同一份规格也有一份静态、方便 agent 读取的镜像版本，含 operation ID 与类型化参数，发布于 [/openapi.json](https://atptoken.ai/zh-cn/openapi.json/)。
 
 > **两种凭证，不要混用**
 >

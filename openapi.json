@@ -1,0 +1,592 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ATP Token Console API",
+    "version": "1.0.0",
+    "summary": "Governance, usage, billing and resource-management API for the ATP Token console.",
+    "description": "ATP Token is an AI model management gateway by Horizon AI. This specification documents the console API — organizations, workspaces, projects, usage, billing and request logs. It mirrors the endpoints described in https://atptoken.ai/docs/console-api and is maintained alongside that documentation.\n\nThe authoritative, always-in-sync specification for the same API is served as a live Swagger UI at https://admin.atptoken.ai/api/docs; this file is a portable, agent-readable mirror of that surface for discovery and function-calling tooling.\n\nThis API is separate from the OpenAI-compatible data plane (chat/image/video/audio/embedding completions), which is authenticated with a project-scoped `atp-` API key instead of a bearer session token — see https://atptoken.ai/docs for the data-plane quickstart.",
+    "contact": {
+      "name": "ATP Token support",
+      "email": "service@horizon-ai.ai",
+      "url": "https://atptoken.ai/contact"
+    },
+    "license": {
+      "name": "Proprietary — see https://atptoken.ai/terms"
+    }
+  },
+  "servers": [
+    { "url": "https://admin.atptoken.ai/api", "description": "Production console API" }
+  ],
+  "tags": [
+    { "name": "Auth", "description": "Session login/logout for the console API." },
+    { "name": "Usage", "description": "Real-time balance, quota status, and historical usage." },
+    { "name": "Billing", "description": "Billing summaries, top-ups, and wallet balance." },
+    { "name": "Models", "description": "Modality-scoped model catalogs available through the gateway." },
+    { "name": "Resources", "description": "Organizations, workspaces, projects and their members." },
+    { "name": "Logs", "description": "Per-request logs for cost attribution and debugging." }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Session token returned by POST /users/login. Expires ~2 hours after issue."
+      }
+    },
+    "parameters": {
+      "orgId": {
+        "name": "org_id",
+        "in": "query",
+        "required": true,
+        "description": "Organization scope for the query.",
+        "schema": { "type": "string" }
+      },
+      "workspaceId": {
+        "name": "workspace_id",
+        "in": "query",
+        "required": false,
+        "description": "Restrict the query to one workspace within the organization.",
+        "schema": { "type": "string" }
+      },
+      "projectId": {
+        "name": "project_id",
+        "in": "query",
+        "required": false,
+        "description": "Restrict the query to one project within the workspace.",
+        "schema": { "type": "string" }
+      },
+      "limit": {
+        "name": "limit",
+        "in": "query",
+        "required": false,
+        "description": "Maximum number of records to return. Capped at 100.",
+        "schema": { "type": "integer", "minimum": 1, "maximum": 100, "default": 20 }
+      },
+      "cursor": {
+        "name": "cursor",
+        "in": "query",
+        "required": false,
+        "description": "Opaque pagination cursor from a previous response.",
+        "schema": { "type": "string" }
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string", "description": "Machine-readable error code, e.g. token_revoked." },
+          "message": { "type": "string", "description": "Human-readable error description." }
+        },
+        "required": ["error", "message"]
+      },
+      "Balance": {
+        "type": "object",
+        "properties": {
+          "org_id": { "type": "string" },
+          "workspace_id": { "type": "string", "nullable": true },
+          "project_id": { "type": "string", "nullable": true },
+          "proj_balance": { "type": "number", "description": "Remaining credits at the most specific scope provided." },
+          "proj_inflight": { "type": "number", "description": "Credits reserved by in-flight requests." }
+        }
+      },
+      "BillingSummary": {
+        "type": "object",
+        "properties": {
+          "org_id": { "type": "string" },
+          "period": { "type": "string", "description": "YYYY-MM." },
+          "by_model": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "unified_model_name": { "type": "string" },
+                "request_count": { "type": "integer" },
+                "input_tokens": { "type": "integer" },
+                "output_tokens": { "type": "integer" },
+                "credits": { "type": "number" }
+              }
+            }
+          }
+        }
+      },
+      "Model": {
+        "type": "object",
+        "properties": {
+          "model": { "type": "string", "description": "Unified model identifier, e.g. gpt-5.4." },
+          "modality": { "type": "string", "enum": ["chat", "image", "video", "audio", "embedding"] },
+          "input_price_per_credit": { "type": "number" },
+          "output_price_per_credit": { "type": "number" }
+        }
+      },
+      "Organization": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" }
+        }
+      },
+      "Workspace": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "org_id": { "type": "string" },
+          "name": { "type": "string" }
+        }
+      },
+      "Project": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "org_id": { "type": "string" },
+          "workspace_id": { "type": "string" },
+          "name": { "type": "string" },
+          "allowed_models": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "RequestLog": {
+        "type": "object",
+        "properties": {
+          "request_id": { "type": "string" },
+          "org_id": { "type": "string" },
+          "workspace_id": { "type": "string" },
+          "project_id": { "type": "string" },
+          "unified_model_name": { "type": "string" },
+          "endpoint_url": { "type": "string" },
+          "status": { "type": "integer" },
+          "provider_status": { "type": "integer", "nullable": true },
+          "created_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  },
+  "security": [{ "bearerAuth": [] }],
+  "paths": {
+    "/users/login": {
+      "post": {
+        "operationId": "loginUser",
+        "tags": ["Auth"],
+        "summary": "Start a console session.",
+        "description": "Exchanges an email/password pair for a bearer session token used by every other console-API call.",
+        "security": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["email", "password"],
+                "properties": {
+                  "email": { "type": "string", "format": "email" },
+                  "password": { "type": "string", "format": "password" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Session created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": { "type": "string", "description": "JWT bearer token, ~2h TTL." },
+                    "exp": { "type": "integer", "description": "Unix timestamp the token expires." },
+                    "user": { "type": "object" }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "description": "Invalid credentials.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    },
+    "/users/logout": {
+      "post": {
+        "operationId": "logoutUser",
+        "tags": ["Auth"],
+        "summary": "Revoke the current session.",
+        "description": "Invalidates the bearer token used in the Authorization header.",
+        "responses": {
+          "200": { "description": "Session revoked." },
+          "401": { "description": "Missing or already-expired token.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    },
+    "/quota/balance": {
+      "get": {
+        "operationId": "getQuotaBalance",
+        "tags": ["Usage"],
+        "summary": "Real-time credit balance.",
+        "description": "Returns the current balance and in-flight reservation at the most specific of org/workspace/project scope supplied.",
+        "parameters": [
+          { "$ref": "#/components/parameters/orgId" },
+          { "$ref": "#/components/parameters/workspaceId" },
+          { "$ref": "#/components/parameters/projectId" }
+        ],
+        "responses": {
+          "200": { "description": "Balance snapshot.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Balance" } } } },
+          "400": { "description": "Missing or malformed parameter.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } },
+          "403": { "description": "No scope access.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    },
+    "/quota/status": {
+      "get": {
+        "operationId": "getQuotaStatus",
+        "tags": ["Usage"],
+        "summary": "Balance and block state at all three scope levels.",
+        "description": "Returns org, workspace and project balances together with whether each level is currently blocking new requests.",
+        "parameters": [
+          { "$ref": "#/components/parameters/orgId" },
+          { "$ref": "#/components/parameters/workspaceId" },
+          { "$ref": "#/components/parameters/projectId" }
+        ],
+        "responses": {
+          "200": { "description": "Quota status.", "content": { "application/json": { "schema": { "type": "object" } } } }
+        }
+      }
+    },
+    "/quota/monthly": {
+      "get": {
+        "operationId": "getQuotaMonthly",
+        "tags": ["Usage"],
+        "summary": "Historical month-end balance snapshots.",
+        "description": "Returns one snapshot per month for the requested window.",
+        "parameters": [
+          { "$ref": "#/components/parameters/orgId" },
+          { "name": "months", "in": "query", "description": "Number of months to return, 1–24 (default 6).", "schema": { "type": "integer", "minimum": 1, "maximum": 24, "default": 6 } },
+          { "name": "period", "in": "query", "description": "Single month, YYYY-MM, instead of a rolling window.", "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Monthly snapshots.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } }
+        }
+      }
+    },
+    "/quota/history": {
+      "get": {
+        "operationId": "getQuotaHistory",
+        "tags": ["Usage"],
+        "summary": "Raw usage ledger.",
+        "description": "Paginated ledger of balance-affecting events.",
+        "parameters": [
+          { "$ref": "#/components/parameters/orgId" },
+          { "name": "since", "in": "query", "schema": { "type": "string", "format": "date-time" } },
+          { "name": "until", "in": "query", "schema": { "type": "string", "format": "date-time" } },
+          { "$ref": "#/components/parameters/cursor" }
+        ],
+        "responses": {
+          "200": { "description": "Ledger page.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } }
+        }
+      }
+    },
+    "/billing/summary": {
+      "get": {
+        "operationId": "getBillingSummary",
+        "tags": ["Billing"],
+        "summary": "Per-model token totals and credits for a period.",
+        "description": "Aggregates request counts, token totals and spend by model for the given org (and optional workspace/project) over a billing period.",
+        "parameters": [
+          { "$ref": "#/components/parameters/orgId" },
+          { "name": "period", "in": "query", "description": "YYYY-MM.", "schema": { "type": "string" } },
+          { "$ref": "#/components/parameters/workspaceId" },
+          { "$ref": "#/components/parameters/projectId" }
+        ],
+        "responses": {
+          "200": { "description": "Billing summary.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BillingSummary" } } } }
+        }
+      }
+    },
+    "/billing/usage-by-key": {
+      "get": {
+        "operationId": "getUsageByKey",
+        "tags": ["Billing"],
+        "summary": "Per-API-key monthly usage.",
+        "description": "Personal view of usage broken down by the caller's own API keys.",
+        "parameters": [{ "$ref": "#/components/parameters/orgId" }],
+        "responses": { "200": { "description": "Usage by key.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } }
+      }
+    },
+    "/billing/usage-series": {
+      "get": {
+        "operationId": "getUsageSeries",
+        "tags": ["Billing"],
+        "summary": "Daily usage trend.",
+        "description": "Time series of usage, groupable by model or by key.",
+        "parameters": [
+          { "$ref": "#/components/parameters/orgId" },
+          { "name": "interval", "in": "query", "schema": { "type": "string", "enum": ["day", "week", "month"] } },
+          { "name": "group_by", "in": "query", "schema": { "type": "string", "enum": ["model", "api_key"] } }
+        ],
+        "responses": { "200": { "description": "Usage series.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } }
+      }
+    },
+    "/billing/wallet": {
+      "get": {
+        "operationId": "getWallet",
+        "tags": ["Billing"],
+        "summary": "Account-level plan and credit balance.",
+        "description": "Returns the wallet balance and active plan for the authenticated account.",
+        "responses": { "200": { "description": "Wallet.", "content": { "application/json": { "schema": { "type": "object" } } } } }
+      }
+    },
+    "/billing/events": {
+      "get": {
+        "operationId": "getBillingEvents",
+        "tags": ["Billing"],
+        "summary": "Individual billing events.",
+        "description": "Filterable list of billing events (charges, adjustments) for an organization.",
+        "parameters": [
+          { "$ref": "#/components/parameters/orgId" },
+          { "name": "from", "in": "query", "schema": { "type": "string", "format": "date-time" } },
+          { "name": "to", "in": "query", "schema": { "type": "string", "format": "date-time" } },
+          { "name": "modality", "in": "query", "schema": { "type": "string" } },
+          { "name": "unified_model_name", "in": "query", "schema": { "type": "string" } },
+          { "name": "billing_status", "in": "query", "schema": { "type": "string" } },
+          { "name": "api_key_doc_id", "in": "query", "schema": { "type": "string" } },
+          { "name": "request_id", "in": "query", "schema": { "type": "string" } },
+          { "$ref": "#/components/parameters/limit" },
+          { "$ref": "#/components/parameters/cursor" }
+        ],
+        "responses": { "200": { "description": "Billing events.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } }
+      }
+    },
+    "/billing/topups": {
+      "get": {
+        "operationId": "getTopups",
+        "tags": ["Billing"],
+        "summary": "Top-up history.",
+        "description": "List of completed and pending credit top-ups.",
+        "parameters": [{ "$ref": "#/components/parameters/orgId" }],
+        "responses": { "200": { "description": "Top-ups.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } }
+      }
+    },
+    "/billing/topup-status": {
+      "get": {
+        "operationId": "getTopupStatus",
+        "tags": ["Billing"],
+        "summary": "Status of one top-up session.",
+        "description": "Checks whether a checkout session has completed and credited the account.",
+        "parameters": [
+          { "name": "session_id", "in": "query", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "Top-up status.", "content": { "application/json": { "schema": { "type": "object" } } } } }
+      }
+    },
+    "/billing/checkout-url": {
+      "get": {
+        "operationId": "getCheckoutUrl",
+        "tags": ["Billing"],
+        "summary": "Create a top-up checkout link.",
+        "description": "Returns a hosted payment-page URL for the given SKU.",
+        "parameters": [
+          { "name": "sku", "in": "query", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "Checkout URL.", "content": { "application/json": { "schema": { "type": "object", "properties": { "url": { "type": "string" } } } } } } }
+      }
+    },
+    "/me/manual-credit-history": {
+      "get": {
+        "operationId": "getManualCreditHistory",
+        "tags": ["Billing"],
+        "summary": "Manually-applied credit adjustments.",
+        "description": "Paginated history of manual credit grants/deductions on the account.",
+        "parameters": [
+          { "name": "action", "in": "query", "schema": { "type": "string" } },
+          { "name": "from", "in": "query", "schema": { "type": "string", "format": "date-time" } },
+          { "name": "to", "in": "query", "schema": { "type": "string", "format": "date-time" } },
+          { "name": "offset", "in": "query", "schema": { "type": "integer", "minimum": 0 } }
+        ],
+        "responses": { "200": { "description": "Credit history.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } }
+      }
+    },
+    "/chat/models": {
+      "get": {
+        "operationId": "listChatModels",
+        "tags": ["Models"],
+        "summary": "Chat/completion model catalog.",
+        "description": "Models available for the chat modality through the unified gateway.",
+        "responses": { "200": { "description": "Models.", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Model" } } } } } }
+      }
+    },
+    "/image/models": {
+      "get": {
+        "operationId": "listImageModels",
+        "tags": ["Models"],
+        "summary": "Image-generation model catalog.",
+        "description": "Models available for the image modality through the unified gateway.",
+        "responses": { "200": { "description": "Models.", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Model" } } } } } }
+      }
+    },
+    "/video/models": {
+      "get": {
+        "operationId": "listVideoModels",
+        "tags": ["Models"],
+        "summary": "Video-generation model catalog.",
+        "description": "Models available for the video modality through the unified gateway.",
+        "responses": { "200": { "description": "Models.", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Model" } } } } } }
+      }
+    },
+    "/audio/models": {
+      "get": {
+        "operationId": "listAudioModels",
+        "tags": ["Models"],
+        "summary": "Audio model catalog.",
+        "description": "Models available for the audio modality (speech, transcription) through the unified gateway.",
+        "responses": { "200": { "description": "Models.", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Model" } } } } } }
+      }
+    },
+    "/embedding/models": {
+      "get": {
+        "operationId": "listEmbeddingModels",
+        "tags": ["Models"],
+        "summary": "Embedding model catalog.",
+        "description": "Models available for the embedding modality through the unified gateway.",
+        "responses": { "200": { "description": "Models.", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Model" } } } } } }
+      }
+    },
+    "/accounts/me": {
+      "get": {
+        "operationId": "getCurrentAccount",
+        "tags": ["Resources"],
+        "summary": "Current account profile.",
+        "description": "Returns the authenticated user's profile and organization memberships.",
+        "responses": { "200": { "description": "Account.", "content": { "application/json": { "schema": { "type": "object" } } } } }
+      }
+    },
+    "/orgs": {
+      "get": {
+        "operationId": "listOrgs",
+        "tags": ["Resources"],
+        "summary": "List organizations the caller belongs to.",
+        "description": "Returns every organization the authenticated user is a member of.",
+        "responses": { "200": { "description": "Organizations.", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Organization" } } } } } }
+      }
+    },
+    "/orgs/{id}": {
+      "get": {
+        "operationId": "getOrg",
+        "tags": ["Resources"],
+        "summary": "Get one organization.",
+        "description": "Returns a single organization by id, if the caller has access.",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": {
+          "200": { "description": "Organization.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Organization" } } } },
+          "404": { "description": "Not found in scope.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    },
+    "/workspaces": {
+      "get": {
+        "operationId": "listWorkspaces",
+        "tags": ["Resources"],
+        "summary": "List workspaces.",
+        "description": "Returns workspaces, optionally filtered to one organization.",
+        "parameters": [{ "name": "org", "in": "query", "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Workspaces.", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Workspace" } } } } } }
+      }
+    },
+    "/workspaces/{id}": {
+      "get": {
+        "operationId": "getWorkspace",
+        "tags": ["Resources"],
+        "summary": "Get one workspace.",
+        "description": "Returns a single workspace by id, if the caller has access.",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": {
+          "200": { "description": "Workspace.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Workspace" } } } },
+          "404": { "description": "Not found in scope.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    },
+    "/projects": {
+      "get": {
+        "operationId": "listProjects",
+        "tags": ["Resources"],
+        "summary": "List projects.",
+        "description": "Returns projects, optionally filtered to one organization and/or workspace.",
+        "parameters": [
+          { "name": "org", "in": "query", "schema": { "type": "string" } },
+          { "name": "workspace", "in": "query", "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "Projects.", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Project" } } } } } }
+      }
+    },
+    "/projects/{id}": {
+      "get": {
+        "operationId": "getProject",
+        "tags": ["Resources"],
+        "summary": "Get one project.",
+        "description": "Returns a single project by id, if the caller has access.",
+        "parameters": [{ "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }],
+        "responses": {
+          "200": { "description": "Project.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Project" } } } },
+          "404": { "description": "Not found in scope.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    },
+    "/org-members": {
+      "get": {
+        "operationId": "listOrgMembers",
+        "tags": ["Resources"],
+        "summary": "List organization members.",
+        "description": "Returns the members of one organization and their roles.",
+        "parameters": [{ "name": "orgId", "in": "query", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Members.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } }
+      }
+    },
+    "/workspace-members": {
+      "get": {
+        "operationId": "listWorkspaceMembers",
+        "tags": ["Resources"],
+        "summary": "List workspace members.",
+        "description": "Returns the members of one workspace and their roles.",
+        "parameters": [{ "name": "workspaceId", "in": "query", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Members.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } }
+      }
+    },
+    "/project-members": {
+      "get": {
+        "operationId": "listProjectMembers",
+        "tags": ["Resources"],
+        "summary": "List project members.",
+        "description": "Returns the members of one project and their roles.",
+        "parameters": [{ "name": "projectId", "in": "query", "required": true, "schema": { "type": "string" } }],
+        "responses": { "200": { "description": "Members.", "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } } } }
+      }
+    },
+    "/request-logs": {
+      "get": {
+        "operationId": "listRequestLogs",
+        "tags": ["Logs"],
+        "summary": "Per-request logs.",
+        "description": "Filterable, paginated request log for cost attribution and debugging. Retained for 7 days.",
+        "parameters": [
+          { "$ref": "#/components/parameters/orgId" },
+          { "$ref": "#/components/parameters/workspaceId" },
+          { "$ref": "#/components/parameters/projectId" },
+          { "name": "from", "in": "query", "schema": { "type": "string", "format": "date-time" } },
+          { "name": "to", "in": "query", "schema": { "type": "string", "format": "date-time" } },
+          { "name": "request_id", "in": "query", "schema": { "type": "string" } },
+          { "name": "unified_model_name", "in": "query", "schema": { "type": "string" } },
+          { "name": "endpoint_url", "in": "query", "schema": { "type": "string" } },
+          { "name": "min_status", "in": "query", "schema": { "type": "integer" } },
+          { "name": "max_status", "in": "query", "schema": { "type": "integer" } },
+          { "name": "provider_id", "in": "query", "schema": { "type": "string" } },
+          { "name": "provider_status", "in": "query", "schema": { "type": "integer" } },
+          { "name": "has_provider_error", "in": "query", "schema": { "type": "boolean" } },
+          { "$ref": "#/components/parameters/limit" },
+          { "$ref": "#/components/parameters/cursor" },
+          { "name": "sort_by", "in": "query", "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Request logs.", "content": { "application/json": { "schema": { "type": "array", "items": { "$ref": "#/components/schemas/RequestLog" } } } } },
+          "400": { "description": "Missing or malformed parameter.", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } } }
+        }
+      }
+    }
+  }
+}
