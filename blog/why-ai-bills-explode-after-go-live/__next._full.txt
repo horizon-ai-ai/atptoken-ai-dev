@@ -1,207 +1,202 @@
 1:"$Sreact.fragment"
-2:I[86402,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"AnalyticsNoScript"]
-b:I[68027,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default",1]
-:HL["/_next/static/chunks/0qeh15sd4m41q.css","style"]
-:HL["/_next/static/chunks/09g-4e0_i9581.css","style"]
-:HL["/_next/static/media/ca31d6821328a4e9-s.p.2svk7cnw5x6df.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/f7aa21714c1c53f8-s.p.0-95eo-012xnf.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-3:T7f9,{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.horizon-ai.ai/#organization","name":"Horizon AI","url":"https://www.horizon-ai.ai","logo":"https://atptoken.ai/atp_logo.svg","sameAs":["https://www.linkedin.com/company/horizon-ai-tw/","https://atptoken.ai"],"contactPoint":{"@type":"ContactPoint","email":"service@horizon-ai.ai","contactType":"customer support","url":"https://atptoken.ai/contact/","availableLanguage":["en","zh-Hant","zh-Hans"]},"parentOrganization":{"@type":"Organization","name":"KONST Tech","url":"https://www.konsttech.ai/"}},{"@type":"Organization","@id":"https://atptoken.ai/#brand","name":"ATP Token","url":"https://atptoken.ai","parentOrganization":{"@id":"https://www.horizon-ai.ai/#organization"},"sameAs":["https://atptoken.ai"],"contactPoint":{"@type":"ContactPoint","email":"service@horizon-ai.ai","contactType":"customer support","url":"https://atptoken.ai/contact/","availableLanguage":["en","zh-Hant","zh-Hans"]}},{"@type":"WebSite","@id":"https://atptoken.ai/#website","name":"ATP Token","url":"https://atptoken.ai","publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"inLanguage":"en"},{"@type":"SoftwareApplication","@id":"https://atptoken.ai/#software","name":"ATP Token AI Gateway","alternateName":["ATP Token","ATPToken","ATP Petrichor"],"applicationCategory":"DeveloperApplication","operatingSystem":"Web","url":"https://atptoken.ai","image":"https://atptoken.ai/og-image.png","description":"Enterprise AI governance and billing platform: one key for OpenAI-compatible, Anthropic, and Gemini-style models, with per-request logs and unified credits.","sameAs":["https://atptoken.ai"],"brand":{"@id":"https://atptoken.ai/#brand"},"offers":{"@type":"Offer","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","priceCurrency":"USD","minPrice":"5","description":"Pay-as-you-go credits with a USD 5 minimum top-up. No monthly fee."},"url":"https://atptoken.ai/pricing/"},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}]}0:{"P":null,"c":["","blog","why-ai-bills-explode-after-go-live",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","why-ai-bills-explode-after-go-live","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0qeh15sd4m41q.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/09g-4e0_i9581.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/3629_rsmfo4lu.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/14mrh2-p_w84d.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"className":"figtree_816e51ac-module__-mVWqG__variable lexend_559e926c-module__yRaCra__variable notocjk_be903710-module__cpFwhq__variable notoscgap_df5d2ec9-module__O8SyOa__variable ibm_plex_mono_69504ce2-module__RMiYDW__variable h-full antialiased","children":["$","body",null,{"className":"min-h-full flex flex-col","children":[["$","$L2",null,{}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){try{var p=location.pathname||\"\";var l=\"en\";if(/\\/(zh-tw|tw)(\\/|$)/i.test(p))l=\"zh-Hant-TW\";else if(/\\/(zh-cn|cn)(\\/|$)/i.test(p))l=\"zh-Hans-CN\";document.documentElement.lang=l;if(l!==\"en\")return;if(/\\/en(\\/|$)/i.test(p))return;var s=localStorage.getItem(\"atp_lang\");if(s!==\"zh-TW\"&&s!==\"zh-CN\")return;var base=p.replace(/\\/+$/,\"\")||\"/\";var ok=base===\"/\"||/^\\/(landing|pricing|docs|enterprise-plan|privacy|terms|aup|blog|models|about)(\\/|$)/.test(base);if(!ok)return;var pref=s===\"zh-TW\"?\"/zh-tw\":\"/zh-cn\";var dest=pref+(base===\"/\"?\"/\":base+\"/\");location.replace(dest+location.search+location.hash);}catch(e){}})();"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4","$L5"]}]}]]}],{"children":["$L6",{"children":["$L7",{"children":["$L8",{},null,false,null]},null,false,"$@9"]},null,false,"$@9"]},null,false,null],"$La",false]],"m":"$undefined","G":["$b",["$Lc","$Ld"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"1D4DZsfbxL_82v4AXbxNN"}
-e:I[86402,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"Analytics"]
-f:I[72299,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"AuthProvider"]
-10:I[33499,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"LanguageProvider"]
-11:I[91432,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"ToastProvider"]
-12:I[39756,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
-13:I[37457,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
-14:I[48209,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/40u-hdpkci2a7.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"PublicNav"]
-15:I[48209,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/40u-hdpkci2a7.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"LocalizedText"]
-1b:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
-1c:"$Sreact.suspense"
-1f:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"ViewportBoundary"]
-21:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"MetadataBoundary"]
-4:["$","$Le",null,{}]
-5:["$","$Lf",null,{"children":["$","$L10",null,{"children":["$","$L11",null,{"children":["$","$L12",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L13",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"flex min-h-screen flex-col bg-canvas text-ink","children":[["$","$L14",null,{}],["$","main",null,{"className":"flex flex-1 flex-col items-center justify-center px-4 py-24 text-center","style":{"background":"var(--wash-header)"},"children":[["$","svg",null,{"viewBox":"0 0 200 240","className":"h-28 w-28 animate-rise text-hairline","aria-hidden":"true","fill":"none","children":[["$","defs",null,{"children":["$","linearGradient",null,{"id":"_S_1_","x1":"389.55","y1":"67.0893","x2":"20.9509","y2":"163.615","gradientUnits":"userSpaceOnUse","children":[["$","stop",null,{"stopColor":"#FD0E4A"}],["$","stop",null,{"offset":"0.5","stopColor":"#F04D3B"}],["$","stop",null,{"offset":"1","stopColor":"#FEAB11"}]]}]}],["$","path",null,{"d":"M100 240 V102","stroke":"currentColor","strokeWidth":"6","strokeLinecap":"round"}],["$","g",null,{"transform":"translate(100 96) scale(0.28) translate(-233 -219)","children":[["$","path","226.433 275.786C239.653",{"d":"M226.433 275.786C239.653 263.532 261.436 272.84 261.436 291.143V365.377C261.436 366.774 260.303 367.906 258.906 367.906H234.875C233.478 367.906 232.345 366.774 232.345 365.377V310.99L176.911 366.425C175.962 367.373 174.676 367.906 173.334 367.906H137.342C136.216 367.906 135.651 366.544 136.448 365.747L225.81 276.385L226.433 275.786Z","fill":"url(#_S_1_)"}],["$","path","271.641 251.807C264.073",{"d":"M271.641 251.807C264.073 235.447 279.657 217.607 297.063 223.262L367.664 246.202C368.993 246.634 369.72 248.061 369.288 249.389L361.862 272.244C361.43 273.573 360.003 274.3 358.675 273.868L306.95 257.062L342.541 326.913C343.15 328.109 343.259 329.497 342.845 330.774L331.723 365.003C331.375 366.075 329.905 366.191 329.393 365.187L272.019 252.584L271.641 251.807Z","fill":"url(#_S_1_)"}],["$","path","262.805 201.401C244.907",{"d":"M262.805 201.401C244.907 203.543 232.756 183.21 243.514 168.403L287.147 108.346C287.968 107.216 289.55 106.965 290.681 107.786L310.122 121.912C311.253 122.733 311.503 124.315 310.682 125.445L278.714 169.445L356.145 157.181C357.47 156.971 358.825 157.296 359.91 158.085L389.028 179.24C389.94 179.902 389.595 181.336 388.482 181.512L263.661 201.282L262.805 201.401Z","fill":"url(#_S_1_)"}],["$","path","212.135 194.228C208.642",{"d":"M212.135 194.228C208.642 211.912 185.549 217.185 174.791 202.378L131.157 142.321C130.336 141.191 130.586 139.609 131.717 138.788L151.158 124.663C152.289 123.842 153.871 124.092 154.692 125.223L186.659 169.222L198.923 91.7914C199.133 90.4662 199.861 89.2786 200.946 88.4899L230.064 67.3346C230.976 66.6723 232.233 67.4428 232.057 68.5557L212.287 193.377L212.135 194.228Z","fill":"url(#_S_1_)"}],["$","path","189.656 240.201C205.395",{"d":"M189.656 240.201C205.395 248.988 203.274 272.581 185.867 278.237L115.267 301.176C113.938 301.608 112.511 300.881 112.079 299.552L104.653 276.697C104.221 275.368 104.948 273.941 106.277 273.51L158.002 256.703L88.1505 221.112C86.955 220.503 86.0504 219.444 85.6358 218.168L74.5138 183.938C74.1656 182.866 75.2869 181.909 76.2909 182.42L188.894 239.794L189.656 240.201Z","fill":"url(#_S_1_)"}]]}]]}],["$","div",null,{"className":"mt-6 animate-rise font-mono text-[13px] text-sand","style":{"animationDelay":"60ms"},"children":"404 · not found"}],["$","h1",null,{"className":"mt-3 animate-rise text-2xl font-semibold tracking-tight text-ink sm:text-[32px]","style":{"animationDelay":"120ms"},"children":["$","$L15",null,{"value":{"en":"Page not found","zh-TW":"找不到這個頁面","zh-CN":"找不到这个页面"}}]}],["$","p",null,{"className":"mt-3 max-w-md animate-rise text-sm leading-relaxed text-umber sm:text-base","style":{"animationDelay":"180ms"},"children":"$L16"}],"$L17","$L18"]}],"$L19"]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]
-6:["$","$1","c",{"children":[null,["$","$L12",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L13",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
-7:["$","$1","c",{"children":[null,["$","$L12",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L13",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
-8:["$","$1","c",{"children":["$L1a",[["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/1hbxtvg5etpqa.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0ey98fxnyu7te.js","async":true,"nonce":"$undefined"}]],["$","$L1b",null,{"children":["$","$1c",null,{"name":"Next.MetadataOutlet","children":"$@1d"}]}]]}]
-1e:[]
-9:"$W1e"
-a:["$","$1","h",{"children":[null,["$","$L1f",null,{"children":"$L20"}],["$","div",null,{"hidden":true,"children":["$","$L21",null,{"children":["$","$1c",null,{"name":"Next.Metadata","children":"$L22"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
-c:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0qeh15sd4m41q.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
-d:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/09g-4e0_i9581.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
-23:I[22016,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/40u-hdpkci2a7.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],""]
-24:I[48209,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/40u-hdpkci2a7.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"Footer"]
-16:["$","$L15",null,{"value":{"en":"Nothing has landed at this address. The page may have moved, or it never existed.","zh-TW":"這個位址還沒有東西落地——頁面可能已經搬家，或從未存在。","zh-CN":"这个地址还没有东西落地——页面可能已经搬家，或从未存在。"}}]
-17:["$","div",null,{"className":"mt-8 flex animate-rise flex-col gap-3 sm:flex-row","style":{"animationDelay":"240ms"},"children":[["$","$L23",null,{"href":"/","className":"btn-pill inline-flex items-center justify-center rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-white","children":["$","$L15",null,{"value":{"en":"Back to home","zh-TW":"回到首頁","zh-CN":"回到首页"}}]}],["$","$L23",null,{"href":"/docs","className":"btn-pill inline-flex items-center justify-center rounded-full border border-hairline bg-canvas px-7 py-3.5 text-sm font-medium text-ink hover:bg-haze","children":["$","$L15",null,{"value":{"en":"View docs","zh-TW":"查看文件","zh-CN":"查看文档"}}]}]]}]
-18:["$","p",null,{"className":"mt-10 animate-rise font-mono text-xs text-sand","style":{"animationDelay":"300ms"},"children":[["$","$L15",null,{"value":{"en":"Looking for something specific?","zh-TW":"在找特定的內容？","zh-CN":"在找特定的内容？"}}]," ",["$","a",null,{"href":"/sitemap.xml","className":"underline hover:text-ink","children":"sitemap.xml"}]," ","·"," ",["$","a",null,{"href":"/llms.txt","className":"underline hover:text-ink","children":"llms.txt"}]," ","·"," ",["$","a",null,{"href":"/openapi.json","className":"underline hover:text-ink","children":"openapi.json"}]]}]
-19:["$","$L24",null,{}]
-25:T4e1,{"@context":"https://schema.org","@type":"BlogPosting","headline":"Why AI bills explode after go-live: 5 control gaps and how to close them (2026)","description":"Enterprise AI bills spike after go-live when five control gaps open at once: project keys, spending caps, per-request attribution, model allowlists, and post-launch monitoring.","datePublished":"2026-07-29","dateModified":"2026-07-29","inLanguage":"en","keywords":"AI billing, Enterprise AI governance, ATP","url":"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/","mainEntityOfPage":"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/","image":"https://atptoken.ai/og/blog/why-ai-bills-explode-after-go-live.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}26:T6da,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why does an AI bill spike right after go-live?","acceptedAnswer":{"@type":"Answer","text":"Usage shape changes after launch—longer context, more retries, multi-step agents that resend the same context—while caps and attribution are still missing. Unit prices may be flat while total spend multiplies within weeks."}},{"@type":"Question","name":"Where should an enterprise set AI spending caps?","acceptedAnswer":{"@type":"Answer","text":"At the project (or equivalent workload) layer, not only on one company card. Project caps contain blast radius; a single org total only tells you that spend exploded, not where."}},{"@type":"Question","name":"Why do shared API keys make AI bills hard to control?","acceptedAnswer":{"@type":"Answer","text":"A shared key strips every request of an owner. When spend runs hot you know 'someone' is burning money, not which system to throttle, revoke, or audit. Attribution and containment both start with one project, one key."}},{"@type":"Question","name":"Can we close these gaps without a governance platform?","acceptedAnswer":{"@type":"Answer","text":"Yes. Inventory keys in a spreadsheet, set vendor alerts, enforce a model allowlist, and ship request logs into existing monitoring. A platform's job is to make those steps the default, not the only path."}},{"@type":"Question","name":"How do coding agents change AI billing risk versus chat APIs?","acceptedAnswer":{"@type":"Answer","text":"Coding agents often run with long context, tool loops, and retries, so tokens per unit of work dwarf single-turn chat. If they share keys and budgets with production, experimental traffic can consume the formal budget."}}]}1a:[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Why AI bills explode after go-live: 5 control gaps and how to close them (2026)\",\"item\":\"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$25"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$26"}}]],"$L27"]
-28:I[51713,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"default"]
-29:T3fb7,<p>An enterprise AI bill spike after go-live is a sudden overrun on large language model or related AI usage where the team cannot answer who spent the money, which model drove it, or which change caused the jump. This guide is for platform engineers, finance partners, and managers who sign off on AI spend for the first time.</p>
-<p>The answer up front: post-launch explosions are almost never a quiet vendor price change. They are <strong>five control gaps</strong> that open at the same moment traffic becomes real. Each gap has a fix; the sequence that works is fixed too—<strong>give every dollar an owner, give every <a class="doc-term" href="/en/docs/resources" data-def="The unit that permissions and billing hang off — keys, allowed models, and credit budget all belong to one.">project</a> a ceiling, then make every request replayable</strong>. Below: symptoms, consequences, and repairs you can run as a one-week stop-the-bleeding list. For the unit structure of a bill, pair this with <a href="/en/blog/how-to-read-your-ai-bill">how to read your AI bill</a>.</p>
-<h2 id="why-go-live-is-the-fuse">Why go-live is the fuse</h2>
-<p>Pilot traffic is short, small, and clean. After launch three things land together:</p>
-<ol>
-<li><strong>Real context gets longer</strong> — users paste whole documents; chat history stacks.  </li>
-<li><strong>Call patterns get heavier</strong> — agents, tool calls, and retries turn one job into a chain of requests.  </li>
-<li><strong>Headcount on the system jumps</strong> — a few engineers become a full business line.</li>
-</ol>
-<p>The price sheet may not move while <strong>tokens per job</strong> and <strong>who can call without a ceiling</strong> do. Without a control layer, those three factors multiply into one month-end total. Public failure stories—no usage limits, coding-agent cost per engineer, finance unable to name a team—map cleanly onto the five gaps below.</p>
-<h2 id="five-control-gaps-at-a-glance">Five control gaps at a glance</h2>
+2:I[86402,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"AnalyticsNoScript"]
+d:I[68027,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"default",1]
+:HL["/_next/static/chunks/1-c97juak496i.css","style"]
+:HL["/_next/static/chunks/27h8a2rd48e9r.css","style"]
+:HL["/_next/static/media/797e433ab948586e-s.p.0r6juujl39pe6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/chunks/0bk251ba95uho.css","style"]
+3:["$","style",null,{"children":".reveal,.reveal [class*=\"approveRow\"],.reveal [class*=\"eyebrow\"]>svg:first-child{opacity:1!important;transform:none!important}"}]
+4:T445,(function(){try{var p=location.pathname||"";var l="en";if(/\/(zh-tw|tw)(\/|$)/i.test(p))l="zh-Hant-TW";else if(/\/(zh-cn|cn)(\/|$)/i.test(p))l="zh-Hans-CN";document.documentElement.lang=l;if(l!=="en")return;if(/\/en(\/|$)/i.test(p))return;var s=localStorage.getItem("atp_lang");var base=p.replace(/\/+$/,"")||"/";var ok=base==="/"||/^\/(landing|pricing|docs|enterprise-plan|privacy|terms|aup|blog|models|about|providers|compare|guides)(\/|$)/.test(base);if(!ok){var d=s;if(d!=="en"&&d!=="zh-TW"&&d!=="zh-CN"){var n=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""]).join(",").toLowerCase();d=/zh-cn|zh-hans/.test(n)?"zh-CN":/zh-tw|zh-hk|zh-mo|zh-hant/.test(n)?"zh-TW":/(^|,)zh(-|,|$)/.test(n)?"zh-CN":"en";}if(d!=="en"){var r=document.documentElement;r.setAttribute("data-lang-pending",d);setTimeout(function(){r.removeAttribute("data-lang-pending")},2500);}return;}if(s!=="zh-TW"&&s!=="zh-CN")return;var pref=s==="zh-TW"?"/zh-tw":"/zh-cn";var dest=pref+(base==="/"?"/":base+"/");location.replace(dest+location.search+location.hash);}catch(e){}})();5:T7f9,{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.horizon-ai.ai/#organization","name":"Horizon AI","url":"https://www.horizon-ai.ai","logo":"https://atptoken.ai/atp_logo.svg","sameAs":["https://www.linkedin.com/company/horizon-ai-tw/","https://atptoken.ai"],"contactPoint":{"@type":"ContactPoint","email":"service@horizon-ai.ai","contactType":"customer support","url":"https://atptoken.ai/contact/","availableLanguage":["en","zh-Hant","zh-Hans"]},"parentOrganization":{"@type":"Organization","name":"KONST Tech","url":"https://www.konsttech.ai/"}},{"@type":"Organization","@id":"https://atptoken.ai/#brand","name":"ATP Token","url":"https://atptoken.ai","parentOrganization":{"@id":"https://www.horizon-ai.ai/#organization"},"sameAs":["https://atptoken.ai"],"contactPoint":{"@type":"ContactPoint","email":"service@horizon-ai.ai","contactType":"customer support","url":"https://atptoken.ai/contact/","availableLanguage":["en","zh-Hant","zh-Hans"]}},{"@type":"WebSite","@id":"https://atptoken.ai/#website","name":"ATP Token","url":"https://atptoken.ai","publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"inLanguage":"en"},{"@type":"SoftwareApplication","@id":"https://atptoken.ai/#software","name":"ATP Token AI Gateway","alternateName":["ATP Token","ATPToken","ATP Petrichor"],"applicationCategory":"DeveloperApplication","operatingSystem":"Web","url":"https://atptoken.ai","image":"https://atptoken.ai/og-image.png","description":"Enterprise AI governance and billing platform: one key for OpenAI-compatible, Anthropic, and Gemini-style models, with per-request logs and unified credits.","sameAs":["https://atptoken.ai"],"brand":{"@id":"https://atptoken.ai/#brand"},"offers":{"@type":"Offer","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","priceCurrency":"USD","minPrice":"5","description":"Pay-as-you-go credits with a USD 5 minimum top-up. No monthly fee."},"url":"https://atptoken.ai/pricing/"},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}]}0:{"P":null,"c":["","blog","why-ai-bills-explode-after-go-live",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","why-ai-bills-explode-after-go-live","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1-c97juak496i.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/27h8a2rd48e9r.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/3t8toeybct1ql.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/14mrh2-p_w84d.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1fmxoc5c4a_2q.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"className":"geist_b99934fc-module__eWTsoq__variable notocjk_be903710-module__cpFwhq__variable notoscgap_df5d2ec9-module__O8SyOa__variable geist_mono_5a17c8cb-module__gcP92q__variable h-full antialiased","children":["$","body",null,{"className":"min-h-full flex flex-col","children":[["$","$L2",null,{}],["$","noscript",null,{"children":"$3"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$4"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6","$L7"]}]}]]}],{"children":["$L8",{"children":["$L9",{"children":["$La",{},null,false,null]},null,false,"$@b"]},null,false,"$@b"]},null,false,null],"$Lc",false]],"m":"$undefined","G":["$d",["$Le","$Lf"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"q8ogy5bwfTluQawd-N4pH"}
+10:I[86402,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"Analytics"]
+11:I[72299,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"AuthProvider"]
+12:I[33499,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"LanguageProvider"]
+13:I[91432,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"ToastProvider"]
+14:I[39756,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"default"]
+15:I[37457,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"default"]
+16:I[51800,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js","/_next/static/chunks/1zxyn5k7q7y_5.js"],"LazyNotFoundView"]
+18:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"OutletBoundary"]
+19:"$Sreact.suspense"
+1c:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"ViewportBoundary"]
+1e:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"MetadataBoundary"]
+6:["$","$L10",null,{}]
+7:["$","$L11",null,{"children":["$","$L12",null,{"children":["$","$L13",null,{"children":["$","$L14",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L15",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L16",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]
+8:["$","$1","c",{"children":[null,["$","$L14",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L15",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+9:["$","$1","c",{"children":[null,["$","$L14",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L15",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+a:["$","$1","c",{"children":["$L17",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0bk251ba95uho.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/031jyqwh2ymjo.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/12btwas-eg9md.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0tc57bytaqvvw.js","async":true,"nonce":"$undefined"}]],["$","$L18",null,{"children":["$","$19",null,{"name":"Next.MetadataOutlet","children":"$@1a"}]}]]}]
+1b:[]
+b:"$W1b"
+c:["$","$1","h",{"children":[null,["$","$L1c",null,{"children":"$L1d"}],["$","div",null,{"hidden":true,"children":["$","$L1e",null,{"children":["$","$19",null,{"name":"Next.Metadata","children":"$L1f"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1-c97juak496i.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+f:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/27h8a2rd48e9r.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+20:T4bb,{"@context":"https://schema.org","@type":"BlogPosting","headline":"Why LLM costs explode after launch: 5 control gaps and a worked example (2026)","description":"LLM cost often jumps after launch because prompts grow. A RAG bot going from 2k to 9k input tokens adds $25,200 a month. Five control gaps and a 5-day fix.","datePublished":"2026-07-29","dateModified":"2026-07-29","inLanguage":"en","keywords":"LLM cost, AI billing, ATP","url":"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/","mainEntityOfPage":"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/","image":"https://atptoken.ai/og/blog/why-ai-bills-explode-after-go-live.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}21:T5da,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why do LLM API costs increase after launch?","acceptedAnswer":{"@type":"Answer","text":"Unit prices usually stay the same; the tokens per request change. Users paste documents, conversations get longer, retries and agent steps multiply calls, and more teams start using the same keys, so the same rate card is applied to far more tokens."}},{"@type":"Question","name":"How do I estimate monthly LLM cost?","acceptedAnswer":{"@type":"Answer","text":"Multiply requests per day by (average input tokens × input rate + average output tokens × output rate) per million tokens, then by 30. For 40,000 requests a day at 9,000 input and 400 output tokens on a $3/$15 model, that is $1,320 a day or $39,600 a month."}},{"@type":"Question","name":"Where should an enterprise set AI spending caps?","acceptedAnswer":{"@type":"Answer","text":"At the project or workload level, so each system has its own ceiling. A single organisation-wide limit tells you spend ran out, not which system to slow down or which key to revoke."}},{"@type":"Question","name":"Can we close these gaps without a gateway?","acceptedAnswer":{"@type":"Answer","text":"Partly. You can inventory keys in a spreadsheet, use each vendor's project limits, and ship request logs into existing monitoring. A gateway puts keys, allowlists, and ceilings for several vendors in one place, so they are on by default instead of maintained by hand."}}]}17:[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Why LLM costs explode after launch: 5 control gaps and a worked example (2026)\",\"item\":\"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$20"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$21"}}]],"$L22"]
+23:I[51713,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js","/_next/static/chunks/031jyqwh2ymjo.js","/_next/static/chunks/12btwas-eg9md.js","/_next/static/chunks/0tc57bytaqvvw.js"],"default"]
+24:T29ae,<p>LLM costs explode after launch when production traffic changes how many tokens each request carries, and the keys, ceilings, and model limits that would contain it are still set up for a pilot. The rate card rarely moves. This guide prices one realistic post-launch spike, then walks through five control gaps with the symptom you will see, the fix, and a five-day plan to close them.</p>
 <table>
 <thead>
 <tr>
 <th>Gap</th>
-<th>Typical post-launch symptom</th>
-<th>Minimum fix</th>
+<th>Symptom after launch</th>
+<th>Fix</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>1. No project-scoped keys</td>
-<td>You only know &quot;the company is burning money&quot;</td>
-<td>One project, one revocable key</td>
+<td>1. Shared keys</td>
+<td>One key carries most of the spend; revoking it breaks several services</td>
+<td>One <a class="doc-term" href="/docs/resources/" data-def="The unit that permissions and billing hang off — keys, allowed models, and credit budget all belong to one.">project</a> and key per system</td>
 </tr>
 <tr>
-<td>2. No spending caps</td>
-<td>First signal is the invoice or an outage</td>
-<td>Project allocation = ceiling; alert before cut</td>
+<td>2. No ceilings</td>
+<td>The first warning is the invoice</td>
+<td>Project allocation as the cap</td>
 </tr>
 <tr>
-<td>3. No per-request attribution</td>
-<td>Monthly total with no who / which model</td>
-<td>Log project, key, model, tokens per call</td>
+<td>3. No per-request records</td>
+<td>Nobody can say why the bill nearly tripled</td>
+<td>Log request IDs and tokens per call</td>
 </tr>
 <tr>
 <td>4. No model allowlist</td>
-<td>Anyone can hit the dearest frontier model</td>
-<td>Project allowlist; deny before upstream</td>
+<td>An expensive model appears in production</td>
+<td>Allowed-model list per project</td>
 </tr>
 <tr>
-<td>5. No post-launch monitoring cadence</td>
+<td>5. No review cadence</td>
 <td>Problems surface at month-end</td>
-<td>Weekly trend by project; investigate outliers</td>
+<td>Weekly review inside log retention</td>
 </tr>
 </tbody></table>
-<h2 id="gap-one-no-project-scoped-keys-spend-has-no-owner">Gap one: no project-scoped keys — spend has no owner</h2>
-<h3 id="symptom">Symptom</h3>
-<p>Several services, scripts, or personal tools share one API key. Nobody rotates it on offboarding because nobody knows who else depends on it.</p>
-<h3 id="why-it-explodes-after-go-live">Why it explodes after go-live</h3>
-<p>Low pilot volume hides the cost of sharing. After launch any one subsystem can spike, and your only moves are kill the key for everyone or watch the total climb.</p>
-<h3 id="fix">Fix</h3>
-<p>Make the <strong>project</strong> the unit of governance, not the person: one project, one key; permissions and budget hang off the project. When someone leaves, you revoke project access—not a company-wide skeleton key. Secrets shown once at creation, revocable anytime, retained for audit is the baseline in <a href="/en/docs/console-keys" class="doc-term-def" data-def="A key that starts with atp-. It inherits its project's allowed models and credit balance.">managing API keys</a> and item one of the <a href="/en/blog/ai-governance-checklist">enterprise AI governance checklist</a>.</p>
-<blockquote>
-<p>A shared key is the most expensive technical debt in governance: when something goes wrong you know &quot;someone,&quot; never &quot;who.&quot;</p>
-</blockquote>
-<h2 id="gap-two-no-spending-caps-the-blast-has-no-boundary">Gap two: no spending caps — the blast has no boundary</h2>
-<h3 id="symptom-2">Symptom</h3>
-<p>The vendor account or card runs until it cannot. The first formal signal is a 402, a support ticket, or an invoice finance did not forecast.</p>
-<h3 id="why-it-explodes-after-go-live-2">Why it explodes after go-live</h3>
-<p>Agents and batch jobs can run unattended for hours. Without a project ceiling, one hot path consumes the whole organization budget—the failure mode behind repeated public write-ups of &quot;no usage limits.&quot;</p>
-<h3 id="fix-2">Fix</h3>
-<p>Set a spendable allocation at the <strong>project</strong> layer and treat that allocation as the cap. Credits flow organization → workspace → project; a project spends only what it was given, and overspend should flag and stop or degrade—not silently charge the corporate total. Sequence: <a href="/en/docs/cb-budget-caps">set up a team with budget caps</a>. Meaning of Available / Allocated / Consumed: <a href="/en/docs/credits" class="doc-term-def" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">how credits work</a>.</p>
-<p>Alert before cut-off. If Usage cannot show Allocated versus Consumed, the budget is not alive after launch. See <a href="/en/docs/spend">tracking spend</a>.</p>
-<h2 id="gap-three-no-per-request-attribution-the-month-cannot-explain-itself">Gap three: no per-request attribution — the month cannot explain itself</h2>
-<h3 id="symptom-3">Symptom</h3>
-<p>Finance sees a 3× revision; engineering says pricing did not change; nobody can name a model or a deploy within an hour.</p>
-<h3 id="why-it-explodes-after-go-live-3">Why it explodes after go-live</h3>
-<p>Launch multiplies change: longer prompts, model swaps, retry policy, new agent steps. Without &quot;one request&quot; as the atomic record, teams debate opinions instead of ruling out hypotheses.</p>
-<h3 id="fix-3">Fix</h3>
-<p>Write at least project, key, model, input/output tokens, status, and time on every call. Totals are outcomes, not analysis. Role-based reading is in <a href="/en/blog/how-to-read-your-ai-bill">how to read your AI bill</a>; console Usage and request logs are in <a href="/en/docs/monitoring">usage and logs</a>.</p>
-<p>Keep <strong>average cost per thousand requests</strong> as the internal metric: it folds model choice, prompt length, and caching into one number better than staring at unit price tables.</p>
-<h2 id="gap-four-no-model-allowlist-the-expensive-path-becomes-the-default">Gap four: no model allowlist — the expensive path becomes the default</h2>
-<h3 id="symptom-4">Symptom</h3>
-<p>Policy says &quot;mid-tier by default&quot;; logs show frontier models everywhere. Someone hard-coded this season&#39;s strongest model for convenience.</p>
-<h3 id="why-it-explodes-after-go-live-4">Why it explodes after go-live</h3>
-<p>Call volume magnifies price gaps. Without a project allowlist, switching models is a one-line edit—not a decision that needs a reason.</p>
-<h3 id="fix-4">Fix</h3>
-<p>Maintain an <strong>allowed model list</strong> per project; reject anything outside it before traffic reaches a provider (for example 403). <code>GET /v1/models</code> is the platform menu, not the key&#39;s permission—see <a href="/en/docs/models">models</a> and <a href="/en/docs/how-it-works">how it works</a>. An allowlist turns &quot;who may use the dearest model&quot; into an answerable governance question instead of a code-review accident.</p>
-<h2 id="gap-five-no-post-launch-monitoring-cadence-issues-live-until-invoice-day">Gap five: no post-launch monitoring cadence — issues live until invoice day</h2>
-<h3 id="symptom-5">Symptom</h3>
-<p>Nobody opens usage weekly. Anomalies arrive with the bill or a customer complaint. Permission and quota changes in Activity go unreviewed.</p>
-<h3 id="why-it-explodes-after-go-live-5">Why it explodes after go-live</h3>
-<p>Controls checked once before launch drift after: new keys, wider allowlists, higher caps. Governance is a cycle, not a launch ceremony.</p>
-<h3 id="fix-5">Fix</h3>
-<p>Run a light cadence:</p>
+<h2 id="a-post-launch-llm-cost-spike-worked-out">A post-launch LLM cost spike, worked out</h2>
+<p>A support bot answers questions with retrieval-augmented generation on <a href="/models/claude-sonnet-4-6/">claude-sonnet-4-6</a>, ATP list rate $3 input and $15 output per million tokens as of October 2026. It handles 40,000 requests a day and writes about 400 output tokens per answer.</p>
+<p>In the pilot, the average request carries 2,000 input tokens. After launch, users paste contracts and email threads into the chat, and retrieval adds more chunks to answer longer questions. Average input rises to 9,000 tokens.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Before launch</th>
+<th>After launch</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Input tokens per day</td>
+<td>40,000 × 2,000 = 80M</td>
+<td>40,000 × 9,000 = 360M</td>
+</tr>
+<tr>
+<td>Input cost per day</td>
+<td>80 × $3 = $240</td>
+<td>360 × $3 = $1,080</td>
+</tr>
+<tr>
+<td>Output cost per day</td>
+<td>16M × $15/M = $240</td>
+<td>16M × $15/M = $240</td>
+</tr>
+<tr>
+<td>Total per day</td>
+<td>$480</td>
+<td>$1,320</td>
+</tr>
+<tr>
+<td>Per month (30 days)</td>
+<td>$14,400</td>
+<td>$39,600</td>
+</tr>
+<tr>
+<td>ATP credits per month</td>
+<td>1,440,000</td>
+<td>3,960,000</td>
+</tr>
+</tbody></table>
+<p>The monthly delta is $25,200, a 2.75× bill. The model, its price, and the request count did not change. Nothing in a pricing table would have warned you. The only signal is average input tokens per request, which you see only if you record tokens per call.</p>
+<h2 id="gap-1-shared-keys-leave-spend-without-an-owner">Gap 1: shared keys leave spend without an owner</h2>
+<p>Symptom: The Usage page shows one key responsible for most of the month&#39;s tokens. Three services, a cron job, and a contractor&#39;s notebook all use it. When the contractor leaves, revoking the key would break production the same afternoon, so nobody does.</p>
+<p>Why launch makes it worse: At pilot volume, sharing costs little. After launch, any one of those consumers can spike, and the only lever is turning the key off for everyone.</p>
+<p>Fix: Make the project the unit of ownership, with one project per production system and its own key. A key belongs to exactly one project and inherits that project&#39;s allowed models and balance, and the API keys page lists every key across workspaces and projects (<a href="/docs/console-keys/" class="doc-term-def" data-def="A key that starts with atp-. It inherits its project's allowed models and credit balance.">managing API keys</a>). Revoking a key stops it immediately and keeps it in the roster for audit.</p>
+<h2 id="gap-2-no-ceilings-so-the-invoice-is-the-alert">Gap 2: no ceilings, so the invoice is the alert</h2>
+<p>Symptom: The staging job that ran all weekend. A retry loop sends 2 requests a second for 48 hours: 345,600 requests at 3,000 input and 300 output tokens on claude-sonnet-4-6. Each costs $0.009 + $0.0045 = $0.0135, so the weekend costs $4,665.60, found on Monday.</p>
+<p>Why launch makes it worse: Batch jobs, agents, and retries run unattended. Without a ceiling per workload, one hot path draws on the whole organisation&#39;s balance.</p>
+<p>Fix: Allocate credits down the tree (organisation, workspace, project) and treat each project&#39;s allocation as its cap. A project can only spend what it was given; when the balance runs out, requests return <code>402</code>. With a 50,000-credit ($500) allocation on staging, the same loop stops after about 37,000 requests, roughly 5 hours in. Steps: <a href="/docs/cb-budget-caps/">team with budget caps</a>. Allocated versus Consumed for every level is on the Usage page (<a href="/docs/credits/" class="doc-term-def" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">how credits work</a>).</p>
+<h2 id="gap-3-no-per-request-records-so-the-month-cannot-explain-itself">Gap 3: no per-request records, so the month cannot explain itself</h2>
+<p>Symptom: Finance sees the bot go from $14,400 to $39,600. Engineering says nothing changed: same model, same price. The meeting ends without a cause.</p>
+<p>Why launch makes it worse: Launch brings many changes at once: longer prompts, new retrieval settings, retry policy, more users. A monthly total cannot separate them.</p>
+<p>Fix: Record project, key, model, status, and input/output tokens for every call. ATP Request logs show exactly these per request, filterable by time range, scope, model, status, and request ID (<a href="/docs/monitoring/">usage and logs</a>). In the example above, filtering Request logs to the bot&#39;s project shows rows carrying about 9,000 input tokens each. Set against the 2,000 recorded during the pilot, that answers the question in minutes, provided someone wrote the pilot number down. Track average input tokens per request per project as a weekly number.</p>
+<h2 id="gap-4-no-model-allowlist-so-the-expensive-path-becomes-the-default">Gap 4: no model allowlist, so the expensive path becomes the default</h2>
+<p>Symptom: Policy says a mid-tier model by default. Then a developer switches the bot to a stronger model to fix a tone complaint, and it ships.</p>
+<p>Why launch makes it worse: Volume multiplies the price gap between models. The same post-launch traffic (40,000 requests a day, 9,000 input and 400 output tokens) costs very different amounts:</p>
+<table>
+<thead>
+<tr>
+<th>Model (ATP list rate)</th>
+<th>Per day</th>
+<th>Per month</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="/models/claude-haiku-4-5/">claude-haiku-4-5</a> ($1 / $5)</td>
+<td>$360 + $80 = $440</td>
+<td>$13,200</td>
+</tr>
+<tr>
+<td>claude-sonnet-4-6 ($3 / $15)</td>
+<td>$1,080 + $240 = $1,320</td>
+<td>$39,600</td>
+</tr>
+<tr>
+<td>claude-opus-4-8 ($5 / $25)</td>
+<td>$1,800 + $400 = $2,200</td>
+<td>$66,000</td>
+</tr>
+</tbody></table>
+<p>Fix: Keep an allowed-model list on each project. A request for a model outside it is rejected with <code>403</code> before it reaches any provider (<a href="/docs/how-it-works/">how it works</a>). <code>GET /v1/models</code> shows what a key may call. Changing the bot&#39;s model then becomes a change to the project, made by an admin, instead of a one-line code edit.</p>
+<h2 id="gap-5-no-review-cadence-so-problems-wait-for-the-invoice">Gap 5: no review cadence, so problems wait for the invoice</h2>
+<p>Symptom: Nobody opens the Usage page between invoices. A cap raised for a one-off migration stays raised, and an unused key from a finished pilot stays active.</p>
+<p>Why launch makes it worse: Controls checked once before launch drift afterwards: new keys, wider allowlists, larger allocations.</p>
+<p>Fix: A light, fixed cadence:</p>
 <table>
 <thead>
 <tr>
 <th>Cadence</th>
-<th>Look at</th>
+<th>What to check</th>
 <th>Owner</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Daily (automated)</td>
-<td>Project balance and error alerts</td>
-<td>Platform / on-call</td>
-</tr>
-<tr>
 <td>Weekly</td>
-<td>Spend ranked by project and model; map outliers to deploys</td>
-<td>Platform + project owners</td>
+<td>Usage by project, model, and key; Request logs before they expire (7-day retention); average input tokens per request</td>
+<td>Platform team</td>
 </tr>
 <tr>
 <td>Monthly</td>
-<td>Credit reconciliation, projects in debt, idle keys</td>
-<td>Finance + platform</td>
+<td>Allocated versus Consumed per project; projects flagged In debt; keys with no traffic</td>
+<td>Finance and platform</td>
 </tr>
 <tr>
 <td>Quarterly</td>
-<td>Permission cleanup, dead projects, allowlist diet</td>
-<td>Security / internal audit alignment</td>
+<td>Roles and members per project; allowlists; projects with no owner</td>
+<td>Security and platform</td>
 </tr>
 </tbody></table>
-<p>Security and admin events (sign-ins, invites, quota changes) should be queryable apart from pure usage—see Activity under <a href="/en/docs/monitoring">usage and logs</a>. The full 12-check loop is in the <a href="/en/blog/ai-governance-checklist">enterprise AI governance checklist</a>.</p>
-<h2 id="by-team-size-which-gaps-to-close-first-in-a-week">By team size: which gaps to close first in a week</h2>
-<h3 id="under-10-people">Under 10 people</h3>
-<p>Close <strong>gaps one, two, and three</strong>: project keys, caps, and visible request records. No committee required—configuration only.</p>
-<h3 id="50-to-200-people">50 to 200 people</h3>
-<p>Add <strong>gap four</strong>. Cross-team usage diverges; the allowlist decides who may call which model. Separate personal wallets from team allocation so business lines do not put spend on individual cards (<a href="/en/docs/topup" class="doc-term-def" data-def="Adding credits to the wallet. Minimum 5 USD, pay as you go.">top up and wallet</a>).</p>
-<h3 id="500-and-up">500 and up</h3>
-<p><strong>Gap five</strong> becomes the center of gravity. Launch is the start; quarterly inventory and per-request auditability decide whether next year&#39;s budget survives. Get the hierarchy right from day one: <a href="/en/docs/console-setup" class="doc-term-def" data-def="The top level of an account. Workspaces and projects sit underneath it.">set up your organization</a>.</p>
-<h2 id="by-workload-what-is-most-likely-to-detonate">By workload: what is most likely to detonate</h2>
-<h3 id="coding-agents-and-internal-dev-assistants">Coding agents and internal dev assistants</h3>
-<p>Long context, multi-step tools, high retry rates—tokens per unit of work dwarf chat. <strong>Split</strong> them from production projects and budgets; experimental caps should be cheap enough to burn. For wiring patterns see <a href="/en/docs/cb-claude-code">run Claude Code on ATP</a>—the point is key and project boundaries, not the tool brand.</p>
-<h3 id="support-and-high-frequency-short-calls">Support and high-frequency short calls</h3>
-<p>Cheap per call, huge volume. Risk sits in <strong>attribution and model tiering</strong>: lock high-frequency paths to smaller models; reserve frontier for escalations.</p>
-<h3 id="batch-and-overnight-pipelines">Batch and overnight pipelines</h3>
-<p>Unattended work amplifies gaps two and five. Caps and alerts before launch; hard limits on retry storms, or retries become a hidden cost line.</p>
-<h3 id="multi-vendor-adoption">Multi-vendor adoption</h3>
-<p>When rate cards and currencies disagree, finance disengages without one settlement unit and project-level ownership. That is why credits and a single billing plane exist—see <a href="/en/docs/credits" class="doc-term-def" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">how credits work</a>.</p>
-<h2 id="one-week-stop-the-bleeding-checklist">One-week stop-the-bleeding checklist</h2>
-<ol>
-<li><strong>Inventory</strong> every live API key, system, and whether it is shared.  </li>
-<li><strong>Split</strong> one project, one key per production system; schedule shared keys for retirement.  </li>
-<li><strong>Cap</strong> each project with a written monthly budget turned into an enforceable allocation.  </li>
-<li><strong>Narrow</strong> allowlists to required models; frontier is not the default.  </li>
-<li><strong>Instrument</strong> per-request records and a weekly &quot;spend by project&quot; view.  </li>
-<li><strong>Rehearse</strong> key leak: revoke, trace logs, reissue—one page.  </li>
-<li><strong>Align language</strong> so engineering and finance share tokens / credits / project (<a href="/en/blog/how-to-read-your-ai-bill">read the AI bill</a>).</li>
-</ol>
-<p><a href="/en/pricing">See pricing and billing modes →</a></p>
-<h2 id="a-more-modern-approach-close-the-five-gaps-by-default">A more modern approach: close the five gaps by default</h2>
-<p>Spreadsheets, vendor consoles, and discipline can patch every gap for a while. The more modern path is a <strong>governance and billing integration layer</strong> that closes them by default: organization → workspace → project answers whose budget; project keys inherit allowlists and allocations; exhausted balance rejects clearly (for example 402); unauthorized models never leave the gateway (for example 403); every request lands in a filterable audit trail.</p>
-<p>ATP Token is built on that path. It stays compatible with OpenAI, Anthropic, and Gemini wire formats—integration is usually a base_url and a key—and meters usage in credits allocated down the hierarchy. It does not replace model vendors; it is the plane where access, usage, and billing converge when you adopt more than one AI service.</p>
-<p><a href="/en/docs/quickstart">Start with the quickstart →</a></p>
-<h2 id="faqs">FAQs</h2>
-<h3 id="why-does-an-ai-bill-spike-right-after-go-live">Why does an AI bill spike right after go-live?</h3>
-<p>Usage shape changes after launch—longer context, more retries, multi-step agents that resend the same context—while caps and attribution are still missing. Unit prices may be flat while total spend multiplies within weeks.</p>
-<h3 id="where-should-an-enterprise-set-ai-spending-caps">Where should an enterprise set AI spending caps?</h3>
-<p>At the project (or equivalent workload) layer, not only on one company card. Project caps contain blast radius; a single org total only tells you that spend exploded, not where.</p>
-<h3 id="why-do-shared-api-keys-make-ai-bills-hard-to-control">Why do shared API keys make AI bills hard to control?</h3>
-<p>A shared key strips every request of an owner. When spend runs hot you know &quot;someone&quot; is burning money, not which system to throttle, revoke, or audit. Attribution and containment both start with one project, one key.</p>
-<h3 id="can-we-close-these-gaps-without-a-governance-platform">Can we close these gaps without a governance platform?</h3>
-<p>Yes. Inventory keys in a spreadsheet, set vendor alerts, enforce a model allowlist, and ship request logs into existing monitoring. A platform&#39;s job is to make those steps the default, not the only path.</p>
-<h3 id="how-do-coding-agents-change-ai-billing-risk-versus-chat-apis">How do coding agents change AI billing risk versus chat APIs?</h3>
-<p>Coding agents often run with long context, tool loops, and retries, so tokens per unit of work dwarf single-turn chat. If they share keys and budgets with production, experimental traffic can consume the formal budget.</p>
-<h2 id="further-reading">Further reading</h2>
+<p>The Activity log records sign-ins, invites, quota changes, and resource updates, which covers most of the quarterly check.</p>
+<h2 id="close-the-five-gaps-in-five-working-days">Close the five gaps in five working days</h2>
+<h3 id="day-1-monday-inventory">Day 1 (Monday): inventory</h3>
+<p>Open the API keys page, which lists every key across workspaces and projects. For each key, write down which systems use it and who owns it. Mark every key used by more than one system.</p>
+<h3 id="day-2-tuesday-split">Day 2 (Tuesday): split</h3>
+<p>Create one project per production system and issue new keys. Move the highest-spend service first. Set a revocation date for each shared key.</p>
+<h3 id="day-3-wednesday-allocate-ceilings">Day 3 (Wednesday): allocate ceilings</h3>
+<p>Take each project&#39;s consumption for the last 30 days, add headroom for planned growth, and allocate that as the monthly ceiling. For the support bot after launch, that is at least 3,960,000 credits. Give staging and experiments small allocations.</p>
+<h3 id="day-4-thursday-narrow-allowlists">Day 4 (Thursday): narrow allowlists</h3>
+<p>Enable only the models each project needs. Call a disallowed model once from each project to confirm the <code>403</code>.</p>
+<h3 id="day-5-friday-instrument-and-schedule">Day 5 (Friday): instrument and schedule</h3>
+<p>Log the <code>x-request-id</code> header from every response next to your own feature or tenant ID. Put the weekly review on the calendar, and rehearse one key revocation end to end: revoke, check the logs, reissue.</p>
+<p>For the per-step version of the same problem, see <a href="/blog/what-is-the-agent-tax/">what is the agent tax</a>. To set up the first project and key, follow the <a href="/docs/quickstart/">quickstart</a>.</p>
+<h2 id="related-reading">Related reading</h2>
 <ul>
-<li><a href="/en/blog/enterprise-ai-cost-management-guide">Enterprise AI cost management: the complete guide to tokens, credits, keys, and caps</a></li>
-<li><a href="/en/blog/what-is-the-agent-tax">What is the agent tax? Why multi-step AI agents inflate token bills</a></li>
-<li><a href="/en/blog/ai-spending-caps-that-work">AI spending caps that work: treat allocation as the budget ceiling</a></li>
-</ul>
-<p>Go-live should not mean bill loss of control. Each of the five gaps has a repair; in one week, give money an owner, projects a ceiling, and requests a replay trail—and the explosion becomes a table in your weekly meeting.</p>
-<p><a href="/en/enterprise-plan">Apply for the enterprise plan →</a></p>27:["$","$L28",null,{"data":{"lang":"en","post":{"slug":"why-ai-bills-explode-after-go-live","title":"Why AI bills explode after go-live: 5 control gaps and how to close them (2026)","metaTitle":"AI bills explode after go-live: 5 gaps (2026)","description":"Enterprise AI bills spike after go-live when five control gaps open at once: project keys, spending caps, per-request attribution, model allowlists, and post-launch monitoring.","date":"2026-07-29","tags":["AI billing","Enterprise AI governance","ATP"],"author":"hung-chien","authorTitle":"AI Growth & Brand Manager","tldr":["Post-launch bill spikes are rarely secret price hikes. They are five control gaps opening together: no project-scoped keys, no spending caps, no per-request attribution, no model allowlist, and no post-go-live monitoring cadence.","Stop the bleeding in one week: one project, one key; a hard project budget; and request records you can filter. Most 'explosions' become explainable reports.","Judge control quality by two signals, not the monthly total alone: every dollar has an owner, and someone is notified before the balance hits zero."],"faq":[{"q":"Why does an AI bill spike right after go-live?","a":"Usage shape changes after launch—longer context, more retries, multi-step agents that resend the same context—while caps and attribution are still missing. Unit prices may be flat while total spend multiplies within weeks."},{"q":"Where should an enterprise set AI spending caps?","a":"At the project (or equivalent workload) layer, not only on one company card. Project caps contain blast radius; a single org total only tells you that spend exploded, not where."},{"q":"Why do shared API keys make AI bills hard to control?","a":"A shared key strips every request of an owner. When spend runs hot you know 'someone' is burning money, not which system to throttle, revoke, or audit. Attribution and containment both start with one project, one key."},{"q":"Can we close these gaps without a governance platform?","a":"Yes. Inventory keys in a spreadsheet, set vendor alerts, enforce a model allowlist, and ship request logs into existing monitoring. A platform's job is to make those steps the default, not the only path."},{"q":"How do coding agents change AI billing risk versus chat APIs?","a":"Coding agents often run with long context, tool loops, and retries, so tokens per unit of work dwarf single-turn chat. If they share keys and budgets with production, experimental traffic can consume the formal budget."}],"readingMinutes":9,"cover":"why-ai-bills-explode-after-go-live","html":"$29"},"newer":{"slug":"what-is-the-agent-tax","title":"What is the agent tax? Why multi-step AI agents inflate token bills (2026)","date":"2026-07-31"},"older":{"slug":"how-to-read-your-ai-bill","title":"How to read your AI bill: a 3-layer guide to tokens, credits, and per-request attribution (2026)","date":"2026-07-21"}}}]
-20:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-2a:I[27201,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"IconMark"]
-1d:null
-22:[["$","title","0",{"children":"AI bills explode after go-live: 5 gaps (2026) | ATP Token"}],["$","meta","1",{"name":"description","content":"Enterprise AI bills spike after go-live when five control gaps open at once: project keys, spending caps, per-request attribution, model allowlists, and post-launch monitoring."}],["$","meta","2",{"name":"application-name","content":"ATP Token"}],["$","meta","3",{"name":"creator","content":"Horizon AI"}],["$","meta","4",{"name":"publisher","content":"Horizon AI"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","link","7",{"rel":"canonical","href":"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/"}],["$","link","8",{"rel":"alternate","hrefLang":"en","href":"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/"}],["$","link","9",{"rel":"alternate","hrefLang":"zh-Hant-TW","href":"https://atptoken.ai/zh-tw/blog/why-ai-bills-explode-after-go-live/"}],["$","link","10",{"rel":"alternate","hrefLang":"zh-Hans-CN","href":"https://atptoken.ai/zh-cn/blog/why-ai-bills-explode-after-go-live/"}],["$","link","11",{"rel":"alternate","hrefLang":"x-default","href":"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/"}],["$","meta","12",{"property":"og:title","content":"AI bills explode after go-live: 5 gaps (2026)"}],["$","meta","13",{"property":"og:description","content":"Enterprise AI bills spike after go-live when five control gaps open at once: project keys, spending caps, per-request attribution, model allowlists, and post-launch monitoring."}],["$","meta","14",{"property":"og:url","content":"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/"}],["$","meta","15",{"property":"og:site_name","content":"ATP Token"}],["$","meta","16",{"property":"og:image","content":"https://atptoken.ai/og/blog/why-ai-bills-explode-after-go-live.jpg"}],["$","meta","17",{"property":"og:image:width","content":"1200"}],["$","meta","18",{"property":"og:image:height","content":"630"}],["$","meta","19",{"property":"og:image:alt","content":"AI bills explode after go-live: 5 gaps (2026)"}],["$","meta","20",{"property":"og:type","content":"website"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:title","content":"AI bills explode after go-live: 5 gaps (2026)"}],["$","meta","23",{"name":"twitter:description","content":"Enterprise AI bills spike after go-live when five control gaps open at once: project keys, spending caps, per-request attribution, model allowlists, and post-launch monitoring."}],["$","meta","24",{"name":"twitter:image","content":"https://atptoken.ai/og/blog/why-ai-bills-explode-after-go-live.jpg"}],["$","link","25",{"rel":"shortcut icon","href":"/atp_icon.svg"}],["$","link","26",{"rel":"icon","href":"/favicon.ico?favicon.2xv7nyn6xhano.ico","sizes":"48x48","type":"image/x-icon"}],["$","link","27",{"rel":"icon","href":"/atp_icon.svg","type":"image/svg+xml"}],["$","$L2a","28",{}]]
+<li><a href="/blog/enterprise-ai-cost-management-guide/">Enterprise AI cost management guide</a></li>
+<li><a href="/blog/ai-spending-caps-that-work/">AI spending caps that work</a></li>
+<li><a href="/blog/how-to-read-your-ai-bill/">How to read your AI bill</a></li>
+</ul>22:["$","$L23",null,{"data":{"lang":"en","post":{"slug":"why-ai-bills-explode-after-go-live","title":"Why LLM costs explode after launch: 5 control gaps and a worked example (2026)","metaTitle":"LLM cost after launch: 5 control gaps (2026)","description":"LLM cost often jumps after launch because prompts grow. A RAG bot going from 2k to 9k input tokens adds $25,200 a month. Five control gaps and a 5-day fix.","date":"2026-07-29","tags":["LLM cost","AI billing","ATP"],"author":"hung-chien","authorTitle":"AI Growth & Brand Manager","tldr":["LLM costs rise after launch because real users change the token shape of each request, while keys and spending limits are still set up for a pilot.","Worked example: a support bot at 40,000 requests a day whose average input grows from 2,000 to 9,000 tokens goes from $14,400 to $39,600 a month on claude-sonnet-4-6.","Close the five gaps in five working days: inventory keys, split projects, allocate ceilings, narrow allowlists, then log request IDs and review weekly."],"faq":[{"q":"Why do LLM API costs increase after launch?","a":"Unit prices usually stay the same; the tokens per request change. Users paste documents, conversations get longer, retries and agent steps multiply calls, and more teams start using the same keys, so the same rate card is applied to far more tokens."},{"q":"How do I estimate monthly LLM cost?","a":"Multiply requests per day by (average input tokens × input rate + average output tokens × output rate) per million tokens, then by 30. For 40,000 requests a day at 9,000 input and 400 output tokens on a $3/$15 model, that is $1,320 a day or $39,600 a month."},{"q":"Where should an enterprise set AI spending caps?","a":"At the project or workload level, so each system has its own ceiling. A single organisation-wide limit tells you spend ran out, not which system to slow down or which key to revoke."},{"q":"Can we close these gaps without a gateway?","a":"Partly. You can inventory keys in a spreadsheet, use each vendor's project limits, and ship request logs into existing monitoring. A gateway puts keys, allowlists, and ceilings for several vendors in one place, so they are on by default instead of maintained by hand."}],"readingMinutes":6,"cover":"why-ai-bills-explode-after-go-live","html":"$24"},"newer":{"slug":"what-is-the-agent-tax","title":"What is the agent tax? AI agent cost, worked out step by step (2026)","date":"2026-07-31","cover":"what-is-the-agent-tax"},"older":{"slug":"how-to-read-your-ai-bill","title":"LLM token cost: how to calculate it and read your AI bill, with 5-model examples (2026)","date":"2026-07-21","cover":"how-to-read-your-ai-bill"}}}]
+1d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content"}],["$","meta","2",{"name":"theme-color","content":"#f5f5f5"}]]
+25:I[27201,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"IconMark"]
+1a:null
+1f:[["$","title","0",{"children":"LLM cost after launch: 5 control gaps (2026) | ATP Token"}],["$","meta","1",{"name":"description","content":"LLM cost often jumps after launch because prompts grow. A RAG bot going from 2k to 9k input tokens adds $25,200 a month. Five control gaps and a 5-day fix."}],["$","meta","2",{"name":"application-name","content":"ATP Token"}],["$","link","3",{"rel":"manifest","href":"/manifest.webmanifest","crossOrigin":"$undefined"}],["$","meta","4",{"name":"creator","content":"Horizon AI"}],["$","meta","5",{"name":"publisher","content":"Horizon AI"}],["$","meta","6",{"name":"robots","content":"index, follow"}],["$","meta","7",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","link","8",{"rel":"canonical","href":"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/"}],["$","link","9",{"rel":"alternate","hrefLang":"en","href":"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/"}],["$","link","10",{"rel":"alternate","hrefLang":"zh-Hant-TW","href":"https://atptoken.ai/zh-tw/blog/why-ai-bills-explode-after-go-live/"}],["$","link","11",{"rel":"alternate","hrefLang":"zh-Hans-CN","href":"https://atptoken.ai/zh-cn/blog/why-ai-bills-explode-after-go-live/"}],["$","link","12",{"rel":"alternate","hrefLang":"x-default","href":"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/"}],["$","meta","13",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","14",{"name":"apple-mobile-web-app-title","content":"ATP Token"}],["$","meta","15",{"name":"apple-mobile-web-app-status-bar-style","content":"default"}],["$","meta","16",{"property":"og:title","content":"LLM cost after launch: 5 control gaps (2026)"}],["$","meta","17",{"property":"og:description","content":"LLM cost often jumps after launch because prompts grow. A RAG bot going from 2k to 9k input tokens adds $25,200 a month. Five control gaps and a 5-day fix."}],["$","meta","18",{"property":"og:url","content":"https://atptoken.ai/blog/why-ai-bills-explode-after-go-live/"}],["$","meta","19",{"property":"og:site_name","content":"ATP Token"}],["$","meta","20",{"property":"og:image","content":"https://atptoken.ai/og/blog/why-ai-bills-explode-after-go-live.jpg"}],["$","meta","21",{"property":"og:image:width","content":"1200"}],["$","meta","22",{"property":"og:image:height","content":"630"}],["$","meta","23",{"property":"og:image:alt","content":"LLM cost after launch: 5 control gaps (2026)"}],["$","meta","24",{"property":"og:type","content":"website"}],["$","meta","25",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","26",{"name":"twitter:title","content":"LLM cost after launch: 5 control gaps (2026)"}],["$","meta","27",{"name":"twitter:description","content":"LLM cost often jumps after launch because prompts grow. A RAG bot going from 2k to 9k input tokens adds $25,200 a month. Five control gaps and a 5-day fix."}],["$","meta","28",{"name":"twitter:image","content":"https://atptoken.ai/og/blog/why-ai-bills-explode-after-go-live.jpg"}],["$","link","29",{"rel":"shortcut icon","href":"/atp_icon.svg"}],["$","link","30",{"rel":"icon","href":"/favicon.ico?favicon.2xv7nyn6xhano.ico","sizes":"48x48","type":"image/x-icon"}],["$","link","31",{"rel":"icon","href":"/atp_icon.svg","type":"image/svg+xml"}],["$","link","32",{"rel":"apple-touch-icon","href":"/icons/apple-touch-icon.png","sizes":"180x180"}],["$","$L25","33",{}]]

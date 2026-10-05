@@ -1,77 +1,139 @@
 1:"$Sreact.fragment"
-9:I[51713,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"default"]
-b:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
-c:"$Sreact.suspense"
-2:T4cf,{"@context":"https://schema.org","@type":"BlogPosting","headline":"Shadow AI in the enterprise: from personal keys to a governed control plane (2026)","description":"Shadow AI is unapproved AI usage on personal keys and tools. Blocking everything fails; a governed control plane with project keys, allowlists, and logs restores visibility.","datePublished":"2026-09-02","dateModified":"2026-09-02","inLanguage":"en","keywords":"Shadow AI, AI governance, ATP","url":"https://atptoken.ai/blog/shadow-ai-governed-control-plane/","mainEntityOfPage":"https://atptoken.ai/blog/shadow-ai-governed-control-plane/","image":"https://atptoken.ai/og/blog/shadow-ai-governed-control-plane.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T573,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is shadow AI?","acceptedAnswer":{"@type":"Answer","text":"Shadow AI is employees or systems using AI tools, models, or API keys outside the company's approved identity, procurement, data handling, and logging controls."}},{"@type":"Question","name":"Why is shadow AI a risk?","acceptedAnswer":{"@type":"Answer","text":"It creates data leakage paths, unowned spend on personal cards, keys that never revoke on offboarding, and zero audit trail when something goes wrong."}},{"@type":"Question","name":"Does banning AI tools stop shadow AI?","acceptedAnswer":{"@type":"Answer","text":"Usually no. People route around blocks with personal devices and accounts. The durable fix is an approved path that is easier and safer than the shadow path."}},{"@type":"Question","name":"How do I reduce shadow AI without slowing teams?","acceptedAnswer":{"@type":"Answer","text":"Provide project-scoped keys quickly, clear model allowlists, sandbox budgets, and SDK-compatible gateways so approved usage is the path of least resistance."}},{"@type":"Question","name":"Where do leaked API keys fit in?","acceptedAnswer":{"@type":"Answer","text":"Keys committed to git or embedded in apps are a shadow-adjacent failure: spend and abuse happen outside ops visibility until the invoice or a fraud alert arrives."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Shadow AI in the enterprise: from personal keys to a governed control plane (2026)\",\"item\":\"https://atptoken.ai/blog/shadow-ai-governed-control-plane/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"1D4DZsfbxL_82v4AXbxNN"}
-a:T138f,<p>Shadow AI is the use of AI models, assistants, or API keys outside an organization’s approved identity, procurement, data, and logging controls—often on personal accounts. This guide is for security and platform leaders who need visibility without a ban that nobody follows.</p>
-<p><strong>Block-only strategies fail on contact.</strong> People keep shipping; they just leave your logs. The modern response is a <strong>governed control plane</strong> that is faster than the personal card. Ties to <a href="/en/blog/one-project-one-key">one project, one key</a> and <a href="/en/blog/ai-governance-checklist">governance checklist</a>.</p>
-<h2 id="where-shadow-ai-shows-up">Where shadow AI shows up</h2>
+a:I[51713,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js","/_next/static/chunks/031jyqwh2ymjo.js","/_next/static/chunks/12btwas-eg9md.js","/_next/static/chunks/0tc57bytaqvvw.js"],"default"]
+c:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+:HL["/_next/static/chunks/0bk251ba95uho.css","style"]
+2:T4b3,{"@context":"https://schema.org","@type":"BlogPosting","headline":"What is shadow AI? Risks, examples and how to bring it under control (2026)","description":"Shadow AI is employees using AI tools, accounts or API keys without IT approval. 5 examples, 2025 IBM and Verizon data, how to detect it and replace it.","datePublished":"2026-09-02","dateModified":"2026-09-02","inLanguage":"en","keywords":"Shadow AI, AI governance, ATP","url":"https://atptoken.ai/blog/shadow-ai-governed-control-plane/","mainEntityOfPage":"https://atptoken.ai/blog/shadow-ai-governed-control-plane/","image":"https://atptoken.ai/og/blog/shadow-ai-governed-control-plane.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T76e,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is shadow AI?","acceptedAnswer":{"@type":"Answer","text":"Shadow AI is the use of AI tools, applications, accounts or API keys by employees without the approval or oversight of the IT department. Typical cases are personal ChatGPT or Claude accounts used with company data and personal API keys running inside company scripts."}},{"@type":"Question","name":"What are examples of shadow AI?","acceptedAnswer":{"@type":"Answer","text":"Common examples are a personal chatbot account used to summarise customer documents, a personal API key in a script paid with a company card, an AI feature switched on inside an approved SaaS tool without review, an AI browser extension, and a coding agent installed outside the approved toolset."}},{"@type":"Question","name":"What are the risks of shadow AI?","acceptedAnswer":{"@type":"Answer","text":"The main risks are company data processed under terms nobody reviewed, spend that sits on personal cards with no cap, access that survives offboarding, and no record to show an auditor. IBM's 2025 Cost of a Data Breach report found high levels of shadow AI added an average of USD 670,000 to breach costs."}},{"@type":"Question","name":"How do you detect shadow AI?","acceptedAnswer":{"@type":"Answer","text":"Start with four sources you already have: expense reports and card statements, SSO and OAuth consent logs, egress and DNS logs for AI provider domains, and secret scanning across repositories and CI variables."}},{"@type":"Question","name":"Does banning AI tools stop shadow AI?","acceptedAnswer":{"@type":"Answer","text":"Usually not. People move the work to personal devices and accounts, which removes it from your logs. What reduces shadow AI is an approved path that is as quick to start as the personal one and has budgets and logging built in."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"What is shadow AI? Risks, examples and how to bring it under control (2026)\",\"item\":\"https://atptoken.ai/blog/shadow-ai-governed-control-plane/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"q8ogy5bwfTluQawd-N4pH"}
+b:T30be,<p>Shadow AI is the use of AI tools or applications by employees without the approval or oversight of the IT department, in <a href="https://www.ibm.com/think/topics/shadow-ai" target="_blank" rel="noopener noreferrer">IBM&#39;s definition</a>. In practice it means a personal ChatGPT account with a customer contract pasted in, or a personal API key running a nightly job on a company card. This guide covers five concrete forms, the 2025 numbers, four ways to detect it and a setup that makes the approved path quicker than the shadow one.</p>
+<h2 id="shadow-ai-at-a-glance">Shadow AI at a glance</h2>
 <table>
 <thead>
 <tr>
-<th>Pattern</th>
-<th>Symptom</th>
-<th>Control</th>
+<th>Form</th>
+<th>What leaves the company</th>
+<th>Who pays</th>
+<th>Where you first see it</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Personal ChatGPT / Claude seats</td>
-<td>Data leaves without DLP</td>
-<td>Approved tools + training</td>
+<td>Personal chatbot account</td>
+<td>Pasted text and uploaded files</td>
+<td>Employee, or expensed</td>
+<td>DNS logs, browser telemetry</td>
 </tr>
 <tr>
-<td>Personal API keys in scripts</td>
-<td>Unknown card charges</td>
-<td><a class="doc-term" href="/en/docs/resources" data-def="The unit that permissions and billing hang off — keys, allowed models, and credit budget all belong to one.">Project</a> keys + secret scanning</td>
+<td>Personal API key in a script</td>
+<td>Whatever the script sends</td>
+<td>Company card, expensed</td>
+<td>Expense reports</td>
 </tr>
 <tr>
-<td>Untracked SaaS AI features</td>
-<td>Seat sprawl</td>
-<td>Inventory + procurement</td>
+<td>SaaS AI feature turned on without review</td>
+<td>Data already in that SaaS tool</td>
+<td>Bundled into the SaaS bill</td>
+<td>Vendor admin settings, renewal</td>
 </tr>
 <tr>
-<td>Shadow gateways</td>
-<td>Duplicate wallets</td>
-<td>Standardize on one plane</td>
+<td>AI browser extension</td>
+<td>Page content it can read</td>
+<td>Often free</td>
+<td>Endpoint inventory, OAuth consents</td>
+</tr>
+<tr>
+<td>Unsanctioned coding agent</td>
+<td>Source code and secrets in context</td>
+<td>Personal key or subscription</td>
+<td>Secret scanning, egress logs</td>
 </tr>
 </tbody></table>
-<h2 id="why-pure-blocks-backfire">Why pure blocks backfire</h2>
-<p>VPN blocks and proxy denies raise friction; hotspots and personal laptops bypass them. Verizon-style industry stats on GenAI via non-corporate email are a reminder: <strong>unofficial paths are default under friction.</strong> Offer governed speed instead.</p>
-<h2 id="building-the-approved-path">Building the approved path</h2>
-<ol>
-<li><strong>Fast project provisioning</strong> (<a href="/en/docs/console-setup" class="doc-term-def" data-def="The top level of an account. Workspaces and projects sit underneath it.">console setup</a>)  </li>
-<li><strong>Keys that match SDK habits</strong> (<a href="/en/docs/auth">auth</a>, <a href="/en/docs/quickstart">quickstart</a>)  </li>
-<li><strong>Sandbox allocations</strong> (<a href="/en/blog/ai-spending-caps-that-work">spending caps</a>)  </li>
-<li><strong>Allowlists people understand</strong> (<a href="/en/blog/model-catalog-vs-access-control">catalog vs access</a>)  </li>
-<li><strong>Logs security can query</strong> (<a href="/en/docs/monitoring">monitoring</a>)  </li>
-<li><strong>Incident path for leaks</strong> — revoke, trace, reissue</li>
-</ol>
-<h2 id="by-company-size">By company size</h2>
-<p>Small: one approved gateway + written data rules.<br>Mid: workspace per division.<br>Enterprise: shadow AI in risk register; quarterly key census.</p>
-<h2 id="a-more-modern-approach">A more modern approach</h2>
-<p>Horizon AI positions adoption with governance from PoC day one; ATP Token is the product control plane—org hierarchy, <a class="doc-term" href="/en/docs/credits" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">credits</a>, allowlists, request audit—so “official” is not slower than “personal key in a notebook.”</p>
-<p><a href="/en/enterprise-plan">Enterprise plan →</a></p>
-<h2 id="faqs">FAQs</h2>
-<h3 id="what-is-shadow-ai">What is shadow AI?</h3>
-<p>Shadow AI is employees or systems using AI tools, models, or API keys outside the company&#39;s approved identity, procurement, data handling, and logging controls.</p>
-<h3 id="why-is-shadow-ai-a-risk">Why is shadow AI a risk?</h3>
-<p>It creates data leakage paths, unowned spend on personal cards, keys that never revoke on offboarding, and zero audit trail when something goes wrong.</p>
-<h3 id="does-banning-ai-tools-stop-shadow-ai">Does banning AI tools stop shadow AI?</h3>
-<p>Usually no. People route around blocks with personal devices and accounts. The durable fix is an approved path that is easier and safer than the shadow path.</p>
-<h3 id="how-do-i-reduce-shadow-ai-without-slowing-teams">How do I reduce shadow AI without slowing teams?</h3>
-<p>Provide project-scoped keys quickly, clear model allowlists, sandbox budgets, and SDK-compatible gateways so approved usage is the path of least resistance.</p>
-<h3 id="where-do-leaked-api-keys-fit-in">Where do leaked API keys fit in?</h3>
-<p>Keys committed to git or embedded in apps are a shadow-adjacent failure: spend and abuse happen outside ops visibility until the invoice or a fraud alert arrives.</p>
-<h2 id="further-reading">Further reading</h2>
+<p>Shadow AI is a subset of shadow IT. The difference is that every prompt is a data transfer, and API usage is billed per token, so one unreviewed script can create both a data question and a spend question in the same week.</p>
+<h2 id="how-common-shadow-ai-is-2025-data">How common shadow AI is: 2025 data</h2>
+<p><a href="https://newsroom.ibm.com/2025-07-30-ibm-report-13-of-organizations-reported-breaches-of-ai-models-or-applications,-97-of-which-reported-lacking-proper-ai-access-controls" target="_blank" rel="noopener noreferrer">IBM&#39;s 2025 Cost of a Data Breach report</a> (published July 2025) found:</p>
 <ul>
-<li><a href="/en/blog/why-ai-bills-explode-after-go-live">Why AI bills explode after go-live</a></li>
-<li><a href="/en/blog/one-project-one-key">One project, one key</a></li>
-<li><a href="/en/blog/enterprise-ai-cost-management-guide">Enterprise AI cost management guide</a></li>
+<li>One in five organizations reported a breach due to shadow AI.</li>
+<li>Organizations with high levels of shadow AI saw breach costs an average of USD 670,000 higher than those with low or no shadow AI.</li>
+<li>13% reported breaches of AI models or applications, and 97% of those organizations lacked proper AI access controls.</li>
+<li>Only 37% have policies to manage AI or detect shadow AI.</li>
 </ul>
-<p>Visibility beats prohibition when the official door is open.</p>
-<p><a href="/en/docs/quickstart">Quickstart →</a></p>4:["$","$L9",null,{"data":{"lang":"en","post":{"slug":"shadow-ai-governed-control-plane","title":"Shadow AI in the enterprise: from personal keys to a governed control plane (2026)","metaTitle":"Shadow AI: governed control plane (2026)","description":"Shadow AI is unapproved AI usage on personal keys and tools. Blocking everything fails; a governed control plane with project keys, allowlists, and logs restores visibility.","date":"2026-09-02","tags":["Shadow AI","AI governance","ATP"],"author":"hung-chien","authorTitle":"AI Growth & Brand Manager","tldr":["Shadow AI is AI usage outside approved identity, keys, and data rules—often personal accounts and cards.","Hard blocks without a good path push work to phones and personal APIs; visibility drops to zero.","Win by offering a governed default: project keys, budgets, allowlists, and faster access than the shadow path."],"faq":[{"q":"What is shadow AI?","a":"Shadow AI is employees or systems using AI tools, models, or API keys outside the company's approved identity, procurement, data handling, and logging controls."},{"q":"Why is shadow AI a risk?","a":"It creates data leakage paths, unowned spend on personal cards, keys that never revoke on offboarding, and zero audit trail when something goes wrong."},{"q":"Does banning AI tools stop shadow AI?","a":"Usually no. People route around blocks with personal devices and accounts. The durable fix is an approved path that is easier and safer than the shadow path."},{"q":"How do I reduce shadow AI without slowing teams?","a":"Provide project-scoped keys quickly, clear model allowlists, sandbox budgets, and SDK-compatible gateways so approved usage is the path of least resistance."},{"q":"Where do leaked API keys fit in?","a":"Keys committed to git or embedded in apps are a shadow-adjacent failure: spend and abuse happen outside ops visibility until the invoice or a fraud alert arrives."}],"readingMinutes":2,"cover":"shadow-ai-governed-control-plane","html":"$a"},"newer":{"slug":"from-seats-to-tokens-ai-budgeting","title":"From seats to tokens: how AI breaks SaaS budgeting (2026)","date":"2026-09-04"},"older":{"slug":"model-catalog-vs-access-control","title":"Model catalog vs access control: why GET /v1/models is not your key’s permission (2026)","date":"2026-08-28"}}}]
-5:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
-6:["$","script","script-1",{"src":"/_next/static/chunks/1hbxtvg5etpqa.js","async":true}]
-7:["$","script","script-2",{"src":"/_next/static/chunks/0ey98fxnyu7te.js","async":true}]
-8:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
-d:null
+<p>The <a href="https://www.verizon.com/business/resources/reports/2025-dbir-data-breach-investigations-report.pdf" target="_blank" rel="noopener noreferrer">Verizon 2025 Data Breach Investigations Report</a> adds the identity angle. 15% of employees routinely accessed generative AI on corporate devices. Of those, 72% used non-corporate email addresses as the account identifier, and 17% used corporate email without integrated authentication.</p>
+<p>The 72% figure matters for offboarding. An account registered to a personal email address is outside your identity provider, so disabling the employee&#39;s SSO login does not close it.</p>
+<h2 id="five-shadow-ai-examples">Five shadow AI examples</h2>
+<h3 id="1-personal-chatgpt-or-claude-accounts-with-company-data">1. Personal ChatGPT or Claude accounts with company data</h3>
+<p>A finance analyst pastes a draft board memo into a personal chatbot account to tighten the wording. The data is now processed under the terms of whatever plan that person signed up for, and nobody in security knows it happened.</p>
+<h3 id="2-a-personal-api-key-in-a-script-paid-with-a-company-card">2. A personal API key in a script, paid with a company card</h3>
+<p>A sales-ops analyst writes a script that summarises 2,000 call transcripts every night with GPT-5.5. At 6,000 input and 800 output tokens per transcript, that is 12M input tokens (USD 60) and 1.6M output tokens (USD 48) at OpenAI&#39;s <a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener noreferrer">published rate</a> of USD 5 / USD 30 per 1M tokens, as of October 2026. About USD 108 a night, roughly USD 3,240 over a 30-day month, expensed as &quot;software&quot; with no cap.</p>
+<h3 id="3-ai-features-switched-on-inside-approved-saas">3. AI features switched on inside approved SaaS</h3>
+<p>The CRM or the help desk ships an AI assistant, and a <a class="doc-term" href="/docs/resources/" data-def="A grouping inside an organization, used to keep teams or environments apart.">workspace</a> admin turns it on. The vendor was reviewed years ago for storage, and the new feature sends that same data to a model provider under terms nobody re-read.</p>
+<h3 id="4-a-browser-extension">4. A browser extension</h3>
+<p>An &quot;AI summarise this page&quot; extension needs permission to read every page the employee opens, including the internal admin panel and the HR system. It is free, so it never shows up in procurement.</p>
+<h3 id="5-an-unsanctioned-coding-agent">5. An unsanctioned coding agent</h3>
+<p>A contractor runs a coding agent against the company monorepo with a personal key. The agent reads <code>.env</code> files into its context and keeps working after the contract ends, because the key belongs to the contractor.</p>
+<h2 id="shadow-ai-risks">Shadow AI risks</h2>
+<h3 id="data">Data</h3>
+<p>Prompts and uploaded files leave the company without classification. The retention and training terms that apply are those of the employee&#39;s own plan, which legal has not reviewed.</p>
+<h3 id="spend">Spend</h3>
+<p>Per-token billing on a personal card has no cap and no owner. Finance sees it as a stream of small reimbursements, and the total only appears when someone adds up a quarter of expense reports.</p>
+<h3 id="offboarding">Offboarding</h3>
+<p>Keys and accounts tied to a person keep working after that person leaves. With an offboarded contractor&#39;s personal key, the only one who can revoke it is the contractor.</p>
+<h3 id="audit">Audit</h3>
+<p>When a customer security questionnaire asks which AI providers process their data, you need a vendor list and request records. Shadow usage leaves no record to point to.</p>
+<h2 id="how-to-detect-shadow-ai">How to detect shadow AI</h2>
+<p>These four sources are vendor-neutral and most companies already have them.</p>
+<ol>
+<li>Expense reports and card statements. Search merchant names of AI providers and AI SaaS tools for the last 12 months. Small recurring charges from the same employee usually mean a personal API key in production use.</li>
+<li>SSO and OAuth consent logs. List third-party apps users have granted access to through &quot;Sign in with&quot; flows, and filter for AI tools and extensions that are not in your approved catalog.</li>
+<li>Egress and DNS logs. Look up requests to AI provider API domains from servers and CI runners that are not supposed to call them, and from laptops at volumes that suggest scripted use.</li>
+<li>Secret scanning. Run your secret scanner over repositories, CI variables and notebooks for AI provider key patterns. Every hit is both a leak to rotate and a usage path to migrate.</li>
+</ol>
+<p>Use the results as a migration list. If people are punished for what a scan finds, the next scan finds less while the usage stays where it was.</p>
+<h2 id="how-to-bring-shadow-ai-under-control">How to bring shadow AI under control</h2>
+<p>The shadow path takes about five minutes: sign up, add a card, copy a key. The approved path needs to be close to that or people will keep using the shadow one. Four things make it competitive:</p>
+<ul>
+<li>A project key issued in minutes, without a procurement ticket for each new model.</li>
+<li>A model allowlist per project, so access is decided once and enforced on every call.</li>
+<li>A small sandbox budget that can&#39;t grow into a surprise.</li>
+<li>Per-request logs that show which project, key and model made each call.</li>
+</ul>
+<h2 id="setting-this-up-in-atp-token">Setting this up in ATP Token</h2>
+<p>ATP Token gives each team a project key that reaches 70+ models from 11 vendors through the OpenAI, Anthropic and Gemini SDKs, with the controls above enforced at the gateway.</p>
+<h3 id="step-1-create-a-team-organization-and-a-sandbox-workspace">Step 1: Create a Team organization and a sandbox workspace</h3>
+<p>Create a Team organization so you can invite people and assign roles, then add a workspace for experiments next to your production workspace. See <a href="/docs/console-setup/" class="doc-term-def" data-def="The top level of an account. Workspaces and projects sit underneath it.">Set up your organization</a>.</p>
+<h3 id="step-2-create-a-project-per-team-and-pick-its-allowed-models">Step 2: Create a project per team and pick its allowed models</h3>
+<p>In Resources, create a project and choose its allowed models (at least one). A call to any other model is rejected with <code>403</code> before it reaches a provider, as described in <a href="/docs/how-it-works/">How it works</a>. People who want to compare models first can try them in the console Studio before writing code.</p>
+<h3 id="step-3-allocate-a-small-budget">Step 3: Allocate a small budget</h3>
+<p>Allocate, for example, 2,000 <a class="doc-term" href="/docs/credits/" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">credits</a> (USD 20, since 1 credit = USD 0.01) to the sandbox project. The project can only spend what it was allocated, so the allocation is the cap; when the balance is exhausted, requests return <code>402</code>. The <a href="/docs/cb-budget-caps/">team budget caps recipe</a> walks through it, and <a href="/blog/ai-spending-caps-that-work/">AI spending caps that work</a> covers how to size them.</p>
+<h3 id="step-4-issue-a-key-and-swap-it-into-the-shadow-script">Step 4: Issue a key and swap it into the shadow script</h3>
+<p>Keys start with <code>atp-</code> and are shown once. For the transcript script in example 2, the change is the base URL and the key:</p>
+<pre><code class="language-python">import os
+from openai import OpenAI
+
+client = OpenAI(
+    base_url=&quot;https://api.atptoken.ai/v1&quot;,
+    api_key=os.environ[&quot;ATP_API_KEY&quot;],  # project key
+)
+</code></pre>
+<p>For the coding agent in example 5, point Claude Code at the gateway with environment variables, as in <a href="/docs/cb-claude-code/">Run Claude Code on ATP</a>:</p>
+<pre><code class="language-bash">export ANTHROPIC_BASE_URL=&quot;https://api.atptoken.ai&quot;
+export ANTHROPIC_AUTH_TOKEN=&quot;atp-...&quot;
+export ANTHROPIC_API_KEY=&quot;&quot;
+export ANTHROPIC_MODEL=&quot;claude-sonnet-4-6&quot;
+</code></pre>
+<p>The model id must be on the project&#39;s allowed list, for example <a href="/models/claude-sonnet-4-6/">Claude Sonnet 4.6</a>.</p>
+<h3 id="step-5-add-people-with-the-right-role">Step 5: Add people with the right role</h3>
+<p>Invite teammates as Members at the workspace or project level so they can use the budget without moving it; Admins manage keys and allocation. See <a href="/docs/team/">Team &amp; roles</a>.</p>
+<h3 id="step-6-review-usage-and-revoke-on-offboarding">Step 6: Review usage and revoke on offboarding</h3>
+<p>The Usage page breaks credits and tokens down by model and by key. Request logs show each call with time, scope, model, status, request ID and token counts, kept for 7 days as a debugging view. The Activity log records sign-ins, invites and quota changes (<a href="/docs/monitoring/">Usage &amp; logs</a>). When someone leaves, revoke their project keys on the API keys page: revoked keys stop working immediately and stay in the roster for audit (<a href="/docs/console-keys/" class="doc-term-def" data-def="A key that starts with atp-. It inherits its project's allowed models and credit balance.">Managing API keys</a>).</p>
+<p>ATP only sees traffic that goes through it. The detection steps above still apply to chatbot accounts, extensions and SaaS features; what changes is that the scripts and agents you find have somewhere approved to move to.</p>
+<p><a href="/docs/quickstart/">Quickstart</a></p>
+<h2 id="related-reading">Related reading</h2>
+<ul>
+<li><a href="/blog/one-project-one-key/">One project, one key</a></li>
+<li><a href="/blog/model-catalog-vs-access-control/">Model catalog vs access control</a></li>
+<li><a href="/blog/ai-governance-checklist/">AI governance checklist</a></li>
+</ul>4:["$","$La",null,{"data":{"lang":"en","post":{"slug":"shadow-ai-governed-control-plane","title":"What is shadow AI? Risks, examples and how to bring it under control (2026)","metaTitle":"What is shadow AI? Risks, examples, fixes (2026)","description":"Shadow AI is employees using AI tools, accounts or API keys without IT approval. 5 examples, 2025 IBM and Verizon data, how to detect it and replace it.","date":"2026-09-02","tags":["Shadow AI","AI governance","ATP"],"author":"hung-chien","authorTitle":"AI Growth & Brand Manager","tldr":["Shadow AI is the use of AI tools, accounts or API keys without approval or oversight from IT. In IBM's 2025 breach study, one in five organizations reported a breach due to shadow AI.","The common forms are personal chatbot accounts, personal API keys on company cards, unreviewed SaaS AI features, browser extensions and unsanctioned coding agents. Expense reports, SSO logs, DNS logs and secret scanning find most of them.","Bans move the usage somewhere you can't see. Replace it with an approved path that is faster: a project key in minutes, a model allowlist, a small sandbox budget and per-request logs."],"faq":[{"q":"What is shadow AI?","a":"Shadow AI is the use of AI tools, applications, accounts or API keys by employees without the approval or oversight of the IT department. Typical cases are personal ChatGPT or Claude accounts used with company data and personal API keys running inside company scripts."},{"q":"What are examples of shadow AI?","a":"Common examples are a personal chatbot account used to summarise customer documents, a personal API key in a script paid with a company card, an AI feature switched on inside an approved SaaS tool without review, an AI browser extension, and a coding agent installed outside the approved toolset."},{"q":"What are the risks of shadow AI?","a":"The main risks are company data processed under terms nobody reviewed, spend that sits on personal cards with no cap, access that survives offboarding, and no record to show an auditor. IBM's 2025 Cost of a Data Breach report found high levels of shadow AI added an average of USD 670,000 to breach costs."},{"q":"How do you detect shadow AI?","a":"Start with four sources you already have: expense reports and card statements, SSO and OAuth consent logs, egress and DNS logs for AI provider domains, and secret scanning across repositories and CI variables."},{"q":"Does banning AI tools stop shadow AI?","a":"Usually not. People move the work to personal devices and accounts, which removes it from your logs. What reduces shadow AI is an approved path that is as quick to start as the personal one and has budgets and logging built in."}],"readingMinutes":7,"cover":"shadow-ai-governed-control-plane","html":"$b"},"newer":{"slug":"from-seats-to-tokens-ai-budgeting","title":"Token-based pricing vs per-seat AI: a budgeting guide for finance leads (2026)","date":"2026-09-04","cover":"from-seats-to-tokens-ai-budgeting"},"older":{"slug":"model-catalog-vs-access-control","title":"Model catalog vs access control: GET /v1/models lists the menu, the project allowlist decides (2026)","date":"2026-08-28","cover":"model-catalog-vs-access-control"}}}]
+5:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0bk251ba95uho.css","precedence":"next"}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/031jyqwh2ymjo.js","async":true}]
+7:["$","script","script-1",{"src":"/_next/static/chunks/12btwas-eg9md.js","async":true}]
+8:["$","script","script-2",{"src":"/_next/static/chunks/0tc57bytaqvvw.js","async":true}]
+9:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null

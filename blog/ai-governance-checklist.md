@@ -1,140 +1,210 @@
-# Enterprise AI governance checklist: 12 checks for adopting multiple AI services (2026)
+# AI governance checklist: 12 verifiable checks for model API usage (2026)
 
 > Source: https://atptoken.ai/blog/ai-governance-checklist/
 > Published: 2026-07-14 · By: hung-chien (AI Growth & Brand Manager)
 
-An enterprise AI governance checklist: 12 checks across keys, model permissions, data boundaries, and budget attribution for multi-vendor AI adoption.
+AI governance checklist for model API usage: 12 checks with an owner, a done criterion and audit evidence for each, mapped to the NIST AI RMF framework.
 
 ## TL;DR
 
-- The unit of governance is the project: one project, one key — permissions, budget, and usage all hang off the project, so offboarding only ever revokes project access.
-- The 12 checks come in four groups: keys and identity, models and data boundaries, budgets and attribution, process and audit. Stop the bleeding first, then put things on rails.
-- Inventory first, then converge: pull keys, allowlists, and budgets into one management plane, and every new AI service becomes one more row of configuration.
+- This checklist covers how a company uses model APIs: keys, model access, data boundaries, spend and incident response. Bias, transparency and model validation belong to a full framework such as the NIST AI RMF.
+- Each of the 12 checks has a done criterion, a named owner and the evidence an auditor would ask for, so it can be ticked off or failed on the day of the review.
+- The four groups map to the NIST AI RMF functions Govern, Map, Measure and Manage. Data classification and vendor retention terms stay with security and legal whatever tooling you use.
 
-An enterprise AI governance checklist is the tool a company uses, when adopting several AI services at once, to verify that key issuance, model permissions, data boundaries, and budget attribution are actually in place — written for platform teams, security and legal, and anyone who signs off on the AI bill.
+An AI governance checklist is a list of controls you can verify, each with an owner and evidence, that shows your company knows which teams call which AI models, with which data, and at what cost. This one has 12 checks in four groups for model API usage. Each check states what "done" looks like, who owns it and what an auditor would ask to see, and the groups map to the four functions of the NIST AI Risk Management Framework.
 
-The conclusion first: the unit of governance is the project. Keys hang off projects, budgets hang off projects, and every request record hangs off projects — get [one project, one key](https://atptoken.ai/blog/one-project-one-key) right and half of the 12 checks below pass automatically. The checks come in four groups, ordered the way real adoption goes: stop the bleeding first, then put things on rails. If you want the billing side first, pair this with [the three-layer guide to reading your AI bill](https://atptoken.ai/blog/how-to-read-your-ai-bill).
+## What this checklist covers
 
-## Group one: keys and identity
+It is an operational checklist for model API usage: API keys, model access, data boundaries, spend and incident response. It does not cover bias and fairness testing, transparency and explainability, model validation or the impact of AI decisions on people. For those, use the [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) (AI RMF 1.0, released January 26, 2023) and its Generative AI Profile, NIST-AI-600-1, released July 26, 2024.
 
-### 1. One project, one key — keys follow projects, not people
+## The 12 checks at a glance
 
-When someone leaves or changes teams, you revoke one project's access; you don't rotate a key the whole company shares. A shared key is the most expensive technical debt in governance: when something goes wrong you know "someone," never "who."
+| # | Check | Owner | Evidence |
+|---|---|---|---|
+| 1 | Every key belongs to one project with a named owner | Platform team | Key inventory with project and owner per key |
+| 2 | Offboarding revokes AI access the same day | IT + platform team | Offboarding ticket with revocation timestamp |
+| 3 | Sandbox is separate from production and has a fixed budget | Engineering managers | Project list with budgets per environment |
+| 4 | Each project has a model allowlist with a recorded reason | Project tech lead | Allowlist export and change tickets |
+| 5 | Data classes are mapped to permitted vendors and models | Security / privacy | Signed data classification table |
+| 6 | Each vendor's data terms are recorded | Legal / procurement | Vendor register with review dates |
+| 7 | Every project has a hard spending limit | Budget owner | Limit configuration per project |
+| 8 | Each request can be traced, and retention matches your audit period | Platform team | One request traced end to end by ID |
+| 9 | Spend is reconciled monthly by project | Finance + platform | Last three reconciliations |
+| 10 | New AI services enter through one intake path | Platform / procurement | Intake tickets for this quarter |
+| 11 | A leaked-key runbook exists and was rehearsed | Security on-call | Rehearsal record with timings |
+| 12 | Access is reviewed every quarter | Platform team | Signed review with list of changes |
 
-### 2. Show keys once, store them centrally — revocable and traceable
+## How the checklist maps to the NIST AI RMF
 
-Any key you issue must be revocable at any moment, and after revoking it you should be able to check the request log for what it served and how large the blast radius was.
+The NIST AI RMF organizes AI risk management into four functions. The mapping below is approximate: each NIST function is broader than the three checks placed under it.
 
-### 3. Separate production from experiments — test quotas cheap enough to burn
+| Checklist group | NIST AI RMF function | What the function asks for |
+|---|---|---|
+| 1. Keys and identity (checks 1–3) | Govern | Accountability, roles and policies across the AI lifecycle |
+| 2. Models and data boundaries (checks 4–6) | Map | Context of use and the risks that follow from it |
+| 3. Spend and attribution (checks 7–9) | Measure | Tracking and assessing what is happening |
+| 4. Intake, incidents and review (checks 10–12) | Manage | Prioritizing risks and acting on them |
 
-A test key's cap should be low enough that misuse never becomes a month-end surprise. Production keys go through issuance with an approval trail.
+If your organization already reports against the NIST AI RMF as its AI governance framework, these 12 checks can sit under those four headings as the API-usage controls.
 
-## Group two: models and data boundaries
+## Group 1: Keys and identity (Govern)
 
-### 4. Maintain a model allowlist — switching models is a decision, not a code change
+### 1. Every key belongs to one project with a named owner
 
-Not every project needs the most capable model. An allowlist turns "switching models" into a decision that requires a reason; see the [model catalog](https://atptoken.ai/docs/models) for what is available and how each is priced.
+A key shared across five services can't be revoked without breaking all five. Scope keys to one project each, as in [one project, one key](https://atptoken.ai/blog/one-project-one-key).
 
-### 5. Classify your data — engineers should not decide case by case
+- Done when: the key inventory lists a project and a named owner for every active key, and no key is used by more than one service.
+- Owner: platform team.
+- Evidence: the key inventory export, plus a sample of five services showing five different keys.
 
-Which fields may go to an external model, and which must be de-identified first? Write it on one page. For a reference structure, map it against the [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework).
+### 2. Offboarding revokes AI access the same day
 
-### 6. Record each vendor's data retention policy — in one document
+The offboarded contractor's key is the most common gap. Add AI keys and console roles to the offboarding checklist next to email and SSO.
 
-When legal or security asks, the answer should not live in someone's inbox.
+- Done when: the offboarding checklist has a line for AI keys and roles, and the last three leavers were processed within one business day.
+- Owner: IT, with the platform team revoking keys.
+- Evidence: the offboarding tickets for the last three leavers with revocation timestamps.
 
-## Group three: budgets and attribution
+### 3. Sandbox is separate from production and has a fixed budget
 
-### 7. Set spending caps at the project level — alert first, cut off second
+Experiments run in their own project with their own key and a budget small enough that a runaway loop can't become a month-end surprise, for example USD 50 per team per month.
 
-The first notice of an overrun should never be the invoice.
+- Done when: no sandbox key can reach production budget, and every sandbox project has a fixed allocation.
+- Owner: engineering managers.
+- Evidence: the project list showing environment and budget for each project.
 
-### 8. Keep per-request records — answer "who spent this, and on what"
+## Group 2: Models and data boundaries (Map)
 
-Every call maps to a project, key, model, and token counts; that is what makes spend auditable. Field details are in the [spend docs](https://atptoken.ai/docs/spend).
+### 4. Each project has a model allowlist with a recorded reason
 
-### 9. Reconcile monthly in one unit — watch trends, not just totals
+A support-summary project may only need [Claude Haiku 4.5](https://atptoken.ai/models/claude-haiku-4-5/). Adding a more expensive model should be a ticket with a reason, and a call to a model outside the list should fail.
 
-Convert every vendor's usage into the same unit (for example [credits](https://atptoken.ai/docs/credits)); trends surface problems weeks before absolute numbers do.
+- Done when: every project has an explicit allowlist, and a test call to a model outside it returns an error.
+- Owner: the project's tech lead, approved by the platform team.
+- Evidence: allowlist export per project, change tickets, and the failed test call.
 
-[See how credits are priced →](https://atptoken.ai/docs/credits)
+### 5. Data classes are mapped to permitted vendors and models
 
-## Group four: process and audit
+Engineers should not decide case by case whether customer records can go to an external model. A one-page table answers it: data class, permitted vendors or models, required preprocessing such as redaction.
 
-### 10. Standardize onboarding of new services — one more service, one more row of config
+- Done when: the table is approved, versioned, and each project is tagged with the highest data class it sends.
+- Owner: security or privacy.
+- Evidence: the signed table with its version date, and the project-to-data-class list.
 
-Evaluation, allowlist, key, budget — all four before go-live, instead of whoever opens an account first.
+### 6. Each vendor's data terms are recorded
 
-### 11. Write an incident runbook — know what to shut off when a key leaks
+Retention period, use of data for training and processing region differ between providers and between plans of the same provider. Record them per vendor and plan, with a link to the terms version you reviewed.
 
-Revoke the key, trace the log, reissue — three steps, written down and rehearsed once.
+- Done when: every AI vendor and plan in use has a row in the register, reviewed in the last 12 months.
+- Owner: legal or procurement.
+- Evidence: the vendor register with links and review dates.
 
-### 12. Quarterly inventory and permission cleanup — governance is a cycle, not a one-off
+## Group 3: Spend and attribution (Measure)
 
-Every quarter: which projects are still alive, which keys have had no traffic for thirty days, which permissions can be reclaimed.
+### 7. Every project has a hard spending limit
 
-## Applying the checklist by company size
+The first sign of an overrun should come from the limit, before the invoice arrives. Name the person who decides what happens when a project reaches it: top up, wait, or switch to a smaller model.
 
-### Under 10 people: start with checks 1, 7, and 8
+- Done when: every production and sandbox project has a configured limit and a named budget owner.
+- Owner: the budget owner for each project.
+- Evidence: the limit configuration, and a record of what happened the last time a project hit its limit.
 
-A small team needs no committee — project keys, spending caps, and per-request records are all configuration, not process.
+### 8. Each request can be traced, and retention matches your audit period
 
-### 50 to 200 people: add the allowlist and data classification
+For any call you should be able to name the project, key, model, status and token counts. Check how long your tooling keeps those records; if it is shorter than the period your auditors sample, export them on a schedule.
 
-Cross-team usage starts to diverge; checks 4 and 5 make "who may use which model" answerable.
+- Done when: a request ID from an application log can be traced to its record, and the retention or export period is written down.
+- Owner: platform team.
+- Evidence: one request traced end to end, and the documented retention or export job.
 
-### 500 and up: turn on process and audit
+### 9. Spend is reconciled monthly by project
 
-Checks 10 through 12 become the center of gravity — governance graduates from settings to a recurring institution inside internal audit scope.
+Convert usage from every provider into one unit and reconcile the invoice total against the sum of project usage. [How to read your AI bill](https://atptoken.ai/blog/how-to-read-your-ai-bill) covers the line items.
 
-## Three adoption scenarios by industry
+- Done when: the monthly report ties the invoice to project totals, and any variance above an agreed threshold has a written explanation.
+- Owner: finance, with data from the platform team.
+- Evidence: the last three monthly reconciliations.
 
-### Software and internet: speed first, govern by defaults
+## Group 4: Intake, incidents and review (Manage)
 
-Low test quotas plus a production allowlist keep experiments fast and launches safe.
+### 10. New AI services enter through one intake path
 
-### Finance and other compliance-heavy industries: data boundaries first
+Checks 4 to 7 happen before the first key is issued: allowlist, data class, vendor terms, budget. Expense reports are the cross-check, since an AI charge without an intake ticket is [shadow AI](https://atptoken.ai/blog/shadow-ai-governed-control-plane).
 
-Max out checks 5 and 6 before widening model access; per-request auditability is the shared language of internal and external auditors.
+- Done when: every AI service added this quarter has an intake ticket, and the expense report review found no AI charges without one.
+- Owner: platform team with procurement.
+- Evidence: intake tickets and the expense review result.
 
-### Manufacturing and customer support floors: attribution decides the budget
+### 11. A leaked-key runbook exists and was rehearsed
 
-High-volume repetitive requests make cost attribution decisive — checks 8 and 9 determine whether next year's AI budget survives.
+The runbook lists revoke, trace and reissue steps, plus who notifies whom. Rehearse it and time it.
 
-## The more modern approach: turn the checklist into system defaults
+- Done when: the runbook is published and was rehearsed in the last 12 months with time-to-revoke recorded.
+- Owner: security on-call.
+- Evidence: the runbook and the rehearsal record with timestamps.
 
-The traditional way to enforce these 12 checks is a policy document and human diligence; the more modern way is a governance platform that ships them as defaults. On ATP Token, the organization → workspace → project hierarchy is check 1 by construction; project keys carry allowlists and quotas, covering checks 4 and 7; every request writes its own record, so checks 8 and 9 need nobody's memory. The interface is compatible with the OpenAI, Anthropic, and Gemini formats — integration is a base_url and a key.
+### 12. Access is reviewed every quarter
 
-[See pricing →](https://atptoken.ai/pricing)
+Revoke keys with no traffic in 30 days, close projects without an owner and confirm the admin list.
 
-## Further reading
+- Done when: the review is signed off within two weeks of quarter end.
+- Owner: platform team.
+- Evidence: the signed review with the list of revoked keys and role changes.
 
-- [One project, one key: why shared API keys are the most expensive AI debt](https://atptoken.ai/blog/one-project-one-key)
-- [AI spending caps that work: treat allocation as the budget ceiling](https://atptoken.ai/blog/ai-spending-caps-that-work)
-- [Enterprise AI cost management: the complete guide to tokens, credits, keys, and caps](https://atptoken.ai/blog/enterprise-ai-cost-management-guide)
+## Where to start by company size
 
-Well-run governance is quiet: experiments keep shipping, the bill reads cleanly, and audits find what they need. Start with the inventory, pull keys, allowlists, and budgets into one management plane, and let defaults do the rest.
+| Size | Start with | How ownership works | Evidence format |
+|---|---|---|---|
+| Under 20 engineers | Checks 1, 3, 7, 11 in the first month | One person owns all four | A single shared sheet |
+| 20 to 200 engineers | Add 4, 8, 9, 12 | Platform team plus one finance contact | Exports from your tooling, monthly |
+| 200+ or regulated | All 12, with 5 and 6 before widening model access | Named owner per check, internal audit samples quarterly | Retained exports covering the audit period |
 
-[Apply for the enterprise plan →](https://atptoken.ai/enterprise-plan)
+## Running this checklist on ATP Token
+
+ATP Token covers the checks that live in the API path. Data classification (check 5) and vendor terms (check 6) remain your policy documents, and the intake, runbook and review processes (checks 10 to 12) remain your process. ATP supplies the records those processes use.
+
+| Check | What ATP provides | Docs |
+|---|---|---|
+| 1 | Organization → workspace → project → key hierarchy; each key belongs to exactly one project, and the API keys page lists every key across workspaces and projects | [Set up your organization](https://atptoken.ai/docs/console-setup), [Managing API keys](https://atptoken.ai/docs/console-keys) |
+| 2 | Revoked keys stop working immediately and stay in the roster; Owner / Admin / Member roles at workspace or project level | [Managing API keys](https://atptoken.ai/docs/console-keys), [Team & roles](https://atptoken.ai/docs/team) |
+| 3, 7 | Credits are allocated organization → workspace → project, and a project can only spend what it was allocated; the Usage page shows Allocated vs Consumed per level | [Set up a team with budget caps](https://atptoken.ai/docs/cb-budget-caps) |
+| 4 | Allowed models are set per project (at least one); a call to any other model returns `403` before reaching a provider | [Workspaces & projects](https://atptoken.ai/docs/resources), [How it works](https://atptoken.ai/docs/how-it-works) |
+| 8 | Request logs per call with time, scope, model, status, request ID and input / output tokens; every response carries `x-request-id`; retention is 7 days, so export for longer audit periods | [Usage & logs](https://atptoken.ai/docs/monitoring), [Request logs API](https://atptoken.ai/docs/console-api-logs) |
+| 9 | One unit across 70+ models from 11 vendors: 1 credit = USD 0.01; Usage page by model and by key | [How credits work](https://atptoken.ai/docs/credits), [Tracking spend](https://atptoken.ai/docs/spend) |
+| 11, 12 | Activity log of sign-ins, invites, quota changes and resource updates; per-key token totals on the Usage page to find idle keys | [Usage & logs](https://atptoken.ai/docs/monitoring) |
+
+For check 8, the 7-day request log is a debugging view. If your audit period is longer, call the Console API's request logs endpoint on a schedule and keep the results in your own storage.
+
+[Set up a team with budget caps](https://atptoken.ai/docs/cb-budget-caps)
+
+## Related reading
+
+- [One project, one key](https://atptoken.ai/blog/one-project-one-key)
+- [AI spending caps that work](https://atptoken.ai/blog/ai-spending-caps-that-work)
+- [What is shadow AI?](https://atptoken.ai/blog/shadow-ai-governed-control-plane)
 
 ## FAQ
 
-### What is enterprise AI governance?
+### What is an AI governance checklist?
 
-Enterprise AI governance is the set of controls a company puts around AI service keys, model permissions, data boundaries, and cost attribution, so that every model call has a name, a budget, and a record. Done well, it is a set of system defaults rather than an approval workflow.
+An AI governance checklist is a list of controls a company can verify, each with an owner and evidence, showing that AI use is approved, attributable and reviewable. An operational checklist like this one focuses on model API usage: keys, model access, data boundaries, spend and incident response.
 
-### What are the risks of using multiple AI services at once?
+### What should an AI governance checklist include?
 
-The three most common are keys scattered across personal accounts, spend that cannot be attributed to a project, and sensitive data sent to external models without classification. All three surface at once during an audit, when fixing them costs far more than configuring them up front.
+At minimum: key ownership and revocation, separation of sandbox and production, a model allowlist per project, a data classification table, a vendor terms register, spending limits, per-request records, monthly reconciliation, an intake path for new services, a leaked-key runbook and a quarterly access review.
 
-### Who should own AI governance?
+### What is the difference between an AI governance checklist and an AI governance framework?
 
-Responsibility usually splits three ways: the platform team owns keys and quotas, security and legal own data classification and retention, and each business team owns its own project usage and budget. A governance platform earns its keep by giving all three the same data.
+A framework such as the NIST AI Risk Management Framework describes the full set of outcomes an organization should manage, including fairness, transparency and impact on people. A checklist turns a slice of that into specific checks with owners and evidence. This checklist covers the operational slice for model API usage.
 
-### Does adopting an AI governance platform require code changes?
+### Who owns AI governance in a company?
 
-Usually very few. If the platform is compatible with the OpenAI, Anthropic, and Gemini interface formats, integration typically means swapping the base_url and the key while keeping existing call patterns and parameters.
+Ownership is usually split: the platform team owns keys, model access and logs; security and legal own data classification and vendor terms; finance and each budget owner own spending limits and reconciliation. Each check should name one accountable owner.
+
+### How often should AI governance controls be reviewed?
+
+Review access and keys quarterly, reconcile spend monthly, and rehearse the leaked-key runbook at least once a year. Re-run the vendor terms review whenever a provider changes its terms or you add a new plan.
 
 ---
 
-Tags: Enterprise AI governance, AI adoption, ATP
+Tags: AI governance, AI governance checklist, ATP

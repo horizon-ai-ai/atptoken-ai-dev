@@ -1,72 +1,115 @@
 1:"$Sreact.fragment"
-2:I[51713,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"default"]
-8:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
-9:"$Sreact.suspense"
-3:T1128,<p>Agent tax 是多步 AI agent 為完成一項工作，因重送上下文、呼叫工具與重試而產生的額外 token 成本。這份指南寫給帳單爬升快於純聊天的工程與財務。</p>
-<p>先給答案：單價可跌、agent 帳單仍升，因為單位從「一次 completion」變成「一項完成的任務」。量測<strong>每次 agent 任務成本</strong>，設步數與預算天花板，保留逐請求紀錄。見<a href="/zh-tw/blog/why-ai-bills-explode-after-go-live">上線後帳單為何炸</a>、<a href="/zh-tw/blog/how-to-read-your-ai-bill">讀懂 AI 帳單</a>。</p>
-<h2 id="定義">定義</h2>
-<p>單輪聊天付一塊輸入與輸出；agent 可能每輪重讀逐字稿、吞工具結果、重試、複製上下文給子 agent。多出來的 token 即 agent tax——架構稅，不是供應商加價。</p>
-<h2 id="單價跌-帳單升">單價跌、帳單升</h2>
-<p>缺的變數是工作形態。沒有上限與歸屬，形態變成不透明月底總額（<a href="/zh-tw/blog/why-ai-bills-explode-after-go-live">五個缺口</a>）。</p>
-<h2 id="昂貴回合解剖">昂貴回合解剖</h2>
+2:I[51713,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js","/_next/static/chunks/031jyqwh2ymjo.js","/_next/static/chunks/12btwas-eg9md.js","/_next/static/chunks/0tc57bytaqvvw.js"],"default"]
+9:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+:HL["/_next/static/chunks/0bk251ba95uho.css","style"]
+3:T1f3f,<p>Agent tax 是 AI agent 為了完成一項工作，每一步都重送整段且不斷變長的上下文，因而多付的 token 成本。單輪對話只為上下文付一次錢；20 步的 agent 要付 20 次，而且每次都比上一次大一點。以下用牌價逐行計算一項 agent 任務，再整理影響最大的五個做法。</p>
 <table>
 <thead>
 <tr>
-<th>階段</th>
-<th>浪費</th>
+<th>執行形態</th>
+<th>輸入 token</th>
+<th>輸出 token</th>
+<th>claude-sonnet-4-6 成本</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Plan</td>
-<td>每步巨大系統提示</td>
+<td>單輪對話</td>
+<td>8,000</td>
+<td>500</td>
+<td>0.03 美元</td>
 </tr>
 <tr>
-<td>Act</td>
-<td>無上限工具迴圈</td>
+<td>20 步 agent</td>
+<td>540,000</td>
+<td>10,000</td>
+<td>1.77 美元</td>
 </tr>
 <tr>
-<td>Observe</td>
-<td>整檔貼上</td>
-</tr>
-<tr>
-<td>Retry</td>
-<td>無 max steps</td>
-</tr>
-<tr>
-<td>Handoff</td>
-<td>歷史重複</td>
+<td>20 步 agent，工具輸出先摘要</td>
+<td>255,000</td>
+<td>10,000</td>
+<td>0.92 美元</td>
 </tr>
 </tbody></table>
-<h2 id="每次請求-vs-每次任務">每次請求 vs 每次任務</h2>
-<p>從<a href="/zh-tw/docs/monitoring">監控</a>依 session 加總點數（<a href="/zh-tw/docs/credits" class="doc-term-def" data-def="計費單位。1 美元 = 100 點；用量依各模型牌價換算成點數扣抵。">點數</a>），除以成功結果。</p>
-<h2 id="依情境與規模">依情境與規模</h2>
-<p>Coding agent 與生產拆<a class="doc-term" href="/zh-tw/docs/resources" data-def="權限與帳務的最小單位；金鑰、允許模型、點數預算都掛在 project 上。">專案</a>（<a href="/zh-tw/docs/cb-claude-code">Claude Code</a>）。小團隊先一條 agent 面；中型拆實驗／生產；企業對齊 BU 分配（<a href="/zh-tw/docs/console-setup" class="doc-term-def" data-def="帳號的最上層，底下再分 workspace 與 project。">組織</a>、<a href="/zh-tw/blog/ai-governance-checklist">治理清單</a>）。</p>
-<h2 id="降稅六招">降稅六招</h2>
-<p>限制步數、縮小上下文、拆分模型、約束重試（<a href="/zh-tw/docs/errors">錯誤</a>）、專案 cap（<a href="/zh-tw/docs/cb-budget-caps">預算上限</a>）、每週看<a href="/zh-tw/docs/spend">費用</a>。</p>
-<p><a href="/zh-tw/pricing">定價 →</a></p>
-<h2 id="更現代的做法">更現代的做法</h2>
-<p>ATP Token 作為治理與帳務整合層：專案金鑰、白名單、點數上限、請求紀錄；相容 OpenAI / Anthropic / Gemini。</p>
-<p><a href="/zh-tw/docs/quickstart">快速開始 →</a></p>
-<h2 id="常見問題">常見問題</h2>
-<h3 id="什麼是-ai-的-agent-tax">什麼是 AI 的 agent tax？</h3>
-<p>Agent tax 是多步 agent 因重送上下文、工具呼叫與重試，超出單次模型回覆的額外 token 支出。</p>
-<h3 id="為什麼-ai-agent-比一般聊天更貴">為什麼 AI agent 比一般聊天更貴？</h3>
-<p>Agent 可能為同一目標發起多次呼叫，每次帶歷史與工具結果，任務級 token 會倍增。</p>
-<h3 id="怎麼量測-agent-tax">怎麼量測 agent tax？</h3>
-<p>依任務彙總整條鏈路的 token 與點數，再與單輪基準比；用完成任務成本做共同語言。</p>
-<h3 id="如何降低-agent-token-成本">如何降低 agent token 成本？</h3>
-<p>限制步數、摘要上下文、子任務用小模型、專案上限，並每週查請求紀錄。</p>
-<h3 id="agent-tax-等於模型加價嗎">Agent tax 等於模型加價嗎？</h3>
-<p>不是。加價是費率差；agent tax 是架構讓同一費率消耗更多 token。</p>
+<h2 id="ai-agent-成本怎麼累加-20-步範例">AI agent 成本怎麼累加：20 步範例</h2>
+<p>假設一個 agent 每項任務從 8,000 token 的基礎上下文開始（系統提示、工具定義、任務內容）。每一步附加約 2,000 token 的工具結果與模型輸出，每一步寫出 500 個輸出 token。因此第 <em>i</em> 步讀入 8,000 + 2,000 × (i − 1) 個輸入 token。</p>
+<p>20 步的輸入 token：</p>
+<p>Σ = 20 × 8,000 + 2,000 × (0 + 1 + … + 19) = 160,000 + 2,000 × 190 = <strong>540,000 token</strong></p>
+<p>輸出 token：20 × 500 = 10,000。</p>
+<p>基礎上下文只占輸入的 30%（540,000 中的 160,000），另外 70% 是同一批工具結果在後面的步驟中被重複讀入。光是最後 8 步就讀了 312,000 token，比前 12 步加起來（228,000）還多。</p>
+<p>以 ATP 牌價（每百萬 token，截至 2026 年 10 月）計算：</p>
+<table>
+<thead>
+<tr>
+<th>模型（輸入／輸出）</th>
+<th>輸入成本</th>
+<th>輸出成本</th>
+<th>每項任務</th>
+<th>每月 10,000 項任務</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="/zh-tw/models/claude-sonnet-4-6/">claude-sonnet-4-6</a>（3／15 美元）</td>
+<td>0.54 × 3 = 1.62 美元</td>
+<td>0.01 × 15 = 0.15 美元</td>
+<td>1.77 美元</td>
+<td>17,700 美元</td>
+</tr>
+<tr>
+<td><a href="/zh-tw/models/gemini-3-5-flash/">gemini-3-5-flash</a>（1.5／9 美元）</td>
+<td>0.54 × 1.5 = 0.81 美元</td>
+<td>0.01 × 9 = 0.09 美元</td>
+<td>0.90 美元</td>
+<td>9,000 美元</td>
+</tr>
+<tr>
+<td><a href="/zh-tw/models/deepseek-v4-flash/">deepseek-v4-flash</a>（0.2／0.4 美元）</td>
+<td>0.54 × 0.2 = 0.108 美元</td>
+<td>0.01 × 0.4 = 0.004 美元</td>
+<td>0.112 美元</td>
+<td>1,120 美元</td>
+</tr>
+</tbody></table>
+<p>同樣的基礎上下文若用單輪回答，在 claude-sonnet-4-6 上是 8,000 × 3/M + 500 × 15/M = 0.024 + 0.0075 = 0.0315 美元。Agent 任務約是它的 56 倍。這個倍數就是 agent tax：費率沒變，變的是 token 數量。</p>
+<p>Anthropic 公布過一個實際數字：在 Claude Code 中，隊友以 plan 模式執行時，agent teams 的 token 用量約為一般工作階段的 7 倍，因為每個隊友都有自己的上下文視窗（<a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener noreferrer">Claude Code 費用說明</a>）。</p>
+<h2 id="降低-agent-tax-的五個做法">降低 agent tax 的五個做法</h2>
+<h3 id="1-限制步數">1. 限制步數</h3>
+<p>輸入大致隨步數的平方成長，貴的是後段的步驟。設定硬性上限，達到時回傳明確的失敗。如果同一項任務 12 步就能完成，輸入降到 12 × 8,000 + 2,000 × 66 = 228,000 token，每項任務從 1.77 美元降為 0.77 美元。</p>
+<h3 id="2-工具輸出進入上下文前先摘要">2. 工具輸出進入上下文前先摘要</h3>
+<p>把完整檔案內容與完整 API 回應換成簡短摘要，或只留關鍵的幾行。若每步增量從 2,000 降到 500 token，輸入變成 160,000 + 500 × 190 = 255,000 token：0.765 + 0.15 = 每項任務 0.92 美元，少 48%。</p>
+<h3 id="3-子步驟改用較便宜的模型">3. 子步驟改用較便宜的模型</h3>
+<p>很多步驟只是讀一段工具結果，再決定下一個要呼叫什麼。決策步驟留在 claude-sonnet-4-6，其餘交給 deepseek-v4-flash。以 6 個決策步驟、14 個子步驟、每步平均 27,000 個輸入 token 計：</p>
+<ul>
+<li>Sonnet：162,000 × 3/M + 3,000 × 15/M = 0.486 + 0.045 = 0.531 美元</li>
+<li>Flash：378,000 × 0.2/M + 7,000 × 0.4/M = 0.0756 + 0.0028 = 0.078 美元</li>
+<li>合計：每項任務約 0.61 美元，比全用 Sonnet 少 66%</li>
+</ul>
+<p>切換前先用自己的任務測試品質；<a href="/zh-tw/compare/deepseek-vs-claude/">DeepSeek 與 Claude 比較</a>可以當起點。</p>
+<h3 id="4-在供應商支援時使用-prompt-caching">4. 在供應商支援時使用 prompt caching</h3>
+<p>Agent 的大部分輸入，是上一步已經送過的前綴。在 Anthropic 自家 API 上，快取讀取的費率是基本輸入的 0.1 倍，5 分鐘快取寫入是 1.25 倍（<a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer">Anthropic 定價</a>）。在 20 步範例中，540,000 個輸入 token 有 494,000 個是重複內容。以 Anthropic 的 Sonnet 4.6 費率計，是 494,000 × 0.30/M + 46,000 × 3.75/M + 0.15 美元輸出 = 0.148 + 0.173 + 0.15，每項任務約 0.47 美元。快取有存活時間，等待慢速工具的步驟可能錯過快取。要依賴這個做法前，先確認你的供應商如何計算快取 token。</p>
+<h3 id="5-給每個-agent-獨立的預算">5. 給每個 agent 獨立的預算</h3>
+<p>把每個 agent 放進自己的<a class="doc-term" href="/zh-tw/docs/resources/" data-def="權限與帳務的最小單位；金鑰、允許模型、點數預算都掛在 project 上。">專案</a>，並分配<a class="doc-term" href="/zh-tw/docs/credits/" data-def="計費單位。1 美元 = 100 點；用量依各模型牌價換算成點數扣抵。">點數</a>給它。專案只能花被分配到的額度，餘額用完後請求會回傳 <code>402</code>，卡住的迴圈會停在上限，而不是拖到月底才被發現。每月 10,000 項 Sonnet 任務，分配額度就是 1,770,000 點（1 點 = 0.01 美元）。設定方式見<a href="/zh-tw/docs/cb-budget-caps/">設定有預算上限的團隊</a>。</p>
+<h2 id="如何衡量每項完成任務的成本">如何衡量每項完成任務的成本</h2>
+<p>閘道看得到請求，但只有你的應用程式知道哪些請求屬於同一項任務。ATP 的每個回應都帶有 <code>x-request-id</code> 標頭。把它和你自己的任務或工作階段 ID、步驟編號，以及任務最後是否成功一起記錄。</p>
+<p>接著：</p>
+<ol>
+<li>從請求紀錄取出這些 request ID 對應的列，每列顯示模型、狀態與輸入／輸出 token（<a href="/zh-tw/docs/monitoring/">用量與紀錄</a>）。紀錄保留 7 天，請每週用<a href="/zh-tw/docs/console-api-logs/">請求紀錄 API</a> 匯出。</li>
+<li>把 token 乘上模型牌價，依任務加總。</li>
+<li>用總成本（包含失敗與中途放棄的任務）除以完成的任務數。</li>
+</ol>
+<p>失敗的任務要算進分子。成功率 80%、每次嘗試 1.77 美元的 agent，每項完成任務的成本是 1.77 / 0.8 = 2.21 美元。</p>
+<p>紀錄裡要留意一種模式：內容為空的 <code>200</code>。在推理模型上，這通常代表 <code>max_tokens</code> 不足以涵蓋思考預算。ATP 通常會回報零用量、不扣點數，但沒有調高 <code>max_tokens</code> 就重試的 agent，會一直重複這個空回應（<a href="/zh-tw/docs/errors/">錯誤</a>）。</p>
+<p><a href="/zh-tw/pricing/">了解計價方式</a></p>
 <h2 id="延伸閱讀">延伸閱讀</h2>
 <ul>
-<li><a href="/zh-tw/blog/why-ai-bills-explode-after-go-live">上線後 AI 帳單為什麼會炸</a></li>
-<li><a href="/zh-tw/blog/how-to-read-your-ai-bill">怎麼讀懂 AI 帳單</a></li>
-<li><a href="/zh-tw/blog/ai-governance-checklist">企業 AI 治理清單</a></li>
-</ul>
-<p><a href="/zh-tw/enterprise-plan">申請企業方案 →</a></p>0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-tw/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"部落格\",\"item\":\"https://atptoken.ai/zh-tw/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"什麼是 agent tax？多步 AI agent 為何讓 token 帳單膨脹（2026）\",\"item\":\"https://atptoken.ai/zh-tw/blog/what-is-the-agent-tax/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"什麼是 agent tax？多步 AI agent 為何讓 token 帳單膨脹（2026）\",\"description\":\"Agent tax 是多步 AI agent 因重送上下文、呼叫工具與重試而產生的額外 token 成本。說明定義、量測與控制方法。\",\"datePublished\":\"2026-07-31\",\"dateModified\":\"2026-07-31\",\"inLanguage\":\"zh-Hant-TW\",\"keywords\":\"Agent tax, AI 帳務, ATP\",\"url\":\"https://atptoken.ai/zh-tw/blog/what-is-the-agent-tax/\",\"mainEntityOfPage\":\"https://atptoken.ai/zh-tw/blog/what-is-the-agent-tax/\",\"image\":\"https://atptoken.ai/og/blog/what-is-the-agent-tax.jpg\",\"author\":{\"@type\":\"Person\",\"name\":\"hung-chien\",\"jobTitle\":\"AI 成長與品牌經理\",\"worksFor\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}},\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"},\"isPartOf\":{\"@type\":\"Blog\",\"@id\":\"https://atptoken.ai/#blog\",\"name\":\"ATP Token 部落格\",\"url\":\"https://atptoken.ai/blog/\",\"description\":\"ATP Token 團隊的實務筆記：企業 AI 治理、AI Token 用量帳務，以及用一把金鑰管理多個模型的日常。\",\"inLanguage\":\"zh-Hant-TW\",\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}}}"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"什麼是 AI 的 agent tax？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Agent tax 是多步 agent 因重送上下文、工具呼叫與重試，超出單次模型回覆的額外 token 支出。\"}},{\"@type\":\"Question\",\"name\":\"為什麼 AI agent 比一般聊天更貴？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Agent 可能為同一目標發起多次呼叫，每次帶歷史與工具結果，任務級 token 會倍增。\"}},{\"@type\":\"Question\",\"name\":\"怎麼量測 agent tax？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"依任務彙總整條鏈路的 token 與點數，再與單輪基準比；用完成任務成本做共同語言。\"}},{\"@type\":\"Question\",\"name\":\"如何降低 agent token 成本？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"限制步數、摘要上下文、子任務用小模型、專案上限，並每週查請求紀錄。\"}},{\"@type\":\"Question\",\"name\":\"Agent tax 等於模型加價嗎？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"不是。加價是費率差；agent tax 是架構讓同一費率消耗更多 token。\"}}]}"}}]],["$","$L2",null,{"data":{"lang":"zh-TW","post":{"slug":"what-is-the-agent-tax","title":"什麼是 agent tax？多步 AI agent 為何讓 token 帳單膨脹（2026）","metaTitle":"什麼是 agent tax？Token 成本指南（2026）","description":"Agent tax 是多步 AI agent 因重送上下文、呼叫工具與重試而產生的額外 token 成本。說明定義、量測與控制方法。","date":"2026-07-31","tags":["Agent tax","AI 帳務","ATP"],"author":"hung-chien","authorTitle":"AI 成長與品牌經理","tldr":["Agent tax 是「一次回答的 token」與「完成一項工作的 token」之間的落差。","追蹤每次 agent 任務成本，而不只是單次請求成本。","縮短上下文、限制步數、專案額度上限與逐請求紀錄可降低 agent tax。"],"faq":[{"q":"什麼是 AI 的 agent tax？","a":"Agent tax 是多步 agent 因重送上下文、工具呼叫與重試，超出單次模型回覆的額外 token 支出。"},{"q":"為什麼 AI agent 比一般聊天更貴？","a":"Agent 可能為同一目標發起多次呼叫，每次帶歷史與工具結果，任務級 token 會倍增。"},{"q":"怎麼量測 agent tax？","a":"依任務彙總整條鏈路的 token 與點數，再與單輪基準比；用完成任務成本做共同語言。"},{"q":"如何降低 agent token 成本？","a":"限制步數、摘要上下文、子任務用小模型、專案上限，並每週查請求紀錄。"},{"q":"Agent tax 等於模型加價嗎？","a":"不是。加價是費率差；agent tax 是架構讓同一費率消耗更多 token。"}],"readingMinutes":2,"cover":"what-is-the-agent-tax","html":"$3"},"newer":{"slug":"enterprise-ai-cost-management-guide","title":"企業 AI 成本管理完整指南：token、點數、金鑰與上限（2026）","date":"2026-08-05"},"older":{"slug":"why-ai-bills-explode-after-go-live","title":"上線後 AI 帳單為什麼會炸：五個控制缺口與修法（2026）","date":"2026-07-29"}}}]],["$L4","$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"1D4DZsfbxL_82v4AXbxNN"}
-4:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
-5:["$","script","script-1",{"src":"/_next/static/chunks/1hbxtvg5etpqa.js","async":true}]
-6:["$","script","script-2",{"src":"/_next/static/chunks/0ey98fxnyu7te.js","async":true}]
-7:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
-a:null
+<li><a href="/zh-tw/blog/coding-agents-cost-control-checklist/">Claude Code 費用怎麼算：每位開發者一天多少錢，以及 10 項控管</a></li>
+<li><a href="/zh-tw/blog/why-ai-bills-explode-after-go-live/">為什麼 LLM 成本在上線後暴增</a></li>
+<li><a href="/zh-tw/blog/how-to-read-your-ai-bill/">怎麼讀懂 AI 帳單</a></li>
+</ul>0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-tw/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"部落格\",\"item\":\"https://atptoken.ai/zh-tw/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"什麼是 agent tax？一步步算出 AI agent 的成本（2026）\",\"item\":\"https://atptoken.ai/zh-tw/blog/what-is-the-agent-tax/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"什麼是 agent tax？一步步算出 AI agent 的成本（2026）\",\"description\":\"AI agent 成本會隨步數增加，因為每一步都重送整段上下文。以牌價試算一個 20 步的 agent，並整理五個降低 agent tax 的做法。\",\"datePublished\":\"2026-07-31\",\"dateModified\":\"2026-07-31\",\"inLanguage\":\"zh-Hant-TW\",\"keywords\":\"Agent tax, AI agent 成本, ATP\",\"url\":\"https://atptoken.ai/zh-tw/blog/what-is-the-agent-tax/\",\"mainEntityOfPage\":\"https://atptoken.ai/zh-tw/blog/what-is-the-agent-tax/\",\"image\":\"https://atptoken.ai/og/blog/what-is-the-agent-tax.jpg\",\"author\":{\"@type\":\"Person\",\"name\":\"hung-chien\",\"jobTitle\":\"AI 成長與品牌經理\",\"worksFor\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}},\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"},\"isPartOf\":{\"@type\":\"Blog\",\"@id\":\"https://atptoken.ai/#blog\",\"name\":\"ATP Token 部落格\",\"url\":\"https://atptoken.ai/blog/\",\"description\":\"ATP Token 團隊的實務筆記：企業 AI 治理、AI Token 用量帳務，以及用一把金鑰管理多個模型的日常。\",\"inLanguage\":\"zh-Hant-TW\",\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}}}"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"跑一個 AI agent 要花多少錢？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"主要取決於步數與上下文增長，而不是每 token 的單價。一個從 8,000 token 開始、每步增加 2,000 token 的 20 步 agent，會讀入 540,000 個輸入 token、寫出 10,000 個輸出 token，以每百萬 token 3／15 美元計，每項任務約 1.77 美元。\"}},{\"@type\":\"Question\",\"name\":\"為什麼 AI agent 比一般對話 API 貴？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"對話 API 只送一次上下文。Agent 每一步都會再送一次，而且每次都附上新的工具結果，所以輸入 token 大致隨步數的平方成長。\"}},{\"@type\":\"Question\",\"name\":\"怎麼計算每項任務的 AI agent 成本？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"輸入 token 總和 = 基礎 × 步數 + 增量 × (0 + 1 + … + 步數 − 1)，再加上輸出 token，各自乘上模型費率。正式環境中，把自己的任務 ID 與每個 request ID 一起記錄，再用總成本除以完成的任務數。\"}},{\"@type\":\"Question\",\"name\":\"怎麼降低 AI agent 的 token 成本？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"限制步數、工具輸出進入上下文前先摘要、子步驟改用較便宜的模型、在供應商以較低費率計算快取讀取時使用 prompt caching，並給每個 agent 專案獨立的點數分配。\"}}]}"}}]],["$","$L2",null,{"data":{"lang":"zh-TW","post":{"slug":"what-is-the-agent-tax","title":"什麼是 agent tax？一步步算出 AI agent 的成本（2026）","metaTitle":"AI agent 成本：agent tax 怎麼算（2026）","description":"AI agent 成本會隨步數增加，因為每一步都重送整段上下文。以牌價試算一個 20 步的 agent，並整理五個降低 agent tax 的做法。","date":"2026-07-31","tags":["Agent tax","AI agent 成本","ATP"],"author":"hung-chien","authorTitle":"AI 成長與品牌經理","tldr":["Agent tax 是用多次模型呼叫完成一項工作所多出的 token 成本，因為每次呼叫都會重送不斷變長的上下文。","一個 20 步的 agent，基礎上下文 8,000 token、每步增加 2,000 token，總共讀入 540,000 個輸入 token：在 claude-sonnet-4-6 上每項任務約 1.77 美元，單輪對話只要 0.03 美元。","把工具輸出先摘要，成本約可減半；專案分配額度則替成本設上限。每項完成任務的成本，要把自己的任務 ID 對應到 request ID 來算。"],"faq":[{"q":"跑一個 AI agent 要花多少錢？","a":"主要取決於步數與上下文增長，而不是每 token 的單價。一個從 8,000 token 開始、每步增加 2,000 token 的 20 步 agent，會讀入 540,000 個輸入 token、寫出 10,000 個輸出 token，以每百萬 token 3／15 美元計，每項任務約 1.77 美元。"},{"q":"為什麼 AI agent 比一般對話 API 貴？","a":"對話 API 只送一次上下文。Agent 每一步都會再送一次，而且每次都附上新的工具結果，所以輸入 token 大致隨步數的平方成長。"},{"q":"怎麼計算每項任務的 AI agent 成本？","a":"輸入 token 總和 = 基礎 × 步數 + 增量 × (0 + 1 + … + 步數 − 1)，再加上輸出 token，各自乘上模型費率。正式環境中，把自己的任務 ID 與每個 request ID 一起記錄，再用總成本除以完成的任務數。"},{"q":"怎麼降低 AI agent 的 token 成本？","a":"限制步數、工具輸出進入上下文前先摘要、子步驟改用較便宜的模型、在供應商以較低費率計算快取讀取時使用 prompt caching，並給每個 agent 專案獨立的點數分配。"}],"readingMinutes":4,"cover":"what-is-the-agent-tax","html":"$3"},"newer":{"slug":"enterprise-ai-cost-management-guide","title":"LLM 成本優化：企業 AI 成本管理指南與 10 個降本槓桿（2026）","date":"2026-08-05","cover":"enterprise-ai-cost-management-guide"},"older":{"slug":"why-ai-bills-explode-after-go-live","title":"為什麼 LLM 成本在上線後暴增：五個控制缺口與一個試算範例（2026）","date":"2026-07-29","cover":"why-ai-bills-explode-after-go-live"}}}]],["$L4","$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"q8ogy5bwfTluQawd-N4pH"}
+4:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0bk251ba95uho.css","precedence":"next"}]
+5:["$","script","script-0",{"src":"/_next/static/chunks/031jyqwh2ymjo.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/12btwas-eg9md.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/0tc57bytaqvvw.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

@@ -4,6 +4,15 @@
 
 The Gateway sits between your client and the upstream model providers. Every request flows through the same four stages, whichever SDK format you use.
 
+```text
+  Request (project key): support-bot
+→ Organization · key: KEY VALID
+→ Workspace · budget: BUDGET OK · 62%
+→ Project · model allowlist: MODEL ALLOWED
+→ Provider: ROUTED → anthropic
+→ Request log: support-bot · claude-sonnet-5 · 690ms · 0.0312 credits · 200
+```
+
 ## 1. Authenticate
 
 The project API key is validated and then stripped before anything is forwarded upstream — providers never see your ATP key. Missing, disabled, or expired keys are rejected with `401`. See [Authentication](https://atptoken.ai/docs/auth/).

@@ -1,36 +1,144 @@
 1:"$Sreact.fragment"
-2:I[51713,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"default"]
-8:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
-9:"$Sreact.suspense"
-3:Tb1a,<p>模型目录是平台可服务的模型 id 列表；存取控制是决定某项目密钥能呼叫哪些 id 的政策。</p>
-<p><strong>菜单 ≠ 权限。</strong> 在 ATP，列表描述平台；项目白名单强制存取并在违规时 403（<a href="/zh-cn/docs/models">模型</a>、<a href="/zh-cn/docs/how-it-works">how it works</a>）。混淆两者会助长<a href="/zh-cn/blog/why-ai-bills-explode-after-go-live">账单爆炸</a>。</p>
-<h2 id="每笔请求要回答的两个问题">每笔请求要回答的两个问题</h2>
-<p>平台认不认识这模型？<strong>这个项目</strong>可不可以呼叫？<strong>这个项目</strong>付不付得起（<a href="/zh-cn/docs/credits" class="doc-term-def" data-def="计费单位。1 美元 = 100 点；用量依各模型牌价换算成点数扣抵。">点数</a>）？</p>
-<h2 id="设计白名单">设计白名单</h2>
-<p>预设拒绝 frontier；按项目不是按人（<a href="/zh-cn/blog/one-project-one-key">一项目一密钥</a>）；放宽白名单要有管理事件 log（<a href="/zh-cn/docs/monitoring">监控</a>）；搭配 cap（<a href="/zh-cn/blog/ai-spending-caps-that-work">花费上限</a>）；对应用团队说明 403 是政策不是当机（<a href="/zh-cn/docs/errors">错误</a>）。</p>
-<h2 id="更现代的做法">更现代的做法</h2>
-<p>ATP Token 在项目设定允许模型，密钥继承，未授权呼叫不到供应商。</p>
-<p><a href="/zh-cn/docs/resources" class="doc-term-def" data-def="这个 project 可以呼叫的模型清单；不在清单上的一律回 403。">工作区与项目 →</a> · <a href="/zh-cn/docs/quickstart">快速开始 →</a></p>
-<h2 id="常见问题">常见问题</h2>
-<h3 id="模型目录与模型存取控制有何不同">模型目录与模型存取控制有何不同？</h3>
-<p>目录列出平台能路由的模型；存取控制是请求时的项目政策。</p>
-<h3 id="文件上看得到的模型为什么回-403">文件上看得到的模型为什么回 403？</h3>
-<p>列表常是菜单；不在白名单就在出站前拒绝。</p>
-<h3 id="每个项目都该开-frontier-模型吗">每个项目都该开 frontier 模型吗？</h3>
-<p>不该；预设中阶，有预算与理由再开。</p>
-<h3 id="白名单如何降低-ai-成本">白名单如何降低 AI 成本？</h3>
-<p>防止静默升级高价模型；仍需花费上限。</p>
-<h3 id="模型政策该放程式码还是平台">模型政策该放程式码还是平台？</h3>
-<p>平台强制为最终权威。</p>
+3:I[51713,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js","/_next/static/chunks/031jyqwh2ymjo.js","/_next/static/chunks/12btwas-eg9md.js","/_next/static/chunks/0tc57bytaqvvw.js"],"default"]
+a:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"OutletBoundary"]
+b:"$Sreact.suspense"
+:HL["/_next/static/chunks/0bk251ba95uho.css","style"]
+2:T509,{"@context":"https://schema.org","@type":"BlogPosting","headline":"模型目录与访问控制：GET /v1/models 列出菜单，项目白名单决定能不能用（2026）","description":"GET /v1/models 列出 LLM 平台提供哪些模型；模型白名单决定密钥能调用哪些。附请求与响应示例、403 的含义与白名单设计。","datePublished":"2026-08-28","dateModified":"2026-08-28","inLanguage":"zh-Hans-CN","keywords":"模型白名单, LLM 访问控制, AI 网关, ATP","url":"https://atptoken.ai/zh-cn/blog/model-catalog-vs-access-control/","mainEntityOfPage":"https://atptoken.ai/zh-cn/blog/model-catalog-vs-access-control/","image":"https://atptoken.ai/og/blog/model-catalog-vs-access-control.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI 增长与品牌经理","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token 博客","url":"https://atptoken.ai/blog/","description":"ATP Token 团队的实务笔记：企业 AI 治理、AI Token 用量账务，以及用一把密钥管理多个模型的日常。","inLanguage":"zh-Hans-CN","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}4:T225b,<p>模型目录是平台能提供的模型 ID 清单，模型访问控制则是决定某个密钥能调用其中哪些 ID 的规则。在 ATP Token，<code>GET /v1/models</code> 返回目录，而项目的允许模型清单会在每次请求时检查，不符合的请求在联系任何供应商之前就返回 403。本文列出请求与响应、说明 403 的含义、对比 OpenAI 与 OpenRouter 的做法，并提供四份附标价的白名单模板。</p>
+<h2 id="两个不同的问题">两个不同的问题</h2>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>ATP Token 在哪里回答</th>
+<th>答案为否时</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>这个密钥有效吗？</td>
+<td>认证</td>
+<td>401</td>
+</tr>
+<tr>
+<td>平台上有这个模型吗？</td>
+<td><a href="/zh-cn/docs/models/">GET /v1/models</a></td>
+<td>清单里找不到这个 ID</td>
+</tr>
+<tr>
+<td>这个密钥的项目可以调用它吗？</td>
+<td>项目的允许模型</td>
+<td>403，在接触任何供应商之前</td>
+</tr>
+<tr>
+<td>项目付得起吗？</td>
+<td>项目的<a class="doc-term" href="/zh-cn/docs/credits/" data-def="计费单位。1 美元 = 100 点；用量依各模型牌价换算成点数扣抵。">点数</a>余额</td>
+<td>402</td>
+</tr>
+</tbody></table>
+<p>顺序很重要。网关先验证密钥，再拿模型比对项目的允许清单，然后路由到供应商，最后按项目余额计量 token（<a href="/zh-cn/docs/how-it-works/">工作原理</a>）。一个模型可能通过第二行，却卡在第三行。</p>
+<h2 id="get-v1-models-返回什么">GET /v1/models 返回什么</h2>
+<p>请求使用你的项目密钥和 OpenAI 格式的 base URL：</p>
+<pre><code>curl https://api.atptoken.ai/v1/models \
+  -H &quot;Authorization: Bearer atp-...&quot;
+</code></pre>
+<p>响应是 OpenAI 风格的列表。每个 <code>id</code> 就是请求中 <code>model</code> 字段要填的字符串：</p>
+<pre><code>{
+  &quot;object&quot;: &quot;list&quot;,
+  &quot;data&quot;: [
+    { &quot;id&quot;: &quot;claude-sonnet-4-6&quot;, &quot;object&quot;: &quot;model&quot;, &quot;created&quot;: 1700000000, &quot;owned_by&quot;: &quot;llm-gateway&quot; },
+    { &quot;id&quot;: &quot;gpt-5.4&quot;, &quot;object&quot;: &quot;model&quot;, &quot;created&quot;: 1700000000, &quot;owned_by&quot;: &quot;llm-gateway&quot; }
+  ]
+}
+</code></pre>
+<p><a href="/zh-cn/docs/models/">模型发现文档</a>写明这份列表不会按你的项目筛选。用它获取最新的 ID，不要从供应商仪表盘或博客文章里抄模型名称。也不要把它当成权限清单来读。</p>
+<h2 id="403-意味着什么">403 意味着什么</h2>
+<p>ATP Token 返回 403，表示密钥有效、模型 ID 也存在，但这个模型没有在密钥所属的项目中启用。<a href="/zh-cn/docs/errors/">常见响应</a>页面只用一行描述：模型未在此项目启用。请求停在授权步骤，不会发到任何供应商。和所有 ATP 错误一样，响应带有 <code>request_id</code>，并采用你所调用 SDK 的错误格式。</p>
+<p>典型情况：一位开发者在目录里看到 <code>claude-opus-4-8</code>，在功能分支把客服机器人换成它。客服机器人的项目只允许 claude-haiku-4-5 与 gemini-3-5-flash，所以 staging 第一笔请求就返回 403。这正是白名单该做的事。按 ATP 标价计算，2,000 token 的提示加 300 token 的回复，在 <a href="/zh-cn/models/claude-opus-4-8/">claude-opus-4-8</a>（每百万 token 输入 USD 5、输出 USD 25）需要 1.75 点，在 <a href="/zh-cn/models/claude-haiku-4-5/">claude-haiku-4-5</a>（USD 1 与 USD 5）只需 0.35 点，每条回复相差五倍。</p>
+<p>由此得出两条客户端规则。不要重试 403，它每次都会以同样方式失败。把它连同请求 ID 记录下来，交给项目负责人，由对方修改代码里的模型，或请 Admin 放宽清单。</p>
+<h2 id="openai-与-openrouter-如何做同一件事">OpenAI 与 OpenRouter 如何做同一件事</h2>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>模型规则放在哪里</th>
+<th>粒度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OpenAI API</td>
+<td>项目设置的 Limits 中的 Model usage（<a href="https://help.openai.com/en/articles/9186755-managing-projects-in-the-api-platform" target="_blank" rel="noopener noreferrer">Help Center</a>）</td>
+<td>每个项目</td>
+</tr>
+<tr>
+<td>OpenRouter</td>
+<td>Guardrail 中的模型白名单（<a href="https://openrouter.ai/docs/guides/features/guardrails" target="_blank" rel="noopener noreferrer">guardrails</a>）</td>
+<td>每位成员或每个密钥；多个 guardrail 同时适用时，只有所有 guardrail 都允许的模型可用</td>
+</tr>
+<tr>
+<td>ATP Token</td>
+<td>项目的允许模型（<a href="/zh-cn/docs/resources/" class="doc-term-def" data-def="这个 project 可以呼叫的模型清单；不在清单上的一律回 403。">工作区与项目</a>）</td>
+<td>每个项目，从不按密钥设置；每个项目至少一个模型</td>
+</tr>
+</tbody></table>
+<p>在 OpenAI，Model usage 设置和项目的每月花费上限、通知阈值放在一起。在 OpenRouter，同一个 guardrail 还能放花费上限与供应商白名单，以最严格的适用规则为准。在 ATP Token，允许清单和项目的点数分配放在一起，项目里的每个密钥两者都继承。</p>
+<h2 id="白名单设计-四个项目模板">白名单设计：四个项目模板</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>允许的模型</th>
+<th>ATP 标价，每百万 token（输入 / 输出）</th>
+<th>分配建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>support-bot-prod</td>
+<td><a href="/zh-cn/models/claude-haiku-4-5/">claude-haiku-4-5</a>、<a href="/zh-cn/models/gemini-3-5-flash/">gemini-3-5-flash</a></td>
+<td>USD 1 / 5；USD 1.5 / 9</td>
+<td>按回复量推算</td>
+</tr>
+<tr>
+<td>coding-agent</td>
+<td><a href="/zh-cn/models/claude-sonnet-4-6/">claude-sonnet-4-6</a>、<a href="/zh-cn/models/gpt-5.4/">gpt-5.4</a></td>
+<td>USD 3 / 15；USD 2.5 / 15</td>
+<td>按团队分配，每周复核</td>
+</tr>
+<tr>
+<td>batch-classification</td>
+<td><a href="/zh-cn/models/deepseek-v4-flash/">deepseek-v4-flash</a>、qwen-3-7-flash</td>
+<td>USD 0.2 / 0.4；USD 0.03 / 0.13（提示 32K 以内）</td>
+<td>按任务推算</td>
+</tr>
+<tr>
+<td>research-sandbox</td>
+<td>claude-opus-4-8、<a href="/zh-cn/models/gpt-5.5/">gpt-5.5</a></td>
+<td>USD 5 / 25；USD 5 / 30</td>
+<td>小额、固定</td>
+</tr>
+</tbody></table>
+<ol>
+<li><strong>从通过评测的最便宜模型开始</strong>，再加一个来自第二家厂商的备选。同一个模型 ID 在不同供应商之间的故障切换，网关已经处理（<a href="/zh-cn/docs/provider-routing/" class="doc-term-def" data-def="同一个模型 id 由一组供应商服务，其中一家降级时自动改走另一家。">供应商路由</a>）；第二个模型是给你想在代码里换模型时用的。在 Gemini 与 GPT 之间做选择，见 <a href="/zh-cn/compare/gemini-vs-gpt/">Gemini vs GPT</a>。</li>
+<li>前沿模型放在单独的项目，给小额分配。研究团队能用 Opus 与 GPT-5.5，客服机器人则不会只差一行配置就切过去。</li>
+<li>把放宽清单当作变更申请处理。管理资源是 Admin 的权限，Activity 日志会记录资源更新（<a href="/zh-cn/docs/monitoring/">用量与日志</a>）。</li>
+<li>每份白名单都搭配预算。允许的模型配上无上限的余额，账单一样会吓人（<a href="/zh-cn/blog/ai-spending-caps-that-work/">AI API 花费上限对比</a>）。</li>
+</ol>
+<h2 id="在-atp-token-上怎么设置">在 ATP Token 上怎么设置</h2>
+<ol>
+<li>在 Resources 页面创建项目并选择允许的模型（<a href="/zh-cn/docs/resources/" class="doc-term-def" data-def="这个 project 可以呼叫的模型清单；不在清单上的一律回 403。">工作区与项目</a>）。</li>
+<li>给项目拨点数，再从项目发密钥（<a href="/zh-cn/docs/console-keys/" class="doc-term-def" data-def="以 atp- 开头的金钥，继承所属 project 的允许模型清单与点数余额。">管理 API 密钥</a>）。</li>
+<li>调用 <code>GET /v1/models</code>，把精确的 ID 复制到配置文件。</li>
+<li>在 staging 对每个配置中的模型各发一笔测试请求。200 表示有权限；403 表示项目清单里没有这个模型。</li>
+<li>部署后在请求日志中按状态筛选，找出 403。</li>
+</ol>
+<p><a href="/zh-cn/docs/quickstart/">快速开始：列出模型并发出第一笔请求</a></p>
 <h2 id="延伸阅读">延伸阅读</h2>
 <ul>
-<li><a href="/zh-cn/blog/ai-governance-checklist">企业 AI 治理清单</a></li>
-<li><a href="/zh-cn/blog/ai-gateway-comparison-2026">AI 闸道选型 2026</a></li>
-<li><a href="/zh-cn/docs/models">模型文件</a></li>
-</ul>
-<p><a href="/zh-cn/enterprise-plan">申请企业方案 →</a></p>0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-cn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"博客\",\"item\":\"https://atptoken.ai/zh-cn/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"模型目录 vs 存取控制：为什么 GET /v1/models 不是密钥权限（2026）\",\"item\":\"https://atptoken.ai/zh-cn/blog/model-catalog-vs-access-control/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"模型目录 vs 存取控制：为什么 GET /v1/models 不是密钥权限（2026）\",\"description\":\"模型目录列出平台能提供什么；存取控制决定项目密钥能呼叫什么。两者混淆会造成 403、影子花费与虚假安全感。\",\"datePublished\":\"2026-08-28\",\"dateModified\":\"2026-08-28\",\"inLanguage\":\"zh-Hans-CN\",\"keywords\":\"模型白名单, AI 闸道, ATP\",\"url\":\"https://atptoken.ai/zh-cn/blog/model-catalog-vs-access-control/\",\"mainEntityOfPage\":\"https://atptoken.ai/zh-cn/blog/model-catalog-vs-access-control/\",\"image\":\"https://atptoken.ai/og/blog/model-catalog-vs-access-control.jpg\",\"author\":{\"@type\":\"Person\",\"name\":\"hung-chien\",\"jobTitle\":\"AI 增长与品牌经理\",\"worksFor\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}},\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"},\"isPartOf\":{\"@type\":\"Blog\",\"@id\":\"https://atptoken.ai/#blog\",\"name\":\"ATP Token 博客\",\"url\":\"https://atptoken.ai/blog/\",\"description\":\"ATP Token 团队的实务笔记：企业 AI 治理、AI Token 用量账务，以及用一把密钥管理多个模型的日常。\",\"inLanguage\":\"zh-Hans-CN\",\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}}}"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"模型目录与模型存取控制有何不同？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"目录列出平台能路由的模型；存取控制是请求时允许或拒绝这些模型的项目（或密钥）政策。\"}},{\"@type\":\"Question\",\"name\":\"文件上看得到的模型为什么回 403？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"文件与列表端点常是平台菜单。若模型不在项目白名单，治理闸道会在出站前拒绝。\"}},{\"@type\":\"Question\",\"name\":\"每个项目都该开 frontier 模型吗？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"不该。高频路径预设中阶；仅在有预算与书面理由的项目启用 frontier。\"}},{\"@type\":\"Question\",\"name\":\"白名单如何降低 AI 成本？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"防止应用程序码静默升到高价模型。成本控制仍需花费上限；白名单去掉意外高级路由。\"}},{\"@type\":\"Question\",\"name\":\"模型政策该放程式码还是平台？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"平台强制能扛住客户端 bug 与分叉。程式码可给好预设；闸道必须是最终权威。\"}}]}"}}]],["$","$L2",null,{"data":{"lang":"zh-CN","post":{"slug":"model-catalog-vs-access-control","title":"模型目录 vs 存取控制：为什么 GET /v1/models 不是密钥权限（2026）","metaTitle":"模型目录 vs 存取控制（2026）","description":"模型目录列出平台能提供什么；存取控制决定项目密钥能呼叫什么。两者混淆会造成 403、影子花费与虚假安全感。","date":"2026-08-28","tags":["模型白名单","AI 闸道","ATP"],"author":"hung-chien","authorTitle":"AI 增长与品牌经理","tldr":["目录是菜单；项目白名单是许可证。GET /v1/models 回答有没有，不回答准不准。","在流量到达供应商前强制白名单，政策才不是 code review 的希望。","白名单要搭配预算——获准且无上限仍是账单事件。"],"faq":[{"q":"模型目录与模型存取控制有何不同？","a":"目录列出平台能路由的模型；存取控制是请求时允许或拒绝这些模型的项目（或密钥）政策。"},{"q":"文件上看得到的模型为什么回 403？","a":"文件与列表端点常是平台菜单。若模型不在项目白名单，治理闸道会在出站前拒绝。"},{"q":"每个项目都该开 frontier 模型吗？","a":"不该。高频路径预设中阶；仅在有预算与书面理由的项目启用 frontier。"},{"q":"白名单如何降低 AI 成本？","a":"防止应用程序码静默升到高价模型。成本控制仍需花费上限；白名单去掉意外高级路由。"},{"q":"模型政策该放程式码还是平台？","a":"平台强制能扛住客户端 bug 与分叉。程式码可给好预设；闸道必须是最终权威。"}],"readingMinutes":1,"cover":"model-catalog-vs-access-control","html":"$3"},"newer":{"slug":"shadow-ai-governed-control-plane","title":"企业 Shadow AI：从个人密钥到可治理的控制平面（2026）","date":"2026-09-02"},"older":{"slug":"openrouter-vs-enterprise-governance","title":"OpenRouter vs 企业 AI 治理平台：各自适合谁（2026）","date":"2026-08-26"}}}]],["$L4","$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"1D4DZsfbxL_82v4AXbxNN"}
-4:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
-5:["$","script","script-1",{"src":"/_next/static/chunks/1hbxtvg5etpqa.js","async":true}]
-6:["$","script","script-2",{"src":"/_next/static/chunks/0ey98fxnyu7te.js","async":true}]
-7:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
-a:null
+<li><a href="/zh-cn/blog/one-project-one-key/">一项目一密钥</a></li>
+<li><a href="/zh-cn/blog/ai-spending-caps-that-work/">AI API 花费上限对比</a></li>
+<li><a href="/zh-cn/blog/ai-gateway-comparison-2026/">LLM 网关对比 2026</a></li>
+</ul>0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-cn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"博客\",\"item\":\"https://atptoken.ai/zh-cn/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"模型目录与访问控制：GET /v1/models 列出菜单，项目白名单决定能不能用（2026）\",\"item\":\"https://atptoken.ai/zh-cn/blog/model-catalog-vs-access-control/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"GET /v1/models 只会显示我的密钥能用的模型吗？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"在 ATP Token 不是这样。GET /v1/models 列出平台上所有可用的模型，不会按你的项目筛选。密钥能调用哪些模型，由项目的允许清单决定，并在每次请求时检查。\"}},{\"@type\":\"Question\",\"name\":\"为什么 /v1/models 里有的模型，调用时却返回 403？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"这个模型存在于平台上，但没有在你密钥所属的项目中启用。ATP Token 在验证密钥之后检查项目的允许清单，并在联系供应商之前以 403 拒绝。请改用允许的模型，或请项目 Admin 添加。\"}},{\"@type\":\"Question\",\"name\":\"什么是模型白名单？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"模型白名单是一个项目、密钥或成员被允许调用的模型 ID 清单。无论应用代码请求什么，其他模型的请求都会被平台拒绝。\"}},{\"@type\":\"Question\",\"name\":\"可以限制 OpenAI 项目能用哪些模型吗？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"可以。在 OpenAI API 平台，项目的 Limits 设置里有 Model usage，可选择该项目能用哪些模型，旁边就是每月花费上限与通知阈值。\"}},{\"@type\":\"Question\",\"name\":\"ATP Token 的模型权限是按密钥还是按项目设置？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"按项目。同一个项目的每个密钥都继承相同的允许模型，而且每个项目至少要允许一个模型。\"}}]}"}}]],["$","$L3",null,{"data":{"lang":"zh-CN","post":{"slug":"model-catalog-vs-access-control","title":"模型目录与访问控制：GET /v1/models 列出菜单，项目白名单决定能不能用（2026）","metaTitle":"模型白名单 vs GET /v1/models：LLM 访问控制（2026）","description":"GET /v1/models 列出 LLM 平台提供哪些模型；模型白名单决定密钥能调用哪些。附请求与响应示例、403 的含义与白名单设计。","date":"2026-08-28","tags":["模型白名单","LLM 访问控制","AI 网关","ATP"],"author":"hung-chien","authorTitle":"AI 增长与品牌经理","tldr":["在 ATP Token，GET /v1/models 返回的是平台目录。密钥能调用什么由项目的允许模型清单决定，清单外的模型在接触任何供应商之前就会收到 403。","OpenAI 用每个项目的 Model usage 设置做同一件事；OpenRouter 则用 guardrail 里的模型白名单。","白名单按工作负载设计，写明模型与标价，例如客服机器人只允许 claude-haiku-4-5 与 gemini-3-5-flash。"],"faq":[{"q":"GET /v1/models 只会显示我的密钥能用的模型吗？","a":"在 ATP Token 不是这样。GET /v1/models 列出平台上所有可用的模型，不会按你的项目筛选。密钥能调用哪些模型，由项目的允许清单决定，并在每次请求时检查。"},{"q":"为什么 /v1/models 里有的模型，调用时却返回 403？","a":"这个模型存在于平台上，但没有在你密钥所属的项目中启用。ATP Token 在验证密钥之后检查项目的允许清单，并在联系供应商之前以 403 拒绝。请改用允许的模型，或请项目 Admin 添加。"},{"q":"什么是模型白名单？","a":"模型白名单是一个项目、密钥或成员被允许调用的模型 ID 清单。无论应用代码请求什么，其他模型的请求都会被平台拒绝。"},{"q":"可以限制 OpenAI 项目能用哪些模型吗？","a":"可以。在 OpenAI API 平台，项目的 Limits 设置里有 Model usage，可选择该项目能用哪些模型，旁边就是每月花费上限与通知阈值。"},{"q":"ATP Token 的模型权限是按密钥还是按项目设置？","a":"按项目。同一个项目的每个密钥都继承相同的允许模型，而且每个项目至少要允许一个模型。"}],"readingMinutes":4,"cover":"model-catalog-vs-access-control","html":"$4"},"newer":{"slug":"shadow-ai-governed-control-plane","title":"什么是 Shadow AI（影子 AI）？风险、实例与收回管控的方法（2026）","date":"2026-09-02","cover":"shadow-ai-governed-control-plane"},"older":{"slug":"openrouter-vs-enterprise-governance","title":"OpenRouter 替代方案（团队版）：费用、预算与模型管控对比（2026）","date":"2026-08-26","cover":"openrouter-vs-enterprise-governance"}}}]],["$L5","$L6","$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"q8ogy5bwfTluQawd-N4pH"}
+5:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0bk251ba95uho.css","precedence":"next"}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/031jyqwh2ymjo.js","async":true}]
+7:["$","script","script-1",{"src":"/_next/static/chunks/12btwas-eg9md.js","async":true}]
+8:["$","script","script-2",{"src":"/_next/static/chunks/0tc57bytaqvvw.js","async":true}]
+9:["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]
+c:null

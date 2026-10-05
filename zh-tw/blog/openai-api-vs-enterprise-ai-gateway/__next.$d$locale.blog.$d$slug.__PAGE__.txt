@@ -1,73 +1,134 @@
 1:"$Sreact.fragment"
-3:I[51713,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"default"]
-9:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
-a:"$Sreact.suspense"
-2:T4f8,{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenAI API vs 企業 AI 閘道：何時直連需要控制層（2026）","description":"直連 OpenAI（或 Anthropic、Gemini）擅長模型能力。企業 AI 閘道補上專案金鑰、白名單、統一點數與稽核——在多團隊、多供應商時最有價值。","datePublished":"2026-08-19","dateModified":"2026-08-19","inLanguage":"zh-Hant-TW","keywords":"AI 閘道, OpenAI API, ATP","url":"https://atptoken.ai/zh-tw/blog/openai-api-vs-enterprise-ai-gateway/","mainEntityOfPage":"https://atptoken.ai/zh-tw/blog/openai-api-vs-enterprise-ai-gateway/","image":"https://atptoken.ai/og/blog/openai-api-vs-enterprise-ai-gateway.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI 成長與品牌經理","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token 部落格","url":"https://atptoken.ai/blog/","description":"ATP Token 團隊的實務筆記：企業 AI 治理、AI Token 用量帳務，以及用一把金鑰管理多個模型的日常。","inLanguage":"zh-Hant-TW","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}4:Tea9,<p>企業 AI 閘道是客戶端與模型供應商之間的控制層；直連 OpenAI 等是供應商原生推論介面。</p>
-<p><strong>沒有普遍贏家。</strong> 直連贏在單一小隊簡單；閘道贏在<a class="doc-term" href="/zh-tw/docs/console-setup" data-def="帳號的最上層，底下再分 workspace 與 project。">組織</a>→<a class="doc-term" href="/zh-tw/docs/resources" data-def="權限與帳務的最小單位；金鑰、允許模型、點數預算都掛在 project 上。">專案</a>→金鑰、多供應商結算與稽核。ATP 類平台是<strong>治理與帳務整合</strong>，不是取代模型實驗室。見<a href="/zh-tw/docs/how-it-works">系統如何運作</a>、<a href="/zh-tw/docs/cb-migrate-openai">遷移</a>。</p>
-<h2 id="對照表">對照表</h2>
+4:I[51713,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js","/_next/static/chunks/031jyqwh2ymjo.js","/_next/static/chunks/12btwas-eg9md.js","/_next/static/chunks/0tc57bytaqvvw.js"],"default"]
+b:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/_next/static/chunks/0bk251ba95uho.css","style"]
+2:T4fa,{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenAI API 與 OpenAI 相容閘道：什麼時候該換、程式要改哪裡（2026）","description":"OpenAI 相容 API 讓 OpenAI SDK 也能呼叫 Claude、Gemini、DeepSeek。直接用 OpenAI 何時就夠、何時該加閘道，以及只改兩行的程式碼。","datePublished":"2026-08-19","dateModified":"2026-08-19","inLanguage":"zh-Hant-TW","keywords":"OpenAI 相容 API, OpenAI API, ATP","url":"https://atptoken.ai/zh-tw/blog/openai-api-vs-enterprise-ai-gateway/","mainEntityOfPage":"https://atptoken.ai/zh-tw/blog/openai-api-vs-enterprise-ai-gateway/","image":"https://atptoken.ai/og/blog/openai-api-vs-enterprise-ai-gateway.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI 成長與品牌經理","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token 部落格","url":"https://atptoken.ai/blog/","description":"ATP Token 團隊的實務筆記：企業 AI 治理、AI Token 用量帳務，以及用一把金鑰管理多個模型的日常。","inLanguage":"zh-Hant-TW","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T61f,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"什麼是 OpenAI 相容 API？","acceptedAnswer":{"@type":"Answer","text":"指接受與 OpenAI 相同請求與回應格式的 API，通常是 Chat Completions 端點。官方 OpenAI SDK 換掉 base URL 與 API 金鑰後就能直接呼叫。"}},{"@type":"Question","name":"可以用 OpenAI SDK 呼叫 Claude 或 Gemini 嗎？","acceptedAnswer":{"@type":"Answer","text":"可以，透過 OpenAI 相容閘道。在 ATP Token 上把 base_url 設為 https://api.atptoken.ai/v1，使用專案金鑰，model 填 claude-sonnet-4-6 或 gemini-3-5-flash 這類 id。"}},{"@type":"Question","name":"OpenAI 可以替每個專案設花費上限嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。OpenAI 專案可以設花費提醒（只通知，流量照跑）與硬性花費上限（受影響的請求回傳 429），也能限制專案可以使用哪些模型。"}},{"@type":"Question","name":"OpenAI API 有哪些替代方案？","acceptedAnswer":{"@type":"Answer","text":"以模型能力來說，常見替代是 Anthropic 的 Claude、Google 的 Gemini，以及 DeepSeek、Qwen 等開放權重模型。想同時使用多家又不改程式，就透過 OpenAI 相容閘道呼叫。"}},{"@type":"Question","name":"改用 OpenAI 相容閘道需要重寫程式嗎？","acceptedAnswer":{"@type":"Answer","text":"如果用的是 Chat Completions，通常不用。改 base URL、金鑰與模型 id 即可。程式若還用到其他 OpenAI 端點，先對照閘道的 API 參考。"}}]}5:T205c,<p>OpenAI 相容 API 是接受與 OpenAI API 相同請求與回應格式的端點，官方 OpenAI SDK 換掉 base URL 與金鑰後就能呼叫它。本文整理 OpenAI 平台本身已經管得到什麼、閘道從哪一刻開始划算、實際要改的程式碼，以及同一個工作負載在六個模型上的花費。</p>
+<h2 id="簡短回答">簡短回答</h2>
+<p>只有一個團隊、只用 OpenAI 模型，而且 OpenAI 的專案上限已經符合你的預算規則，就直接用 OpenAI API。</p>
+<p>出現下列任一情況，就該加一層 OpenAI 相容閘道：</p>
+<ul>
+<li>第二家供應商進來了，例如寫程式用 Claude、大量分類用 Gemini Flash，而財務希望只有一張帳單、一套上限。</li>
+<li>好幾個團隊共用一筆 AI 預算，每個團隊都需要跨供應商的上限與模型清單。</li>
+<li>想用自己的提示詞比較模型，又不想接三套 SDK。</li>
+</ul>
+<h2 id="openai-平台已經提供的控管">OpenAI 平台已經提供的控管</h2>
+<p>單一供應商時，過去需要閘道才能做到的控管，OpenAI 大多已經自己做了：</p>
+<ul>
+<li>專案可以把測試與正式環境分開，各自有金鑰、速率上限與花費上限（<a href="https://developers.openai.com/api/docs/guides/production-best-practices" target="_blank" rel="noopener noreferrer">正式環境最佳實務</a>）。</li>
+<li>兩種花費控管：花費提醒只發通知，流量照跑；硬性花費上限會讓受影響的請求回傳 429（<a href="https://developers.openai.com/api/docs/guides/rate-limits" target="_blank" rel="noopener noreferrer">速率上限說明</a>）。</li>
+<li>專案層級的「Model usage」設定，限制專案可以呼叫哪些模型（<a href="https://help.openai.com/en/articles/9186755-managing-projects-in-the-api-platform" target="_blank" rel="noopener noreferrer">管理專案</a>）。</li>
+<li>使用量等級（usage tier）會在付款累積到一定金額前限制每月花費，從 Tier 1 每月 100 美元到 Tier 5 每月 200,000 美元。</li>
+</ul>
+<p>如果流量全部是 OpenAI，先用好這些功能。</p>
+<h2 id="直接串接的極限">直接串接的極限</h2>
+<p>上面這些上限只管得到 OpenAI 的模型。團隊一加入 Claude，Anthropic 主控台就有另一套工作區、花費上限與金鑰（<a href="https://platform.claude.com/docs/en/manage-claude/workspaces" target="_blank" rel="noopener noreferrer">Anthropic 工作區</a>）。再加上 Gemini，就是第三個主控台。實際上會變成：</p>
+<ul>
+<li>有人離職時，要在三個地方發放與撤銷金鑰。</li>
+<li>三套互相看不到的預算，「客服機器人每月跨所有供應商最多花 3,000 美元」這條規則沒有地方能執行。</li>
+<li>月底收到三張格式不同的帳單。</li>
+<li>程式碼分散在 OpenAI、Anthropic、Google 三套 SDK。</li>
+</ul>
+<p>閘道在它們前面放一套金鑰、上限與紀錄。</p>
+<h2 id="程式要改哪裡">程式要改哪裡</h2>
+<p>用 ATP Token 時 OpenAI SDK 照用，只改三個值（<a href="/zh-tw/docs/sdk-openai/">OpenAI SDK 說明</a>、<a href="/zh-tw/docs/cb-migrate-openai/">從 OpenAI 遷移</a>）：</p>
+<pre><code>from openai import OpenAI
+
+# 原本：client = OpenAI(api_key=&quot;sk-...&quot;)
+client = OpenAI(base_url=&quot;https://api.atptoken.ai/v1&quot;, api_key=&quot;atp-...&quot;)
+
+for model in [&quot;gpt-5.4&quot;, &quot;claude-sonnet-4-6&quot;, &quot;gemini-3-5-flash&quot;]:
+    r = client.chat.completions.create(
+        model=model,
+        messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;請分類這張工單：「退款十天還沒收到」&quot;}],
+        max_tokens=200,
+    )
+    print(model, r.choices[0].message.content, r.usage.total_tokens)
+</code></pre>
+<p>不變的部分：Chat Completions 的請求內容、回應內容、<code>stream=True</code> 的串流（<a href="/zh-tw/docs/sse-openai/">OpenAI SSE</a>），以及工具定義。</p>
+<p>會變的部分：</p>
+<ul>
+<li>模型 id 以 <code>GET /v1/models</code> 回傳的為準（<a href="/zh-tw/docs/models/">模型查詢</a>）。OpenAI 模型沿用 <code>gpt-5.4</code> 這類熟悉的名稱；其他模型用 <code>claude-sonnet-4-6</code>、<code>deepseek-v4-flash</code> 這類 id。</li>
+<li>不在專案允許清單上的模型，會在送到任何供應商之前回傳 403。</li>
+<li>專案<a class="doc-term" href="/zh-tw/docs/credits/" data-def="計費單位。1 美元 = 100 點；用量依各模型牌價換算成點數扣抵。">點數</a>用完時，請求回傳 402（<a href="/zh-tw/docs/errors/">錯誤</a>）。</li>
+<li>ATP 的 OpenAI 格式端點是 <code>/v1/chat/completions</code>、<code>/v1/models</code> 與 <code>/v1/files</code>。程式若呼叫其他 OpenAI 端點，搬移前先查 <a href="/zh-tw/docs/chat/">API 參考</a>。</li>
+</ul>
+<p>使用 Anthropic 或 Google GenAI SDK 的團隊不必改成 OpenAI 格式：同一把專案金鑰也能在 <code>https://api.atptoken.ai</code> 搭配這兩套 SDK 使用（<a href="/zh-tw/docs/sdk-anthropic/">Anthropic SDK</a>、<a href="/zh-tw/docs/sdk-google/">Google GenAI SDK</a>）。</p>
+<h2 id="同一個工作負載在六個模型上的花費">同一個工作負載在六個模型上的花費</h2>
+<p>假設一個分類服務每月處理 100 萬筆請求，每筆輸入 1,000 個 token、輸出 300 個 token，也就是每月 10 億個輸入 token、3 億個輸出 token。依各模型頁的定價：</p>
 <table>
 <thead>
 <tr>
-<th>維度</th>
-<th>直連原廠 API</th>
-<th>企業 AI 閘道</th>
+<th>模型</th>
+<th>輸入／輸出（每 100 萬 token）</th>
+<th>每月輸入</th>
+<th>每月輸出</th>
+<th>每月合計</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>主職</td>
-<td>模型推論</td>
-<td>存取、預算、歸屬、路由</td>
+<td><a href="/zh-tw/models/gpt-5.5/">gpt-5.5</a></td>
+<td>$5 / $30</td>
+<td>$5,000</td>
+<td>$9,000</td>
+<td>$14,000</td>
 </tr>
 <tr>
-<td>金鑰</td>
-<td>原廠 key</td>
-<td>你方階層中的專案金鑰</td>
+<td><a href="/zh-tw/models/claude-sonnet-4-6/">claude-sonnet-4-6</a></td>
+<td>$3 / $15</td>
+<td>$3,000</td>
+<td>$4,500</td>
+<td>$7,500</td>
 </tr>
 <tr>
-<td>多供應商</td>
-<td>多帳戶</td>
-<td>單一平面＋專案白名單</td>
+<td><a href="/zh-tw/models/gpt-5.4/">gpt-5.4</a></td>
+<td>$2.5 / $15</td>
+<td>$2,500</td>
+<td>$4,500</td>
+<td>$7,000</td>
 </tr>
 <tr>
-<td>帳單</td>
-<td>各家發票</td>
-<td><a class="doc-term" href="/zh-tw/docs/credits" data-def="計費單位。1 美元 = 100 點；用量依各模型牌價換算成點數扣抵。">點數</a>／統一計量</td>
+<td><a href="/zh-tw/models/gemini-3-5-flash/">gemini-3-5-flash</a></td>
+<td>$1.5 / $9</td>
+<td>$1,500</td>
+<td>$2,700</td>
+<td>$4,200</td>
 </tr>
 <tr>
-<td>最適</td>
-<td>專注產品團隊</td>
-<td>多團隊企業導入</td>
+<td><a href="/zh-tw/models/claude-haiku-4-5/">claude-haiku-4-5</a></td>
+<td>$1 / $5</td>
+<td>$1,000</td>
+<td>$1,500</td>
+<td>$2,500</td>
+</tr>
+<tr>
+<td><a href="/zh-tw/models/deepseek-v4-flash/">deepseek-v4-flash</a></td>
+<td>$0.2 / $0.4</td>
+<td>$200</td>
+<td>$120</td>
+<td>$320</td>
 </tr>
 </tbody></table>
-<h2 id="何時直連夠用">何時直連夠用</h2>
-<p>一產品、一供應商、少數金鑰、財務暫可接受原廠後台。</p>
-<h2 id="何時控制層划算">何時控制層划算</h2>
-<p>第二供應商或模態、coding agent 與正式共用預算、財務要問哪個團隊、資安要撤銷與白名單預設。</p>
-<h2 id="遷移形狀">遷移形狀</h2>
-<p>本體不變；改 base URL 與 key；對齊模型 id；開白名單；分配點數；在<a href="/zh-tw/docs/monitoring">紀錄</a>驗證。</p>
-<h2 id="更現代的做法">更現代的做法</h2>
-<p>Horizon AI 導入常以閘道為標準，讓 PoC 第一天就有權限與計量。ATP Token 實作階層、白名單、點數 cap 與請求 log，並相容三大格式。</p>
-<p><a href="/zh-tw/docs/quickstart">快速開始 →</a></p>
-<h2 id="常見問題">常見問題</h2>
-<h3 id="openai-api-與-ai-閘道有何不同">OpenAI API 與 AI 閘道有何不同？</h3>
-<p>OpenAI API 是模型供應商介面。企業 AI 閘道位於客戶端與一家或多家供應商之間，負責金鑰、模型授權、路由、計量與紀錄。</p>
-<h3 id="公司何時不該再只直連-openai">公司何時不該再只直連 OpenAI？</h3>
-<p>當多團隊共用花費、導入第二家供應商、財務要專案歸屬，或資安要集中撤銷與白名單時。</p>
-<h3 id="ai-閘道會取代-openai-嗎">AI 閘道會取代 OpenAI 嗎？</h3>
-<p>不會。閘道不取代模型品質或訓練，而是增加治理與帳務整合。</p>
-<h3 id="從-openai-遷到相容閘道有多難">從 OpenAI 遷到相容閘道有多難？</h3>
-<p>通常改 base URL 與 API 金鑰；模型 id 需對齊目錄與白名單。</p>
-<h3 id="能否在同一企業閘道使用-anthropic-與-gemini">能否在同一企業閘道使用 Anthropic 與 Gemini？</h3>
-<p>支援多格式的閘道可以，並以專案金鑰約束。</p>
+<p>價格只是一半的決定。換模型之前，先拿幾百張真實工單，跑過達到品質標準的兩三個最便宜模型。可以從 <a href="/zh-tw/compare/deepseek-vs-claude/">DeepSeek 與 Claude</a>、<a href="/zh-tw/compare/gemini-vs-gpt/">Gemini 與 GPT</a> 的並排比較頁開始。</p>
+<h2 id="遷移清單">遷移清單</h2>
+<ol>
+<li>列出程式裡每個建立 OpenAI client 的地方，以及各自呼叫的端點。</li>
+<li>每個服務在 ATP 建一個專案，只啟用該服務需要的模型（<a href="/zh-tw/docs/resources/" class="doc-term-def" data-def="這個 project 可以呼叫的模型清單；不在清單上的一律回 403。">工作區與專案</a>）。</li>
+<li>撥點數給每個專案，撥款額度就是上限（<a href="/zh-tw/docs/cb-budget-caps/">預算上限</a>）。</li>
+<li>每個專案發一把金鑰，存進密鑰管理工具（<a href="/zh-tw/docs/console-keys/" class="doc-term-def" data-def="以 atp- 開頭的金鑰，繼承所屬 project 的允許模型清單與點數餘額。">管理金鑰</a>）。</li>
+<li>先在測試環境改 base URL、金鑰與模型 id，在請求紀錄裡比對輸出與 token 數（<a href="/zh-tw/docs/monitoring/">用量與紀錄</a>）。</li>
+<li>正式環境一次搬一個服務，最後撤銷不再使用的 OpenAI 金鑰。</li>
+</ol>
+<p><a href="/zh-tw/docs/quickstart/">從快速開始上手</a></p>
 <h2 id="延伸閱讀">延伸閱讀</h2>
 <ul>
-<li><a href="/zh-tw/blog/ai-gateway-comparison-2026">AI 閘道選型 2026</a></li>
-<li><a href="/zh-tw/blog/why-ai-bills-explode-after-go-live">上線後 AI 帳單為什麼會炸</a></li>
-<li><a href="/zh-tw/docs/how-it-works">系統如何運作</a></li>
-</ul>
-<p><a href="/zh-tw/enterprise-plan">申請企業方案 →</a></p>0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-tw/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"部落格\",\"item\":\"https://atptoken.ai/zh-tw/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"OpenAI API vs 企業 AI 閘道：何時直連需要控制層（2026）\",\"item\":\"https://atptoken.ai/zh-tw/blog/openai-api-vs-enterprise-ai-gateway/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"OpenAI API 與 AI 閘道有何不同？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"OpenAI API 是模型供應商介面。企業 AI 閘道位於客戶端與一家或多家供應商之間，負責金鑰、模型授權、路由、計量與紀錄，並常保持與既有 SDK 相容的請求本體。\"}},{\"@type\":\"Question\",\"name\":\"公司何時不該再只直連 OpenAI？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"當多團隊共用花費、導入第二家供應商、財務要專案歸屬，或資安要集中撤銷與白名單時。此前直連加供應商基本限額可能夠用。\"}},{\"@type\":\"Question\",\"name\":\"AI 閘道會取代 OpenAI 嗎？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"不會。閘道不取代模型品質或訓練，而是在供應商存取外增加治理與帳務整合。\"}},{\"@type\":\"Question\",\"name\":\"從 OpenAI 遷到相容閘道有多難？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"若閘道講 OpenAI 線格式，通常改 base URL 與 API 金鑰。模型 id 需對齊閘道目錄與專案白名單。\"}},{\"@type\":\"Question\",\"name\":\"能否在同一企業閘道使用 Anthropic 與 Gemini？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"支援多格式的閘道可接受 OpenAI / Anthropic / Gemini 風格客戶端，並以專案金鑰約束。\"}}]}"}}]],["$","$L3",null,{"data":{"lang":"zh-TW","post":{"slug":"openai-api-vs-enterprise-ai-gateway","title":"OpenAI API vs 企業 AI 閘道：何時直連需要控制層（2026）","metaTitle":"OpenAI API vs 企業 AI 閘道（2026）","description":"直連 OpenAI（或 Anthropic、Gemini）擅長模型能力。企業 AI 閘道補上專案金鑰、白名單、統一點數與稽核——在多團隊、多供應商時最有價值。","date":"2026-08-19","tags":["AI 閘道","OpenAI API","ATP"],"author":"hung-chien","authorTitle":"AI 成長與品牌經理","tldr":["單一產品團隊、單一供應商時直連是合理預設；多團隊、多金鑰、多供應商需要同一控制平面時，閘道才划算。","比較治理、歸屬、多格式存取與維運，而不是宣稱取代模型原廠。","若線格式相容，遷移多半是 base_url 與 key；難的是組織設計。"],"faq":[{"q":"OpenAI API 與 AI 閘道有何不同？","a":"OpenAI API 是模型供應商介面。企業 AI 閘道位於客戶端與一家或多家供應商之間，負責金鑰、模型授權、路由、計量與紀錄，並常保持與既有 SDK 相容的請求本體。"},{"q":"公司何時不該再只直連 OpenAI？","a":"當多團隊共用花費、導入第二家供應商、財務要專案歸屬，或資安要集中撤銷與白名單時。此前直連加供應商基本限額可能夠用。"},{"q":"AI 閘道會取代 OpenAI 嗎？","a":"不會。閘道不取代模型品質或訓練，而是在供應商存取外增加治理與帳務整合。"},{"q":"從 OpenAI 遷到相容閘道有多難？","a":"若閘道講 OpenAI 線格式，通常改 base URL 與 API 金鑰。模型 id 需對齊閘道目錄與專案白名單。"},{"q":"能否在同一企業閘道使用 Anthropic 與 Gemini？","a":"支援多格式的閘道可接受 OpenAI / Anthropic / Gemini 風格客戶端，並以專案金鑰約束。"}],"readingMinutes":2,"cover":"openai-api-vs-enterprise-ai-gateway","html":"$4"},"newer":{"slug":"ai-gateway-comparison-2026","title":"AI 閘道選型 2026：路由、可觀測與治理的一條光譜","date":"2026-08-21"},"older":{"slug":"coding-agents-cost-control-checklist","title":"工作場合的 coding agent：10 點成本控制清單（2026）","date":"2026-08-14"}}}]],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"1D4DZsfbxL_82v4AXbxNN"}
-5:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
-6:["$","script","script-1",{"src":"/_next/static/chunks/1hbxtvg5etpqa.js","async":true}]
-7:["$","script","script-2",{"src":"/_next/static/chunks/0ey98fxnyu7te.js","async":true}]
-8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
-b:null
+<li><a href="/zh-tw/blog/ai-gateway-comparison-2026/">LLM 閘道比較 2026</a></li>
+<li><a href="/zh-tw/blog/how-to-read-your-ai-bill/">LLM token 成本怎麼算</a></li>
+<li><a href="/zh-tw/blog/openrouter-vs-enterprise-governance/">OpenRouter 替代方案（團隊版）</a></li>
+</ul>0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-tw/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"部落格\",\"item\":\"https://atptoken.ai/zh-tw/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"OpenAI API 與 OpenAI 相容閘道：什麼時候該換、程式要改哪裡（2026）\",\"item\":\"https://atptoken.ai/zh-tw/blog/openai-api-vs-enterprise-ai-gateway/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],["$","$L4",null,{"data":{"lang":"zh-TW","post":{"slug":"openai-api-vs-enterprise-ai-gateway","title":"OpenAI API 與 OpenAI 相容閘道：什麼時候該換、程式要改哪裡（2026）","metaTitle":"OpenAI API 與 OpenAI 相容閘道比較（2026）","description":"OpenAI 相容 API 讓 OpenAI SDK 也能呼叫 Claude、Gemini、DeepSeek。直接用 OpenAI 何時就夠、何時該加閘道，以及只改兩行的程式碼。","date":"2026-08-19","tags":["OpenAI 相容 API","OpenAI API","ATP"],"author":"hung-chien","authorTitle":"AI 成長與品牌經理","tldr":["OpenAI 相容 API 接受 OpenAI 的請求與回應格式，官方 OpenAI SDK 只要換 base URL 與金鑰就能使用。","OpenAI 平台本身已有專案、專案層級的花費上限與模型限制，但只管得到 OpenAI 的模型；當第二家供應商出現，或多家供應商要共用一筆預算時，閘道才划算。","在 ATP Token 上要改的是 base URL、一把 atp- 專案金鑰，以及從 GET /v1/models 取得的模型 id，請求與回應內容不變。"],"faq":[{"q":"什麼是 OpenAI 相容 API？","a":"指接受與 OpenAI 相同請求與回應格式的 API，通常是 Chat Completions 端點。官方 OpenAI SDK 換掉 base URL 與 API 金鑰後就能直接呼叫。"},{"q":"可以用 OpenAI SDK 呼叫 Claude 或 Gemini 嗎？","a":"可以，透過 OpenAI 相容閘道。在 ATP Token 上把 base_url 設為 https://api.atptoken.ai/v1，使用專案金鑰，model 填 claude-sonnet-4-6 或 gemini-3-5-flash 這類 id。"},{"q":"OpenAI 可以替每個專案設花費上限嗎？","a":"可以。OpenAI 專案可以設花費提醒（只通知，流量照跑）與硬性花費上限（受影響的請求回傳 429），也能限制專案可以使用哪些模型。"},{"q":"OpenAI API 有哪些替代方案？","a":"以模型能力來說，常見替代是 Anthropic 的 Claude、Google 的 Gemini，以及 DeepSeek、Qwen 等開放權重模型。想同時使用多家又不改程式，就透過 OpenAI 相容閘道呼叫。"},{"q":"改用 OpenAI 相容閘道需要重寫程式嗎？","a":"如果用的是 Chat Completions，通常不用。改 base URL、金鑰與模型 id 即可。程式若還用到其他 OpenAI 端點，先對照閘道的 API 參考。"}],"readingMinutes":4,"cover":"openai-api-vs-enterprise-ai-gateway","html":"$5"},"newer":{"slug":"ai-gateway-comparison-2026","title":"LLM 閘道比較 2026：OpenRouter、Vercel AI Gateway、LiteLLM、Portkey、Helicone 與 ATP Token","date":"2026-08-21","cover":"ai-gateway-comparison-2026"},"older":{"slug":"coding-agents-cost-control-checklist","title":"Claude Code 費用怎麼算：每位開發者一天多少錢，以及 10 項控管（2026）","date":"2026-08-14","cover":"coding-agents-cost-control-checklist"}}}]],["$L6","$L7","$L8","$L9"],"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"q8ogy5bwfTluQawd-N4pH"}
+6:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0bk251ba95uho.css","precedence":"next"}]
+7:["$","script","script-0",{"src":"/_next/static/chunks/031jyqwh2ymjo.js","async":true}]
+8:["$","script","script-1",{"src":"/_next/static/chunks/12btwas-eg9md.js","async":true}]
+9:["$","script","script-2",{"src":"/_next/static/chunks/0tc57bytaqvvw.js","async":true}]
+a:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

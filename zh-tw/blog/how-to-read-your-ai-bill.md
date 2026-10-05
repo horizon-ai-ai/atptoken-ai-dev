@@ -1,137 +1,176 @@
-# 怎麼讀懂 AI 帳單：tokens、credits 與逐請求歸帳的三層讀法（2026 指南）
+# LLM token 成本怎麼算？計算公式、5 個模型實算與 AI 帳單讀法（2026）
 
 > 來源: https://atptoken.ai/zh-tw/blog/how-to-read-your-ai-bill/
 > 發表於: 2026-07-21 · 作者: hung-chien (AI 成長與品牌經理)
 
-AI 帳單怎麼讀？本指南拆成三層：token 如何計價、點數怎麼把多家費率換成同一種單位、逐請求紀錄如何把每一塊錢歸回專案，並附角色分工與三種帳單異常的排查法。
+LLM token 成本怎麼算：單次請求計算公式、同一請求在 5 個模型上的實際花費、輸入與輸出價差、快取與推理 token，以及 AI 帳單該看哪些欄位。
 
 ## 重點摘要
 
-- AI 帳單只有三層：token 是計價單位、點數是結算單位、逐請求紀錄是稽核單位；三層都能對上，帳單就讀得懂。
-- 最實用的內部指標不是單價表，而是「每千次呼叫的平均成本」——它同時反映模型選擇、提示長度與快取策略。
-- 歸帳品質由金鑰決定：一個專案一把金鑰，每筆請求才有主人；多個系統共用一把金鑰，帳單永遠只能算到「大家」。
+- 單次請求的 LLM token 成本 = 輸入 token × 輸入單價 + 輸出 token × 輸出單價，單價以每 100 萬 token 計。claude-sonnet-4-6（$3 / $15）處理 1,284 個輸入與 412 個輸出 token，成本是 $0.010032，也就是 1.0032 點 ATP 點數。
+- 同一筆請求在 gpt-5.5 上是 $0.01878，在 qwen-3-7-flash 上是 $0.00009208，相差 204 倍。模型選擇對帳單的影響，大過其他任何單一設定。
+- 常見模型的輸出單價是輸入的 2 到 6 倍，推理 token 也按輸出計費。讀帳單時先按專案與模型看，再趁 7 天的請求紀錄還在時追到單筆請求。
 
-AI 帳單是企業使用大型語言模型等 AI 服務後收到的用量費用明細：模型以 token 計價、帳務以點數或現金結算，而每一筆費用都應該能歸回某個專案。這份指南寫給第一次要對 AI 費用負責的工程、財務與管理者。
+LLM token 成本，是模型讀進（輸入）與寫出（輸出）的 token 所產生的費用，兩者各自以每 100 萬 token 的單價計算。這篇整理計算公式，拿一筆真實大小的請求在五個模型上實算，說明輸出、快取與推理 token 怎麼改變算式，也列出月帳對不上時該看哪些欄位。
 
-先給答案：一張 AI 帳單只有三層——token 是計價單位、點數是結算單位、逐請求紀錄是稽核單位。帳單難讀，幾乎都是因為其中一層缺了：只有月總額（缺第三層）、各家單位不一致（缺第二層）、或不知道錢花在輸入還是輸出（缺第一層）。以下逐層拆解，再依角色與異常情境對照使用。
+以下單價都是各模型頁上的 ATP 牌價，截至 2026 年 10 月。引用的原廠單價都附上原廠定價頁連結。
 
-## 第一層：token 是計價的最小單位
+## token 成本計算公式
 
-token 大致可以想成字的碎片，一個中文字通常折合一到兩個 token。這一層有三個計價事實，決定了你帳單的形狀。
+任何按 token 計價的 API，單次請求的成本都來自同樣三步：
 
-### 輸入與輸出分開計價，輸出貴數倍
+1. 輸入成本 = 輸入 token × 輸入單價 ÷ 1,000,000
+2. 輸出成本 = 輸出 token × 輸出單價 ÷ 1,000,000
+3. 請求成本 = 輸入成本 + 輸出成本
 
-同樣一筆請求，回答越長越貴。控制輸出長度（例如限制回覆格式）是最直接的成本槓桿。
+在 ATP Token 上，這筆費用會以點數從專案餘額扣除，[1 點 = 0.01 美元](https://atptoken.ai/zh-tw/docs/credits)。點數 = 美元成本 × 100。
 
-### 上下文越長越貴，每一段背景都在計費
+### 實算：一則客服機器人回覆
 
-你貼進提示的每一份文件、每一輪歷史對話都算輸入 token。輸入異常肥大，多半是上下文塞了不必要的內容。
+客服機器人送出 1,284 token 的提示（系統提示、檢索到的說明中心段落、客戶訊息）給 claude-sonnet-4-6，單價為每 100 萬 token 輸入 $3、輸出 $15，拿回 412 token 的回答。
 
-### 快取命中另計費率，重複前綴可以省下大半
+- 輸入：1,284 × $3 ÷ 1,000,000 = $0.003852
+- 輸出：412 × $15 ÷ 1,000,000 = $0.00618
+- 合計：$0.010032 = 1.0032 點
 
-重複出現的系統提示與文件前綴，命中快取時費率遠低於新內容。各家供應商的公開費率頁都把這三件事列成表格，例如 [OpenAI 的定價頁](https://openai.com/api/pricing/)；同一句話交給不同模型，成本可能相差數十倍——各模型的計價模式可在[模型清單](https://atptoken.ai/zh-tw/docs/models)對照。
+每月 10 萬則回覆就是 $1,003.20。這筆請求裡輸出只佔 token 數的 24%，卻佔成本的 61.6%。
 
-所以比起盯著單價表，更實用的內部指標是**每千次呼叫的平均成本**：它同時反映模型選擇、提示長度與快取策略。多步 agent 還要搭配每次完成任務成本——見[什麼是 agent tax](https://atptoken.ai/zh-tw/blog/what-is-the-agent-tax)。
+### 可以直接貼上的 token 成本計算器
 
-## 第二層：點數把多家費率換成同一種單位
+SDK 回傳的內容本來就帶有 token 數。OpenAI 格式的欄位是 `usage.prompt_tokens` 與 `usage.completion_tokens`，Anthropic 格式則是 `usage.input_tokens` 與 `usage.output_tokens`。
 
-同時使用多家模型時，每家的幣別、費率表、計價邏輯都不同，財務會收到好幾種語言寫成的帳單。點數制的意義在此：先儲值，各模型依費率扣點，所有消耗最後落在同一種單位上。
+```python
+RATES = {  # 每 100 萬 token 美元：(輸入, 輸出)，ATP 牌價
+    "gpt-5.5": (5.00, 30.00),
+    "claude-sonnet-4-6": (3.00, 15.00),
+    "gemini-3-5-flash": (1.50, 9.00),
+    "deepseek-v4-flash": (0.20, 0.40),
+    "qwen-3-7-flash": (0.03, 0.13),
+}
 
-### 為什麼需要同一種結算單位
+def token_cost(model, input_tokens, output_tokens):
+    rate_in, rate_out = RATES[model]
+    usd = (input_tokens * rate_in + output_tokens * rate_out) / 1_000_000
+    return usd, usd * 100  # (美元, ATP 點數)
 
-點數不是價格魔術，而是把「不同供應商的計價邏輯」翻譯成財務看得懂的同一種語言；預算、對帳、趨勢分析才有共同基準。運作細節見[點數文件](https://atptoken.ai/zh-tw/docs/credits)。
-
-### 低水位告警讓服務不會中途斷線
-
-搭配餘額告警與自動儲值，「跑到一半沒額度」就從事故變成一則通知。
-
-[查看定價 →](https://atptoken.ai/zh-tw/pricing)
-
-## 第三層：逐請求歸帳是最小的可稽核單位
-
-> 一張看得懂的帳單，最小單位不是「這個月」，而是「這一次呼叫」。
-
-### 一筆逐請求紀錄長什麼樣
-
-月報只能告訴你花了多少，回答不了「誰、為了什麼」。逐請求紀錄把每一筆呼叫都寫下專案、金鑰、模型與 token 數：
-
+print(token_cost("claude-sonnet-4-6", 1284, 412))  # 約 (0.010032, 1.0032)
 ```
+
+## 同一筆請求放到 5 個模型上
+
+把輸入 1,284、輸出 412 的請求放到五個模型上計價。qwen-3-7-flash 採用提示在 32K token 以內的級距單價。
+
+| 模型 | ATP 牌價（每 100 萬 token 輸入 / 輸出） | 單次成本 | 單次點數 | 每 10 萬次 |
+|---|---|---|---|---|
+| [gpt-5.5](https://atptoken.ai/zh-tw/models/gpt-5.5/) | $5 / $30 | $0.01878 | 1.878 | $1,878.00 |
+| [claude-sonnet-4-6](https://atptoken.ai/zh-tw/models/claude-sonnet-4-6/) | $3 / $15 | $0.010032 | 1.0032 | $1,003.20 |
+| [gemini-3-5-flash](https://atptoken.ai/zh-tw/models/gemini-3-5-flash/) | $1.50 / $9 | $0.005634 | 0.5634 | $563.40 |
+| [deepseek-v4-flash](https://atptoken.ai/zh-tw/models/deepseek-v4-flash/) | $0.20 / $0.40 | $0.0004216 | 0.04216 | $42.16 |
+| [qwen-3-7-flash](https://atptoken.ai/zh-tw/models/qwen-3-7-flash/) | $0.03 / $0.13 | $0.00009208 | 0.009208 | $9.21 |
+
+這張表把 token 數固定，只比較單價。實際上每家的 tokenizer 切字方式不同，token 數也會不同。Anthropic 指出 Claude 4.7 以後模型的 tokenizer，同樣文字大約會多產生 30% 的 token（[Anthropic 定價](https://platform.claude.com/docs/en/about-claude/pricing)），所以同一段 1,284 token 的提示，在 4.7 以後的模型上會接近 1,670 token。比較模型前先用自己的提示實測，品質也要並排看，例如 [DeepSeek vs Claude 比較](https://atptoken.ai/zh-tw/compare/deepseek-vs-claude/)。
+
+## 為什麼輸出 token 主導帳單
+
+輸出與輸入的單價比，決定錢花在哪裡。
+
+| 模型 | 輸出單價 ÷ 輸入單價 | 上例中輸出佔成本比例 |
+|---|---|---|
+| gpt-5.5 | 6 倍 | 65.8% |
+| claude-sonnet-4-6 | 5 倍 | 61.6% |
+| deepseek-v4-flash | 2 倍 | 39.1% |
+
+實務上有兩個影響。在 5 倍或 6 倍的模型上，縮短回答比縮短提示更划算：在 claude-sonnet-4-6 上少 200 個輸出 token 省 $0.003，等於少 1,000 個輸入 token。另外，大量生成文字的工作（起草、產生程式碼、寫報告），估價時主要看預期的輸出長度。
+
+## 快取輸入與推理 token
+
+原廠價目表上有兩種 token，第一次讀帳單的人最容易卡住。
+
+### 快取輸入是原廠的計價功能
+
+部分原廠對從快取命中的重複提示前綴另訂較低單價。OpenAI 列出 GPT-5.5 的快取輸入為每 100 萬 token $0.50，一般輸入是 $5（[OpenAI 定價](https://developers.openai.com/api/docs/pricing)）。Anthropic 多數模型的快取讀取是基本輸入單價的 0.1 倍，快取寫入為 1.25 倍（5 分鐘）或 2 倍（1 小時）（[Anthropic 定價](https://platform.claude.com/docs/en/about-claude/pricing)）。這些是依各原廠快取規則直接呼叫時的原廠單價。ATP Token 依[計價模式](https://atptoken.ai/zh-tw/docs/pricing-model)以輸入與輸出 token 計費，所以 ATP 預算請用輸入與輸出牌價來估。
+
+### 推理 token 按輸出計費
+
+推理模型回答前會先思考，這些看不見的 token 也要付費。OpenAI 寫明推理 token 以輸出 token 計費（[OpenAI 推理指南](https://developers.openai.com/api/docs/guides/reasoning)），Anthropic 也把 extended thinking 的 token 按輸出計費（[Claude Code 成本](https://code.claude.com/docs/en/costs)）。如果上面那則客服回覆在 claude-sonnet-4-6 上用了 1,500 個 thinking token，就多出 1,500 × $15 ÷ 1,000,000 = $0.0225，單次成本從 $0.010032 變成 $0.032532，約 3.2 倍。
+
+推理預算也能解釋一種令人困惑的紀錄：回傳 `200` 但內容是空的。`max_tokens` 設太低時，模型把預算全用在思考，沒有產出文字。在 ATP 上這種請求通常顯示零用量、不扣點數；解法是調高 `max_tokens`（[錯誤代碼](https://atptoken.ai/zh-tw/docs/errors)）。
+
+## 單筆請求紀錄告訴你什麼
+
+月總額只說得出花了多少。單筆請求紀錄說得出是哪個專案、哪個模型、用了多少 token。下面是示意用的紀錄，列出計算單次成本需要的欄位，並非 ATP 實際的紀錄格式。
+
+```json
 {
-  "request_id": "req_01HZXK3T9",
-  "project": "support-bot",
-  "model": "claude-sonnet-5",
+  "request_id": "req_example_01",
+  "project": "support-bot-prod",
+  "model": "claude-sonnet-4-6",
   "input_tokens": 1284,
   "output_tokens": 412,
-  "cost_credits": 0.0087
+  "cost_usd": 0.010032,
+  "cost_credits": 1.0032
 }
 ```
 
-### 歸帳品質由金鑰決定
+在 ATP Token 裡，這些資訊分在三個地方：
 
-如果多個系統共用一把金鑰，上面那筆紀錄能告訴你模型與成本，卻永遠說不出是哪個團隊。專案金鑰與逐請求歸帳其實是同一個功能：金鑰替每筆請求蓋上主人的章，紀錄讓這個章日後可稽核。這也是[企業 AI 治理清單](https://atptoken.ai/zh-tw/blog/ai-governance-checklist)把「一個專案一把金鑰」放在第 1 項的原因。欄位與報表見[用量與費用](https://atptoken.ai/zh-tw/docs/spend)。
+- 請求紀錄，每次呼叫一列：時間、範圍（工作區與專案）、模型、端點、HTTP 狀態、供應商結果、輸入與輸出 token、計費狀態與請求 ID。可依時間範圍、範圍、模型、狀態或請求 ID 篩選（[用量與紀錄](https://atptoken.ai/zh-tw/docs/monitoring)）。保留 7 天，費用異常要在一週內查。
+- 帳務事件，也就是逐筆計費帳本，主控台以 90 天呈現，可依模型、金鑰、計費狀態或請求 ID 篩選（[帳務 API](https://atptoken.ai/zh-tw/docs/console-api-billing)）。計費以這份帳本為準。
+- 用量頁，依模型與 API 金鑰彙總一段期間的點數與 token。
 
-## 依角色：工程、財務與管理層各看哪一層
+每個回應也都帶有 `x-request-id` 標頭，工程師可以把應用程式日誌裡的某次呼叫，對到主控台裡的那一列。
 
-### 工程看第一層：token 結構
+## 三種帳單異常與查法
 
-輸入輸出比例、快取命中率、模型選擇——三個數字決定單位成本能不能再降。
+### 某一週費用突然跳升
 
-### 財務看第二層：點數與儲值節奏
+用量頁按 API 金鑰排序。如果金鑰和專案一對一，跳升馬上落到某個負責人身上。接著在請求紀錄裡篩選該專案，比較跳升前後每次請求的 token 數。輸入從約 1,300 漲到 13,000 token，通常是有人開始每一輪都送整份文件。
 
-一種單位、一份帳單、可預測的儲值週期；異常留給第三層去查。
+### 單價沒錯，總額卻對不上
 
-### 管理層看第三層的彙總：專案別趨勢
+檢查模型組合。把 10 萬則客服回覆中的 20% 從 claude-sonnet-4-6 改到 gpt-5.5，流量不變，那個月就從 $1,003.20 變成 $1,178.16。
 
-按專案加總的月趨勢，是續編 AI 預算時唯一站得住腳的依據。
+### 請求成功卻沒有文字
 
-## 依情境：三種常見的帳單異常
+找推理模型上輸出 token 為零的 `200` 紀錄，把 `max_tokens` 調到足以涵蓋思考加上回答。
 
-### 費用突然跳升——先按專案排序，再往模型鑽
+## 在 ATP Token 上怎麼設定
 
-九成的跳升集中在單一專案——這也是[上線後 AI 帳單為什麼會炸](https://atptoken.ai/zh-tw/blog/why-ai-bills-explode-after-go-live)的同一種模式；逐請求紀錄能在幾分鐘內把範圍縮小到一個模型、甚至一段部署時間。
+1. 每個服務、每個環境各建一個專案，各配一把 `atp-` 金鑰，用量頁「依金鑰」就等於「依負責人」。
+2. 為每個專案分配點數。分配額就是專案的上限，餘額用完時呼叫會回傳 `402`（[預算上限設定](https://atptoken.ai/zh-tw/docs/cb-budget-caps)）。專案也可以開啟自動儲值，設定觸發門檻與每月上限。
+3. 記錄每個回應的 `usage` 與模型 ID，每週依專案跑一次上面的計算器。
+4. 月底以帳務事件對帳，7 天內的細節用請求紀錄追查。
 
-### 輸入 token 異常肥大——檢查上下文組裝邏輯
-
-常見元兇是「把整份文件塞進每一輪對話」；修法通常是改用摘要或檢索。
-
-### 餘額不足導致中斷——設告警水位與自動儲值
-
-把「還剩多少點數」變成儀表板上的日常數字，而不是事故報告裡的第一行。
-
-## 更現代的做法：用 ATP Token 把歸帳變成預設值
-
-上面三層，逐層自建都做得到，但更現代的做法是讓平台預設就長這樣：專案金鑰決定歸屬、每筆請求自動寫入紀錄、所有模型以點數結算——工程不用改呼叫方式（相容 OpenAI、Anthropic 與 Gemini 格式，換 base_url 即接入），財務每月只看一份帳單。
-
-[從快速開始接入 →](https://atptoken.ai/zh-tw/docs/quickstart)
+[從快速開始接入](https://atptoken.ai/zh-tw/docs/quickstart)
 
 ## 延伸閱讀
 
-- [企業 AI 成本管理完整指南：token、點數、金鑰與上限](https://atptoken.ai/zh-tw/blog/enterprise-ai-cost-management-guide)
-- [上線後 AI 帳單為什麼會炸：五個控制缺口與修法](https://atptoken.ai/zh-tw/blog/why-ai-bills-explode-after-go-live)
-- [什麼是 agent tax？多步 AI agent 為何讓 token 帳單膨脹](https://atptoken.ai/zh-tw/blog/what-is-the-agent-tax)
-
-帳單不該是月底的驚喜，而是日常就看得到的儀表板。三層都對上之後，「AI 花了多少錢」就從一個難題，變成一個查詢。
-
-[申請企業方案 →](https://atptoken.ai/zh-tw/enterprise-plan)
+- [企業 AI 成本管理與 LLM 成本優化指南](https://atptoken.ai/zh-tw/blog/enterprise-ai-cost-management-guide)
+- [上線後 AI 帳單為什麼會暴增](https://atptoken.ai/zh-tw/blog/why-ai-bills-explode-after-go-live)
+- [什麼是 agent tax？](https://atptoken.ai/zh-tw/blog/what-is-the-agent-tax)
 
 ## 常見問題
 
-### AI 服務的 token 是什麼？
+### LLM token 成本怎麼計算？
 
-token 是大型語言模型計價與處理文字的最小單位，大致是字的碎片，一個中文字通常折合一到兩個 token。模型的輸入與輸出分開計價，輸出單價通常高於輸入數倍。
+把輸入 token 乘上模型的輸入單價、輸出 token 乘上輸出單價，因為單價以每 100 萬 token 計，所以各自再除以 1,000,000，最後相加。例如 claude-sonnet-4-6（$3 / $15）處理 1,284 個輸入與 412 個輸出 token，成本是 $0.003852 + $0.00618 = $0.010032。
 
-### credits（點數）和 token 有什麼不同？
+### 為什麼輸出 token 比輸入 token 貴？
 
-token 是模型的計價單位，點數是帳務的結算單位。每個模型以各自費率把 token 消耗折算成點數扣款，所以不同模型的用量最後能落在同一種單位上，方便財務對帳。
+供應商對生成的定價高於讀取。以 ATP 牌價來看，gpt-5.5 的輸出是輸入的 6 倍、claude-sonnet-4-6 是 5 倍、deepseek-v4-flash 是 2 倍，所以提示短、回答長的請求，成本大多落在輸出。
 
-### 怎麼把 AI 費用歸到部門或專案？
+### 推理 token 要付費嗎？
 
-先做到一個專案一把金鑰，再保留逐請求紀錄。每筆請求會記下專案、模型與 token 數，加總後就是各部門的實際費用；共用金鑰做不到這件事。
+要。OpenAI 與 Anthropic 都把推理（thinking）token 按輸出 token 計費，即使它不會出現在回答裡。在 claude-sonnet-4-6 上多用 1,500 個 thinking token，單次請求就多 $0.0225。
 
-### AI 帳單為什麼每個月波動很大？
+### 在 ATP Token 上一次請求會扣多少點數？
 
-常見原因依序是：上下文長度改變（有人把整份文件塞進提示）、換了單價不同的模型、快取命中率下降，以及流量本身的變化。有逐請求紀錄時，四種原因都能在幾分鐘內被排除或確認。
+1 點 = 0.01 美元，所以點數 = 美元成本 × 100。$0.010032 的請求扣 1.0032 點。餘額顯示到小數點後四位。
+
+### ATP 的請求紀錄保留多久？
+
+請求紀錄保留 7 天，用途是除錯。計費以帳務事件（billing events）為準，主控台以 90 天帳本呈現。
 
 ---
 
-Tags: AI 帳務, AI Token 管理, ATP
+Tags: LLM token 成本, AI 帳務, ATP

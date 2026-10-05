@@ -4,6 +4,15 @@
 
 Gateway 位在你的 client 與上游模型 provider 之間。不論你用哪種 SDK 格式，每個請求都會經過相同的四個階段。
 
+```text
+  請求（專案金鑰）: support-bot
+→ 組織 · 金鑰: KEY VALID
+→ 工作區 · 預算: BUDGET OK · 62%
+→ 專案 · 模型允許清單: MODEL ALLOWED
+→ 供應商: ROUTED → anthropic
+→ 請求紀錄: support-bot · claude-sonnet-5 · 690ms · 0.0312 credits · 200
+```
+
 ## 1. 驗證
 
 Project API key 會先被驗證，並在轉送上游前移除 — provider 永遠看不到你的 ATP key。缺失、被停用或過期的 key 會以 `401` 拒絕。見 [驗證方式](https://atptoken.ai/zh-tw/docs/auth/)。

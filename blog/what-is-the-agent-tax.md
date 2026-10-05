@@ -1,156 +1,116 @@
-# What is the agent tax? Why multi-step AI agents inflate token bills (2026)
+# What is the agent tax? AI agent cost, worked out step by step (2026)
 
 > Source: https://atptoken.ai/blog/what-is-the-agent-tax/
 > Published: 2026-07-31 · By: hung-chien (AI Growth & Brand Manager)
 
-The agent tax is the extra token cost of multi-step AI agents that resend context, call tools, and retry. Learn how it works, how to measure it, and how to control it.
+AI agent cost grows with every step because the whole context is resent. A 20-step agent priced at list rates, and five levers that cut the agent tax.
 
 ## TL;DR
 
-- The agent tax is the gap between 'tokens for one answer' and 'tokens for one completed job' when agents resend context, loop tools, and retry failures.
-- Track cost per agent task, not only cost per request. A cheap model with a long loop can outspend a dear model that finishes in two steps.
-- Cut the tax with shorter context, step budgets, cheaper models for tool eyes, project caps, and per-request logs that show which step burns money.
+- The agent tax is the extra token cost of finishing one job in many model calls, because each call resends the growing context.
+- A 20-step agent with an 8,000-token base and 2,000 tokens of growth per step reads 540,000 input tokens: about $1.77 per task on claude-sonnet-4-6 versus $0.03 for a single chat turn.
+- Summarising tool output cuts that cost roughly in half, and per-project allocations cap it. Measure cost per completed task by joining your own task IDs to request IDs.
 
-The agent tax is the extra token cost created when multi-step AI agents resend context, call tools, and retry failures to finish one user job—not the sticker price of a single model call. This guide is for engineers and finance partners who see agent pilots succeed while the bill climbs faster than chat-only usage.
+The agent tax is the extra token cost an AI agent pays because it resends its whole, growing context on every step it takes to finish one job. A single chat turn pays for the context once; a 20-step agent pays for it 20 times, each time a little larger. Below, one agent task is priced line by line at list rates, followed by the five levers that change the result most.
 
-The answer up front: **token prices can fall while agent bills rise**, because the unit that matters shifts from “one completion” to “one completed task.” Measure **cost per agent task**, set step and budget ceilings, and keep per-request records so loops are visible. Pair this with [why AI bills explode after go-live](https://atptoken.ai/blog/why-ai-bills-explode-after-go-live) and [how to read your AI bill](https://atptoken.ai/blog/how-to-read-your-ai-bill).
+| Run shape | Input tokens | Output tokens | Cost on claude-sonnet-4-6 |
+|---|---|---|---|
+| Single chat turn | 8,000 | 500 | $0.03 |
+| 20-step agent | 540,000 | 10,000 | $1.77 |
+| 20-step agent, tool output summarised | 255,000 | 10,000 | $0.92 |
 
-## What the agent tax is (definition)
+## How AI agent cost adds up: a 20-step example
 
-In a single-turn chat, you pay roughly for one input block and one output block. In an agent run, the model may:
+Assume an agent that starts each task with an 8,000-token base (system prompt, tool definitions, task). Every step appends about 2,000 tokens of tool results and model output, and every step writes 500 output tokens. Step *i* therefore reads 8,000 + 2,000 × (i − 1) input tokens.
 
-1. Read a growing transcript each turn  
-2. Call tools and re-ingest tool results  
-3. Retry on empty or failed steps  
-4. Spawn sub-agents that each carry their own context  
+Input tokens over 20 steps:
 
-Those extra tokens are the **agent tax**: architecture tax on top of the rate card. It is not the same as vendor markup, and it is not fixed by switching providers alone.
+Σ = 20 × 8,000 + 2,000 × (0 + 1 + … + 19) = 160,000 + 2,000 × 190 = **540,000 tokens**
 
-## Why unit prices fall and enterprise bills still rise
+Output tokens: 20 × 500 = 10,000.
 
-Public discussion often notes that tokens got cheaper over years while enterprise AI spend still climbed. The missing variable is **work shape**. Agents optimize for capability and autonomy; every extra step re-prices the same facts. Without caps and attribution, that shape lands as one opaque month-end total—one of the [five control gaps after go-live](https://atptoken.ai/blog/why-ai-bills-explode-after-go-live).
+The base is only 30% of that input (160,000 of 540,000). The other 70% is the same tool results being read again on later steps. The last 8 steps alone read 312,000 tokens, more than the first 12 combined (228,000).
 
-## Anatomy of an expensive agent turn
+Priced at ATP list rates per million tokens, as of October 2026:
 
-| Stage | What gets billed | Common waste |
-|---|---|---|
-| Plan | System prompt + goal | Huge static system prompts every step |
-| Act | Tool args + model output | Unbounded tool loops |
-| Observe | Tool results into context | Pasting full files instead of summaries |
-| Retry | Same context again | No max steps; silent empty 200s |
-| Handoff | Sub-agent context copy | Duplicated history across agents |
+| Model (input / output) | Input cost | Output cost | Per task | 10,000 tasks a month |
+|---|---|---|---|---|
+| [claude-sonnet-4-6](https://atptoken.ai/models/claude-sonnet-4-6/) ($3 / $15) | 0.54 × $3 = $1.62 | 0.01 × $15 = $0.15 | $1.77 | $17,700 |
+| [gemini-3-5-flash](https://atptoken.ai/models/gemini-3-5-flash/) ($1.5 / $9) | 0.54 × $1.5 = $0.81 | 0.01 × $9 = $0.09 | $0.90 | $9,000 |
+| [deepseek-v4-flash](https://atptoken.ai/models/deepseek-v4-flash/) ($0.2 / $0.4) | 0.54 × $0.2 = $0.108 | 0.01 × $0.4 = $0.004 | $0.112 | $1,120 |
 
-A practical rule: **if step N still contains the full raw document from step 1, you are paying the agent tax by design.**
+The same base context answered in one turn costs 8,000 × $3/M + 500 × $15/M = $0.024 + $0.0075 = $0.0315 on claude-sonnet-4-6. The agent task costs about 56 times as much. That multiple is the agent tax: the rate card did not change, the number of tokens did.
 
-## Cost per request vs cost per agent task
+Anthropic publishes one real-world data point: in Claude Code, agent teams use "approximately 7x more tokens than standard sessions" when teammates run in plan mode, because each teammate keeps its own context window ([Claude Code costs](https://code.claude.com/docs/en/costs)).
 
-| Metric | Answers | Hides |
-|---|---|---|
-| Cost per request | Unit efficiency of one call | How many calls a job needs |
-| Cost per agent task | Real job economics | Nothing about step quality if tasks are undefined |
-| Monthly total | Cash out | Owner, model, and failure mode |
+## Five levers that cut the agent tax
 
-Finance needs cash; engineering needs levers. **Cost per completed task** is the shared language. Build it from [per-request records](https://atptoken.ai/docs/monitoring): group by session or project, sum credits, divide by successful outcomes—not by raw call count alone. Credit units are defined in [how credits work](https://atptoken.ai/docs/credits).
+### 1. Cap steps
 
-## By use case: where agent tax bites hardest
+Input grows roughly with the square of the step count, so the late steps are the expensive ones. Set a hard maximum and return a clear failure when it is reached. If the same task fits in 12 steps, input drops to 12 × 8,000 + 2,000 × 66 = 228,000 tokens and the task costs $0.77 instead of $1.77.
 
-### Coding agents
+### 2. Summarise tool output before it enters the context
 
-Long repos, multi-file edits, nested sub-agents, high retry rates. Isolate them on **separate projects and caps** from production APIs. See [run Claude Code on ATP](https://atptoken.ai/docs/cb-claude-code) for project-key boundaries.
+Replace raw file contents and full API responses with a short summary or the lines that matter. If growth per step falls from 2,000 to 500 tokens, input becomes 160,000 + 500 × 190 = 255,000 tokens: $0.765 + $0.15 = $0.92 per task, 48% less.
 
-### Support and ops bots
+### 3. Run sub-steps on a cheaper model
 
-Many short tool calls. Tax shows up as chatty tools and repeated retrieval. Cap tool rounds; cache stable knowledge outside the prompt.
+Many steps only read a tool result and decide what to call next. Keep the decisions on claude-sonnet-4-6 and route the rest to deepseek-v4-flash. With 6 decision steps and 14 sub-steps, each averaging 27,000 input tokens:
 
-### Research and long-horizon agents
+- Sonnet: 162,000 × $3/M + 3,000 × $15/M = $0.486 + $0.045 = $0.531
+- Flash: 378,000 × $0.2/M + 7,000 × $0.4/M = $0.0756 + $0.0028 = $0.078
+- Total: about $0.61 per task, 66% less than all-Sonnet
 
-Hours-long runs. Tax is survival: without step budgets and balance alerts, one stuck loop is a budget event. Treat like batch jobs in the [spending-cap recipe](https://atptoken.ai/docs/cb-budget-caps).
+Test quality on your own tasks before switching; the [DeepSeek vs Claude comparison](https://atptoken.ai/compare/deepseek-vs-claude/) is a starting point.
 
-## By team size
+### 4. Use prompt caching where your provider supports it
 
-### Small teams
+Most of an agent's input is a prefix it already sent one step earlier. On Anthropic's own API, a cache read costs 0.1× the base input rate and a 5-minute cache write costs 1.25× ([Anthropic pricing](https://platform.claude.com/docs/en/about-claude/pricing)). In the 20-step example, 494,000 of the 540,000 input tokens are repeats. At Anthropic's Sonnet 4.6 rates that is 494,000 × $0.30/M + 46,000 × $3.75/M + $0.15 output = $0.148 + $0.173 + $0.15, about $0.47 per task. The cache expires after its lifetime, so a step that waits on a slow tool can miss it. Check how your provider meters cached tokens before counting on this lever.
 
-Pick one agent surface. Instrument task-level cost before adding a second agent. One project, one key ([console keys](https://atptoken.ai/docs/console-keys)).
+### 5. Give each agent its own budget
 
-### Mid-size
+Put each agent in its own project and allocate credits to it. A project can only spend what it was allocated, and requests return `402` once the balance is used up, so a stuck loop stops at the ceiling instead of at month-end. At 10,000 Sonnet tasks a month, the allocation is 1,770,000 credits (1 credit = USD 0.01). Setup: [team with budget caps](https://atptoken.ai/docs/cb-budget-caps).
 
-Split experimental agents from production. Allowlist models so agents cannot silently upgrade to frontier ([models](https://atptoken.ai/docs/models), [how it works](https://atptoken.ai/docs/how-it-works)).
+## How to measure cost per completed task
 
-### Enterprise
+The gateway sees requests; only your application knows which requests belong to one task. Every ATP response carries an `x-request-id` header. Log it next to your own task or session ID, the step number, and whether the task ultimately succeeded.
 
-Agent tax becomes a governance topic: which BU owns which agent, which model tiers, which monthly allocation. Hierarchy in [set up your organization](https://atptoken.ai/docs/console-setup); full checklist in [enterprise AI governance](https://atptoken.ai/blog/ai-governance-checklist).
+Then:
 
-## How to reduce agent tax (without killing capability)
+1. Pull the rows for those request IDs from Request logs, which show model, status, and input/output tokens per request ([usage and logs](https://atptoken.ai/docs/monitoring)). Retention is 7 days, so export weekly with the [request logs endpoint](https://atptoken.ai/docs/console-api-logs).
+2. Multiply tokens by the model's list rate and sum per task.
+3. Divide total cost, including failed and abandoned tasks, by the number of completed tasks.
 
-1. **Budget steps** — hard max turns per task; fail closed with a clear error.  
-2. **Shrink context** — summaries, retrieval, not full paste every turn.  
-3. **Split models** — expensive reasoner for decisions; cheaper models for classification, OCR, or drafting.  
-4. **Bound retries** — empty content and 5xx need different policies ([errors](https://atptoken.ai/docs/errors)).  
-5. **Cap spend** — project allocation as ceiling ([budget caps](https://atptoken.ai/docs/cb-budget-caps)).  
-6. **Review weekly** — rank tasks by credit cost in [tracking spend](https://atptoken.ai/docs/spend).
+Failed tasks belong in the numerator. An agent that succeeds 80% of the time at $1.77 per attempt costs $1.77 / 0.8 = $2.21 per completed task.
 
-[See pricing modes →](https://atptoken.ai/pricing)
+Watch for one pattern in the logs: a `200` with empty content. On reasoning models this usually means `max_tokens` was too low for the thinking budget. ATP typically reports zero usage and deducts no credits for it, but an agent that retries without raising `max_tokens` will repeat the empty call ([errors](https://atptoken.ai/docs/errors)).
 
-## A more modern approach: govern agents like production systems
+[See how pricing works](https://atptoken.ai/pricing)
 
-Treating agents as “chat with extra steps” is how the tax stays invisible. The modern approach is the same control plane as any multi-vendor AI workload: project-scoped keys, model allowlists, credit caps, and request logs. ATP Token is built as that **governance and billing integration layer**—OpenAI, Anthropic, and Gemini-compatible routes, hierarchy of organization → workspace → project, and metering in credits—so agent experiments inherit budgets instead of sharing a skeleton key.
+## Related reading
 
-[Quickstart →](https://atptoken.ai/docs/quickstart)
-
-## FAQs
-
-### What is the agent tax in AI?
-
-The agent tax is the extra token spend created by multi-step agent workflows—resending context each turn, tool calls, and retries—beyond the cost of a single model reply. It explains why unit token prices fall while enterprise bills still rise.
-
-### Why do AI agents cost more than chat completions?
-
-A chat completion is often one input and one output. An agent may run many model calls for one user goal, each carrying history, tool results, and error recovery, so tokens per job multiply even when the model price is flat.
-
-### How do I measure agent tax?
-
-Group requests by task or session, sum input and output tokens and credits across the whole chain, then compare that total to a single-turn baseline. Cost per completed task is the metric finance and engineering can share.
-
-### How can teams reduce agent token costs?
-
-Cap steps and max tokens, summarize history instead of pasting full threads, route vision or cheap subtasks to smaller models, set project spending caps, and review per-request logs weekly for runaway loops.
-
-### Is agent tax the same as model markup?
-
-No. Markup is a price difference on the rate card. Agent tax is architectural: the same rate card applied to many more tokens because of how the agent is designed.
-
-## Further reading
-
-- [Why AI bills explode after go-live: 5 control gaps](https://atptoken.ai/blog/why-ai-bills-explode-after-go-live)
+- [Claude Code cost for teams: what a developer costs per day and 10 controls](https://atptoken.ai/blog/coding-agents-cost-control-checklist)
+- [Why LLM costs explode after launch](https://atptoken.ai/blog/why-ai-bills-explode-after-go-live)
 - [How to read your AI bill](https://atptoken.ai/blog/how-to-read-your-ai-bill)
-- [Enterprise AI governance checklist](https://atptoken.ai/blog/ai-governance-checklist)
-
-Agents create leverage only when their cost shape is visible. Name the agent tax, measure cost per task, and put ceilings on the project that owns the loop.
-
-[Enterprise plan →](https://atptoken.ai/enterprise-plan)
 
 ## FAQ
 
-### What is the agent tax in AI?
+### How much does an AI agent cost to run?
 
-The agent tax is the extra token spend created by multi-step agent workflows—resending context each turn, tool calls, and retries—beyond the cost of a single model reply. It explains why unit token prices fall while enterprise bills still rise.
+It depends on steps and context growth more than on the per-token rate. A 20-step agent that starts at 8,000 tokens and adds 2,000 per step reads 540,000 input tokens and writes 10,000 output tokens, which is about $1.77 per task at $3/$15 per million tokens.
 
 ### Why do AI agents cost more than chat completions?
 
-A chat completion is often one input and one output. An agent may run many model calls for one user goal, each carrying history, tool results, and error recovery, so tokens per job multiply even when the model price is flat.
+A chat completion sends the context once. An agent sends it again on every step, with each tool result appended, so input tokens grow roughly with the square of the step count.
 
-### How do I measure agent tax?
+### How do I calculate AI agent cost per task?
 
-Group requests by task or session, sum input and output tokens and credits across the whole chain, then compare that total to a single-turn baseline. Cost per completed task is the metric finance and engineering can share.
+Sum input tokens across steps as base × steps + growth × (0 + 1 + … + steps − 1), add output tokens, and multiply each by the model's rate. To measure it in production, log your own task ID with every request ID and divide total cost by completed tasks.
 
-### How can teams reduce agent token costs?
+### How can I reduce AI agent token costs?
 
-Cap steps and max tokens, summarize history instead of pasting full threads, route vision or cheap subtasks to smaller models, set project spending caps, and review per-request logs weekly for runaway loops.
-
-### Is agent tax the same as model markup?
-
-No. Markup is a price difference on the rate card. Agent tax is architectural: the same rate card applied to many more tokens because of how the agent is designed.
+Cap the number of steps, summarise tool output before it enters the context, run sub-steps on a cheaper model, use prompt caching where your provider bills cache reads at a lower rate, and give each agent project its own credit allocation.
 
 ---
 
-Tags: Agent tax, AI billing, ATP
+Tags: Agent tax, AI agent cost, ATP

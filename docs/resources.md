@@ -15,3 +15,23 @@ Inside a workspace, create a project and choose its **allowed models** (at least
 ## 3. Allocate credits
 
 Credits flow down the tree: organization → workspace → project. Allocate a budget to the project so its keys have something to spend. See [How credits work](#credits) for the terminology.
+
+Drag the slider to see how an allocation decides whether a project's keys can spend.
+
+**Who can spend what** — _sample_
+
+- Organization Northwind — 10,000 credits
+  - Workspace Product — received 4,000 credits
+    - Project support-bot — allocated 1,200 credits; models: claude-sonnet-5, gpt-5.5
+      - Key support-bot-prod
+      - Key support-bot-staging
+    - Project web-app — allocated 1,500 credits; models: gpt-5.5, deepseek-v4-flash
+      - Key web-app-prod
+  - Workspace Media lab — received 2,500 credits
+    - Project video-lab — allocated 2,500 credits; models: seedance-2-0
+      - Key video-lab-render
+
+- **Organization**: Holds the credits you top up and allocates them down to workspaces.
+- **Workspace**: Groups projects and holds a pool of credits it can allocate to them — never more than it received.
+- **Project**: Has its own credit budget and allowed models. Every key in the project can call only those models.
+- **Key**: Belongs to exactly one project and spends from that project's balance.

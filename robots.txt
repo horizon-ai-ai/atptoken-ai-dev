@@ -33,6 +33,7 @@ Disallow: /reset/
 Disallow: /reset-password/
 Disallow: /onboarding/
 Disallow: /invitations/
+Disallow: /impersonate/
 Disallow: /billing/
 
 User-Agent: GPTBot
@@ -63,6 +64,7 @@ Disallow: /reset/
 Disallow: /reset-password/
 Disallow: /onboarding/
 Disallow: /invitations/
+Disallow: /impersonate/
 Disallow: /billing/
 
 User-Agent: Twitterbot
@@ -81,6 +83,7 @@ Disallow: /reset/
 Disallow: /reset-password/
 Disallow: /onboarding/
 Disallow: /invitations/
+Disallow: /impersonate/
 Disallow: /billing/
 
 User-Agent: *
@@ -94,6 +97,7 @@ Disallow: /reset/
 Disallow: /reset-password/
 Disallow: /onboarding/
 Disallow: /invitations/
+Disallow: /impersonate/
 Disallow: /billing/
 
 Sitemap: https://atptoken.ai/sitemap.xml

@@ -1,153 +1,248 @@
 1:"$Sreact.fragment"
-2:I[86402,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"AnalyticsNoScript"]
-b:I[68027,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default",1]
-:HL["/_next/static/chunks/0qeh15sd4m41q.css","style"]
-:HL["/_next/static/chunks/09g-4e0_i9581.css","style"]
-:HL["/_next/static/media/ca31d6821328a4e9-s.p.2svk7cnw5x6df.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/f7aa21714c1c53f8-s.p.0-95eo-012xnf.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-3:T7f9,{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.horizon-ai.ai/#organization","name":"Horizon AI","url":"https://www.horizon-ai.ai","logo":"https://atptoken.ai/atp_logo.svg","sameAs":["https://www.linkedin.com/company/horizon-ai-tw/","https://atptoken.ai"],"contactPoint":{"@type":"ContactPoint","email":"service@horizon-ai.ai","contactType":"customer support","url":"https://atptoken.ai/contact/","availableLanguage":["en","zh-Hant","zh-Hans"]},"parentOrganization":{"@type":"Organization","name":"KONST Tech","url":"https://www.konsttech.ai/"}},{"@type":"Organization","@id":"https://atptoken.ai/#brand","name":"ATP Token","url":"https://atptoken.ai","parentOrganization":{"@id":"https://www.horizon-ai.ai/#organization"},"sameAs":["https://atptoken.ai"],"contactPoint":{"@type":"ContactPoint","email":"service@horizon-ai.ai","contactType":"customer support","url":"https://atptoken.ai/contact/","availableLanguage":["en","zh-Hant","zh-Hans"]}},{"@type":"WebSite","@id":"https://atptoken.ai/#website","name":"ATP Token","url":"https://atptoken.ai","publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"inLanguage":"en"},{"@type":"SoftwareApplication","@id":"https://atptoken.ai/#software","name":"ATP Token AI Gateway","alternateName":["ATP Token","ATPToken","ATP Petrichor"],"applicationCategory":"DeveloperApplication","operatingSystem":"Web","url":"https://atptoken.ai","image":"https://atptoken.ai/og-image.png","description":"Enterprise AI governance and billing platform: one key for OpenAI-compatible, Anthropic, and Gemini-style models, with per-request logs and unified credits.","sameAs":["https://atptoken.ai"],"brand":{"@id":"https://atptoken.ai/#brand"},"offers":{"@type":"Offer","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","priceCurrency":"USD","minPrice":"5","description":"Pay-as-you-go credits with a USD 5 minimum top-up. No monthly fee."},"url":"https://atptoken.ai/pricing/"},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}]}0:{"P":null,"c":["","blog","openrouter-vs-enterprise-governance",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","openrouter-vs-enterprise-governance","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0qeh15sd4m41q.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/09g-4e0_i9581.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/3629_rsmfo4lu.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/14mrh2-p_w84d.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"className":"figtree_816e51ac-module__-mVWqG__variable lexend_559e926c-module__yRaCra__variable notocjk_be903710-module__cpFwhq__variable notoscgap_df5d2ec9-module__O8SyOa__variable ibm_plex_mono_69504ce2-module__RMiYDW__variable h-full antialiased","children":["$","body",null,{"className":"min-h-full flex flex-col","children":[["$","$L2",null,{}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){try{var p=location.pathname||\"\";var l=\"en\";if(/\\/(zh-tw|tw)(\\/|$)/i.test(p))l=\"zh-Hant-TW\";else if(/\\/(zh-cn|cn)(\\/|$)/i.test(p))l=\"zh-Hans-CN\";document.documentElement.lang=l;if(l!==\"en\")return;if(/\\/en(\\/|$)/i.test(p))return;var s=localStorage.getItem(\"atp_lang\");if(s!==\"zh-TW\"&&s!==\"zh-CN\")return;var base=p.replace(/\\/+$/,\"\")||\"/\";var ok=base===\"/\"||/^\\/(landing|pricing|docs|enterprise-plan|privacy|terms|aup|blog|models|about)(\\/|$)/.test(base);if(!ok)return;var pref=s===\"zh-TW\"?\"/zh-tw\":\"/zh-cn\";var dest=pref+(base===\"/\"?\"/\":base+\"/\");location.replace(dest+location.search+location.hash);}catch(e){}})();"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4","$L5"]}]}]]}],{"children":["$L6",{"children":["$L7",{"children":["$L8",{},null,false,null]},null,false,"$@9"]},null,false,"$@9"]},null,false,null],"$La",false]],"m":"$undefined","G":["$b",["$Lc","$Ld"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"1D4DZsfbxL_82v4AXbxNN"}
-e:I[86402,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"Analytics"]
-f:I[72299,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"AuthProvider"]
-10:I[33499,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"LanguageProvider"]
-11:I[91432,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"ToastProvider"]
-12:I[39756,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
-13:I[37457,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
-14:I[48209,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/40u-hdpkci2a7.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"PublicNav"]
-15:I[48209,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/40u-hdpkci2a7.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"LocalizedText"]
-1b:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
-1c:"$Sreact.suspense"
-1f:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"ViewportBoundary"]
-21:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"MetadataBoundary"]
-4:["$","$Le",null,{}]
-5:["$","$Lf",null,{"children":["$","$L10",null,{"children":["$","$L11",null,{"children":["$","$L12",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L13",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"flex min-h-screen flex-col bg-canvas text-ink","children":[["$","$L14",null,{}],["$","main",null,{"className":"flex flex-1 flex-col items-center justify-center px-4 py-24 text-center","style":{"background":"var(--wash-header)"},"children":[["$","svg",null,{"viewBox":"0 0 200 240","className":"h-28 w-28 animate-rise text-hairline","aria-hidden":"true","fill":"none","children":[["$","defs",null,{"children":["$","linearGradient",null,{"id":"_S_1_","x1":"389.55","y1":"67.0893","x2":"20.9509","y2":"163.615","gradientUnits":"userSpaceOnUse","children":[["$","stop",null,{"stopColor":"#FD0E4A"}],["$","stop",null,{"offset":"0.5","stopColor":"#F04D3B"}],["$","stop",null,{"offset":"1","stopColor":"#FEAB11"}]]}]}],["$","path",null,{"d":"M100 240 V102","stroke":"currentColor","strokeWidth":"6","strokeLinecap":"round"}],["$","g",null,{"transform":"translate(100 96) scale(0.28) translate(-233 -219)","children":[["$","path","226.433 275.786C239.653",{"d":"M226.433 275.786C239.653 263.532 261.436 272.84 261.436 291.143V365.377C261.436 366.774 260.303 367.906 258.906 367.906H234.875C233.478 367.906 232.345 366.774 232.345 365.377V310.99L176.911 366.425C175.962 367.373 174.676 367.906 173.334 367.906H137.342C136.216 367.906 135.651 366.544 136.448 365.747L225.81 276.385L226.433 275.786Z","fill":"url(#_S_1_)"}],["$","path","271.641 251.807C264.073",{"d":"M271.641 251.807C264.073 235.447 279.657 217.607 297.063 223.262L367.664 246.202C368.993 246.634 369.72 248.061 369.288 249.389L361.862 272.244C361.43 273.573 360.003 274.3 358.675 273.868L306.95 257.062L342.541 326.913C343.15 328.109 343.259 329.497 342.845 330.774L331.723 365.003C331.375 366.075 329.905 366.191 329.393 365.187L272.019 252.584L271.641 251.807Z","fill":"url(#_S_1_)"}],["$","path","262.805 201.401C244.907",{"d":"M262.805 201.401C244.907 203.543 232.756 183.21 243.514 168.403L287.147 108.346C287.968 107.216 289.55 106.965 290.681 107.786L310.122 121.912C311.253 122.733 311.503 124.315 310.682 125.445L278.714 169.445L356.145 157.181C357.47 156.971 358.825 157.296 359.91 158.085L389.028 179.24C389.94 179.902 389.595 181.336 388.482 181.512L263.661 201.282L262.805 201.401Z","fill":"url(#_S_1_)"}],["$","path","212.135 194.228C208.642",{"d":"M212.135 194.228C208.642 211.912 185.549 217.185 174.791 202.378L131.157 142.321C130.336 141.191 130.586 139.609 131.717 138.788L151.158 124.663C152.289 123.842 153.871 124.092 154.692 125.223L186.659 169.222L198.923 91.7914C199.133 90.4662 199.861 89.2786 200.946 88.4899L230.064 67.3346C230.976 66.6723 232.233 67.4428 232.057 68.5557L212.287 193.377L212.135 194.228Z","fill":"url(#_S_1_)"}],["$","path","189.656 240.201C205.395",{"d":"M189.656 240.201C205.395 248.988 203.274 272.581 185.867 278.237L115.267 301.176C113.938 301.608 112.511 300.881 112.079 299.552L104.653 276.697C104.221 275.368 104.948 273.941 106.277 273.51L158.002 256.703L88.1505 221.112C86.955 220.503 86.0504 219.444 85.6358 218.168L74.5138 183.938C74.1656 182.866 75.2869 181.909 76.2909 182.42L188.894 239.794L189.656 240.201Z","fill":"url(#_S_1_)"}]]}]]}],["$","div",null,{"className":"mt-6 animate-rise font-mono text-[13px] text-sand","style":{"animationDelay":"60ms"},"children":"404 · not found"}],["$","h1",null,{"className":"mt-3 animate-rise text-2xl font-semibold tracking-tight text-ink sm:text-[32px]","style":{"animationDelay":"120ms"},"children":["$","$L15",null,{"value":{"en":"Page not found","zh-TW":"找不到這個頁面","zh-CN":"找不到这个页面"}}]}],["$","p",null,{"className":"mt-3 max-w-md animate-rise text-sm leading-relaxed text-umber sm:text-base","style":{"animationDelay":"180ms"},"children":"$L16"}],"$L17","$L18"]}],"$L19"]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]
-6:["$","$1","c",{"children":[null,["$","$L12",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L13",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
-7:["$","$1","c",{"children":[null,["$","$L12",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L13",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
-8:["$","$1","c",{"children":["$L1a",[["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/1hbxtvg5etpqa.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0ey98fxnyu7te.js","async":true,"nonce":"$undefined"}]],["$","$L1b",null,{"children":["$","$1c",null,{"name":"Next.MetadataOutlet","children":"$@1d"}]}]]}]
-1e:[]
-9:"$W1e"
-a:["$","$1","h",{"children":[null,["$","$L1f",null,{"children":"$L20"}],["$","div",null,{"hidden":true,"children":["$","$L21",null,{"children":["$","$1c",null,{"name":"Next.Metadata","children":"$L22"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
-c:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0qeh15sd4m41q.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
-d:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/09g-4e0_i9581.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
-23:I[22016,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/40u-hdpkci2a7.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],""]
-24:I[48209,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/40u-hdpkci2a7.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"Footer"]
-16:["$","$L15",null,{"value":{"en":"Nothing has landed at this address. The page may have moved, or it never existed.","zh-TW":"這個位址還沒有東西落地——頁面可能已經搬家，或從未存在。","zh-CN":"这个地址还没有东西落地——页面可能已经搬家，或从未存在。"}}]
-17:["$","div",null,{"className":"mt-8 flex animate-rise flex-col gap-3 sm:flex-row","style":{"animationDelay":"240ms"},"children":[["$","$L23",null,{"href":"/","className":"btn-pill inline-flex items-center justify-center rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-white","children":["$","$L15",null,{"value":{"en":"Back to home","zh-TW":"回到首頁","zh-CN":"回到首页"}}]}],["$","$L23",null,{"href":"/docs","className":"btn-pill inline-flex items-center justify-center rounded-full border border-hairline bg-canvas px-7 py-3.5 text-sm font-medium text-ink hover:bg-haze","children":["$","$L15",null,{"value":{"en":"View docs","zh-TW":"查看文件","zh-CN":"查看文档"}}]}]]}]
-18:["$","p",null,{"className":"mt-10 animate-rise font-mono text-xs text-sand","style":{"animationDelay":"300ms"},"children":[["$","$L15",null,{"value":{"en":"Looking for something specific?","zh-TW":"在找特定的內容？","zh-CN":"在找特定的内容？"}}]," ",["$","a",null,{"href":"/sitemap.xml","className":"underline hover:text-ink","children":"sitemap.xml"}]," ","·"," ",["$","a",null,{"href":"/llms.txt","className":"underline hover:text-ink","children":"llms.txt"}]," ","·"," ",["$","a",null,{"href":"/openapi.json","className":"underline hover:text-ink","children":"openapi.json"}]]}]
-19:["$","$L24",null,{}]
-25:T4d9,{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenRouter vs enterprise AI governance platforms: who each is for (2026)","description":"OpenRouter-class routing hubs optimize multi-model access and one wallet. Enterprise governance platforms optimize project keys, budgets, allowlists, and audit. Here is how to choose.","datePublished":"2026-08-26","dateModified":"2026-08-26","inLanguage":"en","keywords":"OpenRouter, AI governance, ATP","url":"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/","mainEntityOfPage":"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/","image":"https://atptoken.ai/og/blog/openrouter-vs-enterprise-governance.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}26:T666,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is OpenRouter an enterprise AI governance platform?","acceptedAnswer":{"@type":"Answer","text":"OpenRouter is best understood as a multi-model routing and billing hub for developers. Enterprise governance platforms add organization hierarchy, project-scoped keys, formal budgets, and admin roles aimed at company-wide control."}},{"@type":"Question","name":"When should I use OpenRouter vs a governance gateway?","acceptedAnswer":{"@type":"Answer","text":"Use a routing hub when a small team needs fast access to many models. Move production multi-team workloads to a governance plane when finance needs attribution and security needs revoke and allowlists."}},{"@type":"Question","name":"Can OpenRouter and ATP Token be used together?","acceptedAnswer":{"@type":"Answer","text":"Architecturally, research can stay on a routing hub while production sits on a governance gateway. What you should avoid is uncapped production traffic without project owners."}},{"@type":"Question","name":"What does ATP Token optimize for compared to routing hubs?","acceptedAnswer":{"@type":"Answer","text":"ATP Token optimizes for organization → workspace → project structure, credit allocation as caps, project model allowlists, and per-request audit with multi-format SDK compatibility."}},{"@type":"Question","name":"Does a governance platform mean fewer models?","acceptedAnswer":{"@type":"Answer","text":"It means models are explicitly allowed per project. The platform catalog can still be broad; the difference is permission, not curiosity alone."}}]}1a:[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"OpenRouter vs enterprise AI governance platforms: who each is for (2026)\",\"item\":\"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$25"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$26"}}]],"$L27"]
-28:I[51713,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"default"]
-29:T19a6,<p>OpenRouter-class AI gateways are multi-model routing hubs with unified developer billing; enterprise AI governance platforms are control planes for <a class="doc-term" href="/en/docs/console-setup" data-def="The top level of an account. Workspaces and projects sit underneath it.">organization</a> hierarchy, <a class="doc-term" href="/en/docs/resources" data-def="The unit that permissions and billing hang off — keys, allowed models, and credit budget all belong to one.">project</a> budgets, allowlists, and audit. This comparison helps teams pick the right default for each stage of adoption.</p>
-<p><strong>Honest split:</strong> routing hubs win on speed-to-many-models; governance platforms win on <strong>who / how much / which model / prove it</strong>. Neither replaces model labs. Category context: <a href="/en/blog/ai-gateway-comparison-2026">AI gateway comparison 2026</a>.</p>
-<h2 id="comparison-table">Comparison table</h2>
+2:I[86402,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"AnalyticsNoScript"]
+d:I[68027,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"default",1]
+:HL["/_next/static/chunks/1-c97juak496i.css","style"]
+:HL["/_next/static/chunks/27h8a2rd48e9r.css","style"]
+:HL["/_next/static/media/797e433ab948586e-s.p.0r6juujl39pe6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/chunks/0bk251ba95uho.css","style"]
+3:["$","style",null,{"children":".reveal,.reveal [class*=\"approveRow\"],.reveal [class*=\"eyebrow\"]>svg:first-child{opacity:1!important;transform:none!important}"}]
+4:T445,(function(){try{var p=location.pathname||"";var l="en";if(/\/(zh-tw|tw)(\/|$)/i.test(p))l="zh-Hant-TW";else if(/\/(zh-cn|cn)(\/|$)/i.test(p))l="zh-Hans-CN";document.documentElement.lang=l;if(l!=="en")return;if(/\/en(\/|$)/i.test(p))return;var s=localStorage.getItem("atp_lang");var base=p.replace(/\/+$/,"")||"/";var ok=base==="/"||/^\/(landing|pricing|docs|enterprise-plan|privacy|terms|aup|blog|models|about|providers|compare|guides)(\/|$)/.test(base);if(!ok){var d=s;if(d!=="en"&&d!=="zh-TW"&&d!=="zh-CN"){var n=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""]).join(",").toLowerCase();d=/zh-cn|zh-hans/.test(n)?"zh-CN":/zh-tw|zh-hk|zh-mo|zh-hant/.test(n)?"zh-TW":/(^|,)zh(-|,|$)/.test(n)?"zh-CN":"en";}if(d!=="en"){var r=document.documentElement;r.setAttribute("data-lang-pending",d);setTimeout(function(){r.removeAttribute("data-lang-pending")},2500);}return;}if(s!=="zh-TW"&&s!=="zh-CN")return;var pref=s==="zh-TW"?"/zh-tw":"/zh-cn";var dest=pref+(base==="/"?"/":base+"/");location.replace(dest+location.search+location.hash);}catch(e){}})();5:T7f9,{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.horizon-ai.ai/#organization","name":"Horizon AI","url":"https://www.horizon-ai.ai","logo":"https://atptoken.ai/atp_logo.svg","sameAs":["https://www.linkedin.com/company/horizon-ai-tw/","https://atptoken.ai"],"contactPoint":{"@type":"ContactPoint","email":"service@horizon-ai.ai","contactType":"customer support","url":"https://atptoken.ai/contact/","availableLanguage":["en","zh-Hant","zh-Hans"]},"parentOrganization":{"@type":"Organization","name":"KONST Tech","url":"https://www.konsttech.ai/"}},{"@type":"Organization","@id":"https://atptoken.ai/#brand","name":"ATP Token","url":"https://atptoken.ai","parentOrganization":{"@id":"https://www.horizon-ai.ai/#organization"},"sameAs":["https://atptoken.ai"],"contactPoint":{"@type":"ContactPoint","email":"service@horizon-ai.ai","contactType":"customer support","url":"https://atptoken.ai/contact/","availableLanguage":["en","zh-Hant","zh-Hans"]}},{"@type":"WebSite","@id":"https://atptoken.ai/#website","name":"ATP Token","url":"https://atptoken.ai","publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"inLanguage":"en"},{"@type":"SoftwareApplication","@id":"https://atptoken.ai/#software","name":"ATP Token AI Gateway","alternateName":["ATP Token","ATPToken","ATP Petrichor"],"applicationCategory":"DeveloperApplication","operatingSystem":"Web","url":"https://atptoken.ai","image":"https://atptoken.ai/og-image.png","description":"Enterprise AI governance and billing platform: one key for OpenAI-compatible, Anthropic, and Gemini-style models, with per-request logs and unified credits.","sameAs":["https://atptoken.ai"],"brand":{"@id":"https://atptoken.ai/#brand"},"offers":{"@type":"Offer","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","priceCurrency":"USD","minPrice":"5","description":"Pay-as-you-go credits with a USD 5 minimum top-up. No monthly fee."},"url":"https://atptoken.ai/pricing/"},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}]}0:{"P":null,"c":["","blog","openrouter-vs-enterprise-governance",""],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","openrouter-vs-enterprise-governance","d",null],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1-c97juak496i.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/27h8a2rd48e9r.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/3t8toeybct1ql.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/14mrh2-p_w84d.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1fmxoc5c4a_2q.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"className":"geist_b99934fc-module__eWTsoq__variable notocjk_be903710-module__cpFwhq__variable notoscgap_df5d2ec9-module__O8SyOa__variable geist_mono_5a17c8cb-module__gcP92q__variable h-full antialiased","children":["$","body",null,{"className":"min-h-full flex flex-col","children":[["$","$L2",null,{}],["$","noscript",null,{"children":"$3"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$4"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6","$L7"]}]}]]}],{"children":["$L8",{"children":["$L9",{"children":["$La",{},null,false,null]},null,false,"$@b"]},null,false,"$@b"]},null,false,null],"$Lc",false]],"m":"$undefined","G":["$d",["$Le","$Lf"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"q8ogy5bwfTluQawd-N4pH"}
+10:I[86402,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"Analytics"]
+11:I[72299,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"AuthProvider"]
+12:I[33499,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"LanguageProvider"]
+13:I[91432,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"ToastProvider"]
+14:I[39756,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"default"]
+15:I[37457,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"default"]
+16:I[51800,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js","/_next/static/chunks/1zxyn5k7q7y_5.js"],"LazyNotFoundView"]
+18:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"OutletBoundary"]
+19:"$Sreact.suspense"
+1c:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"ViewportBoundary"]
+1e:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"MetadataBoundary"]
+6:["$","$L10",null,{}]
+7:["$","$L11",null,{"children":["$","$L12",null,{"children":["$","$L13",null,{"children":["$","$L14",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L15",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L16",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]
+8:["$","$1","c",{"children":[null,["$","$L14",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L15",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+9:["$","$1","c",{"children":[null,["$","$L14",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L15",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+a:["$","$1","c",{"children":["$L17",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0bk251ba95uho.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/031jyqwh2ymjo.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/12btwas-eg9md.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0tc57bytaqvvw.js","async":true,"nonce":"$undefined"}]],["$","$L18",null,{"children":["$","$19",null,{"name":"Next.MetadataOutlet","children":"$@1a"}]}]]}]
+1b:[]
+b:"$W1b"
+c:["$","$1","h",{"children":[null,["$","$L1c",null,{"children":"$L1d"}],["$","div",null,{"hidden":true,"children":["$","$L1e",null,{"children":["$","$19",null,{"name":"Next.Metadata","children":"$L1f"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1-c97juak496i.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+f:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/27h8a2rd48e9r.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+20:T4d6,{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenRouter alternatives for teams: pricing, budgets and model controls compared (2026)","description":"OpenRouter alternatives compared: what OpenRouter charges, how its budgets and allowlists work, and when LiteLLM, Vercel AI Gateway or ATP Token fit better.","datePublished":"2026-08-26","dateModified":"2026-08-26","inLanguage":"en","keywords":"OpenRouter alternative, LLM gateway, ATP","url":"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/","mainEntityOfPage":"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/","image":"https://atptoken.ai/og/blog/openrouter-vs-enterprise-governance.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}21:T77d,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best OpenRouter alternative?","acceptedAnswer":{"@type":"Answer","text":"It depends on what you need to change. LiteLLM is the usual pick when the gateway must run in your own infrastructure, Vercel AI Gateway when your apps already deploy on Vercel, and ATP Token when finance wants each project to run on a prepaid credit allocation with its own model allowlist."}},{"@type":"Question","name":"How much does OpenRouter charge?","acceptedAnswer":{"@type":"Answer","text":"As of October 2026, OpenRouter passes through provider token prices and charges a platform fee when you buy credits: 5.5% by card on the pay-as-you-go Standard plan with a $0.80 minimum, 8% on Business, 5% for crypto. Bring-your-own-key usage is free up to $25,000 of list-price inference a month, then 5%."}},{"@type":"Question","name":"Does OpenRouter have spending limits?","acceptedAnswer":{"@type":"Answer","text":"Yes. Any API key can have a credit limit that resets daily, weekly or monthly, and organization admins can apply guardrails with budgets, model allowlists and provider allowlists to members or keys. Workspace-level budgets are an Enterprise feature."}},{"@type":"Question","name":"What is the difference between OpenRouter and LiteLLM?","acceptedAnswer":{"@type":"Answer","text":"OpenRouter is a hosted service you buy credits from; LiteLLM is an open-source proxy you deploy yourself and connect to your own provider accounts. With LiteLLM you avoid a platform fee but take on hosting, upgrades and security."}},{"@type":"Question","name":"Can I use OpenRouter and ATP Token together?","acceptedAnswer":{"@type":"Answer","text":"Yes. A common split is model evaluation on OpenRouter's large catalog and production traffic on ATP Token projects, where each service has its own key, allowlist and credit allocation."}}]}17:[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"OpenRouter alternatives for teams: pricing, budgets and model controls compared (2026)\",\"item\":\"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$20"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$21"}}]],"$L22"]
+23:I[51713,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js","/_next/static/chunks/031jyqwh2ymjo.js","/_next/static/chunks/12btwas-eg9md.js","/_next/static/chunks/0tc57bytaqvvw.js"],"default"]
+24:T34c4,<p>An OpenRouter alternative is another way to call many AI models through one API when OpenRouter&#39;s pricing, controls or catalog don&#39;t match how your team buys and governs model usage. This guide lays out what OpenRouter charges and controls as of October 2026, compares LiteLLM, Vercel AI Gateway and ATP Token on the same checklist, and ends with a migration snippet.</p>
+<h2 id="quick-comparison">Quick comparison</h2>
 <table>
 <thead>
 <tr>
-<th>Dimension</th>
-<th>OpenRouter-class routing</th>
-<th>Enterprise governance (e.g. ATP Token)</th>
+<th></th>
+<th>OpenRouter</th>
+<th>LiteLLM</th>
+<th>Vercel AI Gateway</th>
+<th>ATP Token</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Primary user</td>
-<td>Developer / small team</td>
-<td>Platform + finance + security</td>
+<td>How you run it</td>
+<td>Hosted</td>
+<td>Self-hosted, open source</td>
+<td>Hosted</td>
+<td>Hosted</td>
 </tr>
 <tr>
-<td>Money model</td>
-<td>Unified wallet / <a class="doc-term" href="/en/docs/topup" data-def="Adding credits to the wallet. Minimum 5 USD, pay as you go.">top-up</a></td>
-<td>Hierarchical credits &amp; allocation</td>
+<td>What you pay</td>
+<td>Provider prices + fee on credit purchases</td>
+<td>Your provider bills + your infrastructure</td>
+<td>Provider list prices, payment processing fees may apply</td>
+<td>Prepaid credits at each model&#39;s list rate</td>
 </tr>
 <tr>
-<td>Access unit</td>
-<td>Account / key</td>
-<td>Project-scoped key</td>
+<td>Budget unit</td>
+<td>API key, member; workspace on Enterprise</td>
+<td>Key, user, team, customer</td>
+<td>Team, project, key, member</td>
+<td>Project allocation inside org → workspace</td>
 </tr>
 <tr>
-<td>Model policy</td>
-<td>Broad catalog access</td>
-<td>Project allowlist enforced pre-provider</td>
+<td>At the limit</td>
+<td>Requests rejected</td>
+<td>Requests rejected</td>
+<td>HTTP 402 (soft cap)</td>
+<td>HTTP 402 when the project balance is used up</td>
 </tr>
 <tr>
-<td>Stop-spend</td>
-<td>Balance / account limits</td>
-<td>Project cap + org visibility</td>
+<td>Model allowlist</td>
+<td>Guardrails per member or key</td>
+<td>Access groups per key or team</td>
+<td>Provider allowlist (paid add-on)</td>
+<td>Per project, enforced before any provider (403)</td>
 </tr>
 <tr>
-<td>Audit story</td>
-<td>Usage stats</td>
-<td>Request logs tied to org tree</td>
+<td>API formats</td>
+<td>OpenAI-compatible, Anthropic Messages</td>
+<td>OpenAI-compatible</td>
+<td>AI SDK, OpenAI Chat and Responses, Anthropic</td>
+<td>OpenAI, Anthropic, Gemini</td>
 </tr>
 <tr>
-<td>Multi-SDK enterprise</td>
-<td>Often OpenAI-compatible</td>
-<td>OpenAI + Anthropic + Gemini styles (<a href="/en/docs/auth">auth</a>)</td>
+<td>Catalog</td>
+<td>500+ models, 80+ providers</td>
+<td>Any provider you configure</td>
+<td>Text, image, video, speech, embeddings</td>
+<td>70+ text, image, video, audio and embedding models</td>
 </tr>
 </tbody></table>
-<h2 id="where-routing-hubs-shine">Where routing hubs shine</h2>
+<p>Sources: <a href="https://openrouter.ai/pricing" target="_blank" rel="noopener noreferrer">OpenRouter pricing</a>, <a href="https://openrouter.ai/docs/guides/features/guardrails" target="_blank" rel="noopener noreferrer">OpenRouter guardrails</a>, <a href="https://docs.litellm.ai/docs/proxy/users" target="_blank" rel="noopener noreferrer">LiteLLM budgets</a>, <a href="https://vercel.com/docs/ai-gateway/observability-and-spend/budgets" target="_blank" rel="noopener noreferrer">Vercel AI Gateway budgets</a>, <a href="/docs/how-it-works/">ATP how it works</a>.</p>
+<h2 id="openrouter-pricing-as-of-october-2026">OpenRouter pricing (as of October 2026)</h2>
+<p>OpenRouter does not add a markup to token prices. It says it passes through the price of the underlying provider and charges when you buy credits (<a href="https://openrouter.ai/docs/faq" target="_blank" rel="noopener noreferrer">FAQ</a>):</p>
 <ul>
-<li>Prototyping across many model ids  </li>
-<li>Personal or tiny team wallets  </li>
-<li>Rapid eval of new releases</li>
+<li>Standard (pay-as-you-go): 5.5% fee on card purchases, minimum $0.80. Crypto: 5%.</li>
+<li>Business: 8%. Enterprise: negotiated.</li>
+<li>Bring your own provider key (BYOK): no fee on the first $25,000 of list-price inference per month on Standard and Business, 5% after that.</li>
 </ul>
-<p>Documented strengths in the developer community are real; the gap is organizational, not “skill issue.”</p>
-<h2 id="where-governance-platforms-shine">Where governance platforms shine</h2>
+<p>Two quick examples. Buying $1,000 of credits by card on Standard costs $1,055. Buying $10 costs $10.80, because the $0.80 minimum is higher than 5.5%.</p>
+<p>Two terms matter for finance teams. OpenRouter reserves the right to expire unused credits one year after purchase, and refunds for unused credits must be requested within 24 hours. Invoicing is listed only on the Enterprise plan.</p>
+<h2 id="what-openrouter-already-does-for-teams">What OpenRouter already does for teams</h2>
+<p>Some comparisons, including an earlier version of this article, describe OpenRouter as a developer wallet without team controls. That is out of date.</p>
 <ul>
-<li>Many squads, one AI budget (<a href="/en/blog/enterprise-ai-cost-management-guide">cost management</a>)  </li>
-<li>Coding agents that must not eat production (<a href="/en/blog/coding-agents-cost-control-checklist">coding agents</a>)  </li>
-<li>Need for 403 on unauthorized models and 402 on empty project balance (<a href="/en/docs/how-it-works">how it works</a>)  </li>
-<li>Offboarding without rotating a company skeleton key (<a href="/en/blog/one-project-one-key">one project, one key</a>)</li>
+<li><a class="doc-term" href="/docs/console-setup/" data-def="The top level of an account. Workspaces and projects sit underneath it.">Organizations</a> share central credits; only admins buy credits and change billing, provider and privacy settings.</li>
+<li><a href="https://openrouter.ai/docs/guides/features/workspaces" target="_blank" rel="noopener noreferrer">Workspaces</a> separate API keys, routing defaults, guardrails and observability, for example staging and production.</li>
+<li><a href="https://openrouter.ai/docs/guides/features/guardrails" target="_blank" rel="noopener noreferrer">Guardrails</a> attach to a member or a key and can combine a USD budget that resets daily, weekly or monthly, a model allowlist, a provider allowlist, zero-data-retention rules and prompt-injection or PII filters. When several apply, the strictest wins.</li>
+<li>Every API key can have its own credit limit, on any plan.</li>
+<li>Activity logs and export are available on all plans, grouped by model, key or member.</li>
+<li>Claude Code can point at OpenRouter&#39;s Anthropic-compatible endpoint (<a href="https://openrouter.ai/docs/guides/guides/claude-code-integration" target="_blank" rel="noopener noreferrer">setup guide</a>).</li>
 </ul>
-<h2 id="limits-both-sides">Limits (both sides)</h2>
-<p><strong>Routing:</strong> weak default story for BU allocations and formal roles.<br><strong>Governance:</strong> must stay disciplined on catalog UX and developer happiness; control without ergonomics drives shadow tools (<a href="/en/blog/shadow-ai-governed-control-plane">shadow AI</a>).</p>
-<p><strong>ATP Token</strong> publishes hierarchy, credits, keys, and logs in docs (<a href="/en/docs/overview">overview</a>, <a href="/en/docs/credits" class="doc-term-def" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">credits</a>, <a href="/en/docs/monitoring">monitoring</a>). We do not claim fee superiority here.</p>
-<h2 id="decision-guide">Decision guide</h2>
+<p>If those controls cover your needs and the fee is acceptable, staying on OpenRouter is reasonable.</p>
+<h2 id="why-teams-look-for-an-alternative">Why teams look for an alternative</h2>
+<p>Common reasons, each tied to a documented difference:</p>
+<ol>
+<li>The gateway has to run inside the company network, or traffic may only go to provider accounts the company owns.</li>
+<li>Finance wants budgets attached to a product or cost center. On OpenRouter below Enterprise, budgets attach to members and keys; workspace budgets need Enterprise.</li>
+<li>Finance wants prepaid credits that don&#39;t expire, allocated to each project in advance.</li>
+<li>Some apps use the Google GenAI SDK, and the team wants a gateway that accepts that format so the apps don&#39;t need rewriting.</li>
+</ol>
+<p>Each alternative below answers a different subset of these.</p>
+<h2 id="the-alternatives-one-by-one">The alternatives, one by one</h2>
+<h3 id="litellm-self-hosted-proxy">LiteLLM: self-hosted proxy</h3>
+<ul>
+<li>Fits: teams that must keep the gateway in their own cloud or VPC and already have provider accounts.</li>
+<li>Pricing: the open-source proxy is free; you pay providers directly plus the cost of running it. Some features, such as per-model budgets at the user and key level, need an Enterprise license.</li>
+<li>Controls: budgets per key, user, team and customer with reset periods such as <code>30d</code>; model access through access groups.</li>
+<li>Watch out for: you own uptime, database, upgrades and security reviews. Anthropic&#39;s Claude Code docs mention enterprises using LiteLLM to track spend per key and note that it is unaffiliated with Anthropic and not audited by them (<a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener noreferrer">source</a>).</li>
+</ul>
+<h3 id="vercel-ai-gateway-hosted-priced-at-provider-list-price">Vercel AI Gateway: hosted, priced at provider list price</h3>
+<ul>
+<li>Fits: teams already deploying on Vercel, or anyone who wants a hosted gateway without a platform fee on tokens.</li>
+<li>Pricing: no markup or platform fee on tokens; payment processing fees may apply; invoicing on Enterprise (<a href="https://vercel.com/docs/ai-gateway/pricing" target="_blank" rel="noopener noreferrer">pricing</a>).</li>
+<li>Controls: budgets per team, project, API key or member, resetting daily, weekly, monthly or never; HTTP 402 when exceeded; email alerts at 50, 75 and 100%.</li>
+<li>Watch out for: Vercel describes budgets as a soft cap, so the request that crosses the limit still completes. Spend through your own provider keys is not counted in budgets. A team-wide provider allowlist costs $0.10 per 1,000 requests.</li>
+</ul>
+<h3 id="atp-token-prepaid-project-budgets-and-per-project-model-allowlists">ATP Token: prepaid project budgets and per-project model allowlists</h3>
+<ul>
+<li>Fits: companies where several teams share one AI budget and finance wants each project funded in advance and limited to a reviewed list of models.</li>
+<li>Pricing: usage is metered on input and output tokens at each model&#39;s list rate and paid from credits. 1 credit = USD 0.01, top-ups start at USD 5, and pay-as-you-go credits don&#39;t expire (<a href="/docs/credits/" class="doc-term-def" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">credits</a>, <a href="/docs/topup/" class="doc-term-def" data-def="Adding credits to the wallet. Minimum 5 USD, pay as you go.">top up</a>, <a href="/pricing/">pricing</a>).</li>
+<li>Controls: credits flow from organization to workspace to project, and a project can only spend what it was allocated. When the balance is used up, requests return 402. Each project has an allowed-model list; a request for any other model returns 403 before it reaches a provider (<a href="/docs/how-it-works/">how it works</a>).</li>
+<li>Formats: official OpenAI, Anthropic and Google GenAI SDKs unchanged, by changing the base URL and key (<a href="/docs/sdk-openai/">OpenAI SDK</a>, <a href="/docs/sdk-google/">Google GenAI SDK</a>).</li>
+<li>Watch out for: a smaller catalog than OpenRouter (70+ models from 11 vendors, against 500+). Credits are non-refundable. Request logs are kept for 7 days, so export what you need for monthly reviews.</li>
+</ul>
+<p>Portkey and Helicone are also common names on &quot;OpenRouter alternatives&quot; lists; they are covered in the <a href="/blog/ai-gateway-comparison-2026/">LLM gateway comparison</a>.</p>
+<h2 id="openrouter-vs-litellm">OpenRouter vs LiteLLM</h2>
+<p>The choice comes down to who runs the gateway.</p>
 <table>
 <thead>
 <tr>
-<th>If you…</th>
-<th>Prefer</th>
+<th></th>
+<th>OpenRouter</th>
+<th>LiteLLM</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Are three engineers evaluating models</td>
-<td>Routing hub</td>
+<td>Who operates it</td>
+<td>OpenRouter</td>
+<td>You</td>
 </tr>
 <tr>
-<td>Are twenty engineers shipping agents</td>
-<td>Governance plane</td>
+<td>Provider accounts</td>
+<td>OpenRouter&#39;s, or yours via BYOK</td>
+<td>Yours</td>
 </tr>
 <tr>
-<td>Need board-level AI spend narrative</td>
-<td>Governance plane</td>
+<td>Cost on top of tokens</td>
+<td>Fee on credit purchases; BYOK fee above $25k/month</td>
+<td>Your hosting and maintenance time</td>
 </tr>
 <tr>
-<td>Need maximum long-tail model ids tomorrow</td>
-<td>Routing hub (± allowlisted subset in prod)</td>
+<td>Time to first request</td>
+<td>Minutes</td>
+<td>Hours to days, depending on your infrastructure review</td>
 </tr>
 </tbody></table>
-<h2 id="a-more-modern-approach">A more modern approach</h2>
-<p>Production should not run on “whoever stored the key in 1Password.” Horizon AI adoption programs standardize governance early; ATP Token is the product surface for that standard—compatible clients, project allowlists, credit caps, request audit.</p>
-<p><a href="/en/docs/quickstart">Quickstart →</a></p>
-<h2 id="faqs">FAQs</h2>
-<h3 id="is-openrouter-an-enterprise-ai-governance-platform">Is OpenRouter an enterprise AI governance platform?</h3>
-<p>OpenRouter is best understood as a multi-model routing and billing hub for developers. Enterprise governance platforms add organization hierarchy, project-scoped keys, formal budgets, and admin roles aimed at company-wide control.</p>
-<h3 id="when-should-i-use-openrouter-vs-a-governance-gateway">When should I use OpenRouter vs a governance gateway?</h3>
-<p>Use a routing hub when a small team needs fast access to many models. Move production multi-team workloads to a governance plane when finance needs attribution and security needs revoke and allowlists.</p>
-<h3 id="can-openrouter-and-atp-token-be-used-together">Can OpenRouter and ATP Token be used together?</h3>
-<p>Architecturally, research can stay on a routing hub while production sits on a governance gateway. What you should avoid is uncapped production traffic without project owners.</p>
-<h3 id="what-does-atp-token-optimize-for-compared-to-routing-hubs">What does ATP Token optimize for compared to routing hubs?</h3>
-<p>ATP Token optimizes for organization → workspace → project structure, credit allocation as caps, project model allowlists, and per-request audit with multi-format SDK compatibility.</p>
-<h3 id="does-a-governance-platform-mean-fewer-models">Does a governance platform mean fewer models?</h3>
-<p>It means models are explicitly allowed per project. The platform catalog can still be broad; the difference is permission, not curiosity alone.</p>
-<h2 id="further-reading">Further reading</h2>
+<p>A five-person team testing models usually starts on OpenRouter. A bank that cannot send traffic through a third-party gateway usually ends up on LiteLLM.</p>
+<h2 id="which-one-to-pick">Which one to pick</h2>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Reasonable choice</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>One developer comparing 30 models this week</td>
+<td>OpenRouter</td>
+</tr>
+<tr>
+<td>The gateway must run in your own VPC</td>
+<td>LiteLLM</td>
+</tr>
+<tr>
+<td>Apps deploy on Vercel and you want budgets per Vercel project</td>
+<td>Vercel AI Gateway</td>
+</tr>
+<tr>
+<td>Four product teams share one budget; finance wants each team prepaid with a hard balance</td>
+<td>ATP Token</td>
+</tr>
+<tr>
+<td>Apps are split across the OpenAI, Anthropic and Google GenAI SDKs and should keep their SDK</td>
+<td>ATP Token</td>
+</tr>
+<tr>
+<td>Research needs the long tail of models; production needs a fixed allowlist</td>
+<td>OpenRouter for research, a governed gateway for production</td>
+</tr>
+</tbody></table>
+<h2 id="moving-an-openrouter-integration-to-atp-token">Moving an OpenRouter integration to ATP Token</h2>
+<p>If your code uses the OpenAI SDK against OpenRouter, the move is a base URL, a key and model ids.</p>
+<ol>
+<li>In the console, create a project and pick its allowed models, for example <a href="/models/claude-sonnet-4-6/">claude-sonnet-4-6</a> and <a href="/models/deepseek-v4-flash/">deepseek-v4-flash</a> (<a href="/docs/resources/" class="doc-term-def" data-def="The list of models a project may call. Anything outside it returns 403.">workspaces and projects</a>).</li>
+<li>Allocate credits to the project. That amount is its ceiling (<a href="/docs/cb-budget-caps/">budget caps recipe</a>).</li>
+<li>Create a key for the project. It starts with <code>atp-</code> and is shown once (<a href="/docs/console-keys/" class="doc-term-def" data-def="A key that starts with atp-. It inherits its project's allowed models and credit balance.">managing keys</a>).</li>
+<li>Change the client and the model id. OpenRouter ids carry a vendor prefix (<code>vendor/model</code>); ATP ids come from <code>GET /v1/models</code>.</li>
+</ol>
+<pre><code>from openai import OpenAI
+
+# Before: OpenAI(base_url=&quot;https://openrouter.ai/api/v1&quot;, api_key=&quot;sk-or-...&quot;)
+client = OpenAI(base_url=&quot;https://api.atptoken.ai/v1&quot;, api_key=&quot;atp-...&quot;)
+
+r = client.chat.completions.create(
+    model=&quot;claude-sonnet-4-6&quot;,
+    messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Summarize this ticket in two lines.&quot;}],
+)
+print(r.choices[0].message.content)
+</code></pre>
+<ol start="5">
+<li>Send a test request and confirm it appears in Request logs with its input and output tokens (<a href="/docs/monitoring/">usage and logs</a>).</li>
+</ol>
+<p>Claude Code moves the same way with four environment variables (<a href="/docs/cb-claude-code/">Claude Code on ATP</a>).</p>
+<p><a href="/docs/quickstart/">Start with the quickstart</a></p>
+<h2 id="related-reading">Related reading</h2>
 <ul>
-<li><a href="/en/blog/ai-gateway-comparison-2026">AI gateway comparison 2026</a></li>
-<li><a href="/en/blog/openai-api-vs-enterprise-ai-gateway">OpenAI API vs enterprise AI gateway</a></li>
-<li><a href="/en/blog/why-ai-bills-explode-after-go-live">Why AI bills explode after go-live</a></li>
-</ul>
-<p>Pick routing for exploration velocity; pick governance when the org chart hits the invoice.</p>
-<p><a href="/en/enterprise-plan">Enterprise plan →</a></p>27:["$","$L28",null,{"data":{"lang":"en","post":{"slug":"openrouter-vs-enterprise-governance","title":"OpenRouter vs enterprise AI governance platforms: who each is for (2026)","metaTitle":"OpenRouter vs AI governance platforms (2026)","description":"OpenRouter-class routing hubs optimize multi-model access and one wallet. Enterprise governance platforms optimize project keys, budgets, allowlists, and audit. Here is how to choose.","date":"2026-08-26","tags":["OpenRouter","AI governance","ATP"],"author":"hung-chien","authorTitle":"AI Growth & Brand Manager","tldr":["OpenRouter-class products excel at developer multi-model access with unified top-up; governance platforms excel when many teams share money and risk.","Compare owner hierarchy, spending caps, model allowlists, and audit—not a single fee percentage.","Some companies use both: routing in research, governance in production."],"faq":[{"q":"Is OpenRouter an enterprise AI governance platform?","a":"OpenRouter is best understood as a multi-model routing and billing hub for developers. Enterprise governance platforms add organization hierarchy, project-scoped keys, formal budgets, and admin roles aimed at company-wide control."},{"q":"When should I use OpenRouter vs a governance gateway?","a":"Use a routing hub when a small team needs fast access to many models. Move production multi-team workloads to a governance plane when finance needs attribution and security needs revoke and allowlists."},{"q":"Can OpenRouter and ATP Token be used together?","a":"Architecturally, research can stay on a routing hub while production sits on a governance gateway. What you should avoid is uncapped production traffic without project owners."},{"q":"What does ATP Token optimize for compared to routing hubs?","a":"ATP Token optimizes for organization → workspace → project structure, credit allocation as caps, project model allowlists, and per-request audit with multi-format SDK compatibility."},{"q":"Does a governance platform mean fewer models?","a":"It means models are explicitly allowed per project. The platform catalog can still be broad; the difference is permission, not curiosity alone."}],"readingMinutes":3,"cover":"openrouter-vs-enterprise-governance","html":"$29"},"newer":{"slug":"model-catalog-vs-access-control","title":"Model catalog vs access control: why GET /v1/models is not your key’s permission (2026)","date":"2026-08-28"},"older":{"slug":"ai-gateway-comparison-2026","title":"AI gateway comparison 2026: routing, observability, and governance on one spectrum","date":"2026-08-21"}}}]
-20:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-2a:I[27201,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"IconMark"]
-1d:null
-22:[["$","title","0",{"children":"OpenRouter vs AI governance platforms (2026) | ATP Token"}],["$","meta","1",{"name":"description","content":"OpenRouter-class routing hubs optimize multi-model access and one wallet. Enterprise governance platforms optimize project keys, budgets, allowlists, and audit. Here is how to choose."}],["$","meta","2",{"name":"application-name","content":"ATP Token"}],["$","meta","3",{"name":"creator","content":"Horizon AI"}],["$","meta","4",{"name":"publisher","content":"Horizon AI"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","link","7",{"rel":"canonical","href":"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/"}],["$","link","8",{"rel":"alternate","hrefLang":"en","href":"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/"}],["$","link","9",{"rel":"alternate","hrefLang":"zh-Hant-TW","href":"https://atptoken.ai/zh-tw/blog/openrouter-vs-enterprise-governance/"}],["$","link","10",{"rel":"alternate","hrefLang":"zh-Hans-CN","href":"https://atptoken.ai/zh-cn/blog/openrouter-vs-enterprise-governance/"}],["$","link","11",{"rel":"alternate","hrefLang":"x-default","href":"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/"}],["$","meta","12",{"property":"og:title","content":"OpenRouter vs AI governance platforms (2026)"}],["$","meta","13",{"property":"og:description","content":"OpenRouter-class routing hubs optimize multi-model access and one wallet. Enterprise governance platforms optimize project keys, budgets, allowlists, and audit. Here is how to choose."}],["$","meta","14",{"property":"og:url","content":"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/"}],["$","meta","15",{"property":"og:site_name","content":"ATP Token"}],["$","meta","16",{"property":"og:image","content":"https://atptoken.ai/og/blog/openrouter-vs-enterprise-governance.jpg"}],["$","meta","17",{"property":"og:image:width","content":"1200"}],["$","meta","18",{"property":"og:image:height","content":"630"}],["$","meta","19",{"property":"og:image:alt","content":"OpenRouter vs AI governance platforms (2026)"}],["$","meta","20",{"property":"og:type","content":"website"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:title","content":"OpenRouter vs AI governance platforms (2026)"}],["$","meta","23",{"name":"twitter:description","content":"OpenRouter-class routing hubs optimize multi-model access and one wallet. Enterprise governance platforms optimize project keys, budgets, allowlists, and audit. Here is how to choose."}],["$","meta","24",{"name":"twitter:image","content":"https://atptoken.ai/og/blog/openrouter-vs-enterprise-governance.jpg"}],["$","link","25",{"rel":"shortcut icon","href":"/atp_icon.svg"}],["$","link","26",{"rel":"icon","href":"/favicon.ico?favicon.2xv7nyn6xhano.ico","sizes":"48x48","type":"image/x-icon"}],["$","link","27",{"rel":"icon","href":"/atp_icon.svg","type":"image/svg+xml"}],["$","$L2a","28",{}]]
+<li><a href="/blog/ai-gateway-comparison-2026/">LLM gateway comparison 2026</a></li>
+<li><a href="/blog/ai-spending-caps-that-work/">AI API spending limits compared</a></li>
+<li><a href="/blog/openai-api-vs-enterprise-ai-gateway/">OpenAI API vs an OpenAI-compatible gateway</a></li>
+</ul>22:["$","$L23",null,{"data":{"lang":"en","post":{"slug":"openrouter-vs-enterprise-governance","title":"OpenRouter alternatives for teams: pricing, budgets and model controls compared (2026)","metaTitle":"OpenRouter Alternatives for Teams (2026)","description":"OpenRouter alternatives compared: what OpenRouter charges, how its budgets and allowlists work, and when LiteLLM, Vercel AI Gateway or ATP Token fit better.","date":"2026-08-26","tags":["OpenRouter alternative","LLM gateway","ATP"],"author":"hung-chien","authorTitle":"AI Growth & Brand Manager","tldr":["OpenRouter charges a 5.5% fee on card credit purchases on its pay-as-you-go plan (8% on Business, $0.80 minimum) and passes provider token prices through without markup, as of October 2026.","OpenRouter already has organizations, workspaces and guardrails with per-member and per-key budgets and model allowlists. Teams switch for other reasons: self-hosting, billing model, project-level prepaid budgets, or the formats and models they need.","LiteLLM fits if you must self-host, Vercel AI Gateway if you already deploy on Vercel, and ATP Token if each project should get a prepaid credit allocation and its own model allowlist across text, image and video models."],"faq":[{"q":"What is the best OpenRouter alternative?","a":"It depends on what you need to change. LiteLLM is the usual pick when the gateway must run in your own infrastructure, Vercel AI Gateway when your apps already deploy on Vercel, and ATP Token when finance wants each project to run on a prepaid credit allocation with its own model allowlist."},{"q":"How much does OpenRouter charge?","a":"As of October 2026, OpenRouter passes through provider token prices and charges a platform fee when you buy credits: 5.5% by card on the pay-as-you-go Standard plan with a $0.80 minimum, 8% on Business, 5% for crypto. Bring-your-own-key usage is free up to $25,000 of list-price inference a month, then 5%."},{"q":"Does OpenRouter have spending limits?","a":"Yes. Any API key can have a credit limit that resets daily, weekly or monthly, and organization admins can apply guardrails with budgets, model allowlists and provider allowlists to members or keys. Workspace-level budgets are an Enterprise feature."},{"q":"What is the difference between OpenRouter and LiteLLM?","a":"OpenRouter is a hosted service you buy credits from; LiteLLM is an open-source proxy you deploy yourself and connect to your own provider accounts. With LiteLLM you avoid a platform fee but take on hosting, upgrades and security."},{"q":"Can I use OpenRouter and ATP Token together?","a":"Yes. A common split is model evaluation on OpenRouter's large catalog and production traffic on ATP Token projects, where each service has its own key, allowlist and credit allocation."}],"readingMinutes":7,"cover":"openrouter-vs-enterprise-governance","html":"$24"},"newer":{"slug":"model-catalog-vs-access-control","title":"Model catalog vs access control: GET /v1/models lists the menu, the project allowlist decides (2026)","date":"2026-08-28","cover":"model-catalog-vs-access-control"},"older":{"slug":"ai-gateway-comparison-2026","title":"LLM gateway comparison 2026: OpenRouter, Vercel AI Gateway, LiteLLM, Portkey, Helicone and ATP Token","date":"2026-08-21","cover":"ai-gateway-comparison-2026"}}}]
+1d:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content"}],["$","meta","2",{"name":"theme-color","content":"#f5f5f5"}]]
+25:I[27201,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"IconMark"]
+1a:null
+1f:[["$","title","0",{"children":"OpenRouter Alternatives for Teams (2026) | ATP Token"}],["$","meta","1",{"name":"description","content":"OpenRouter alternatives compared: what OpenRouter charges, how its budgets and allowlists work, and when LiteLLM, Vercel AI Gateway or ATP Token fit better."}],["$","meta","2",{"name":"application-name","content":"ATP Token"}],["$","link","3",{"rel":"manifest","href":"/manifest.webmanifest","crossOrigin":"$undefined"}],["$","meta","4",{"name":"creator","content":"Horizon AI"}],["$","meta","5",{"name":"publisher","content":"Horizon AI"}],["$","meta","6",{"name":"robots","content":"index, follow"}],["$","meta","7",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","link","8",{"rel":"canonical","href":"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/"}],["$","link","9",{"rel":"alternate","hrefLang":"en","href":"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/"}],["$","link","10",{"rel":"alternate","hrefLang":"zh-Hant-TW","href":"https://atptoken.ai/zh-tw/blog/openrouter-vs-enterprise-governance/"}],["$","link","11",{"rel":"alternate","hrefLang":"zh-Hans-CN","href":"https://atptoken.ai/zh-cn/blog/openrouter-vs-enterprise-governance/"}],["$","link","12",{"rel":"alternate","hrefLang":"x-default","href":"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/"}],["$","meta","13",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","14",{"name":"apple-mobile-web-app-title","content":"ATP Token"}],["$","meta","15",{"name":"apple-mobile-web-app-status-bar-style","content":"default"}],["$","meta","16",{"property":"og:title","content":"OpenRouter Alternatives for Teams (2026)"}],["$","meta","17",{"property":"og:description","content":"OpenRouter alternatives compared: what OpenRouter charges, how its budgets and allowlists work, and when LiteLLM, Vercel AI Gateway or ATP Token fit better."}],["$","meta","18",{"property":"og:url","content":"https://atptoken.ai/blog/openrouter-vs-enterprise-governance/"}],["$","meta","19",{"property":"og:site_name","content":"ATP Token"}],["$","meta","20",{"property":"og:image","content":"https://atptoken.ai/og/blog/openrouter-vs-enterprise-governance.jpg"}],["$","meta","21",{"property":"og:image:width","content":"1200"}],["$","meta","22",{"property":"og:image:height","content":"630"}],["$","meta","23",{"property":"og:image:alt","content":"OpenRouter Alternatives for Teams (2026)"}],["$","meta","24",{"property":"og:type","content":"website"}],["$","meta","25",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","26",{"name":"twitter:title","content":"OpenRouter Alternatives for Teams (2026)"}],["$","meta","27",{"name":"twitter:description","content":"OpenRouter alternatives compared: what OpenRouter charges, how its budgets and allowlists work, and when LiteLLM, Vercel AI Gateway or ATP Token fit better."}],["$","meta","28",{"name":"twitter:image","content":"https://atptoken.ai/og/blog/openrouter-vs-enterprise-governance.jpg"}],["$","link","29",{"rel":"shortcut icon","href":"/atp_icon.svg"}],["$","link","30",{"rel":"icon","href":"/favicon.ico?favicon.2xv7nyn6xhano.ico","sizes":"48x48","type":"image/x-icon"}],["$","link","31",{"rel":"icon","href":"/atp_icon.svg","type":"image/svg+xml"}],["$","link","32",{"rel":"apple-touch-icon","href":"/icons/apple-touch-icon.png","sizes":"180x180"}],["$","$L25","33",{}]]

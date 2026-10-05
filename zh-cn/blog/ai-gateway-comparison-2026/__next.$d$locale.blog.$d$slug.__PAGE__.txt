@@ -1,68 +1,170 @@
 1:"$Sreact.fragment"
-2:I[51713,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"default"]
-8:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
-9:"$Sreact.suspense"
-3:Teb9,<p>AI 闸道选型是把「应用与模型供应商之间的产品」放到同一光谱上比较。</p>
-<p><strong>为你害怕的失败模式而买。</strong> 怕试不了模型→路由；怕看不见品质→可观测；怕解释不了或停不了花费→治理。我们用公开产品姿态与 ATP 文件评治理列（<a href="/zh-cn/docs/how-it-works">how it works</a>、<a href="/zh-cn/docs/console-setup" class="doc-term-def" data-def="帐号的最上层，底下再分 workspace 与 project。">console setup</a>），<strong>不排名谁最便宜</strong>。</p>
-<h2 id="光谱">光谱</h2>
+3:I[51713,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js","/_next/static/chunks/031jyqwh2ymjo.js","/_next/static/chunks/12btwas-eg9md.js","/_next/static/chunks/0tc57bytaqvvw.js"],"default"]
+a:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"OutletBoundary"]
+b:"$Sreact.suspense"
+:HL["/_next/static/chunks/0bk251ba95uho.css","style"]
+2:T4dd,{"@context":"https://schema.org","@type":"BlogPosting","headline":"LLM 网关对比 2026：OpenRouter、Vercel AI Gateway、LiteLLM、Portkey、Helicone 与 ATP Token","description":"LLM 网关是做什么的，以及截至 2026 年 10 月，六个网关在部署方式、计费、消费上限、模型白名单和 API 格式上的差异。","datePublished":"2026-08-21","dateModified":"2026-08-21","inLanguage":"zh-Hans-CN","keywords":"LLM 网关, AI 网关, ATP","url":"https://atptoken.ai/zh-cn/blog/ai-gateway-comparison-2026/","mainEntityOfPage":"https://atptoken.ai/zh-cn/blog/ai-gateway-comparison-2026/","image":"https://atptoken.ai/og/blog/ai-gateway-comparison-2026.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI 增长与品牌经理","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token 博客","url":"https://atptoken.ai/blog/","description":"ATP Token 团队的实务笔记：企业 AI 治理、AI Token 用量账务，以及用一把密钥管理多个模型的日常。","inLanguage":"zh-Hans-CN","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}4:T3141,<p>LLM 网关是位于应用和模型供应商之间的服务：代码只对一个 API 调用多家模型，密钥、路由与故障切换、请求日志和消费上限由网关处理。本文用同一份清单对比 2026 年团队常考虑的六个网关，每一项价格和功能都附上该厂商截至 2026 年 10 月的官方文档链接。</p>
+<h2 id="llm-网关做哪些事">LLM 网关做哪些事</h2>
+<p>按请求经过的顺序，一共五件事：</p>
+<ol>
+<li>一个 API 调用多家模型。代码对同一个 base URL 发送熟悉的格式（通常是 OpenAI 格式），换模型只改 <code>model</code> 字段。</li>
+<li>鉴权和密钥。网关签发自己的密钥，供应商凭证不必放进应用。</li>
+<li>访问规则。决定这个密钥能不能调用这个模型。</li>
+<li>路由与故障切换。为模型选择供应商，失败时改发到其他供应商。</li>
+<li>计量、日志和上限。逐条记录 token 和费用，预算用完就拦截。</li>
+</ol>
+<p>在 ATP Token 上，这几个环节对应可以实测的状态码：密钥错误 401、模型不在<a class="doc-term" href="/zh-cn/docs/resources/" data-def="权限与帐务的最小单位；金钥、允许模型、点数预算都挂在 project 上。">项目</a>允许清单 403、供应商失败 502 或 503、项目点数用完 402（<a href="/zh-cn/docs/how-it-works/">运作方式</a>、<a href="/zh-cn/docs/errors/">错误</a>）。</p>
+<h2 id="六个网关一览">六个网关一览</h2>
 <table>
 <thead>
 <tr>
-<th>集群</th>
-<th>优化</th>
-<th>弱在</th>
+<th></th>
+<th>部署在哪里</th>
+<th>你付的钱</th>
+<th>预算绑定在</th>
+<th>达到上限时</th>
+<th>模型白名单</th>
+<th>API 格式</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>路由中枢</td>
-<td>模型广、一储值、快切</td>
-<td>深组织预算、正式稽核角色</td>
+<td><a href="https://openrouter.ai/pricing" target="_blank" rel="noopener noreferrer">OpenRouter</a></td>
+<td>托管</td>
+<td>供应商价格＋购买点数银行卡 5.5%（Standard）</td>
+<td>API 密钥、成员；工作区需 Enterprise</td>
+<td>拒绝</td>
+<td>对成员或密钥设置 guardrails</td>
+<td>OpenAI 兼容、Anthropic Messages</td>
 </tr>
 <tr>
-<td>可观测</td>
-<td>追踪、评测</td>
-<td>依<a class="doc-term" href="/zh-cn/docs/resources" data-def="权限与帐务的最小单位；金钥、允许模型、点数预算都挂在 project 上。">项目</a>强制花费天花板</td>
+<td><a href="https://vercel.com/docs/ai-gateway/pricing" target="_blank" rel="noopener noreferrer">Vercel AI Gateway</a></td>
+<td>托管</td>
+<td>供应商标价，token 不加价；可能有支付手续费</td>
+<td>团队、项目、密钥、成员</td>
+<td>402，软上限</td>
+<td>供应商白名单（付费增购）</td>
+<td>AI SDK、OpenAI Chat 与 Responses、Anthropic Messages</td>
 </tr>
 <tr>
-<td>治理／账务</td>
-<td>阶层、cap、归属、撤销</td>
-<td>单靠长尾模型动物园</td>
+<td><a href="https://docs.litellm.ai/docs/proxy/users" target="_blank" rel="noopener noreferrer">LiteLLM</a></td>
+<td>自建（开源）</td>
+<td>自己的供应商账单＋服务器；可选 Enterprise 许可</td>
+<td>密钥、用户、团队、客户</td>
+<td>拒绝</td>
+<td>按密钥或团队设置 access group</td>
+<td>OpenAI 兼容</td>
 </tr>
 <tr>
-<td>自架路由</td>
-<td>基础建设全控</td>
-<td>开箱财务工作流</td>
+<td><a href="https://portkey.ai/pricing" target="_blank" rel="noopener noreferrer">Portkey</a></td>
+<td>托管；另有开源和 VPC 选项</td>
+<td>免费方案、Production 每月 49 美元、Enterprise 另议</td>
+<td>供应商或虚拟密钥（Enterprise 和部分 Pro）</td>
+<td>密钥达到上限即失效</td>
+<td>本文未对比</td>
+<td>OpenAI 兼容</td>
+</tr>
+<tr>
+<td><a href="https://docs.helicone.ai/gateway/overview" target="_blank" rel="noopener noreferrer">Helicone</a></td>
+<td>开源（Apache）或托管</td>
+<td>见厂商说明</td>
+<td>本文未对比</td>
+<td>—</td>
+<td>本文未对比</td>
+<td>OpenAI 兼容</td>
+</tr>
+<tr>
+<td><a href="/zh-cn/docs/how-it-works/">ATP Token</a></td>
+<td>托管</td>
+<td>预付点数，按各模型标价扣减；5 美元起</td>
+<td>项目，额度由工作区和<a class="doc-term" href="/zh-cn/docs/console-setup/" data-def="帐号的最上层，底下再分 workspace 与 project。">组织</a>往下拨</td>
+<td>余额用完返回 402</td>
+<td>每个项目一份，发往供应商前检查（403）</td>
+<td>OpenAI、Anthropic、Gemini</td>
 </tr>
 </tbody></table>
-<h2 id="类别能力矩阵">类别能力矩阵</h2>
-<p>路由强在多模型；治理强在项目阶层与分配；可观测强在品质追踪。详见英文长表逻辑与<a href="/zh-cn/blog/openrouter-vs-enterprise-governance">OpenRouter vs 治理</a>。</p>
-<h2 id="代表模式-诚实">代表模式（诚实）</h2>
-<p>OpenRouter 类：开发者多模型强，企业缺口多在阶层与 cap。<br>可观测类：答品质／延迟，账单仍可能惊喜。<br>自架（LiteLLM 类）：控制最大、维运自担。<br>ATP Token：组织→工作区→项目→密钥；白名单；<a class="doc-term" href="/zh-cn/docs/credits" data-def="计费单位。1 美元 = 100 点；用量依各模型牌价换算成点数扣抵。">点数</a>；请求 log；多格式（<a href="/zh-cn/docs/overview">overview</a>）。</p>
-<h2 id="决策树">决策树</h2>
-<p>单供应商单团队→直连；多模型少人→路由；多人共钱→治理；要 eval→加可观测但不要丢 cap。</p>
-<h2 id="更现代的做法">更现代的做法</h2>
-<p>ATP Token 为「谁能花、哪个模型、多少天花板、哪份 log」而建，并进入 Horizon AI 导入项目。</p>
-<p><a href="/zh-cn/docs/quickstart">快速开始 →</a></p>
-<h2 id="常见问题">常见问题</h2>
-<h3 id="什么是-ai-闸道">什么是 AI 闸道？</h3>
-<p>位于应用与模型供应商之间的中介层，可负责认证、路由、政策、计量或可观测。</p>
-<h3 id="2026-有哪些类型的-ai-闸道">2026 有哪些类型的 AI 闸道？</h3>
-<p>路由中枢、可观测层、治理／账务平面三类常见。</p>
-<h3 id="如何选择企业-ai-闸道">如何选择企业 AI 闸道？</h3>
-<p>从失败模式出发，评分阶层、SDK、日志与预算平面。</p>
-<h3 id="litellm-等于企业治理平台吗">LiteLLM 等于企业治理平台吗？</h3>
-<p>自架路由≠完整企业治理（组织、分配、角色、财务结算）。</p>
-<h3 id="路由与治理能并用吗">路由与治理能并用吗？</h3>
-<p>可以；避免正式流量无 cap 共用 key。</p>
+<p>“本文未对比”表示我们在厂商公开文档中没有找到该项细节，正式采用前请向厂商确认。</p>
+<h2 id="怎么选-六个问题">怎么选：六个问题</h2>
+<h3 id="1-网关必须部署在哪里">1. 网关必须部署在哪里？</h3>
+<p>如果流量不能经过第三方，候选名单就是自建：LiteLLM proxy、Helicone 开源网关，或 Portkey 的开源和 VPC 选项。本文其他选项都是托管服务。</p>
+<h3 id="2-想怎么付费">2. 想怎么付费？</h3>
+<p>有三种模式：</p>
+<ul>
+<li>供应商价格加<a class="doc-term" href="/zh-cn/docs/topup/" data-def="为钱包加值点数，最低 5 美元，用多少付多少。">充值</a>手续费。OpenRouter：Standard 银行卡 5.5%（最低 0.80 美元）、Business 8%（<a href="https://openrouter.ai/docs/faq" target="_blank" rel="noopener noreferrer">FAQ</a>）。</li>
+<li>按供应商标价、token 不加价。Vercel AI Gateway，可能有支付手续费（<a href="https://vercel.com/docs/ai-gateway/pricing" target="_blank" rel="noopener noreferrer">定价</a>）。</li>
+<li>预付点数，按各模型标价扣减。ATP Token：1 点 = 0.01 美元，按量付费点数不会过期，充值 5 美元起（<a href="/zh-cn/docs/credits/" class="doc-term-def" data-def="计费单位。1 美元 = 100 点；用量依各模型牌价换算成点数扣抵。">点数</a>）。各模型费率见<a href="/zh-cn/pricing/">定价页</a>。</li>
+</ul>
+<p>自建网关没有平台费，成本在供应商账单和工程时间上。</p>
+<h3 id="3-预算绑定在什么上面-是硬上限吗">3. 预算绑定在什么上面？是硬上限吗？</h3>
+<p>这是各网关差异最大的地方。</p>
+<ul>
+<li>OpenRouter：guardrails 里的预算挂在成员或密钥上，按天、周、月重置；工作区预算需要 Enterprise（<a href="https://openrouter.ai/docs/guides/features/guardrails" target="_blank" rel="noopener noreferrer">guardrails</a>）。</li>
+<li>Vercel：团队、项目、密钥、成员四种预算。Vercel 称之为软上限：越过上限的那一笔仍会完成，之后的请求返回 402（<a href="https://vercel.com/docs/ai-gateway/observability-and-spend/budgets" target="_blank" rel="noopener noreferrer">预算</a>）。</li>
+<li>LiteLLM：按密钥、用户、团队或客户设置预算，重置周期如 <code>30d</code>。</li>
+<li>ATP Token：点数沿组织 → 工作区 → 项目往下拨，项目只能花自己的额度。没有重置周期，项目用到余额为零就返回 402，直到有人再拨款（<a href="/zh-cn/docs/cb-budget-caps/">预算上限配置</a>）。</li>
+</ul>
+<p>按周期重置的预算适合“这个密钥每月不超过 500 美元”；预付额度适合“这条产品线这个季度有 5,000 美元”。</p>
+<h3 id="4-应用现在用哪些-sdk-格式">4. 应用现在用哪些 SDK 格式？</h3>
+<p>大多数网关支持 OpenAI 格式。如果有服务用 Anthropic SDK（Claude Code 就是）或 Google GenAI SDK，要确认是否原生支持：OpenRouter 和 Vercel 有 Anthropic Messages 文档；ATP Token 可以直接使用 OpenAI、Anthropic、Google GenAI 三种官方 SDK（<a href="/zh-cn/docs/sdk-openai/">OpenAI SDK</a>、<a href="/zh-cn/docs/sdk-anthropic/">Anthropic SDK</a>、<a href="/zh-cn/docs/sdk-google/">Google GenAI SDK</a>）。</p>
+<h3 id="5-需要哪些模型和模态">5. 需要哪些模型和模态？</h3>
+<p>OpenRouter 列出 80+ 家供应商、500+ 个模型。ATP Token 有 11 家供应商、70+ 个模型，包括 <a href="/zh-cn/models/seedance-2-0/">Seedance 2.0</a>、<a href="/zh-cn/models/kling-v3-pro/">Kling v3 Pro</a> 等视频模型，以及 <a href="/zh-cn/models/nano-banana-pro/">Nano Banana Pro</a> 等图像模型（<a href="/zh-cn/docs/media/">媒体模型</a>）。如果只需要几个前沿 LLM，目录大小没有其他问题重要。</p>
+<h3 id="6-日志保留什么-保留多久">6. 日志保留什么、保留多久？</h3>
+<p>Portkey 公布了各方案的保留期：免费方案日志 3 天，Production 30 天。ATP Token 的请求日志保留 7 天，定位是排障视图，账务以账务事件为准（<a href="/zh-cn/docs/console-api-logs/">请求日志 API</a>）。如果按月复盘消费，请每周导出或汇总。</p>
+<h2 id="逐个细看">逐个细看</h2>
+<h3 id="openrouter">OpenRouter</h3>
+<ul>
+<li>适合：需要最大的托管模型目录、要快速评估模型。</li>
+<li>管控：组织、工作区、包含预算和模型及供应商白名单的 guardrails、ZDR 规则；所有方案都能对单个密钥设置点数上限。</li>
+<li>需要注意：购买点数的手续费、点数可能在一年后失效、开具发票只限 Enterprise。完整说明见 <a href="/zh-cn/blog/openrouter-vs-enterprise-governance/">OpenRouter 替代方案（团队版）</a>。</li>
+</ul>
+<h3 id="vercel-ai-gateway">Vercel AI Gateway</h3>
+<ul>
+<li>适合：部署在 Vercel 的团队，或想要按供应商标价计费的托管网关。</li>
+<li>管控：四种预算范围、50/75/100% 消费提醒、请求日志、供应商与模型故障切换。</li>
+<li>需要注意：预算是软上限；使用自带供应商密钥的消费不计入预算；部分管控是付费增购。</li>
+</ul>
+<h3 id="litellm">LiteLLM</h3>
+<ul>
+<li>适合：希望完全掌控、本来就在运维基础设施的平台团队。</li>
+<li>管控：虚拟密钥、多层预算、用 access group 管理模型。</li>
+<li>需要注意：需要自己运维。用户和密钥级别的按模型预算需要 Enterprise 许可。</li>
+</ul>
+<h3 id="portkey">Portkey</h3>
+<ul>
+<li>适合：希望网关、监控和 guardrails 在同一个产品里的团队。</li>
+<li>管控：对供应商或虚拟密钥设置预算上限，可设提醒阈值、每周或每月重置，适用于 Enterprise 和部分 Pro 方案（<a href="https://portkey.ai/docs/product/ai-gateway/virtual-keys/budget-limits" target="_blank" rel="noopener noreferrer">预算上限</a>）。每月 49 美元的 Production 方案起提供基于角色的权限控制。</li>
+<li>需要注意：各方案有日志额度（免费每月 1 万条，Production 10 万条）。</li>
+</ul>
+<h3 id="helicone">Helicone</h3>
+<ul>
+<li>适合：以监控为主的团队；网关开源，用 Rust 编写。</li>
+<li>管控：记录每个请求的 token 和费用，支持 100+ 个模型的路由、故障切换和缓存。</li>
+<li>需要注意：预算和访问控制功能请按需求向厂商确认，网关概览文档中没有看到。</li>
+</ul>
+<h3 id="atp-token">ATP Token</h3>
+<ul>
+<li>适合：多个团队共用一笔 AI 预算，每个项目要有拨好的额度和审核过的模型清单。</li>
+<li>管控：组织 → 工作区 → 项目的层级、绑定项目的密钥、每个项目的允许模型、以点数额度作为上限、逐条请求日志、Owner／Admin／Member 角色（<a href="/zh-cn/docs/team/">团队与角色</a>）。</li>
+<li>需要注意：模型目录比 OpenRouter 小；点数不可退款；请求日志保留 7 天。</li>
+</ul>
+<h2 id="同时用两个网关">同时用两个网关</h2>
+<p>很多团队最后会有两个：一个大目录网关做研究和评估，一个有治理能力的网关跑生产环境。让这种配置不出问题的规则是：生产环境的密钥不放在研究账号里，每个生产服务都有自己的密钥和预算。参考<a href="/zh-cn/blog/one-project-one-key/">一项目一密钥</a>。</p>
+<h2 id="在-atp-token-上实际对比一次">在 ATP Token 上实际对比一次</h2>
+<ol>
+<li>创建一个项目，启用两三个想对比的模型，例如 <a href="/zh-cn/models/claude-sonnet-4-6/">claude-sonnet-4-6</a>、<a href="/zh-cn/models/gemini-3-5-flash/">gemini-3-5-flash</a> 和 <a href="/zh-cn/models/deepseek-v4-flash/">deepseek-v4-flash</a>。</li>
+<li>拨少量点数作为这次测试的上限，例如 500 点（5 美元）。</li>
+<li>把现有的 OpenAI、Anthropic 或 Google GenAI client 指向网关，用同一组提示词跑每个模型。</li>
+<li>在请求日志里对比每个请求的 token 和点数（<a href="/zh-cn/docs/monitoring/">用量与日志</a>）。模型并排对比页见 <a href="/zh-cn/compare/gemini-vs-gpt/">/compare</a>。</li>
+</ol>
+<p><a href="/zh-cn/docs/quickstart/">从快速开始上手</a></p>
 <h2 id="延伸阅读">延伸阅读</h2>
 <ul>
-<li><a href="/zh-cn/blog/openrouter-vs-enterprise-governance">OpenRouter vs 企业治理</a></li>
-<li><a href="/zh-cn/blog/openai-api-vs-enterprise-ai-gateway">OpenAI API vs 企业 AI 闸道</a></li>
-<li><a href="/zh-cn/blog/enterprise-ai-cost-management-guide">企业 AI 成本管理指南</a></li>
-</ul>
-<p><a href="/zh-cn/enterprise-plan">申请企业方案 →</a></p>0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-cn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"博客\",\"item\":\"https://atptoken.ai/zh-cn/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"AI 闸道选型 2026：路由、可观测与治理的一条光谱\",\"item\":\"https://atptoken.ai/zh-cn/blog/ai-gateway-comparison-2026/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"AI 闸道选型 2026：路由、可观测与治理的一条光谱\",\"description\":\"2026 年 AI 闸道可分为路由中枢、可观测层与企业治理／账务平面。依团队规模、多供应商与稽核需求对号入座。\",\"datePublished\":\"2026-08-21\",\"dateModified\":\"2026-08-21\",\"inLanguage\":\"zh-Hans-CN\",\"keywords\":\"AI 闸道, LLM gateway, ATP\",\"url\":\"https://atptoken.ai/zh-cn/blog/ai-gateway-comparison-2026/\",\"mainEntityOfPage\":\"https://atptoken.ai/zh-cn/blog/ai-gateway-comparison-2026/\",\"image\":\"https://atptoken.ai/og/blog/ai-gateway-comparison-2026.jpg\",\"author\":{\"@type\":\"Person\",\"name\":\"hung-chien\",\"jobTitle\":\"AI 增长与品牌经理\",\"worksFor\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}},\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"},\"isPartOf\":{\"@type\":\"Blog\",\"@id\":\"https://atptoken.ai/#blog\",\"name\":\"ATP Token 博客\",\"url\":\"https://atptoken.ai/blog/\",\"description\":\"ATP Token 团队的实务笔记：企业 AI 治理、AI Token 用量账务，以及用一把密钥管理多个模型的日常。\",\"inLanguage\":\"zh-Hans-CN\",\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}}}"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"什么是 AI 闸道？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"位于应用与模型供应商之间的中介层，依产品可负责认证、路由、政策、计量或可观测，同时让应用保持稳定客户端界面。\"}},{\"@type\":\"Question\",\"name\":\"2026 有哪些类型的 AI 闸道？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"三类常见：优化多模型与统一储值的路由中枢；聚焦追踪与品质的可观测层；聚焦组织阶层、预算、白名单与稽核的治理平面。\"}},{\"@type\":\"Question\",\"name\":\"如何选择企业 AI 闸道？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"从失败模式出发：要项目归属、花费上限与撤销，还是主要要模型多样性。评分阶层深度、SDK 相容、日志与预算平面归属。\"}},{\"@type\":\"Question\",\"name\":\"LiteLLM 等于企业治理平台吗？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"自架路由解决开发者存取与弹性；企业治理还包含组织结构、点数分配、角色管理与财务向结算。\"}},{\"@type\":\"Question\",\"name\":\"路由与治理能并用吗？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"可以。研发用路由中枢、正式用治理平面。失败的是正式流量跑在无 cap 的共用 key 上。\"}}]}"}}]],["$","$L2",null,{"data":{"lang":"zh-CN","post":{"slug":"ai-gateway-comparison-2026","title":"AI 闸道选型 2026：路由、可观测与治理的一条光谱","metaTitle":"AI 闸道选型 2026：怎么选","description":"2026 年 AI 闸道可分为路由中枢、可观测层与企业治理／账务平面。依团队规模、多供应商与稽核需求对号入座。","date":"2026-08-21","tags":["AI 闸道","LLM gateway","ATP"],"author":"hung-chien","authorTitle":"AI 增长与品牌经理","tldr":["2026 的 AI 闸道聚成路由中枢、可观测层、治理／账务平面——买错集群会浪费一年。","评分看阶层、白名单、归属、多格式 SDK 与故障切换，而不只模型数量。","许多堆叠会叠加；企业问题是谁拥有预算与撤销平面。"],"faq":[{"q":"什么是 AI 闸道？","a":"位于应用与模型供应商之间的中介层，依产品可负责认证、路由、政策、计量或可观测，同时让应用保持稳定客户端界面。"},{"q":"2026 有哪些类型的 AI 闸道？","a":"三类常见：优化多模型与统一储值的路由中枢；聚焦追踪与品质的可观测层；聚焦组织阶层、预算、白名单与稽核的治理平面。"},{"q":"如何选择企业 AI 闸道？","a":"从失败模式出发：要项目归属、花费上限与撤销，还是主要要模型多样性。评分阶层深度、SDK 相容、日志与预算平面归属。"},{"q":"LiteLLM 等于企业治理平台吗？","a":"自架路由解决开发者存取与弹性；企业治理还包含组织结构、点数分配、角色管理与财务向结算。"},{"q":"路由与治理能并用吗？","a":"可以。研发用路由中枢、正式用治理平面。失败的是正式流量跑在无 cap 的共用 key 上。"}],"readingMinutes":2,"cover":"ai-gateway-comparison-2026","html":"$3"},"newer":{"slug":"openrouter-vs-enterprise-governance","title":"OpenRouter vs 企业 AI 治理平台：各自适合谁（2026）","date":"2026-08-26"},"older":{"slug":"openai-api-vs-enterprise-ai-gateway","title":"OpenAI API vs 企业 AI 闸道：何时直连需要控制层（2026）","date":"2026-08-19"}}}]],["$L4","$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"1D4DZsfbxL_82v4AXbxNN"}
-4:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
-5:["$","script","script-1",{"src":"/_next/static/chunks/1hbxtvg5etpqa.js","async":true}]
-6:["$","script","script-2",{"src":"/_next/static/chunks/0ey98fxnyu7te.js","async":true}]
-7:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
-a:null
+<li><a href="/zh-cn/blog/openrouter-vs-enterprise-governance/">OpenRouter 替代方案（团队版）</a></li>
+<li><a href="/zh-cn/blog/openai-api-vs-enterprise-ai-gateway/">OpenAI API 与 OpenAI 兼容网关</a></li>
+<li><a href="/zh-cn/blog/ai-spending-caps-that-work/">AI API 消费上限对比</a></li>
+</ul>0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-cn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"博客\",\"item\":\"https://atptoken.ai/zh-cn/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"LLM 网关对比 2026：OpenRouter、Vercel AI Gateway、LiteLLM、Portkey、Helicone 与 ATP Token\",\"item\":\"https://atptoken.ai/zh-cn/blog/ai-gateway-comparison-2026/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"什么是 LLM 网关？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"LLM 网关是位于应用和模型供应商之间的服务，对外提供一个可以调用多家模型的 API。根据产品不同，它还负责鉴权、供应商路由与故障切换、请求日志、消费上限和模型权限。\"}},{\"@type\":\"Question\",\"name\":\"最好的 LLM 网关是哪个？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"没有唯一答案，取决于你的约束条件。必须自建选 LiteLLM，要最大的托管模型目录选 OpenRouter，应用在 Vercel 上选 Vercel AI Gateway，想按项目预付预算并设置模型白名单选 ATP Token。\"}},{\"@type\":\"Question\",\"name\":\"LLM 网关和 LLM proxy 一样吗？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"基本一样。proxy 把请求转发给供应商、保持稳定的 API；网关是更宽泛的说法，指同时负责密钥、预算、模型权限和日志的 proxy。\"}},{\"@type\":\"Question\",\"name\":\"LiteLLM 免费吗？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"LiteLLM proxy 开源、自建免费；你支付的是供应商费用和服务器成本。部分功能，例如用户和密钥级别的按模型预算，需要 Enterprise 许可。\"}},{\"@type\":\"Question\",\"name\":\"用了网关还需要供应商账号吗？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"自建网关需要，因为它用你的密钥调用供应商。OpenRouter、Vercel AI Gateway、ATP Token 这类托管网关可以自己计收模型用量，部分也支持自带供应商密钥。\"}}]}"}}]],["$","$L3",null,{"data":{"lang":"zh-CN","post":{"slug":"ai-gateway-comparison-2026","title":"LLM 网关对比 2026：OpenRouter、Vercel AI Gateway、LiteLLM、Portkey、Helicone 与 ATP Token","metaTitle":"LLM 网关对比 2026：6 个选项怎么选","description":"LLM 网关是做什么的，以及截至 2026 年 10 月，六个网关在部署方式、计费、消费上限、模型白名单和 API 格式上的差异。","date":"2026-08-21","tags":["LLM 网关","AI 网关","ATP"],"author":"hung-chien","authorTitle":"AI 增长与品牌经理","tldr":["LLM 网关让应用用一个 API 调用多家模型，同时处理密钥、供应商路由与故障切换、请求日志和消费上限。","到 2026 年，大多数网关都有预算和日志。真正的区别在于：网关部署在哪里、怎么付费、预算绑定在什么单位上，以及上限是硬还是软。","按约束条件选：必须自建（LiteLLM、Portkey 或 Helicone 开源版）、要最大的模型目录（OpenRouter）、部署在 Vercel（Vercel AI Gateway）、要每个项目预付预算并单独设置模型白名单（ATP Token）。"],"faq":[{"q":"什么是 LLM 网关？","a":"LLM 网关是位于应用和模型供应商之间的服务，对外提供一个可以调用多家模型的 API。根据产品不同，它还负责鉴权、供应商路由与故障切换、请求日志、消费上限和模型权限。"},{"q":"最好的 LLM 网关是哪个？","a":"没有唯一答案，取决于你的约束条件。必须自建选 LiteLLM，要最大的托管模型目录选 OpenRouter，应用在 Vercel 上选 Vercel AI Gateway，想按项目预付预算并设置模型白名单选 ATP Token。"},{"q":"LLM 网关和 LLM proxy 一样吗？","a":"基本一样。proxy 把请求转发给供应商、保持稳定的 API；网关是更宽泛的说法，指同时负责密钥、预算、模型权限和日志的 proxy。"},{"q":"LiteLLM 免费吗？","a":"LiteLLM proxy 开源、自建免费；你支付的是供应商费用和服务器成本。部分功能，例如用户和密钥级别的按模型预算，需要 Enterprise 许可。"},{"q":"用了网关还需要供应商账号吗？","a":"自建网关需要，因为它用你的密钥调用供应商。OpenRouter、Vercel AI Gateway、ATP Token 这类托管网关可以自己计收模型用量，部分也支持自带供应商密钥。"}],"readingMinutes":6,"cover":"ai-gateway-comparison-2026","html":"$4"},"newer":{"slug":"openrouter-vs-enterprise-governance","title":"OpenRouter 替代方案（团队版）：费用、预算与模型管控对比（2026）","date":"2026-08-26","cover":"openrouter-vs-enterprise-governance"},"older":{"slug":"openai-api-vs-enterprise-ai-gateway","title":"OpenAI API 与 OpenAI 兼容网关：什么时候该换、代码要改哪里（2026）","date":"2026-08-19","cover":"openai-api-vs-enterprise-ai-gateway"}}}]],["$L5","$L6","$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"q8ogy5bwfTluQawd-N4pH"}
+5:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0bk251ba95uho.css","precedence":"next"}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/031jyqwh2ymjo.js","async":true}]
+7:["$","script","script-1",{"src":"/_next/static/chunks/12btwas-eg9md.js","async":true}]
+8:["$","script","script-2",{"src":"/_next/static/chunks/0tc57bytaqvvw.js","async":true}]
+9:["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]
+c:null

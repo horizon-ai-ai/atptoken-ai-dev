@@ -104,9 +104,9 @@ curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks/task_... \
 | `happyhorse-1.1-r2v` | 文本 + 1–9 张参考图 | 3–15 秒 | 依请求 720P／1080P | 统一 |
 | `happyhorse-1.0-video-edit` | 1 支源视频（3–60 秒）+ 最多 5 张参考图 | 依源视频长度 | 依请求 720P／1080P | **DashScope** |
 
-> **wan-2-7 不論请求分辨率皆输出 1080P**
+> **wan-2-7 不论请求分辨率皆输出 1080P**
 >
-> `wan-2-7-t2v`／`wan-2-7-i2v` 目前即使请求 `720P` 仍返回 1080P 视频，且计费依实际产出计算——5 秒视频會以 1080P 费率计价。请以 1080P 估算预算；若需要 720P 价位请改用 `happyhorse-1.1-*`。
+> `wan-2-7-t2v`／`wan-2-7-i2v` 目前即使请求 `720P` 仍返回 1080P 视频，且计费依实际产出计算——5 秒视频会以 1080P 费率计价。请以 1080P 估算预算；若需要 720P 价位请改用 `happyhorse-1.1-*`。
 
 > **HappyHorse 只支持 720P 与 1080P**
 >
@@ -171,15 +171,15 @@ curl https://api.atptoken.ai/omni/media/v1/tasks/cgt_... -H "Authorization: Bear
 # → { "output": { "task_status": "SUCCEEDED", "video_url": "https://media.atptoken.ai/v/..." }, "usage": { … } }
 ```
 
-`input.media[].type` 只接受 `video` 與 `reference_image`，网址字段名为 `url`（不是 `video_url`）。源视频与每一张参考图都必須是公网免鉴权可直接下载的文件；任一个抓不到时任务会以 `FAILED`＋`Failed to download …` 结束且不计费。此端点返回 DashScope 形状（`output.task_status`、`output.video_url`），且目前输出长度依源视频长度，而非 `parameters.duration`。
+`input.media[].type` 只接受 `video` 与 `reference_image`，网址字段名为 `url`（不是 `video_url`）。源视频与每一张参考图都必须是公网免鉴权可直接下载的文件；任一个抓不到时任务会以 `FAILED`＋`Failed to download …` 结束且不计费。此端点返回 DashScope 形状（`output.task_status`、`output.video_url`），且目前输出长度依源视频长度，而非 `parameters.duration`。
 
 **计费** — 按输出秒数 × 分辨率计费，以 video tokens 计量（`宽 × 高 × 秒数 × 24 fps ÷ 1024`）。`-r2v` 与 `-video-edit` 的**输入视频秒数一并计费**，例如以 5 秒源视频产出 5 秒成品，计 10 秒。任务失败不计费。费率见[价格页](https://atptoken.ai/zh-cn/pricing/)。
 
 **其他模型特性**
 
-- **水印**：HappyHorse 水印**默认开启**——需传 `watermark: false` 关闭；Wan 2.7 預設关闭。
+- **水印**：HappyHorse 水印**默认开启**——需传 `watermark: false` 关闭；Wan 2.7 默认关闭。
 - **画面比例**：HappyHorse 在共用清单之外另支持 `4:5`、`5:4`、`9:21`、`21:9`。
-- **Prompt 長度**：5,000 字符（HappyHorse 中文 2,500 字）。
+- **Prompt 长度**：5,000 字符（HappyHorse 中文 2,500 字）。
 - 这些模型目前不支持 `generate_audio`。
 
 ### 错误

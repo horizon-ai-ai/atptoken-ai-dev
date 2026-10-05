@@ -1,102 +1,197 @@
 1:"$Sreact.fragment"
-2:I[86402,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"AnalyticsNoScript"]
-c:I[68027,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default",1]
-:HL["/_next/static/chunks/0qeh15sd4m41q.css","style"]
-:HL["/_next/static/chunks/09g-4e0_i9581.css","style"]
-:HL["/_next/static/media/ca31d6821328a4e9-s.p.2svk7cnw5x6df.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/_next/static/media/f7aa21714c1c53f8-s.p.0-95eo-012xnf.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-3:T7f9,{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.horizon-ai.ai/#organization","name":"Horizon AI","url":"https://www.horizon-ai.ai","logo":"https://atptoken.ai/atp_logo.svg","sameAs":["https://www.linkedin.com/company/horizon-ai-tw/","https://atptoken.ai"],"contactPoint":{"@type":"ContactPoint","email":"service@horizon-ai.ai","contactType":"customer support","url":"https://atptoken.ai/contact/","availableLanguage":["en","zh-Hant","zh-Hans"]},"parentOrganization":{"@type":"Organization","name":"KONST Tech","url":"https://www.konsttech.ai/"}},{"@type":"Organization","@id":"https://atptoken.ai/#brand","name":"ATP Token","url":"https://atptoken.ai","parentOrganization":{"@id":"https://www.horizon-ai.ai/#organization"},"sameAs":["https://atptoken.ai"],"contactPoint":{"@type":"ContactPoint","email":"service@horizon-ai.ai","contactType":"customer support","url":"https://atptoken.ai/contact/","availableLanguage":["en","zh-Hant","zh-Hans"]}},{"@type":"WebSite","@id":"https://atptoken.ai/#website","name":"ATP Token","url":"https://atptoken.ai","publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"inLanguage":"en"},{"@type":"SoftwareApplication","@id":"https://atptoken.ai/#software","name":"ATP Token AI Gateway","alternateName":["ATP Token","ATPToken","ATP Petrichor"],"applicationCategory":"DeveloperApplication","operatingSystem":"Web","url":"https://atptoken.ai","image":"https://atptoken.ai/og-image.png","description":"Enterprise AI governance and billing platform: one key for OpenAI-compatible, Anthropic, and Gemini-style models, with per-request logs and unified credits.","sameAs":["https://atptoken.ai"],"brand":{"@id":"https://atptoken.ai/#brand"},"offers":{"@type":"Offer","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","priceCurrency":"USD","minPrice":"5","description":"Pay-as-you-go credits with a USD 5 minimum top-up. No monthly fee."},"url":"https://atptoken.ai/pricing/"},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}]}0:{"P":null,"c":["","zh-tw","blog","ai-gateway-comparison-2026",""],"q":"","i":false,"f":[[["",{"children":[["locale","zh-tw","d",null],{"children":["blog",{"children":[["slug","ai-gateway-comparison-2026","d",null],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0qeh15sd4m41q.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/09g-4e0_i9581.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/3629_rsmfo4lu.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/14mrh2-p_w84d.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"className":"figtree_816e51ac-module__-mVWqG__variable lexend_559e926c-module__yRaCra__variable notocjk_be903710-module__cpFwhq__variable notoscgap_df5d2ec9-module__O8SyOa__variable ibm_plex_mono_69504ce2-module__RMiYDW__variable h-full antialiased","children":["$","body",null,{"className":"min-h-full flex flex-col","children":[["$","$L2",null,{}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){try{var p=location.pathname||\"\";var l=\"en\";if(/\\/(zh-tw|tw)(\\/|$)/i.test(p))l=\"zh-Hant-TW\";else if(/\\/(zh-cn|cn)(\\/|$)/i.test(p))l=\"zh-Hans-CN\";document.documentElement.lang=l;if(l!==\"en\")return;if(/\\/en(\\/|$)/i.test(p))return;var s=localStorage.getItem(\"atp_lang\");if(s!==\"zh-TW\"&&s!==\"zh-CN\")return;var base=p.replace(/\\/+$/,\"\")||\"/\";var ok=base===\"/\"||/^\\/(landing|pricing|docs|enterprise-plan|privacy|terms|aup|blog|models|about)(\\/|$)/.test(base);if(!ok)return;var pref=s===\"zh-TW\"?\"/zh-tw\":\"/zh-cn\";var dest=pref+(base===\"/\"?\"/\":base+\"/\");location.replace(dest+location.search+location.hash);}catch(e){}})();"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}],"$L4","$L5"]}]}]]}],{"children":["$L6",{"children":["$L7",{"children":["$L8",{"children":["$L9",{},null,false,null]},null,false,"$@a"]},null,false,"$@a"]},null,false,null]},null,false,null],"$Lb",false]],"m":"$undefined","G":["$c",["$Ld","$Le"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"1D4DZsfbxL_82v4AXbxNN"}
-f:I[86402,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"Analytics"]
-10:I[72299,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"AuthProvider"]
-11:I[33499,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"LanguageProvider"]
-12:I[91432,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"ToastProvider"]
-13:I[39756,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
-14:I[37457,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
-15:I[48209,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/40u-hdpkci2a7.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"PublicNav"]
-16:I[48209,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/40u-hdpkci2a7.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"LocalizedText"]
-1d:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
-1e:"$Sreact.suspense"
-21:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"ViewportBoundary"]
-23:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"MetadataBoundary"]
-4:["$","$Lf",null,{}]
-5:["$","$L10",null,{"children":["$","$L11",null,{"children":["$","$L12",null,{"children":["$","$L13",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L14",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","div",null,{"className":"flex min-h-screen flex-col bg-canvas text-ink","children":[["$","$L15",null,{}],["$","main",null,{"className":"flex flex-1 flex-col items-center justify-center px-4 py-24 text-center","style":{"background":"var(--wash-header)"},"children":[["$","svg",null,{"viewBox":"0 0 200 240","className":"h-28 w-28 animate-rise text-hairline","aria-hidden":"true","fill":"none","children":[["$","defs",null,{"children":["$","linearGradient",null,{"id":"_S_1_","x1":"389.55","y1":"67.0893","x2":"20.9509","y2":"163.615","gradientUnits":"userSpaceOnUse","children":[["$","stop",null,{"stopColor":"#FD0E4A"}],["$","stop",null,{"offset":"0.5","stopColor":"#F04D3B"}],["$","stop",null,{"offset":"1","stopColor":"#FEAB11"}]]}]}],["$","path",null,{"d":"M100 240 V102","stroke":"currentColor","strokeWidth":"6","strokeLinecap":"round"}],["$","g",null,{"transform":"translate(100 96) scale(0.28) translate(-233 -219)","children":[["$","path","226.433 275.786C239.653",{"d":"M226.433 275.786C239.653 263.532 261.436 272.84 261.436 291.143V365.377C261.436 366.774 260.303 367.906 258.906 367.906H234.875C233.478 367.906 232.345 366.774 232.345 365.377V310.99L176.911 366.425C175.962 367.373 174.676 367.906 173.334 367.906H137.342C136.216 367.906 135.651 366.544 136.448 365.747L225.81 276.385L226.433 275.786Z","fill":"url(#_S_1_)"}],["$","path","271.641 251.807C264.073",{"d":"M271.641 251.807C264.073 235.447 279.657 217.607 297.063 223.262L367.664 246.202C368.993 246.634 369.72 248.061 369.288 249.389L361.862 272.244C361.43 273.573 360.003 274.3 358.675 273.868L306.95 257.062L342.541 326.913C343.15 328.109 343.259 329.497 342.845 330.774L331.723 365.003C331.375 366.075 329.905 366.191 329.393 365.187L272.019 252.584L271.641 251.807Z","fill":"url(#_S_1_)"}],["$","path","262.805 201.401C244.907",{"d":"M262.805 201.401C244.907 203.543 232.756 183.21 243.514 168.403L287.147 108.346C287.968 107.216 289.55 106.965 290.681 107.786L310.122 121.912C311.253 122.733 311.503 124.315 310.682 125.445L278.714 169.445L356.145 157.181C357.47 156.971 358.825 157.296 359.91 158.085L389.028 179.24C389.94 179.902 389.595 181.336 388.482 181.512L263.661 201.282L262.805 201.401Z","fill":"url(#_S_1_)"}],["$","path","212.135 194.228C208.642",{"d":"M212.135 194.228C208.642 211.912 185.549 217.185 174.791 202.378L131.157 142.321C130.336 141.191 130.586 139.609 131.717 138.788L151.158 124.663C152.289 123.842 153.871 124.092 154.692 125.223L186.659 169.222L198.923 91.7914C199.133 90.4662 199.861 89.2786 200.946 88.4899L230.064 67.3346C230.976 66.6723 232.233 67.4428 232.057 68.5557L212.287 193.377L212.135 194.228Z","fill":"url(#_S_1_)"}],["$","path","189.656 240.201C205.395",{"d":"M189.656 240.201C205.395 248.988 203.274 272.581 185.867 278.237L115.267 301.176C113.938 301.608 112.511 300.881 112.079 299.552L104.653 276.697C104.221 275.368 104.948 273.941 106.277 273.51L158.002 256.703L88.1505 221.112C86.955 220.503 86.0504 219.444 85.6358 218.168L74.5138 183.938C74.1656 182.866 75.2869 181.909 76.2909 182.42L188.894 239.794L189.656 240.201Z","fill":"url(#_S_1_)"}]]}]]}],["$","div",null,{"className":"mt-6 animate-rise font-mono text-[13px] text-sand","style":{"animationDelay":"60ms"},"children":"404 · not found"}],["$","h1",null,{"className":"mt-3 animate-rise text-2xl font-semibold tracking-tight text-ink sm:text-[32px]","style":{"animationDelay":"120ms"},"children":["$","$L16",null,{"value":{"en":"Page not found","zh-TW":"找不到這個頁面","zh-CN":"找不到这个页面"}}]}],["$","p",null,{"className":"mt-3 max-w-md animate-rise text-sm leading-relaxed text-umber sm:text-base","style":{"animationDelay":"180ms"},"children":"$L17"}],"$L18","$L19"]}],"$L1a"]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]
-6:["$","$1","c",{"children":[null,"$L1b"]}]
-7:["$","$1","c",{"children":[null,["$","$L13",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L14",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
-8:["$","$1","c",{"children":[null,["$","$L13",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L14",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
-9:["$","$1","c",{"children":["$L1c",[["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/1hbxtvg5etpqa.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0ey98fxnyu7te.js","async":true,"nonce":"$undefined"}]],["$","$L1d",null,{"children":["$","$1e",null,{"name":"Next.MetadataOutlet","children":"$@1f"}]}]]}]
-20:[]
-a:"$W20"
-b:["$","$1","h",{"children":[null,["$","$L21",null,{"children":"$L22"}],["$","div",null,{"hidden":true,"children":["$","$L23",null,{"children":["$","$1e",null,{"name":"Next.Metadata","children":"$L24"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
-d:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0qeh15sd4m41q.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
-e:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/09g-4e0_i9581.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
-25:I[22016,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/40u-hdpkci2a7.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],""]
-26:I[48209,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/40u-hdpkci2a7.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"Footer"]
-17:["$","$L16",null,{"value":{"en":"Nothing has landed at this address. The page may have moved, or it never existed.","zh-TW":"這個位址還沒有東西落地——頁面可能已經搬家，或從未存在。","zh-CN":"这个地址还没有东西落地——页面可能已经搬家，或从未存在。"}}]
-18:["$","div",null,{"className":"mt-8 flex animate-rise flex-col gap-3 sm:flex-row","style":{"animationDelay":"240ms"},"children":[["$","$L25",null,{"href":"/","className":"btn-pill inline-flex items-center justify-center rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-white","children":["$","$L16",null,{"value":{"en":"Back to home","zh-TW":"回到首頁","zh-CN":"回到首页"}}]}],["$","$L25",null,{"href":"/docs","className":"btn-pill inline-flex items-center justify-center rounded-full border border-hairline bg-canvas px-7 py-3.5 text-sm font-medium text-ink hover:bg-haze","children":["$","$L16",null,{"value":{"en":"View docs","zh-TW":"查看文件","zh-CN":"查看文档"}}]}]]}]
-19:["$","p",null,{"className":"mt-10 animate-rise font-mono text-xs text-sand","style":{"animationDelay":"300ms"},"children":[["$","$L16",null,{"value":{"en":"Looking for something specific?","zh-TW":"在找特定的內容？","zh-CN":"在找特定的内容？"}}]," ",["$","a",null,{"href":"/sitemap.xml","className":"underline hover:text-ink","children":"sitemap.xml"}]," ","·"," ",["$","a",null,{"href":"/llms.txt","className":"underline hover:text-ink","children":"llms.txt"}]," ","·"," ",["$","a",null,{"href":"/openapi.json","className":"underline hover:text-ink","children":"openapi.json"}]]}]
-1a:["$","$L26",null,{}]
-1b:["$","$L11",null,{"initialLang":"zh-TW","children":["$","$L13",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L14",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]
-27:I[51713,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"default"]
-28:Tf35,<p>AI 閘道選型是把「應用與模型供應商之間的產品」放到同一光譜上比較。</p>
-<p><strong>為你害怕的失敗模式而買。</strong> 怕試不了模型→路由；怕看不見品質→可觀測；怕解釋不了或停不了花費→治理。我們用公開產品姿態與 ATP 文件評治理列（<a href="/zh-tw/docs/how-it-works">how it works</a>、<a href="/zh-tw/docs/console-setup" class="doc-term-def" data-def="帳號的最上層，底下再分 workspace 與 project。">console setup</a>），<strong>不排名誰最便宜</strong>。</p>
-<h2 id="光譜">光譜</h2>
+2:I[86402,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"AnalyticsNoScript"]
+e:I[68027,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"default",1]
+:HL["/_next/static/chunks/1-c97juak496i.css","style"]
+:HL["/_next/static/chunks/27h8a2rd48e9r.css","style"]
+:HL["/_next/static/media/797e433ab948586e-s.p.0r6juujl39pe6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/chunks/0bk251ba95uho.css","style"]
+3:["$","style",null,{"children":".reveal,.reveal [class*=\"approveRow\"],.reveal [class*=\"eyebrow\"]>svg:first-child{opacity:1!important;transform:none!important}"}]
+4:T445,(function(){try{var p=location.pathname||"";var l="en";if(/\/(zh-tw|tw)(\/|$)/i.test(p))l="zh-Hant-TW";else if(/\/(zh-cn|cn)(\/|$)/i.test(p))l="zh-Hans-CN";document.documentElement.lang=l;if(l!=="en")return;if(/\/en(\/|$)/i.test(p))return;var s=localStorage.getItem("atp_lang");var base=p.replace(/\/+$/,"")||"/";var ok=base==="/"||/^\/(landing|pricing|docs|enterprise-plan|privacy|terms|aup|blog|models|about|providers|compare|guides)(\/|$)/.test(base);if(!ok){var d=s;if(d!=="en"&&d!=="zh-TW"&&d!=="zh-CN"){var n=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""]).join(",").toLowerCase();d=/zh-cn|zh-hans/.test(n)?"zh-CN":/zh-tw|zh-hk|zh-mo|zh-hant/.test(n)?"zh-TW":/(^|,)zh(-|,|$)/.test(n)?"zh-CN":"en";}if(d!=="en"){var r=document.documentElement;r.setAttribute("data-lang-pending",d);setTimeout(function(){r.removeAttribute("data-lang-pending")},2500);}return;}if(s!=="zh-TW"&&s!=="zh-CN")return;var pref=s==="zh-TW"?"/zh-tw":"/zh-cn";var dest=pref+(base==="/"?"/":base+"/");location.replace(dest+location.search+location.hash);}catch(e){}})();5:T7f9,{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.horizon-ai.ai/#organization","name":"Horizon AI","url":"https://www.horizon-ai.ai","logo":"https://atptoken.ai/atp_logo.svg","sameAs":["https://www.linkedin.com/company/horizon-ai-tw/","https://atptoken.ai"],"contactPoint":{"@type":"ContactPoint","email":"service@horizon-ai.ai","contactType":"customer support","url":"https://atptoken.ai/contact/","availableLanguage":["en","zh-Hant","zh-Hans"]},"parentOrganization":{"@type":"Organization","name":"KONST Tech","url":"https://www.konsttech.ai/"}},{"@type":"Organization","@id":"https://atptoken.ai/#brand","name":"ATP Token","url":"https://atptoken.ai","parentOrganization":{"@id":"https://www.horizon-ai.ai/#organization"},"sameAs":["https://atptoken.ai"],"contactPoint":{"@type":"ContactPoint","email":"service@horizon-ai.ai","contactType":"customer support","url":"https://atptoken.ai/contact/","availableLanguage":["en","zh-Hant","zh-Hans"]}},{"@type":"WebSite","@id":"https://atptoken.ai/#website","name":"ATP Token","url":"https://atptoken.ai","publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"inLanguage":"en"},{"@type":"SoftwareApplication","@id":"https://atptoken.ai/#software","name":"ATP Token AI Gateway","alternateName":["ATP Token","ATPToken","ATP Petrichor"],"applicationCategory":"DeveloperApplication","operatingSystem":"Web","url":"https://atptoken.ai","image":"https://atptoken.ai/og-image.png","description":"Enterprise AI governance and billing platform: one key for OpenAI-compatible, Anthropic, and Gemini-style models, with per-request logs and unified credits.","sameAs":["https://atptoken.ai"],"brand":{"@id":"https://atptoken.ai/#brand"},"offers":{"@type":"Offer","priceCurrency":"USD","priceSpecification":{"@type":"UnitPriceSpecification","priceCurrency":"USD","minPrice":"5","description":"Pay-as-you-go credits with a USD 5 minimum top-up. No monthly fee."},"url":"https://atptoken.ai/pricing/"},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}]}0:{"P":null,"c":["","zh-tw","blog","ai-gateway-comparison-2026",""],"q":"","i":false,"f":[[["",{"children":[["locale","zh-tw","d",null],{"children":["blog",{"children":[["slug","ai-gateway-comparison-2026","d",null],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1-c97juak496i.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/27h8a2rd48e9r.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/3t8toeybct1ql.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/14mrh2-p_w84d.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1fmxoc5c4a_2q.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"className":"geist_b99934fc-module__eWTsoq__variable notocjk_be903710-module__cpFwhq__variable notoscgap_df5d2ec9-module__O8SyOa__variable geist_mono_5a17c8cb-module__gcP92q__variable h-full antialiased","children":["$","body",null,{"className":"min-h-full flex flex-col","children":[["$","$L2",null,{}],["$","noscript",null,{"children":"$3"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$4"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6","$L7"]}]}]]}],{"children":["$L8",{"children":["$L9",{"children":["$La",{"children":["$Lb",{},null,false,null]},null,false,"$@c"]},null,false,"$@c"]},null,false,null]},null,false,null],"$Ld",false]],"m":"$undefined","G":["$e",["$Lf","$L10"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"q8ogy5bwfTluQawd-N4pH"}
+11:I[86402,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"Analytics"]
+12:I[72299,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"AuthProvider"]
+13:I[33499,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"LanguageProvider"]
+14:I[91432,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"ToastProvider"]
+15:I[39756,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"default"]
+16:I[37457,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"default"]
+17:I[51800,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js","/_next/static/chunks/1zxyn5k7q7y_5.js"],"LazyNotFoundView"]
+1a:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"OutletBoundary"]
+1b:"$Sreact.suspense"
+1e:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"ViewportBoundary"]
+20:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"MetadataBoundary"]
+6:["$","$L11",null,{}]
+7:["$","$L12",null,{"children":["$","$L13",null,{"children":["$","$L14",null,{"children":["$","$L15",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L16",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L17",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]
+8:["$","$1","c",{"children":[null,"$L18"]}]
+9:["$","$1","c",{"children":[null,["$","$L15",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L16",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+a:["$","$1","c",{"children":[null,["$","$L15",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L16",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+b:["$","$1","c",{"children":["$L19",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0bk251ba95uho.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/031jyqwh2ymjo.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/12btwas-eg9md.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0tc57bytaqvvw.js","async":true,"nonce":"$undefined"}]],["$","$L1a",null,{"children":["$","$1b",null,{"name":"Next.MetadataOutlet","children":"$@1c"}]}]]}]
+1d:[]
+c:"$W1d"
+d:["$","$1","h",{"children":[null,["$","$L1e",null,{"children":"$L1f"}],["$","div",null,{"hidden":true,"children":["$","$L20",null,{"children":["$","$1b",null,{"name":"Next.Metadata","children":"$L21"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+f:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1-c97juak496i.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+10:["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/27h8a2rd48e9r.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+18:["$","$L13",null,{"initialLang":"zh-TW","children":["$","$L15",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L16",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]
+23:I[51713,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js","/_next/static/chunks/031jyqwh2ymjo.js","/_next/static/chunks/12btwas-eg9md.js","/_next/static/chunks/0tc57bytaqvvw.js"],"default"]
+22:T4e0,{"@context":"https://schema.org","@type":"BlogPosting","headline":"LLM 閘道比較 2026：OpenRouter、Vercel AI Gateway、LiteLLM、Portkey、Helicone 與 ATP Token","description":"LLM 閘道是做什麼的，以及截至 2026 年 10 月，六個閘道在部署方式、計費、花費上限、模型白名單與 API 格式上的差異。","datePublished":"2026-08-21","dateModified":"2026-08-21","inLanguage":"zh-Hant-TW","keywords":"LLM 閘道, AI 閘道, ATP","url":"https://atptoken.ai/zh-tw/blog/ai-gateway-comparison-2026/","mainEntityOfPage":"https://atptoken.ai/zh-tw/blog/ai-gateway-comparison-2026/","image":"https://atptoken.ai/og/blog/ai-gateway-comparison-2026.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI 成長與品牌經理","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token 部落格","url":"https://atptoken.ai/blog/","description":"ATP Token 團隊的實務筆記：企業 AI 治理、AI Token 用量帳務，以及用一把金鑰管理多個模型的日常。","inLanguage":"zh-Hant-TW","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}24:T30a2,<p>LLM 閘道是位於應用與模型供應商之間的服務：程式只對一個 API 呼叫多家模型，金鑰、路由與容錯、請求紀錄與花費上限由閘道處理。本文用同一份清單比較 2026 年團隊常列入考慮的六個閘道，每一項價格與功能都附上該廠商截至 2026 年 10 月的官方文件連結。</p>
+<h2 id="llm-閘道做哪些事">LLM 閘道做哪些事</h2>
+<p>依請求經過的順序，有五件事：</p>
+<ol>
+<li>一個 API 呼叫多家模型。程式對同一個 base URL 送出熟悉的格式（通常是 OpenAI 格式），換模型只改 <code>model</code> 欄位。</li>
+<li>驗證與金鑰。閘道發自己的金鑰，供應商憑證不必放進應用。</li>
+<li>存取規則。決定這把金鑰能不能呼叫這個模型。</li>
+<li>路由與容錯。為模型挑一個供應商，失敗時改送別家。</li>
+<li>計量、紀錄與上限。逐筆記錄 token 與費用，預算到了就擋下。</li>
+</ol>
+<p>在 ATP Token 上，這幾個階段對應到可以實測的狀態碼：金鑰錯誤 401、模型不在<a class="doc-term" href="/zh-tw/docs/resources/" data-def="權限與帳務的最小單位；金鑰、允許模型、點數預算都掛在 project 上。">專案</a>允許清單 403、供應商失敗 502 或 503、專案點數用完 402（<a href="/zh-tw/docs/how-it-works/">運作方式</a>、<a href="/zh-tw/docs/errors/">錯誤</a>）。</p>
+<h2 id="六個閘道一覽">六個閘道一覽</h2>
 <table>
 <thead>
 <tr>
-<th>集群</th>
-<th>優化</th>
-<th>弱在</th>
+<th></th>
+<th>跑在哪裡</th>
+<th>你付的錢</th>
+<th>預算綁在</th>
+<th>到上限時</th>
+<th>模型白名單</th>
+<th>API 格式</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>路由中樞</td>
-<td>模型廣、一<a class="doc-term" href="/zh-tw/docs/topup" data-def="為錢包加值點數，最低 5 美元，用多少付多少。">儲值</a>、快切</td>
-<td>深組織預算、正式稽核角色</td>
+<td><a href="https://openrouter.ai/pricing" target="_blank" rel="noopener noreferrer">OpenRouter</a></td>
+<td>代管</td>
+<td>供應商價格＋購買點數刷卡 5.5%（Standard）</td>
+<td>API 金鑰、成員；工作區需 Enterprise</td>
+<td>拒絕</td>
+<td>對成員或金鑰設 guardrails</td>
+<td>OpenAI 相容、Anthropic Messages</td>
 </tr>
 <tr>
-<td>可觀測</td>
-<td>追蹤、評測</td>
-<td>依<a class="doc-term" href="/zh-tw/docs/resources" data-def="權限與帳務的最小單位；金鑰、允許模型、點數預算都掛在 project 上。">專案</a>強制花費天花板</td>
+<td><a href="https://vercel.com/docs/ai-gateway/pricing" target="_blank" rel="noopener noreferrer">Vercel AI Gateway</a></td>
+<td>代管</td>
+<td>供應商定價，token 不加價；可能有金流手續費</td>
+<td>團隊、專案、金鑰、成員</td>
+<td>402，軟上限</td>
+<td>供應商白名單（付費加購）</td>
+<td>AI SDK、OpenAI Chat 與 Responses、Anthropic Messages</td>
 </tr>
 <tr>
-<td>治理／帳務</td>
-<td>階層、cap、歸屬、撤銷</td>
-<td>單靠長尾模型動物園</td>
+<td><a href="https://docs.litellm.ai/docs/proxy/users" target="_blank" rel="noopener noreferrer">LiteLLM</a></td>
+<td>自架（開源）</td>
+<td>自家供應商帳單＋主機；可選 Enterprise 授權</td>
+<td>金鑰、使用者、團隊、客戶</td>
+<td>拒絕</td>
+<td>依金鑰或團隊設 access group</td>
+<td>OpenAI 相容</td>
 </tr>
 <tr>
-<td>自架路由</td>
-<td>基礎建設全控</td>
-<td>開箱財務工作流</td>
+<td><a href="https://portkey.ai/pricing" target="_blank" rel="noopener noreferrer">Portkey</a></td>
+<td>代管；另有開源與 VPC 選項</td>
+<td>免費方案、Production 每月 49 美元、Enterprise 另議</td>
+<td>供應商或虛擬金鑰（Enterprise 與部分 Pro）</td>
+<td>金鑰到上限即失效</td>
+<td>本文未比較</td>
+<td>OpenAI 相容</td>
+</tr>
+<tr>
+<td><a href="https://docs.helicone.ai/gateway/overview" target="_blank" rel="noopener noreferrer">Helicone</a></td>
+<td>開源（Apache）或代管</td>
+<td>見廠商說明</td>
+<td>本文未比較</td>
+<td>—</td>
+<td>本文未比較</td>
+<td>OpenAI 相容</td>
+</tr>
+<tr>
+<td><a href="/zh-tw/docs/how-it-works/">ATP Token</a></td>
+<td>代管</td>
+<td>預付點數，依各模型定價扣抵；5 美元起</td>
+<td>專案，額度由工作區與<a class="doc-term" href="/zh-tw/docs/console-setup/" data-def="帳號的最上層，底下再分 workspace 與 project。">組織</a>往下撥</td>
+<td>餘額用完回傳 402</td>
+<td>每個專案一份，送到供應商前檢查（403）</td>
+<td>OpenAI、Anthropic、Gemini</td>
 </tr>
 </tbody></table>
-<h2 id="類別能力矩陣">類別能力矩陣</h2>
-<p>路由強在多模型；治理強在專案階層與分配；可觀測強在品質追蹤。詳見英文長表邏輯與<a href="/zh-tw/blog/openrouter-vs-enterprise-governance">OpenRouter vs 治理</a>。</p>
-<h2 id="代表模式-誠實">代表模式（誠實）</h2>
-<p>OpenRouter 類：開發者多模型強，企業缺口多在階層與 cap。<br>可觀測類：答品質／延遲，帳單仍可能驚喜。<br>自架（LiteLLM 類）：控制最大、維運自擔。<br>ATP Token：組織→工作區→專案→金鑰；白名單；<a class="doc-term" href="/zh-tw/docs/credits" data-def="計費單位。1 美元 = 100 點；用量依各模型牌價換算成點數扣抵。">點數</a>；請求 log；多格式（<a href="/zh-tw/docs/overview">overview</a>）。</p>
-<h2 id="決策樹">決策樹</h2>
-<p>單供應商單團隊→直連；多模型少人→路由；多人共錢→治理；要 eval→加可觀測但不要丟 cap。</p>
-<h2 id="更現代的做法">更現代的做法</h2>
-<p>ATP Token 為「誰能花、哪個模型、多少天花板、哪份 log」而建，並進入 Horizon AI 導入專案。</p>
-<p><a href="/zh-tw/docs/quickstart">快速開始 →</a></p>
-<h2 id="常見問題">常見問題</h2>
-<h3 id="什麼是-ai-閘道">什麼是 AI 閘道？</h3>
-<p>位於應用與模型供應商之間的中介層，可負責認證、路由、政策、計量或可觀測。</p>
-<h3 id="2026-有哪些類型的-ai-閘道">2026 有哪些類型的 AI 閘道？</h3>
-<p>路由中樞、可觀測層、治理／帳務平面三類常見。</p>
-<h3 id="如何選擇企業-ai-閘道">如何選擇企業 AI 閘道？</h3>
-<p>從失敗模式出發，評分階層、SDK、日誌與預算平面。</p>
-<h3 id="litellm-等於企業治理平台嗎">LiteLLM 等於企業治理平台嗎？</h3>
-<p>自架路由≠完整企業治理（組織、分配、角色、財務結算）。</p>
-<h3 id="路由與治理能並用嗎">路由與治理能並用嗎？</h3>
-<p>可以；避免正式流量無 cap 共用 key。</p>
+<p>「本文未比較」代表我們在廠商公開文件中沒有找到該項細節，正式採用前請向廠商確認。</p>
+<h2 id="怎麼選-六個問題">怎麼選：六個問題</h2>
+<h3 id="1-閘道必須跑在哪裡">1. 閘道必須跑在哪裡？</h3>
+<p>如果流量不能經過第三方，候選名單就是自架：LiteLLM proxy、Helicone 開源閘道，或 Portkey 的開源與 VPC 選項。本文其他選項都是代管。</p>
+<h3 id="2-想怎麼付錢">2. 想怎麼付錢？</h3>
+<p>有三種模式：</p>
+<ul>
+<li>供應商價格加上<a class="doc-term" href="/zh-tw/docs/topup/" data-def="為錢包加值點數，最低 5 美元，用多少付多少。">儲值</a>手續費。OpenRouter：Standard 刷卡 5.5%（最低 0.80 美元）、Business 8%（<a href="https://openrouter.ai/docs/faq" target="_blank" rel="noopener noreferrer">FAQ</a>）。</li>
+<li>照供應商定價、token 不加價。Vercel AI Gateway，可能有金流手續費（<a href="https://vercel.com/docs/ai-gateway/pricing" target="_blank" rel="noopener noreferrer">定價</a>）。</li>
+<li>預付點數，依各模型定價扣抵。ATP Token：1 點 = 0.01 美元，按量付費點數不會過期，儲值 5 美元起（<a href="/zh-tw/docs/credits/" class="doc-term-def" data-def="計費單位。1 美元 = 100 點；用量依各模型牌價換算成點數扣抵。">點數</a>）。各模型費率見<a href="/zh-tw/pricing/">定價頁</a>。</li>
+</ul>
+<p>自架閘道沒有平台費，成本在供應商帳單與工程時間。</p>
+<h3 id="3-預算綁在什麼上面-是硬上限嗎">3. 預算綁在什麼上面？是硬上限嗎？</h3>
+<p>這是各閘道差最多的地方。</p>
+<ul>
+<li>OpenRouter：guardrails 裡的預算掛在成員或金鑰上，按日、週、月重置；工作區預算需 Enterprise（<a href="https://openrouter.ai/docs/guides/features/guardrails" target="_blank" rel="noopener noreferrer">guardrails</a>）。</li>
+<li>Vercel：團隊、專案、金鑰、成員四種預算。Vercel 稱之為軟上限：跨過上限的那一筆仍會完成，之後的請求回傳 402（<a href="https://vercel.com/docs/ai-gateway/observability-and-spend/budgets" target="_blank" rel="noopener noreferrer">預算</a>）。</li>
+<li>LiteLLM：依金鑰、使用者、團隊或客戶設預算，重置週期如 <code>30d</code>。</li>
+<li>ATP Token：點數沿組織 → 工作區 → 專案往下撥，專案只能花自己的額度。沒有重置週期，專案用到餘額為零就回傳 402，直到有人再撥款（<a href="/zh-tw/docs/cb-budget-caps/">預算上限設定</a>）。</li>
+</ul>
+<p>週期重置的預算適合「這把金鑰每月不超過 500 美元」；預付額度適合「這條產品線這一季有 5,000 美元」。</p>
+<h3 id="4-應用現在用哪些-sdk-格式">4. 應用現在用哪些 SDK 格式？</h3>
+<p>多數閘道支援 OpenAI 格式。如果有服務用 Anthropic SDK（Claude Code 就是）或 Google GenAI SDK，要確認是否原生支援：OpenRouter 與 Vercel 有 Anthropic Messages 文件；ATP Token 可直接使用 OpenAI、Anthropic、Google GenAI 三種官方 SDK（<a href="/zh-tw/docs/sdk-openai/">OpenAI SDK</a>、<a href="/zh-tw/docs/sdk-anthropic/">Anthropic SDK</a>、<a href="/zh-tw/docs/sdk-google/">Google GenAI SDK</a>）。</p>
+<h3 id="5-需要哪些模型與模態">5. 需要哪些模型與模態？</h3>
+<p>OpenRouter 列出 80+ 家供應商、500+ 個模型。ATP Token 有 11 家供應商、70+ 個模型，包含 <a href="/zh-tw/models/seedance-2-0/">Seedance 2.0</a>、<a href="/zh-tw/models/kling-v3-pro/">Kling v3 Pro</a> 等影片模型，以及 <a href="/zh-tw/models/nano-banana-pro/">Nano Banana Pro</a> 等圖像模型（<a href="/zh-tw/docs/media/">媒體模型</a>）。如果只需要幾個前沿 LLM，目錄大小沒有其他問題重要。</p>
+<h3 id="6-紀錄保留什麼-保留多久">6. 紀錄保留什麼、保留多久？</h3>
+<p>Portkey 公布各方案的保留期：免費方案紀錄 3 天，Production 30 天。ATP Token 的請求紀錄保留 7 天，定位是除錯視圖，帳務以帳務事件為準（<a href="/zh-tw/docs/console-api-logs/">請求紀錄 API</a>）。如果每月檢討花費，請每週匯出或彙整。</p>
+<h2 id="各閘道細看">各閘道細看</h2>
+<h3 id="openrouter">OpenRouter</h3>
+<ul>
+<li>適合：需要最大的代管模型目錄、要快速評估模型。</li>
+<li>控管：組織、工作區、含預算與模型及供應商白名單的 guardrails、ZDR 規則；所有方案都能對單把金鑰設點數上限。</li>
+<li>要注意：購買點數的手續費、點數可能在一年後失效、開立發票只有 Enterprise。完整說明見 <a href="/zh-tw/blog/openrouter-vs-enterprise-governance/">OpenRouter 替代方案（團隊版）</a>。</li>
+</ul>
+<h3 id="vercel-ai-gateway">Vercel AI Gateway</h3>
+<ul>
+<li>適合：部署在 Vercel 的團隊，或想要照供應商定價計費的代管閘道。</li>
+<li>控管：四種預算範圍、50/75/100% 花費通知、請求紀錄、供應商與模型容錯。</li>
+<li>要注意：預算是軟上限；用自帶供應商金鑰的花費不計入預算；部分控管是付費加購。</li>
+</ul>
+<h3 id="litellm">LiteLLM</h3>
+<ul>
+<li>適合：想完全掌控、本來就在維運基礎設施的平台團隊。</li>
+<li>控管：虛擬金鑰、多層預算、用 access group 管模型。</li>
+<li>要注意：要自己維運。使用者與金鑰層級的依模型預算需要 Enterprise 授權。</li>
+</ul>
+<h3 id="portkey">Portkey</h3>
+<ul>
+<li>適合：希望閘道、觀測與 guardrails 在同一個產品裡的團隊。</li>
+<li>控管：對供應商或虛擬金鑰設預算上限，可設通知門檻、每週或每月重置，適用 Enterprise 與部分 Pro 方案（<a href="https://portkey.ai/docs/product/ai-gateway/virtual-keys/budget-limits" target="_blank" rel="noopener noreferrer">預算上限</a>）。每月 49 美元的 Production 方案起有角色權限控管。</li>
+<li>要注意：各方案有紀錄額度（免費每月 1 萬筆，Production 10 萬筆）。</li>
+</ul>
+<h3 id="helicone">Helicone</h3>
+<ul>
+<li>適合：以觀測為主的團隊；閘道開源，以 Rust 撰寫。</li>
+<li>控管：記錄每筆請求的 token 與費用，支援 100+ 個模型的路由、容錯與快取。</li>
+<li>要注意：預算與存取控管功能請依需求向廠商確認，閘道總覽文件中沒有看到。</li>
+</ul>
+<h3 id="atp-token">ATP Token</h3>
+<ul>
+<li>適合：多個團隊共用一筆 AI 預算，每個專案要有撥好的額度與審核過的模型清單。</li>
+<li>控管：組織 → 工作區 → 專案的階層、綁專案的金鑰、每個專案的允許模型、以點數額度作為上限、逐筆請求紀錄、Owner／Admin／Member 角色（<a href="/zh-tw/docs/team/">團隊與角色</a>）。</li>
+<li>要注意：模型目錄比 OpenRouter 小；點數不可退款；請求紀錄保留 7 天。</li>
+</ul>
+<h2 id="同時用兩個閘道">同時用兩個閘道</h2>
+<p>很多團隊最後會有兩個：一個大目錄閘道做研究與評估，一個有治理的閘道跑正式環境。讓這種配置不出事的規則是：正式環境的金鑰不放在研究帳號裡，每個正式服務各有自己的金鑰與預算。參考<a href="/zh-tw/blog/one-project-one-key/">一專案一金鑰</a>。</p>
+<h2 id="在-atp-token-上實際比一次">在 ATP Token 上實際比一次</h2>
+<ol>
+<li>建立一個專案，啟用兩三個想比較的模型，例如 <a href="/zh-tw/models/claude-sonnet-4-6/">claude-sonnet-4-6</a>、<a href="/zh-tw/models/gemini-3-5-flash/">gemini-3-5-flash</a> 與 <a href="/zh-tw/models/deepseek-v4-flash/">deepseek-v4-flash</a>。</li>
+<li>撥少量點數當作這次測試的上限，例如 500 點（5 美元）。</li>
+<li>把現有的 OpenAI、Anthropic 或 Google GenAI client 指向閘道，用同一組提示詞跑每個模型。</li>
+<li>在請求紀錄裡比較每筆請求的 token 與點數（<a href="/zh-tw/docs/monitoring/">用量與紀錄</a>）。模型並排比較頁見 <a href="/zh-tw/compare/gemini-vs-gpt/">/compare</a>。</li>
+</ol>
+<p><a href="/zh-tw/docs/quickstart/">從快速開始上手</a></p>
 <h2 id="延伸閱讀">延伸閱讀</h2>
 <ul>
-<li><a href="/zh-tw/blog/openrouter-vs-enterprise-governance">OpenRouter vs 企業治理</a></li>
-<li><a href="/zh-tw/blog/openai-api-vs-enterprise-ai-gateway">OpenAI API vs 企業 AI 閘道</a></li>
-<li><a href="/zh-tw/blog/enterprise-ai-cost-management-guide">企業 AI 成本管理指南</a></li>
-</ul>
-<p><a href="/zh-tw/enterprise-plan">申請企業方案 →</a></p>1c:[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-tw/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"部落格\",\"item\":\"https://atptoken.ai/zh-tw/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"AI 閘道選型 2026：路由、可觀測與治理的一條光譜\",\"item\":\"https://atptoken.ai/zh-tw/blog/ai-gateway-comparison-2026/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"AI 閘道選型 2026：路由、可觀測與治理的一條光譜\",\"description\":\"2026 年 AI 閘道可分為路由中樞、可觀測層與企業治理／帳務平面。依團隊規模、多供應商與稽核需求對號入座。\",\"datePublished\":\"2026-08-21\",\"dateModified\":\"2026-08-21\",\"inLanguage\":\"zh-Hant-TW\",\"keywords\":\"AI 閘道, LLM gateway, ATP\",\"url\":\"https://atptoken.ai/zh-tw/blog/ai-gateway-comparison-2026/\",\"mainEntityOfPage\":\"https://atptoken.ai/zh-tw/blog/ai-gateway-comparison-2026/\",\"image\":\"https://atptoken.ai/og/blog/ai-gateway-comparison-2026.jpg\",\"author\":{\"@type\":\"Person\",\"name\":\"hung-chien\",\"jobTitle\":\"AI 成長與品牌經理\",\"worksFor\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}},\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"},\"isPartOf\":{\"@type\":\"Blog\",\"@id\":\"https://atptoken.ai/#blog\",\"name\":\"ATP Token 部落格\",\"url\":\"https://atptoken.ai/blog/\",\"description\":\"ATP Token 團隊的實務筆記：企業 AI 治理、AI Token 用量帳務，以及用一把金鑰管理多個模型的日常。\",\"inLanguage\":\"zh-Hant-TW\",\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}}}"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"什麼是 AI 閘道？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"位於應用與模型供應商之間的中介層，依產品可負責認證、路由、政策、計量或可觀測，同時讓應用保持穩定客戶端介面。\"}},{\"@type\":\"Question\",\"name\":\"2026 有哪些類型的 AI 閘道？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"三類常見：優化多模型與統一儲值的路由中樞；聚焦追蹤與品質的可觀測層；聚焦組織階層、預算、白名單與稽核的治理平面。\"}},{\"@type\":\"Question\",\"name\":\"如何選擇企業 AI 閘道？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"從失敗模式出發：要專案歸屬、花費上限與撤銷，還是主要要模型多樣性。評分階層深度、SDK 相容、日誌與預算平面歸屬。\"}},{\"@type\":\"Question\",\"name\":\"LiteLLM 等於企業治理平台嗎？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"自架路由解決開發者存取與彈性；企業治理還包含組織結構、點數分配、角色管理與財務向結算。\"}},{\"@type\":\"Question\",\"name\":\"路由與治理能並用嗎？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"可以。研發用路由中樞、正式用治理平面。失敗的是正式流量跑在無 cap 的共用 key 上。\"}}]}"}}]],["$","$L27",null,{"data":{"lang":"zh-TW","post":{"slug":"ai-gateway-comparison-2026","title":"AI 閘道選型 2026：路由、可觀測與治理的一條光譜","metaTitle":"AI 閘道選型 2026：怎麼選","description":"2026 年 AI 閘道可分為路由中樞、可觀測層與企業治理／帳務平面。依團隊規模、多供應商與稽核需求對號入座。","date":"2026-08-21","tags":["AI 閘道","LLM gateway","ATP"],"author":"hung-chien","authorTitle":"AI 成長與品牌經理","tldr":["2026 的 AI 閘道聚成路由中樞、可觀測層、治理／帳務平面——買錯集群會浪費一年。","評分看階層、白名單、歸屬、多格式 SDK 與故障切換，而不只模型數量。","許多堆疊會疊加；企業問題是誰擁有預算與撤銷平面。"],"faq":[{"q":"什麼是 AI 閘道？","a":"位於應用與模型供應商之間的中介層，依產品可負責認證、路由、政策、計量或可觀測，同時讓應用保持穩定客戶端介面。"},{"q":"2026 有哪些類型的 AI 閘道？","a":"三類常見：優化多模型與統一儲值的路由中樞；聚焦追蹤與品質的可觀測層；聚焦組織階層、預算、白名單與稽核的治理平面。"},{"q":"如何選擇企業 AI 閘道？","a":"從失敗模式出發：要專案歸屬、花費上限與撤銷，還是主要要模型多樣性。評分階層深度、SDK 相容、日誌與預算平面歸屬。"},{"q":"LiteLLM 等於企業治理平台嗎？","a":"自架路由解決開發者存取與彈性；企業治理還包含組織結構、點數分配、角色管理與財務向結算。"},{"q":"路由與治理能並用嗎？","a":"可以。研發用路由中樞、正式用治理平面。失敗的是正式流量跑在無 cap 的共用 key 上。"}],"readingMinutes":2,"cover":"ai-gateway-comparison-2026","html":"$28"},"newer":{"slug":"openrouter-vs-enterprise-governance","title":"OpenRouter vs 企業 AI 治理平台：各自適合誰（2026）","date":"2026-08-26"},"older":{"slug":"openai-api-vs-enterprise-ai-gateway","title":"OpenAI API vs 企業 AI 閘道：何時直連需要控制層（2026）","date":"2026-08-19"}}}]]
-22:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-29:I[27201,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"IconMark"]
-1f:null
-24:[["$","title","0",{"children":"AI 閘道選型 2026：怎麼選 | ATP Token"}],["$","meta","1",{"name":"description","content":"2026 年 AI 閘道可分為路由中樞、可觀測層與企業治理／帳務平面。依團隊規模、多供應商與稽核需求對號入座。"}],["$","meta","2",{"name":"application-name","content":"ATP Token"}],["$","meta","3",{"name":"creator","content":"Horizon AI"}],["$","meta","4",{"name":"publisher","content":"Horizon AI"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","link","7",{"rel":"canonical","href":"https://atptoken.ai/zh-tw/blog/ai-gateway-comparison-2026/"}],["$","link","8",{"rel":"alternate","hrefLang":"en","href":"https://atptoken.ai/blog/ai-gateway-comparison-2026/"}],["$","link","9",{"rel":"alternate","hrefLang":"zh-Hant-TW","href":"https://atptoken.ai/zh-tw/blog/ai-gateway-comparison-2026/"}],["$","link","10",{"rel":"alternate","hrefLang":"zh-Hans-CN","href":"https://atptoken.ai/zh-cn/blog/ai-gateway-comparison-2026/"}],["$","link","11",{"rel":"alternate","hrefLang":"x-default","href":"https://atptoken.ai/blog/ai-gateway-comparison-2026/"}],["$","meta","12",{"property":"og:title","content":"AI 閘道選型 2026：怎麼選"}],["$","meta","13",{"property":"og:description","content":"2026 年 AI 閘道可分為路由中樞、可觀測層與企業治理／帳務平面。依團隊規模、多供應商與稽核需求對號入座。"}],["$","meta","14",{"property":"og:url","content":"https://atptoken.ai/zh-tw/blog/ai-gateway-comparison-2026/"}],["$","meta","15",{"property":"og:site_name","content":"ATP Token"}],["$","meta","16",{"property":"og:image","content":"https://atptoken.ai/og/blog/ai-gateway-comparison-2026.jpg"}],["$","meta","17",{"property":"og:image:width","content":"1200"}],["$","meta","18",{"property":"og:image:height","content":"630"}],["$","meta","19",{"property":"og:image:alt","content":"AI 閘道選型 2026：怎麼選"}],["$","meta","20",{"property":"og:type","content":"website"}],["$","meta","21",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","22",{"name":"twitter:title","content":"AI 閘道選型 2026：怎麼選"}],["$","meta","23",{"name":"twitter:description","content":"2026 年 AI 閘道可分為路由中樞、可觀測層與企業治理／帳務平面。依團隊規模、多供應商與稽核需求對號入座。"}],["$","meta","24",{"name":"twitter:image","content":"https://atptoken.ai/og/blog/ai-gateway-comparison-2026.jpg"}],["$","link","25",{"rel":"shortcut icon","href":"/atp_icon.svg"}],["$","link","26",{"rel":"icon","href":"/favicon.ico?favicon.2xv7nyn6xhano.ico","sizes":"48x48","type":"image/x-icon"}],["$","link","27",{"rel":"icon","href":"/atp_icon.svg","type":"image/svg+xml"}],["$","$L29","28",{}]]
+<li><a href="/zh-tw/blog/openrouter-vs-enterprise-governance/">OpenRouter 替代方案（團隊版）</a></li>
+<li><a href="/zh-tw/blog/openai-api-vs-enterprise-ai-gateway/">OpenAI API 與 OpenAI 相容閘道</a></li>
+<li><a href="/zh-tw/blog/ai-spending-caps-that-work/">AI API 花費上限比較</a></li>
+</ul>19:[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-tw/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"部落格\",\"item\":\"https://atptoken.ai/zh-tw/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"LLM 閘道比較 2026：OpenRouter、Vercel AI Gateway、LiteLLM、Portkey、Helicone 與 ATP Token\",\"item\":\"https://atptoken.ai/zh-tw/blog/ai-gateway-comparison-2026/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$22"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"什麼是 LLM 閘道？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"LLM 閘道是位於應用與模型供應商之間的服務，對外提供一個能呼叫多家模型的 API。依產品不同，它也負責驗證、供應商路由與容錯、請求紀錄、花費上限與模型權限。\"}},{\"@type\":\"Question\",\"name\":\"最好的 LLM 閘道是哪一個？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"沒有單一答案，要看你的限制條件。必須自架選 LiteLLM，要最大的代管模型目錄選 OpenRouter，應用在 Vercel 上選 Vercel AI Gateway，想以專案為單位預付預算並設模型白名單選 ATP Token。\"}},{\"@type\":\"Question\",\"name\":\"LLM 閘道和 LLM proxy 一樣嗎？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"大致一樣。proxy 把請求轉給供應商、維持穩定的 API；閘道是更廣的說法，指同時負責金鑰、預算、模型權限與紀錄的 proxy。\"}},{\"@type\":\"Question\",\"name\":\"LiteLLM 免費嗎？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"LiteLLM proxy 開源、自架免費；你付的是供應商費用與主機成本。部分功能，例如使用者與金鑰層級的依模型預算，需要 Enterprise 授權。\"}},{\"@type\":\"Question\",\"name\":\"用了閘道還需要供應商帳號嗎？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"自架閘道需要，因為它用你的金鑰呼叫供應商。OpenRouter、Vercel AI Gateway、ATP Token 這類代管閘道可以自己計收模型用量，部分也接受你自帶供應商金鑰。\"}}]}"}}]],["$","$L23",null,{"data":{"lang":"zh-TW","post":{"slug":"ai-gateway-comparison-2026","title":"LLM 閘道比較 2026：OpenRouter、Vercel AI Gateway、LiteLLM、Portkey、Helicone 與 ATP Token","metaTitle":"LLM 閘道比較 2026：6 個選項怎麼選","description":"LLM 閘道是做什麼的，以及截至 2026 年 10 月，六個閘道在部署方式、計費、花費上限、模型白名單與 API 格式上的差異。","date":"2026-08-21","tags":["LLM 閘道","AI 閘道","ATP"],"author":"hung-chien","authorTitle":"AI 成長與品牌經理","tldr":["LLM 閘道讓應用用一個 API 呼叫多家模型，並處理金鑰、供應商路由與容錯、請求紀錄與花費上限。","到了 2026 年，多數閘道都有預算與紀錄。真正的差別在：閘道跑在哪裡、怎麼付錢、預算綁在什麼單位上，以及上限是硬是軟。","依限制條件選：必須自架（LiteLLM、Portkey 或 Helicone 開源版）、要最大的模型目錄（OpenRouter）、部署在 Vercel（Vercel AI Gateway）、要每個專案預付預算並各自設模型白名單（ATP Token）。"],"faq":[{"q":"什麼是 LLM 閘道？","a":"LLM 閘道是位於應用與模型供應商之間的服務，對外提供一個能呼叫多家模型的 API。依產品不同，它也負責驗證、供應商路由與容錯、請求紀錄、花費上限與模型權限。"},{"q":"最好的 LLM 閘道是哪一個？","a":"沒有單一答案，要看你的限制條件。必須自架選 LiteLLM，要最大的代管模型目錄選 OpenRouter，應用在 Vercel 上選 Vercel AI Gateway，想以專案為單位預付預算並設模型白名單選 ATP Token。"},{"q":"LLM 閘道和 LLM proxy 一樣嗎？","a":"大致一樣。proxy 把請求轉給供應商、維持穩定的 API；閘道是更廣的說法，指同時負責金鑰、預算、模型權限與紀錄的 proxy。"},{"q":"LiteLLM 免費嗎？","a":"LiteLLM proxy 開源、自架免費；你付的是供應商費用與主機成本。部分功能，例如使用者與金鑰層級的依模型預算，需要 Enterprise 授權。"},{"q":"用了閘道還需要供應商帳號嗎？","a":"自架閘道需要，因為它用你的金鑰呼叫供應商。OpenRouter、Vercel AI Gateway、ATP Token 這類代管閘道可以自己計收模型用量，部分也接受你自帶供應商金鑰。"}],"readingMinutes":6,"cover":"ai-gateway-comparison-2026","html":"$24"},"newer":{"slug":"openrouter-vs-enterprise-governance","title":"OpenRouter 替代方案（團隊版）：費用、預算與模型控管比較（2026）","date":"2026-08-26","cover":"openrouter-vs-enterprise-governance"},"older":{"slug":"openai-api-vs-enterprise-ai-gateway","title":"OpenAI API 與 OpenAI 相容閘道：什麼時候該換、程式要改哪裡（2026）","date":"2026-08-19","cover":"openai-api-vs-enterprise-ai-gateway"}}}]]
+1f:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content"}],["$","meta","2",{"name":"theme-color","content":"#f5f5f5"}]]
+25:I[27201,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"IconMark"]
+1c:null
+21:[["$","title","0",{"children":"LLM 閘道比較 2026：6 個選項怎麼選 | ATP Token"}],["$","meta","1",{"name":"description","content":"LLM 閘道是做什麼的，以及截至 2026 年 10 月，六個閘道在部署方式、計費、花費上限、模型白名單與 API 格式上的差異。"}],["$","meta","2",{"name":"application-name","content":"ATP Token"}],["$","link","3",{"rel":"manifest","href":"/manifest.webmanifest","crossOrigin":"$undefined"}],["$","meta","4",{"name":"creator","content":"Horizon AI"}],["$","meta","5",{"name":"publisher","content":"Horizon AI"}],["$","meta","6",{"name":"robots","content":"index, follow"}],["$","meta","7",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","link","8",{"rel":"canonical","href":"https://atptoken.ai/zh-tw/blog/ai-gateway-comparison-2026/"}],["$","link","9",{"rel":"alternate","hrefLang":"en","href":"https://atptoken.ai/blog/ai-gateway-comparison-2026/"}],["$","link","10",{"rel":"alternate","hrefLang":"zh-Hant-TW","href":"https://atptoken.ai/zh-tw/blog/ai-gateway-comparison-2026/"}],["$","link","11",{"rel":"alternate","hrefLang":"zh-Hans-CN","href":"https://atptoken.ai/zh-cn/blog/ai-gateway-comparison-2026/"}],["$","link","12",{"rel":"alternate","hrefLang":"x-default","href":"https://atptoken.ai/blog/ai-gateway-comparison-2026/"}],["$","meta","13",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","14",{"name":"apple-mobile-web-app-title","content":"ATP Token"}],["$","meta","15",{"name":"apple-mobile-web-app-status-bar-style","content":"default"}],["$","meta","16",{"property":"og:title","content":"LLM 閘道比較 2026：6 個選項怎麼選"}],["$","meta","17",{"property":"og:description","content":"LLM 閘道是做什麼的，以及截至 2026 年 10 月，六個閘道在部署方式、計費、花費上限、模型白名單與 API 格式上的差異。"}],["$","meta","18",{"property":"og:url","content":"https://atptoken.ai/zh-tw/blog/ai-gateway-comparison-2026/"}],["$","meta","19",{"property":"og:site_name","content":"ATP Token"}],["$","meta","20",{"property":"og:image","content":"https://atptoken.ai/og/blog/ai-gateway-comparison-2026.jpg"}],["$","meta","21",{"property":"og:image:width","content":"1200"}],["$","meta","22",{"property":"og:image:height","content":"630"}],["$","meta","23",{"property":"og:image:alt","content":"LLM 閘道比較 2026：6 個選項怎麼選"}],["$","meta","24",{"property":"og:type","content":"website"}],["$","meta","25",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","26",{"name":"twitter:title","content":"LLM 閘道比較 2026：6 個選項怎麼選"}],["$","meta","27",{"name":"twitter:description","content":"LLM 閘道是做什麼的，以及截至 2026 年 10 月，六個閘道在部署方式、計費、花費上限、模型白名單與 API 格式上的差異。"}],["$","meta","28",{"name":"twitter:image","content":"https://atptoken.ai/og/blog/ai-gateway-comparison-2026.jpg"}],["$","link","29",{"rel":"shortcut icon","href":"/atp_icon.svg"}],["$","link","30",{"rel":"icon","href":"/favicon.ico?favicon.2xv7nyn6xhano.ico","sizes":"48x48","type":"image/x-icon"}],["$","link","31",{"rel":"icon","href":"/atp_icon.svg","type":"image/svg+xml"}],["$","link","32",{"rel":"apple-touch-icon","href":"/icons/apple-touch-icon.png","sizes":"180x180"}],["$","$L25","33",{}]]

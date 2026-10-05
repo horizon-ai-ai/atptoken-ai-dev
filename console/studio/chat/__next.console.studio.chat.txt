@@ -1,7 +1,7 @@
-1:I[39756,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"LoadingBoundaryProvider"]
-2:I[65223,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/40ij12uyse-ec.js","/_next/static/chunks/3u9_bfppso_54.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0t9mx_mmklzz1.js","/_next/static/chunks/44r2jobhw6qmh.js","/_next/static/chunks/41mdn2lkg2-22.js","/_next/static/chunks/2t0h01gkk5cum.js","/_next/static/chunks/3mnh1nolfizsm.js"],"StudioSkeleton"]
+1:I[39756,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"LoadingBoundaryProvider"]
+2:I[65223,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js","/_next/static/chunks/031jyqwh2ymjo.js","/_next/static/chunks/0j38h93-xyayz.js","/_next/static/chunks/3bd6x-w0hm5jg.js","/_next/static/chunks/40kql7p4t72-3.js","/_next/static/chunks/1fxtulf40ijqs.js","/_next/static/chunks/3wiz5w3p2u231.js","/_next/static/chunks/2s9h1o25utqy3.js","/_next/static/chunks/2ush_q9g2o5ym.js"],"StudioSkeleton"]
 3:"$Sreact.fragment"
-4:I[39756,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
-5:I[37457,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+4:I[39756,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"default"]
+5:I[37457,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"default"]
 6:[]
-0:{"rsc":["$","$L1",null,{"loading":[["$","$L2","l",{}],[],[["$","script","script-0",{"src":"/_next/static/chunks/3ejec5rcf7fcu.js","async":true}]]],"children":["$","$3","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}]}],"isPartial":false,"staleTime":300,"varyParams":"$W6","buildId":"1D4DZsfbxL_82v4AXbxNN"}
+0:{"rsc":["$","$L1",null,{"loading":[["$","$L2","l",{"variant":"chat"}],[],[]],"children":["$","$3","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}]}],"isPartial":false,"staleTime":300,"varyParams":"$W6","buildId":"q8ogy5bwfTluQawd-N4pH"}

@@ -1,65 +1,300 @@
 1:"$Sreact.fragment"
-2:I[51713,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"default"]
-8:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
-9:"$Sreact.suspense"
-3:T1f92,<p>企业 AI 治理清单，是企业在同时接入多家 AI 服务时，用来逐项检查密钥发放、模型权限、数据边界与预算归账是否到位的检查工具，服务对象是平台团队、安全法务，以及所有要为 AI 费用签字的人。</p>
-<p>先说结论：治理的最小单位是「<a class="doc-term" href="/zh-cn/docs/resources" data-def="权限与帐务的最小单位；金钥、允许模型、点数预算都挂在 project 上。">项目</a>」。密钥挂在项目上、预算挂在项目上、每一笔请求记录也挂在项目上——只要<a href="/zh-cn/blog/one-project-one-key">一项目一密钥</a>成立，下面 12 个检查项就有一半会自动成立。清单分成四组，按「先止血、再上轨道」排序，可以直接带进落地会议逐条打勾；想先看费用端怎么读，可搭配<a href="/zh-cn/blog/how-to-read-your-ai-bill">怎么读懂 AI 账单的三层读法</a>一起看。</p>
-<h2 id="一-密钥与身份">一、密钥与身份</h2>
-<h3 id="1-一个项目一把密钥-密钥跟着项目走-不跟着人走">1. 一个项目一把密钥——密钥跟着项目走，不跟着人走</h3>
-<p>同事离职或转岗时，收回的是那个项目的权限，而不是急着更换全公司共用的钥匙。共用密钥是治理里最贵的技术债：出事时你只知道「有人」，不知道「是谁」。</p>
-<h3 id="2-密钥只显示一次-并集中保管-可停用-可回查">2. 密钥只显示一次，并集中保管——可停用、可回查</h3>
-<p>发出去的密钥要能随时停用；停用之后，还要能从请求记录回头确认它曾经服务哪些系统、影响范围多大。</p>
-<h3 id="3-区分生产与测试环境-测试额度低到烧完也不心疼">3. 区分生产与测试环境——测试额度低到烧完也不心疼</h3>
-<p>测试密钥的额度上限，应该低到任何人误用都不会变成月底的惊吓。生产密钥则走发放流程，留下审批记录。</p>
-<h2 id="二-模型与数据边界">二、模型与数据边界</h2>
-<h3 id="4-建立模型白名单-换模型是决策-不是改一行代码">4. 建立模型白名单——换模型是决策，不是改一行代码</h3>
-<p>不是每个项目都需要最强的模型。白名单让「换模型」成为需要说明理由的决策；平台上有哪些模型可选、各自的计价模式，可以先看<a href="/zh-cn/docs/models">模型目录</a>。</p>
-<h3 id="5-定义数据分级-工程师不该每次自行判断">5. 定义数据分级——工程师不该每次自行判断</h3>
-<p>哪些数据可以送进外部模型、哪些必须先脱敏，写成一页文档。参考架构可以对照 <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">NIST 的 AI 风险管理框架</a>，把分级落到字段层级。</p>
-<h3 id="6-记录各家服务的数据保留政策-集中在同一份文档">6. 记录各家服务的数据保留政策——集中在同一份文档</h3>
-<p>法务与安全团队要查的时候，答案不应该躺在某个人的邮箱里。</p>
-<h2 id="三-预算与归账">三、预算与归账</h2>
-<h3 id="7-在项目层级设置预算上限-先告警-再截断">7. 在项目层级设置预算上限——先告警、再截断</h3>
-<p>超标的第一次通知，不应该是月底的账单。</p>
-<h3 id="8-保留逐请求记录-回答-这笔钱是谁-为了什么花的">8. 保留逐请求记录——回答「这笔钱是谁、为了什么花的」</h3>
-<p>每一笔调用都对应到项目、密钥、模型与 token 数，费用才有办法审计。字段细节见<a href="/zh-cn/docs/spend">用量与费用</a>文档。</p>
-<h3 id="9-每月以同一种单位对账-看趋势-不只看总额">9. 每月以同一种单位对账——看趋势，不只看总额</h3>
-<p>把各家服务的用量换算成同一种单位（例如<a href="/zh-cn/docs/credits" class="doc-term-def" data-def="计费单位。1 美元 = 100 点；用量依各模型牌价换算成点数扣抵。">点数</a>），趋势比绝对数字更早暴露问题。</p>
-<p><a href="/zh-cn/docs/credits" class="doc-term-def" data-def="计费单位。1 美元 = 100 点；用量依各模型牌价换算成点数扣抵。">了解点数如何计价 →</a></p>
-<h2 id="四-流程与审计">四、流程与审计</h2>
-<h3 id="10-新服务的接入流程标准化-多一家服务只是多一行配置">10. 新服务的接入流程标准化——多一家服务只是多一行配置</h3>
-<p>评估、白名单、密钥、预算四步走完才上线，而不是谁先申请到账号谁先用。</p>
-<h3 id="11-建立事件应急预案-密钥泄露时知道先关哪里">11. 建立事件应急预案——密钥泄露时知道先关哪里</h3>
-<p>停用密钥、回查记录、换发密钥三步，写成预案并演练一次。</p>
-<h3 id="12-每季度盘点与权限回收-治理是周期-不是一次性项目">12. 每季度盘点与权限回收——治理是周期，不是一次性项目</h3>
-<p>每季度重跑一次盘点：哪些项目还活着、哪些密钥三十天没有流量、哪些权限可以收回。</p>
-<h2 id="按企业规模怎么套用">按企业规模怎么套用</h2>
-<h3 id="10-人以下-先做第-1-7-8-项">10 人以下：先做第 1、7、8 项</h3>
-<p>小团队不需要委员会，只需要项目密钥、预算上限与逐请求记录——三件事都是配置，不是流程。</p>
-<h3 id="50-到-200-人-补上白名单与数据分级">50 到 200 人：补上白名单与数据分级</h3>
-<p>跨部门用量开始分化，第 4、5 项让「谁能用什么模型」有据可查。</p>
-<h3 id="500-人以上-流程与审计全上">500 人以上：流程与审计全上</h3>
-<p>第 10 到 12 项成为重点，治理从配置升级为周期性制度，并纳入内部审计范围。</p>
-<h2 id="按行业场景的三种落地情境">按行业场景的三种落地情境</h2>
-<h3 id="软件与互联网-速度优先-靠默认值治理">软件与互联网：速度优先，靠默认值治理</h3>
-<p>用测试环境低额度加上生产环境白名单，让实验跑得快、上线守得稳。</p>
-<h3 id="金融与强合规行业-数据边界先行">金融与强合规行业：数据边界先行</h3>
-<p>第 5、6 项先做满，再逐步放开模型使用范围；每笔请求可审计，是内外部审计的共同语言。</p>
-<h3 id="制造与客服现场-用量归账决定成败">制造与客服现场：用量归账决定成败</h3>
-<p>大量重复性请求让成本归属特别重要，第 8、9 项直接决定 AI 预算能不能续批。</p>
-<h2 id="更现代的做法-把清单变成系统的默认值">更现代的做法：把清单变成系统的默认值</h2>
-<p>以上 12 项，传统做法是写成制度、靠人执行；更现代的做法是让治理平台把它们变成默认值。以 ATP Token 为例：<a class="doc-term" href="/zh-cn/docs/console-setup" data-def="帐号的最上层，底下再分 workspace 与 project。">组织</a>、工作区到项目的层级本身就是第 1 项；项目密钥天生带白名单与额度，覆盖第 4、7 项；每笔请求自动写入记录，第 8、9 项不需要任何人记得去做。接口兼容 OpenAI、Anthropic 与 Gemini 格式，接入只需更换 base_url 与密钥。</p>
-<p><a href="/zh-cn/pricing">查看定价 →</a></p>
+2:I[51713,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js","/_next/static/chunks/031jyqwh2ymjo.js","/_next/static/chunks/12btwas-eg9md.js","/_next/static/chunks/0tc57bytaqvvw.js"],"default"]
+9:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+:HL["/_next/static/chunks/0bk251ba95uho.css","style"]
+3:T3b87,<p>AI 治理清单是一份可以逐项验证的管控清单，每一项都有负责人和证据，用来证明公司清楚知道哪些团队用哪些 AI 模型、发送了什么数据、花了多少钱。本文针对模型 API 使用，整理 4 组共 12 个检查项；每一项都写明「完成」是什么样子、谁负责、审计人员会要看什么，并把四组对应到 NIST AI 风险管理框架的四个功能。</p>
+<h2 id="这份清单覆盖什么">这份清单覆盖什么</h2>
+<p>这是一份针对模型 API 使用的运营型清单，范围是 API 密钥、模型访问、数据边界、费用与事件响应。偏见与公平性测试、透明度与可解释性、模型验证，以及 AI 决策对人的影响，都不在范围内。这些请参考 <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">NIST AI 风险管理框架</a>（AI RMF 1.0，2023 年 1 月 26 日发布）及其生成式 AI 配置文件 NIST-AI-600-1（2024 年 7 月 26 日发布）。</p>
+<h2 id="12-个检查项一览">12 个检查项一览</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查项</th>
+<th>负责人</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>每把密钥属于一个项目，并有明确负责人</td>
+<td>平台团队</td>
+<td>列出每把密钥所属项目与负责人的密钥清单</td>
+</tr>
+<tr>
+<td>2</td>
+<td>离职当天吊销 AI 访问权限</td>
+<td>IT + 平台团队</td>
+<td>带吊销时间戳的离职工单</td>
+</tr>
+<tr>
+<td>3</td>
+<td>沙盒与生产环境分开，沙盒有固定预算</td>
+<td>工程经理</td>
+<td>按环境列出各项目预算的项目清单</td>
+</tr>
+<tr>
+<td>4</td>
+<td>每个项目有模型白名单并记录理由</td>
+<td>项目技术负责人</td>
+<td>白名单导出与变更工单</td>
+</tr>
+<tr>
+<td>5</td>
+<td>数据等级对应到允许的厂商与模型</td>
+<td>安全／隐私</td>
+<td>签批过的数据分级表</td>
+</tr>
+<tr>
+<td>6</td>
+<td>记录每家厂商的数据条款</td>
+<td>法务／采购</td>
+<td>带评审日期的厂商登记表</td>
+</tr>
+<tr>
+<td>7</td>
+<td>每个项目都有硬性花费上限</td>
+<td>预算负责人</td>
+<td>各项目的上限配置</td>
+</tr>
+<tr>
+<td>8</td>
+<td>每条请求都能追溯，保留期匹配审计期间</td>
+<td>平台团队</td>
+<td>用 ID 从头到尾追溯一条请求</td>
+</tr>
+<tr>
+<td>9</td>
+<td>每月按项目对账</td>
+<td>财务 + 平台团队</td>
+<td>最近三次对账记录</td>
+</tr>
+<tr>
+<td>10</td>
+<td>新 AI 服务只走一条接入流程</td>
+<td>平台／采购</td>
+<td>本季度的接入工单</td>
+</tr>
+<tr>
+<td>11</td>
+<td>有密钥泄露应急预案且演练过</td>
+<td>安全值班</td>
+<td>带计时的演练记录</td>
+</tr>
+<tr>
+<td>12</td>
+<td>每季度审查访问权限</td>
+<td>平台团队</td>
+<td>列出变更内容并签批的审查记录</td>
+</tr>
+</tbody></table>
+<h2 id="清单如何对应-nist-ai-rmf">清单如何对应 NIST AI RMF</h2>
+<p>NIST AI RMF 把 AI 风险管理分成四个功能。以下对应是大致的：每个 NIST 功能的范围，都比放在它下面的三个检查项更广。</p>
+<table>
+<thead>
+<tr>
+<th>清单分组</th>
+<th>NIST AI RMF 功能</th>
+<th>该功能要求的内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1. 密钥与身份（第 1–3 项）</td>
+<td>Govern（治理）</td>
+<td>贯穿 AI 生命周期的问责、角色与制度</td>
+</tr>
+<tr>
+<td>2. 模型与数据边界（第 4–6 项）</td>
+<td>Map（映射）</td>
+<td>使用场景，以及由场景带来的风险</td>
+</tr>
+<tr>
+<td>3. 费用与归属（第 7–9 项）</td>
+<td>Measure（度量）</td>
+<td>跟踪与评估实际发生的情况</td>
+</tr>
+<tr>
+<td>4. 接入、事件与审查（第 10–12 项）</td>
+<td>Manage（管理）</td>
+<td>确定风险优先级并采取行动</td>
+</tr>
+</tbody></table>
+<p>如果你的组织已经以 NIST AI RMF 作为 AI 治理框架来汇报，这 12 项可以放在这四个标题下面，作为 API 使用层面的管控。</p>
+<h2 id="第一组-密钥与身份-govern">第一组：密钥与身份（Govern）</h2>
+<h3 id="1-每把密钥属于一个项目-并有明确负责人">1. 每把密钥属于一个项目，并有明确负责人</h3>
+<p>五个服务共用一把密钥时，吊销它就会让五个服务一起停摆。每把密钥只绑定一个项目，做法见<a href="/zh-cn/blog/one-project-one-key/">一项目一密钥</a>。</p>
+<ul>
+<li>完成标准：密钥清单中每把有效密钥都列出项目与明确负责人，且没有任何一把密钥被多个服务使用。</li>
+<li>负责人：平台团队。</li>
+<li>证据：密钥清单导出，以及抽样五个服务、显示它们用的是五把不同的密钥。</li>
+</ul>
+<h3 id="2-离职当天吊销-ai-访问权限">2. 离职当天吊销 AI 访问权限</h3>
+<p>已离职外包人员的密钥是最常见的缺口。把 AI 密钥与控制台角色加进离职检查表，和邮箱、SSO 放在一起。</p>
+<ul>
+<li>完成标准：离职检查表有一行处理 AI 密钥与角色，且最近三位离职人员都在一个工作日内处理完毕。</li>
+<li>负责人：IT，由平台团队执行密钥吊销。</li>
+<li>证据：最近三位离职人员的离职工单，带吊销时间戳。</li>
+</ul>
+<h3 id="3-沙盒与生产环境分开-沙盒有固定预算">3. 沙盒与生产环境分开，沙盒有固定预算</h3>
+<p>实验在独立项目里用独立密钥运行，预算小到失控的循环也不会变成月底惊吓，例如每个团队每月 50 美元。</p>
+<ul>
+<li>完成标准：沙盒密钥碰不到生产环境的预算，且每个沙盒项目都有固定分配额。</li>
+<li>负责人：工程经理。</li>
+<li>证据：列出每个项目环境与预算的项目清单。</li>
+</ul>
+<h2 id="第二组-模型与数据边界-map">第二组：模型与数据边界（Map）</h2>
+<h3 id="4-每个项目有模型白名单并记录理由">4. 每个项目有模型白名单并记录理由</h3>
+<p>客服总结项目可能只需要 <a href="/zh-cn/models/claude-haiku-4-5/">Claude Haiku 4.5</a>。要加入更贵的模型，应该提工单写明理由；调用清单以外的模型则应该失败。</p>
+<ul>
+<li>完成标准：每个项目都有明确的白名单，且对清单外模型的测试调用会返回错误。</li>
+<li>负责人：项目技术负责人，经平台团队批准。</li>
+<li>证据：各项目白名单导出、变更工单，以及那次失败的测试调用。</li>
+</ul>
+<h3 id="5-数据等级对应到允许的厂商与模型">5. 数据等级对应到允许的厂商与模型</h3>
+<p>客户数据能不能发给外部模型，不该由工程师每次自行判断。一页表格就能回答：数据等级、允许的厂商或模型、必要的预处理（例如脱敏）。</p>
+<ul>
+<li>完成标准：表格经批准并有版本号，且每个项目都标注它会发送的最高数据等级。</li>
+<li>负责人：安全或隐私团队。</li>
+<li>证据：带版本日期的签批表格，以及项目对应数据等级的清单。</li>
+</ul>
+<h3 id="6-记录每家厂商的数据条款">6. 记录每家厂商的数据条款</h3>
+<p>数据保留期限、是否用于训练、处理地域，在不同厂商之间、同一厂商的不同套餐之间都不一样。按厂商与套餐逐一记录，并附上你评审过的条款版本链接。</p>
+<ul>
+<li>完成标准：每一家在用的 AI 厂商与套餐都在登记表上有一行，且在过去 12 个月内评审过。</li>
+<li>负责人：法务或采购。</li>
+<li>证据：带链接与评审日期的厂商登记表。</li>
+</ul>
+<h2 id="第三组-费用与归属-measure">第三组：费用与归属（Measure）</h2>
+<h3 id="7-每个项目都有硬性花费上限">7. 每个项目都有硬性花费上限</h3>
+<p>超支的第一个信号，应该在账单寄来之前就由上限触发。指定一个人，在项目碰到上限时决定下一步：<a class="doc-term" href="/zh-cn/docs/topup/" data-def="为钱包加值点数，最低 5 美元，用多少付多少。">充值</a>、等待，或改用更小的模型。</p>
+<ul>
+<li>完成标准：每个生产与沙盒项目都配置了上限，并有明确的预算负责人。</li>
+<li>负责人：各项目的预算负责人。</li>
+<li>证据：上限配置，以及上一次有项目碰到上限时的处理记录。</li>
+</ul>
+<h3 id="8-每条请求都能追溯-保留期匹配审计期间">8. 每条请求都能追溯，保留期匹配审计期间</h3>
+<p>任何一次调用，你都应该能说出它的项目、密钥、模型、状态与 token 数。确认你的工具把这些记录保留多久；如果比审计人员抽样的期间短，就定期导出。</p>
+<ul>
+<li>完成标准：应用日志中的请求 ID 能追到对应记录，且保留或导出期间有书面记录。</li>
+<li>负责人：平台团队。</li>
+<li>证据：一条从头到尾追溯的请求，以及书面的保留期或导出任务。</li>
+</ul>
+<h3 id="9-每月按项目对账">9. 每月按项目对账</h3>
+<p>把各家厂商的用量换算成同一种单位，并把账单总额与各项目用量合计对账。账单上各个条目怎么看，见<a href="/zh-cn/blog/how-to-read-your-ai-bill/">怎么读懂 AI 账单</a>。</p>
+<ul>
+<li>完成标准：月报能把账单对到各项目总额，超过约定阈值的差异都有书面说明。</li>
+<li>负责人：财务，由平台团队提供数据。</li>
+<li>证据：最近三次的月度对账。</li>
+</ul>
+<h2 id="第四组-接入-事件与审查-manage">第四组：接入、事件与审查（Manage）</h2>
+<h3 id="10-新-ai-服务只走一条接入流程">10. 新 AI 服务只走一条接入流程</h3>
+<p>第 4 到 7 项要在发出第一把密钥之前完成：白名单、数据等级、厂商条款、预算。报销单是交叉检查，没有接入工单的 AI 扣款就是 <a href="/zh-cn/blog/shadow-ai-governed-control-plane/">Shadow AI</a>。</p>
+<ul>
+<li>完成标准：本季度新增的每一个 AI 服务都有接入工单，且报销审查没有发现缺工单的 AI 扣款。</li>
+<li>负责人：平台团队与采购。</li>
+<li>证据：接入工单与报销审查结果。</li>
+</ul>
+<h3 id="11-有密钥泄露应急预案且演练过">11. 有密钥泄露应急预案且演练过</h3>
+<p>预案列出吊销、追查、重新签发的步骤，以及谁要通知谁。实际演练并计时。</p>
+<ul>
+<li>完成标准：预案已发布，且过去 12 个月内演练过并记录吊销所需时间。</li>
+<li>负责人：安全值班。</li>
+<li>证据：预案与带时间戳的演练记录。</li>
+</ul>
+<h3 id="12-每季度审查访问权限">12. 每季度审查访问权限</h3>
+<p>吊销 30 天没有流量的密钥、关闭没有负责人的项目、确认管理员名单。</p>
+<ul>
+<li>完成标准：在季度末两周内完成审查并签批。</li>
+<li>负责人：平台团队。</li>
+<li>证据：签批过的审查记录，附吊销的密钥与角色变更清单。</li>
+</ul>
+<h2 id="按公司规模从哪里开始">按公司规模从哪里开始</h2>
+<table>
+<thead>
+<tr>
+<th>规模</th>
+<th>先做哪几项</th>
+<th>负责方式</th>
+<th>证据形式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>工程师 20 人以下</td>
+<td>第一个月做第 1、3、7、11 项</td>
+<td>一个人负责这四项</td>
+<td>一份共享表格</td>
+</tr>
+<tr>
+<td>工程师 20 到 200 人</td>
+<td>再加第 4、8、9、12 项</td>
+<td>平台团队加一位财务对接人</td>
+<td>每月从工具导出</td>
+</tr>
+<tr>
+<td>200 人以上或受监管行业</td>
+<td>全部 12 项，先完成第 5、6 项再放开模型访问</td>
+<td>每项指定负责人，内部审计每季度抽样</td>
+<td>覆盖审计期间的留存导出</td>
+</tr>
+</tbody></table>
+<h2 id="在-atp-token-上执行这份清单">在 ATP Token 上执行这份清单</h2>
+<p>ATP Token 覆盖发生在 API 路径上的检查项。数据分级（第 5 项）与厂商条款（第 6 项）仍是你的制度文档；接入、应急预案与审查（第 10 到 12 项）仍是你的流程。ATP 提供这些流程要用的记录。</p>
+<table>
+<thead>
+<tr>
+<th>检查项</th>
+<th>ATP 提供什么</th>
+<th>文档</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>组织 → 工作区 → 项目 → 密钥的层级；每把密钥只属于一个项目，API 密钥页列出所有工作区与项目的密钥</td>
+<td><a href="/zh-cn/docs/console-setup/" class="doc-term-def" data-def="帐号的最上层，底下再分 workspace 与 project。">设置组织</a>、<a href="/zh-cn/docs/console-keys/" class="doc-term-def" data-def="以 atp- 开头的金钥，继承所属 project 的允许模型清单与点数余额。">管理 API 密钥</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>吊销的密钥立即失效并保留在列表中；工作区或项目层级的 Owner / Admin / Member 角色</td>
+<td><a href="/zh-cn/docs/console-keys/" class="doc-term-def" data-def="以 atp- 开头的金钥，继承所属 project 的允许模型清单与点数余额。">管理 API 密钥</a>、<a href="/zh-cn/docs/team/">团队与角色</a></td>
+</tr>
+<tr>
+<td>3、7</td>
+<td>点数按组织 → 工作区 → 项目分配，项目只能花被分配到的额度；用量页显示各层级的已分配与已消耗</td>
+<td><a href="/zh-cn/docs/cb-budget-caps/">配置团队预算上限</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>允许的模型按项目设置（至少一个）；调用其他模型会在发到厂商之前返回 <code>403</code></td>
+<td><a href="/zh-cn/docs/resources/" class="doc-term-def" data-def="这个 project 可以呼叫的模型清单；不在清单上的一律回 403。">工作区与项目</a>、<a href="/zh-cn/docs/how-it-works/">工作原理</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>逐条请求日志，含时间、范围、模型、状态、请求 ID 与输入／输出 token；每个响应都带 <code>x-request-id</code>；保留 7 天，审计期间较长时需导出</td>
+<td><a href="/zh-cn/docs/monitoring/">用量与日志</a>、<a href="/zh-cn/docs/console-api-logs/">请求日志 API</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td>11 家厂商 70+ 个模型用同一种单位：1 点数 = 0.01 美元；用量页按模型和密钥拆分</td>
+<td><a href="/zh-cn/docs/credits/" class="doc-term-def" data-def="计费单位。1 美元 = 100 点；用量依各模型牌价换算成点数扣抵。">点数如何运作</a>、<a href="/zh-cn/docs/spend/">跟踪花费</a></td>
+</tr>
+<tr>
+<td>11、12</td>
+<td>活动日志记录登录、邀请、额度变更与资源更新；用量页的每把密钥 token 总数可找出闲置密钥</td>
+<td><a href="/zh-cn/docs/monitoring/">用量与日志</a></td>
+</tr>
+</tbody></table>
+<p>第 8 项中，保留 7 天的请求日志定位是排障用。如果审计期间更长，就定期调用 Console API 的请求日志接口，把结果存到自己的存储里。</p>
+<p><a href="/zh-cn/docs/cb-budget-caps/">配置团队预算上限</a></p>
 <h2 id="延伸阅读">延伸阅读</h2>
 <ul>
-<li><a href="/zh-cn/blog/one-project-one-key">一项目一密钥：为什么共用 API key 是最贵的 AI 技术债</a></li>
-<li><a href="/zh-cn/blog/ai-spending-caps-that-work">有效的 AI 花费上限：把分配额度当成预算天花板</a></li>
-<li><a href="/zh-cn/blog/enterprise-ai-cost-management-guide">企业 AI 成本管理完整指南：token、点数、密钥与上限</a></li>
-</ul>
-<p>治理做得好的样子是安静的：实验照跑、账单看得懂、审计有得查。从盘点开始，把密钥、白名单与预算收进同一个管理平面，剩下的交给默认值。</p>
-<p><a href="/zh-cn/enterprise-plan">申请企业方案 →</a></p>0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-cn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"博客\",\"item\":\"https://atptoken.ai/zh-cn/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"企业 AI 治理清单：同时接入多家 AI 服务的 12 个检查项（2026）\",\"item\":\"https://atptoken.ai/zh-cn/blog/ai-governance-checklist/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"企业 AI 治理清单：同时接入多家 AI 服务的 12 个检查项（2026）\",\"description\":\"企业 AI 治理清单覆盖密钥、模型权限、数据边界与预算归账四大方向共 12 个检查项，帮助企业在接入多家 AI 服务时管住权限、成本与审计轨迹，并附规模与行业对照。\",\"datePublished\":\"2026-07-14\",\"dateModified\":\"2026-07-14\",\"inLanguage\":\"zh-Hans-CN\",\"keywords\":\"企业 AI 治理, 企业落地, ATP\",\"url\":\"https://atptoken.ai/zh-cn/blog/ai-governance-checklist/\",\"mainEntityOfPage\":\"https://atptoken.ai/zh-cn/blog/ai-governance-checklist/\",\"image\":\"https://atptoken.ai/og/blog/ai-governance-checklist.jpg\",\"author\":{\"@type\":\"Person\",\"name\":\"hung-chien\",\"jobTitle\":\"AI 增长与品牌经理\",\"worksFor\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}},\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"},\"isPartOf\":{\"@type\":\"Blog\",\"@id\":\"https://atptoken.ai/#blog\",\"name\":\"ATP Token 博客\",\"url\":\"https://atptoken.ai/blog/\",\"description\":\"ATP Token 团队的实务笔记：企业 AI 治理、AI Token 用量账务，以及用一把密钥管理多个模型的日常。\",\"inLanguage\":\"zh-Hans-CN\",\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}}}"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"企业 AI 治理是什么？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"企业 AI 治理是企业对 AI 服务的密钥、模型权限、数据边界与费用归属建立的管控制度，目标是让每一次模型调用都有名字、有预算、有记录。做得好的治理是一组落在系统配置里的默认值，而不是审批流程。\"}},{\"@type\":\"Question\",\"name\":\"企业同时使用多家 AI 服务有什么风险？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"最常见的三个风险是密钥散落在个人账号、费用无法归回项目、以及敏感数据在没有分级的情况下送进外部模型。三者都会在盘点或审计时一次爆发，事后补救的成本远高于事前配置。\"}},{\"@type\":\"Question\",\"name\":\"AI 治理应该由谁负责？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"职责通常拆成三方：平台或基础设施团队管密钥与额度，安全与法务管数据分级与保留政策，各业务团队对自己项目的用量与预算负责。治理平台的价值在于让三方看同一份数据。\"}},{\"@type\":\"Question\",\"name\":\"接入 AI 治理平台需要改动现有代码吗？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"多数情况不需要大改。若平台兼容 OpenAI、Anthropic 与 Gemini 的接口格式，通常只需更换 base_url 与密钥即可接入，原有的调用方式与参数都能沿用。\"}}]}"}}]],["$","$L2",null,{"data":{"lang":"zh-CN","post":{"slug":"ai-governance-checklist","title":"企业 AI 治理清单：同时接入多家 AI 服务的 12 个检查项（2026）","metaTitle":"企业 AI 治理清单：12 个检查项（2026）","description":"企业 AI 治理清单覆盖密钥、模型权限、数据边界与预算归账四大方向共 12 个检查项，帮助企业在接入多家 AI 服务时管住权限、成本与审计轨迹，并附规模与行业对照。","date":"2026-07-14","tags":["企业 AI 治理","企业落地","ATP"],"author":"hung-chien","authorTitle":"AI 增长与品牌经理","tldr":["治理的最小单位是项目：一个项目一把密钥，权限、预算与用量都挂在项目上，人员变动只收回项目权限。","12 个检查项分四组：密钥与身份、模型与数据边界、预算与归账、流程与审计；先止血、再上轨道。","先盘点再收敛：把密钥、白名单与预算收进同一个管理平面，之后每接一家新服务只是多一行配置。"],"faq":[{"q":"企业 AI 治理是什么？","a":"企业 AI 治理是企业对 AI 服务的密钥、模型权限、数据边界与费用归属建立的管控制度，目标是让每一次模型调用都有名字、有预算、有记录。做得好的治理是一组落在系统配置里的默认值，而不是审批流程。"},{"q":"企业同时使用多家 AI 服务有什么风险？","a":"最常见的三个风险是密钥散落在个人账号、费用无法归回项目、以及敏感数据在没有分级的情况下送进外部模型。三者都会在盘点或审计时一次爆发，事后补救的成本远高于事前配置。"},{"q":"AI 治理应该由谁负责？","a":"职责通常拆成三方：平台或基础设施团队管密钥与额度，安全与法务管数据分级与保留政策，各业务团队对自己项目的用量与预算负责。治理平台的价值在于让三方看同一份数据。"},{"q":"接入 AI 治理平台需要改动现有代码吗？","a":"多数情况不需要大改。若平台兼容 OpenAI、Anthropic 与 Gemini 的接口格式，通常只需更换 base_url 与密钥即可接入，原有的调用方式与参数都能沿用。"}],"readingMinutes":4,"cover":"ai-governance-checklist","html":"$3"},"newer":{"slug":"how-to-read-your-ai-bill","title":"怎么读懂 AI 账单：tokens、credits 与逐请求归账的三层读法（2026 指南）","date":"2026-07-21"},"older":null}}]],["$L4","$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"1D4DZsfbxL_82v4AXbxNN"}
-4:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
-5:["$","script","script-1",{"src":"/_next/static/chunks/1hbxtvg5etpqa.js","async":true}]
-6:["$","script","script-2",{"src":"/_next/static/chunks/0ey98fxnyu7te.js","async":true}]
-7:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
-a:null
+<li><a href="/zh-cn/blog/one-project-one-key/">一项目一密钥</a></li>
+<li><a href="/zh-cn/blog/ai-spending-caps-that-work/">有效的 AI 花费上限</a></li>
+<li><a href="/zh-cn/blog/shadow-ai-governed-control-plane/">什么是 Shadow AI？</a></li>
+</ul>0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-cn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"博客\",\"item\":\"https://atptoken.ai/zh-cn/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"AI 治理清单：模型 API 使用的 12 个可验证检查项（2026）\",\"item\":\"https://atptoken.ai/zh-cn/blog/ai-governance-checklist/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"AI 治理清单：模型 API 使用的 12 个可验证检查项（2026）\",\"description\":\"AI 治理清单：针对模型 API 使用的 12 个检查项，每项都有负责人、完成标准与审计证据，并对照 NIST AI RMF 框架的四大功能。\",\"datePublished\":\"2026-07-14\",\"dateModified\":\"2026-07-14\",\"inLanguage\":\"zh-Hans-CN\",\"keywords\":\"AI 治理, AI 治理清单, ATP\",\"url\":\"https://atptoken.ai/zh-cn/blog/ai-governance-checklist/\",\"mainEntityOfPage\":\"https://atptoken.ai/zh-cn/blog/ai-governance-checklist/\",\"image\":\"https://atptoken.ai/og/blog/ai-governance-checklist.jpg\",\"author\":{\"@type\":\"Person\",\"name\":\"hung-chien\",\"jobTitle\":\"AI 增长与品牌经理\",\"worksFor\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}},\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"},\"isPartOf\":{\"@type\":\"Blog\",\"@id\":\"https://atptoken.ai/#blog\",\"name\":\"ATP Token 博客\",\"url\":\"https://atptoken.ai/blog/\",\"description\":\"ATP Token 团队的实务笔记：企业 AI 治理、AI Token 用量账务，以及用一把密钥管理多个模型的日常。\",\"inLanguage\":\"zh-Hans-CN\",\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}}}"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"什么是 AI 治理清单？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"AI 治理清单是一份可验证的管控项清单，每一项都有负责人和证据，用来证明企业对 AI 的使用经过批准、可归属、可审查。像本文这种运营型清单，聚焦在模型 API 的使用：密钥、模型访问、数据边界、费用与事件响应。\"}},{\"@type\":\"Question\",\"name\":\"AI 治理清单应该包含哪些项？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"至少包括：密钥归属与吊销、沙盒与生产环境分离、每个项目的模型白名单、数据分级表、厂商条款登记、花费上限、逐条请求日志、每月对账、新服务接入流程、密钥泄露应急预案，以及每季度访问权限审查。\"}},{\"@type\":\"Question\",\"name\":\"AI 治理清单和 AI 治理框架有什么区别？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"NIST AI 风险管理框架这类框架，描述组织应管理的完整成果，包括公平性、透明度与对人的影响。清单则把其中一部分转成有负责人、有证据的具体检查项。本清单覆盖的是模型 API 使用的运营层面。\"}},{\"@type\":\"Question\",\"name\":\"企业的 AI 治理由谁负责？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"通常会拆开：平台团队负责密钥、模型访问与日志；安全与法务负责数据分级与厂商条款；财务与各预算负责人负责花费上限与对账。每一个检查项都应指定一位最终负责人。\"}},{\"@type\":\"Question\",\"name\":\"AI 治理管控多久要检查一次？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"访问权限与密钥每季度审查，费用每月对账，密钥泄露应急预案至少每年演练一次。厂商变更条款或你新增套餐时，就重新审一次厂商条款。\"}}]}"}}]],["$","$L2",null,{"data":{"lang":"zh-CN","post":{"slug":"ai-governance-checklist","title":"AI 治理清单：模型 API 使用的 12 个可验证检查项（2026）","metaTitle":"AI 治理清单：AI API 的 12 个检查项（2026）","description":"AI 治理清单：针对模型 API 使用的 12 个检查项，每项都有负责人、完成标准与审计证据，并对照 NIST AI RMF 框架的四大功能。","date":"2026-07-14","tags":["AI 治理","AI 治理清单","ATP"],"author":"hung-chien","authorTitle":"AI 增长与品牌经理","tldr":["这份清单覆盖企业如何使用模型 API：密钥、模型访问、数据边界、费用与事件响应。偏见、透明度与模型验证，属于 NIST AI RMF 这类完整框架的范围。","12 个检查项都有完成标准、明确的负责人，以及审计人员会要的证据，评审当天就能判定通过或不通过。","四组检查项对应 NIST AI RMF 的 Govern、Map、Measure、Manage 四个功能。数据分级与厂商保留条款，无论用什么工具，都仍由安全与法务负责。"],"faq":[{"q":"什么是 AI 治理清单？","a":"AI 治理清单是一份可验证的管控项清单，每一项都有负责人和证据，用来证明企业对 AI 的使用经过批准、可归属、可审查。像本文这种运营型清单，聚焦在模型 API 的使用：密钥、模型访问、数据边界、费用与事件响应。"},{"q":"AI 治理清单应该包含哪些项？","a":"至少包括：密钥归属与吊销、沙盒与生产环境分离、每个项目的模型白名单、数据分级表、厂商条款登记、花费上限、逐条请求日志、每月对账、新服务接入流程、密钥泄露应急预案，以及每季度访问权限审查。"},{"q":"AI 治理清单和 AI 治理框架有什么区别？","a":"NIST AI 风险管理框架这类框架，描述组织应管理的完整成果，包括公平性、透明度与对人的影响。清单则把其中一部分转成有负责人、有证据的具体检查项。本清单覆盖的是模型 API 使用的运营层面。"},{"q":"企业的 AI 治理由谁负责？","a":"通常会拆开：平台团队负责密钥、模型访问与日志；安全与法务负责数据分级与厂商条款；财务与各预算负责人负责花费上限与对账。每一个检查项都应指定一位最终负责人。"},{"q":"AI 治理管控多久要检查一次？","a":"访问权限与密钥每季度审查，费用每月对账，密钥泄露应急预案至少每年演练一次。厂商变更条款或你新增套餐时，就重新审一次厂商条款。"}],"readingMinutes":8,"cover":"ai-governance-checklist","html":"$3"},"newer":{"slug":"how-to-read-your-ai-bill","title":"LLM token 成本怎么算？计算公式、5 个模型实算与 AI 账单读法（2026）","date":"2026-07-21","cover":"how-to-read-your-ai-bill"},"older":null}}]],["$L4","$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"q8ogy5bwfTluQawd-N4pH"}
+4:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0bk251ba95uho.css","precedence":"next"}]
+5:["$","script","script-0",{"src":"/_next/static/chunks/031jyqwh2ymjo.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/12btwas-eg9md.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/0tc57bytaqvvw.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

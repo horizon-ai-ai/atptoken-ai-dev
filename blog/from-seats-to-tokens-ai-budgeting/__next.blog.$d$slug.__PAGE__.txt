@@ -1,74 +1,292 @@
 1:"$Sreact.fragment"
-9:I[51713,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"default"]
-b:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
-c:"$Sreact.suspense"
-2:T4b7,{"@context":"https://schema.org","@type":"BlogPosting","headline":"From seats to tokens: how AI breaks SaaS budgeting (2026)","description":"AI turns seat-based SaaS budgets into token and credit metering. Learn new metrics, department allocations, and controls when usage—not headcount—drives cost.","datePublished":"2026-09-04","dateModified":"2026-09-04","inLanguage":"en","keywords":"AI budgeting, Usage-based pricing, ATP","url":"https://atptoken.ai/blog/from-seats-to-tokens-ai-budgeting/","mainEntityOfPage":"https://atptoken.ai/blog/from-seats-to-tokens-ai-budgeting/","image":"https://atptoken.ai/og/blog/from-seats-to-tokens-ai-budgeting.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T5df,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does token-based AI pricing differ from seat-based SaaS?","acceptedAnswer":{"@type":"Answer","text":"Seat pricing scales with named users. Token pricing scales with usage volume and shape—prompt size, output length, retries, and agent steps—so cost can spike without hiring."}},{"@type":"Question","name":"What metrics replace cost per seat for AI?","acceptedAnswer":{"@type":"Answer","text":"Credits consumed vs allocated by project, average cost per thousand requests, and cost per completed agent task. Monthly totals alone cannot drive decisions."}},{"@type":"Question","name":"How should departments budget for AI in 2026?","acceptedAnswer":{"@type":"Answer","text":"Give each product or BU a project allocation in a shared settlement unit, review burn weekly, and keep experimental sandboxes on separate low caps."}},{"@type":"Question","name":"Why do AI features inside SaaS products complicate ERP budgets?","acceptedAnswer":{"@type":"Answer","text":"Vendors add usage meters—tokens, AI actions, document processing—on top of seats. Without caps and reporting rights, adoption growth becomes an unplanned line item."}},{"@type":"Question","name":"What is the first step to modernize AI budgeting?","acceptedAnswer":{"@type":"Answer","text":"Inventory all AI usage paths and keys, pick one settlement unit, assign project owners, and put enforceable allocations on production workloads."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"From seats to tokens: how AI breaks SaaS budgeting (2026)\",\"item\":\"https://atptoken.ai/blog/from-seats-to-tokens-ai-budgeting/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"1D4DZsfbxL_82v4AXbxNN"}
-a:T149a,<p>From seats to tokens describes the budgeting shift when software cost drivers move from named-user licenses to metered model usage—tokens, credits, and AI actions. This guide is for finance and platform partners rewriting chargeback models for enterprise AI.</p>
-<p><strong>Headcount no longer predicts the bill.</strong> Agents and long context let ten people spend like a hundred. Build budgets on <strong>allocation, attribution, and task economics</strong>. Foundation: <a href="/en/blog/enterprise-ai-cost-management-guide">enterprise AI cost management</a>, <a href="/en/blog/how-to-read-your-ai-bill">read your AI bill</a>.</p>
-<h2 id="why-seat-logic-fails">Why seat logic fails</h2>
+a:I[51713,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js","/_next/static/chunks/031jyqwh2ymjo.js","/_next/static/chunks/12btwas-eg9md.js","/_next/static/chunks/0tc57bytaqvvw.js"],"default"]
+c:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+:HL["/_next/static/chunks/0bk251ba95uho.css","style"]
+2:T4ca,{"@context":"https://schema.org","@type":"BlogPosting","headline":"Token-based pricing vs per-seat AI: a budgeting guide for finance leads (2026)","description":"Token based pricing for finance leads: a 40-person seat vs token cost comparison, break-even math, a credits chargeback model and a monthly AI budget worksheet.","datePublished":"2026-09-04","dateModified":"2026-09-04","inLanguage":"en","keywords":"Token based pricing, AI budgeting, ATP","url":"https://atptoken.ai/blog/from-seats-to-tokens-ai-budgeting/","mainEntityOfPage":"https://atptoken.ai/blog/from-seats-to-tokens-ai-budgeting/","image":"https://atptoken.ai/og/blog/from-seats-to-tokens-ai-budgeting.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T72f,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is token-based pricing?","acceptedAnswer":{"@type":"Answer","text":"Token-based pricing charges for the tokens a model reads (input) and writes (output), each at a rate per million tokens that differs by model. A request with 1,284 input and 412 output tokens on claude-sonnet-4-6 at $3 / $15 costs $0.010032."}},{"@type":"Question","name":"Does token-based pricing cost less than per-seat pricing?","acceptedAnswer":{"@type":"Answer","text":"It depends on how much each person uses. In a worked example at $0.018 per request, a user breaks even with a $25 seat at about 1,389 requests a month, roughly 66 per working day. With long documents in every prompt, break-even drops to about 17 requests per working day."}},{"@type":"Question","name":"What AI pricing models will finance teams see?","acceptedAnswer":{"@type":"Answer","text":"Three: per-seat subscriptions (for example Claude Team), seat plus usage (Claude Enterprise lists a seat price plus usage at API rates), and pure token-based API billing. Many companies run more than one at the same time."}},{"@type":"Question","name":"How do you charge back AI costs to departments?","acceptedAnswer":{"@type":"Answer","text":"Give each department's workloads their own projects, allocate credits per project, and charge each cost center for the credits it consumed, not the credits it was allocated. On ATP Token, 1 credit = USD 0.01."}},{"@type":"Question","name":"How do you budget for token-based AI usage?","acceptedAnswer":{"@type":"Answer","text":"For each workload, multiply requests per month by average tokens per request and the model's rates, add a buffer such as 20%, and convert to credits. Review consumed against allocated weekly and adjust next month's allocation."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Token-based pricing vs per-seat AI: a budgeting guide for finance leads (2026)\",\"item\":\"https://atptoken.ai/blog/from-seats-to-tokens-ai-budgeting/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"q8ogy5bwfTluQawd-N4pH"}
+b:T2afd,<p>Token-based pricing is a billing model where you pay for the tokens an AI model reads and writes, at a per-million-token rate set per model, instead of a fixed fee per user. This guide puts per-seat and token pricing side by side for a 40-person team, works out the break-even point, and gives a finance lead a chargeback model and a monthly budgeting worksheet to copy.</p>
 <table>
 <thead>
 <tr>
-<th>Seat-era assumption</th>
-<th>Token-era reality</th>
+<th></th>
+<th>Per-seat subscription</th>
+<th>Token-based (API)</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>More users → more cost</td>
-<td>Same users, longer prompts → more cost</td>
+<td>You pay for</td>
+<td>Named users per month</td>
+<td>Input and output tokens per request</td>
 </tr>
 <tr>
-<td>Monthly predictability</td>
-<td>Spiky agent and batch jobs</td>
+<td>Cost driver</td>
+<td>Headcount</td>
+<td>Requests × tokens × model rate</td>
 </tr>
 <tr>
-<td>Department = license count</td>
-<td>Department = <a class="doc-term" href="/en/docs/resources" data-def="The unit that permissions and billing hang off — keys, allowed models, and credit budget all belong to one.">project</a> allocation</td>
+<td>Light or idle users</td>
+<td>Full seat price each</td>
+<td>Close to zero</td>
 </tr>
 <tr>
-<td>Procurement annual</td>
-<td>Continuous top-up + contract credits</td>
+<td>Heavy users</td>
+<td>Same seat price</td>
+<td>Can exceed a seat</td>
+</tr>
+<tr>
+<td>How you cap it</td>
+<td>Number of seats</td>
+<td>Budget per <a class="doc-term" href="/docs/resources/" data-def="The unit that permissions and billing hang off — keys, allowed models, and credit budget all belong to one.">project</a> or key</td>
 </tr>
 </tbody></table>
-<h2 id="new-primitive-settlement-unit">New primitive: settlement unit</h2>
-<p>Credits convert heterogeneous model rates into one balance (<a href="/en/docs/credits" class="doc-term-def" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">credits</a>, <a href="/en/docs/topup" class="doc-term-def" data-def="Adding credits to the wallet. Minimum 5 USD, pay as you go.">topup</a>). Without them, multi-vendor AI is several foreign languages in AP.</p>
-<h2 id="new-primitive-project-owner">New primitive: project owner</h2>
-<p><a href="/en/blog/one-project-one-key">One project, one key</a>. Chargeback without owners is theater.</p>
-<h2 id="new-primitive-cap-with-alert">New primitive: cap with alert</h2>
-<p><a href="/en/blog/ai-spending-caps-that-work">Spending caps</a>. Spreadsheet ceilings on unlimited cards recreate every public overrun story (<a href="/en/blog/why-ai-bills-explode-after-go-live">bills explode</a>).</p>
-<h2 id="metrics-finance-can-run">Metrics finance can run</h2>
-<ol>
-<li>Allocated vs consumed by project (weekly)  </li>
-<li>Cost per thousand requests (engineering)  </li>
-<li>Cost per agent task (<a href="/en/blog/what-is-the-agent-tax">agent tax</a>)  </li>
-<li>402/403 rates as control health</li>
-</ol>
-<h2 id="by-organization-shape">By organization shape</h2>
-<p><strong>Central platform pays:</strong> allocate to products like cloud accounts.<br><strong>BU pays:</strong> workspace per BU, clear top-up path.<br><strong>Hybrid:</strong> platform funds sandbox; BU funds production.</p>
-<h2 id="a-more-modern-approach">A more modern approach</h2>
-<p>ERP and SaaS will keep bolting AI meters onto seats. Enterprises still need a <strong>governance and billing integration layer</strong> for API-shaped usage. ATP Token provides hierarchical credits and request-level audit with SDK-compatible access so finance and engineering share one plane—aligned with Horizon AI adoption methodology.</p>
-<p><a href="/en/pricing">Pricing →</a> · <a href="/en/docs/quickstart">Quickstart →</a></p>
-<h2 id="faqs">FAQs</h2>
-<h3 id="how-does-token-based-ai-pricing-differ-from-seat-based-saas">How does token-based AI pricing differ from seat-based SaaS?</h3>
-<p>Seat pricing scales with named users. Token pricing scales with usage volume and shape—prompt size, output length, retries, and agent steps—so cost can spike without hiring.</p>
-<h3 id="what-metrics-replace-cost-per-seat-for-ai">What metrics replace cost per seat for AI?</h3>
-<p>Credits consumed vs allocated by project, average cost per thousand requests, and cost per completed agent task. Monthly totals alone cannot drive decisions.</p>
-<h3 id="how-should-departments-budget-for-ai-in-2026">How should departments budget for AI in 2026?</h3>
-<p>Give each product or BU a project allocation in a shared settlement unit, review burn weekly, and keep experimental sandboxes on separate low caps.</p>
-<h3 id="why-do-ai-features-inside-saas-products-complicate-erp-budgets">Why do AI features inside SaaS products complicate ERP budgets?</h3>
-<p>Vendors add usage meters—tokens, AI actions, document processing—on top of seats. Without caps and reporting rights, adoption growth becomes an unplanned line item.</p>
-<h3 id="what-is-the-first-step-to-modernize-ai-budgeting">What is the first step to modernize AI budgeting?</h3>
-<p>Inventory all AI usage paths and keys, pick one settlement unit, assign project owners, and put enforceable allocations on production workloads.</p>
-<h2 id="further-reading">Further reading</h2>
+<h2 id="three-ai-pricing-models-finance-will-meet">Three AI pricing models finance will meet</h2>
+<p>As of October 2026, the <a href="https://claude.com/pricing" target="_blank" rel="noopener noreferrer">Claude pricing page</a> shows all three models from a single vendor:</p>
 <ul>
-<li><a href="/en/blog/enterprise-ai-cost-management-guide">Enterprise AI cost management guide</a></li>
-<li><a href="/en/blog/ai-spending-caps-that-work">AI spending caps that work</a></li>
-<li><a href="/en/blog/what-is-the-agent-tax">What is the agent tax</a></li>
+<li>Per seat: Claude Team standard seats are $25 per seat per month billed monthly, or $20 billed annually. Premium seats are $125 monthly or $100 annually.</li>
+<li>Seat plus usage: Claude Enterprise lists &quot;Seat price + usage at API rates&quot;, at $20 per seat per month billed annually, with usage cost that scales with model and task.</li>
+<li>Token-based: API access charged per token. Claude Sonnet 4.6 is $3 per 1M input tokens and $15 per 1M output tokens (<a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer">Anthropic pricing</a>), the same as the ATP list rate for <a href="/models/claude-sonnet-4-6/">claude-sonnet-4-6</a>.</li>
 </ul>
-<p>Budget the job, not only the headcount.</p>
-<p><a href="/en/enterprise-plan">Enterprise plan →</a></p>4:["$","$L9",null,{"data":{"lang":"en","post":{"slug":"from-seats-to-tokens-ai-budgeting","title":"From seats to tokens: how AI breaks SaaS budgeting (2026)","metaTitle":"From seats to tokens: AI budgeting (2026)","description":"AI turns seat-based SaaS budgets into token and credit metering. Learn new metrics, department allocations, and controls when usage—not headcount—drives cost.","date":"2026-09-04","tags":["AI budgeting","Usage-based pricing","ATP"],"author":"hung-chien","authorTitle":"AI Growth & Brand Manager","tldr":["Seat budgets assume cost tracks headcount; token budgets track jobs, context, and agents—so the same headcount can 10× spend overnight.","Finance needs credits as a single unit, project owners, and caps that alert before hard stops.","Renegotiate internal chargeback: cost per task and cost per thousand requests replace cost per seat."],"faq":[{"q":"How does token-based AI pricing differ from seat-based SaaS?","a":"Seat pricing scales with named users. Token pricing scales with usage volume and shape—prompt size, output length, retries, and agent steps—so cost can spike without hiring."},{"q":"What metrics replace cost per seat for AI?","a":"Credits consumed vs allocated by project, average cost per thousand requests, and cost per completed agent task. Monthly totals alone cannot drive decisions."},{"q":"How should departments budget for AI in 2026?","a":"Give each product or BU a project allocation in a shared settlement unit, review burn weekly, and keep experimental sandboxes on separate low caps."},{"q":"Why do AI features inside SaaS products complicate ERP budgets?","a":"Vendors add usage meters—tokens, AI actions, document processing—on top of seats. Without caps and reporting rights, adoption growth becomes an unplanned line item."},{"q":"What is the first step to modernize AI budgeting?","a":"Inventory all AI usage paths and keys, pick one settlement unit, assign project owners, and put enforceable allocations on production workloads."}],"readingMinutes":2,"cover":"from-seats-to-tokens-ai-budgeting","html":"$a"},"newer":null,"older":{"slug":"shadow-ai-governed-control-plane","title":"Shadow AI in the enterprise: from personal keys to a governed control plane (2026)","date":"2026-09-02"}}}]
-5:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
-6:["$","script","script-1",{"src":"/_next/static/chunks/1hbxtvg5etpqa.js","async":true}]
-7:["$","script","script-2",{"src":"/_next/static/chunks/0ey98fxnyu7te.js","async":true}]
-8:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
-d:null
+<p>Most companies end up with a mix: seats for people who chat with a model all day, and token billing for the applications, automations and agents that call models from code.</p>
+<h2 id="worked-comparison-a-40-person-team">Worked comparison: a 40-person team</h2>
+<p>Assumptions for one month with 21 working days, all requests on claude-sonnet-4-6 at $3 / $15:</p>
+<ul>
+<li>A standard request is 3,000 input and 600 output tokens: 3,000 × $3 ÷ 1M + 600 × $15 ÷ 1M = $0.009 + $0.009 = $0.018.</li>
+<li>A long-document request is 20,000 input and 600 output tokens: $0.06 + $0.009 = $0.069.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>User group</th>
+<th>People</th>
+<th>Requests per working day</th>
+<th>Cost per request</th>
+<th>Token cost per person per month</th>
+<th>Group total</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Heavy, long documents</td>
+<td>8</td>
+<td>40</td>
+<td>$0.069</td>
+<td>$57.96</td>
+<td>$463.68</td>
+</tr>
+<tr>
+<td>Regular</td>
+<td>20</td>
+<td>15</td>
+<td>$0.018</td>
+<td>$5.67</td>
+<td>$113.40</td>
+</tr>
+<tr>
+<td>Light</td>
+<td>12</td>
+<td>2</td>
+<td>$0.018</td>
+<td>$0.756</td>
+<td>$9.07</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>40</td>
+<td></td>
+<td></td>
+<td></td>
+<td>$586.15</td>
+</tr>
+</tbody></table>
+<p>The same 40 people on Claude Team standard seats cost 40 × $25 = $1,000 a month on monthly billing, or 40 × $20 = $800 on annual billing.</p>
+<p>Three things finance should take from this table:</p>
+<ol>
+<li>Break-even is per person. At $0.018 per request, a user matches a $25 seat at $25 ÷ $0.018 = 1,389 requests a month, about 66 per working day. At $0.069 per request it is about 362 a month, or 17 per working day.</li>
+<li>The heavy group costs $57.96 per person on tokens, more than twice a $25 seat. The light group costs under $1 per person.</li>
+<li>The comparison prices model usage only. A seat includes the vendor&#39;s chat apps and features; token usage needs an internal tool or integration to call the API, which has its own cost.</li>
+</ol>
+<p>Agentic work changes the scale. Anthropic reports Claude Code averages around $13 per developer per active day and $150 to $250 per developer per month (<a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener noreferrer">Claude Code costs</a>), several times the chat usage above. Budget coding agents as their own line.</p>
+<h2 id="a-chargeback-model-with-credits-per-project">A chargeback model with credits per project</h2>
+<p>Seat chargeback is simple: seats × price per department. Token chargeback needs one more step, because spend lands on workloads rather than on people. The model that holds up at month-end close:</p>
+<ul>
+<li>Each workload is a project with its own key, grouped into a workspace per department.</li>
+<li>Finance funds the organization, and each project gets a monthly allocation in credits (1 credit = USD 0.01).</li>
+<li>Each cost center is charged for credits consumed, not credits allocated.</li>
+</ul>
+<p>Example month, using the allocations from the worksheet in the next section:</p>
+<table>
+<thead>
+<tr>
+<th>Workspace</th>
+<th>Project</th>
+<th>Allocated credits</th>
+<th>Consumed credits</th>
+<th>Used</th>
+<th>Chargeback</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Support</td>
+<td>support-bot-prod</td>
+<td>145,000</td>
+<td>118,240</td>
+<td>81.5%</td>
+<td>$1,182.40</td>
+</tr>
+<tr>
+<td>Support</td>
+<td>ticket-triage</td>
+<td>1,500</td>
+<td>1,105</td>
+<td>73.7%</td>
+<td>$11.05</td>
+</tr>
+<tr>
+<td>Sales</td>
+<td>proposal-drafts</td>
+<td>27,000</td>
+<td>26,880</td>
+<td>99.6%</td>
+<td>$268.80</td>
+</tr>
+<tr>
+<td>Engineering</td>
+<td>code-review-bot</td>
+<td>49,000</td>
+<td>37,615</td>
+<td>76.8%</td>
+<td>$376.15</td>
+</tr>
+<tr>
+<td>All staff</td>
+<td>team-assistant</td>
+<td>70,500</td>
+<td>61,020</td>
+<td>86.6%</td>
+<td>$610.20</td>
+</tr>
+<tr>
+<td>Total</td>
+<td></td>
+<td>293,000</td>
+<td>244,860</td>
+<td>83.6%</td>
+<td>$2,448.60</td>
+</tr>
+</tbody></table>
+<p>By department: Support $1,193.45, Sales $268.80, Engineering $376.15, All staff $610.20. The 48,140 unspent credits stay on the project balances, since pay-as-you-go credits do not expire, so next month&#39;s allocation can be smaller. Proposal-drafts used 99.6% of its allocation, which is the signal to ask its owner whether volume grew before raising the number.</p>
+<h2 id="monthly-ai-budgeting-worksheet">Monthly AI budgeting worksheet</h2>
+<p>Fill one row per workload. Take requests and average tokens from one full week of request logs and multiply by 4.33 weeks.</p>
+<table>
+<thead>
+<tr>
+<th>Project</th>
+<th>Model</th>
+<th>Requests / month</th>
+<th>Avg input / output tokens</th>
+<th>Cost per request</th>
+<th>Monthly cost</th>
+<th>With 20% buffer</th>
+<th>Credits</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>support-bot-prod</td>
+<td>claude-sonnet-4-6</td>
+<td>120,000</td>
+<td>1,284 / 412</td>
+<td>$0.010032</td>
+<td>$1,203.84</td>
+<td>$1,444.61</td>
+<td>144,461</td>
+</tr>
+<tr>
+<td>ticket-triage</td>
+<td><a href="/models/qwen-3-7-flash/">qwen-3-7-flash</a></td>
+<td>400,000</td>
+<td>800 / 50</td>
+<td>$0.0000305</td>
+<td>$12.20</td>
+<td>$14.64</td>
+<td>1,464</td>
+</tr>
+<tr>
+<td>proposal-drafts</td>
+<td><a href="/models/gpt-5.5/">gpt-5.5</a></td>
+<td>3,000</td>
+<td>6,000 / 1,500</td>
+<td>$0.075</td>
+<td>$225.00</td>
+<td>$270.00</td>
+<td>27,000</td>
+</tr>
+<tr>
+<td>code-review-bot</td>
+<td>claude-sonnet-4-6</td>
+<td>8,000</td>
+<td>12,000 / 1,000</td>
+<td>$0.051</td>
+<td>$408.00</td>
+<td>$489.60</td>
+<td>48,960</td>
+</tr>
+<tr>
+<td>team-assistant (long docs)</td>
+<td>claude-sonnet-4-6</td>
+<td>6,720</td>
+<td>20,000 / 600</td>
+<td>$0.069</td>
+<td>$463.68</td>
+<td>$556.42</td>
+<td>55,642</td>
+</tr>
+<tr>
+<td>team-assistant (standard)</td>
+<td>claude-sonnet-4-6</td>
+<td>6,804</td>
+<td>3,000 / 600</td>
+<td>$0.018</td>
+<td>$122.47</td>
+<td>$146.97</td>
+<td>14,697</td>
+</tr>
+<tr>
+<td>Total</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>$2,435.19</td>
+<td>$2,922.23</td>
+<td>292,224</td>
+</tr>
+</tbody></table>
+<p>Rounded up per project, the allocations are 145,000, 1,500, 27,000, 49,000 and 70,500 credits, 293,000 in total. Three Scale top-ups of USD 1,000 (100,000 credits each) fund 300,000 credits and leave 7,000 unallocated at the organization level as a reserve. Rates come from each model&#39;s page; qwen-3-7-flash uses its rate for prompts up to 32K tokens.</p>
+<h2 id="what-makes-a-token-budget-miss">What makes a token budget miss</h2>
+<ul>
+<li>A model switch. Moving proposal-drafts from gpt-5.5 to claude-sonnet-4-6 changes its cost per request from $0.075 to $0.0405, with no change in volume. Check the <a href="/models/compare/">model compare pages</a> before and after.</li>
+<li>Context growth. If support-bot prompts grow from 1,284 to 4,000 input tokens, cost per reply rises from $0.010032 to $0.01818.</li>
+<li>Reasoning tokens. OpenAI and Anthropic bill reasoning tokens as output, so turning on extended thinking can multiply output cost without a visible change in answers.</li>
+<li>Agents. Each step resends context; Anthropic reports agent teams use approximately 7× more tokens than standard sessions in plan mode.</li>
+</ul>
+<p>A weekly look at consumed against allocated catches all four before month-end. The detail on reading the numbers is in <a href="/blog/how-to-read-your-ai-bill/">LLM token cost: how to calculate it</a>.</p>
+<h2 id="setting-this-up-in-atp-token">Setting this up in ATP Token</h2>
+<ol>
+<li>Create a Team organization with one workspace per department and one project per workload (<a href="/docs/console-setup/" class="doc-term-def" data-def="The top level of an account. Workspaces and projects sit underneath it.">console setup</a>).</li>
+<li>Top up through the Billing page (minimum USD 5; packages of USD 5, 50, 200 and 1,000) and allocate credits from the organization to workspaces and projects (<a href="/docs/topup/" class="doc-term-def" data-def="Adding credits to the wallet. Minimum 5 USD, pay as you go.">top up &amp; wallet</a>). Top-ups are non-refundable.</li>
+<li>Set each project&#39;s allowed models and create its <code>atp-</code> key, so spend by key equals spend by project.</li>
+<li>Each week, compare Allocated and Consumed in the allocation tree on the Usage page (<a href="/docs/spend/">tracking spend</a>).</li>
+<li>At month-end, close from billing events and charge each cost center for consumed credits (<a href="/docs/credits/" class="doc-term-def" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">how credits work</a>).</li>
+</ol>
+<p><a href="/pricing/">See pricing</a></p>
+<h2 id="related-reading">Related reading</h2>
+<ul>
+<li><a href="/blog/enterprise-ai-cost-management-guide/">Enterprise AI cost management and LLM cost optimization guide</a></li>
+<li><a href="/blog/ai-spending-caps-that-work/">AI spending caps that work</a></li>
+<li><a href="/blog/what-is-the-agent-tax/">What is the agent tax?</a></li>
+</ul>4:["$","$La",null,{"data":{"lang":"en","post":{"slug":"from-seats-to-tokens-ai-budgeting","title":"Token-based pricing vs per-seat AI: a budgeting guide for finance leads (2026)","metaTitle":"Token based pricing vs per-seat AI (2026)","description":"Token based pricing for finance leads: a 40-person seat vs token cost comparison, break-even math, a credits chargeback model and a monthly AI budget worksheet.","date":"2026-09-04","tags":["Token based pricing","AI budgeting","ATP"],"author":"hung-chien","authorTitle":"AI Growth & Brand Manager","tldr":["Token-based pricing charges per input and output token at a per-model rate, so cost follows usage rather than headcount. Per-seat pricing charges a flat fee per named user whether they use it daily or twice a month.","In a worked 40-person example, Claude Team standard seats cost $1,000 a month on monthly billing, while the same team's chat usage priced at claude-sonnet-4-6 list rates comes to $586.15, with 8 heavy users above the seat price and 32 users far below it.","Budget tokens per project: estimate requests × tokens × rate, add a buffer, allocate credits per project, and charge back on consumed credits at month-end."],"faq":[{"q":"What is token-based pricing?","a":"Token-based pricing charges for the tokens a model reads (input) and writes (output), each at a rate per million tokens that differs by model. A request with 1,284 input and 412 output tokens on claude-sonnet-4-6 at $3 / $15 costs $0.010032."},{"q":"Does token-based pricing cost less than per-seat pricing?","a":"It depends on how much each person uses. In a worked example at $0.018 per request, a user breaks even with a $25 seat at about 1,389 requests a month, roughly 66 per working day. With long documents in every prompt, break-even drops to about 17 requests per working day."},{"q":"What AI pricing models will finance teams see?","a":"Three: per-seat subscriptions (for example Claude Team), seat plus usage (Claude Enterprise lists a seat price plus usage at API rates), and pure token-based API billing. Many companies run more than one at the same time."},{"q":"How do you charge back AI costs to departments?","a":"Give each department's workloads their own projects, allocate credits per project, and charge each cost center for the credits it consumed, not the credits it was allocated. On ATP Token, 1 credit = USD 0.01."},{"q":"How do you budget for token-based AI usage?","a":"For each workload, multiply requests per month by average tokens per request and the model's rates, add a buffer such as 20%, and convert to credits. Review consumed against allocated weekly and adjust next month's allocation."}],"readingMinutes":6,"cover":"from-seats-to-tokens-ai-budgeting","html":"$b"},"newer":null,"older":{"slug":"shadow-ai-governed-control-plane","title":"What is shadow AI? Risks, examples and how to bring it under control (2026)","date":"2026-09-02","cover":"shadow-ai-governed-control-plane"}}}]
+5:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0bk251ba95uho.css","precedence":"next"}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/031jyqwh2ymjo.js","async":true}]
+7:["$","script","script-1",{"src":"/_next/static/chunks/12btwas-eg9md.js","async":true}]
+8:["$","script","script-2",{"src":"/_next/static/chunks/0tc57bytaqvvw.js","async":true}]
+9:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null

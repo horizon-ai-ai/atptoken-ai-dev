@@ -1,70 +1,170 @@
 1:"$Sreact.fragment"
-9:I[51713,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"default"]
-b:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
-c:"$Sreact.suspense"
-2:T4b6,{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to read your AI bill: a 3-layer guide to tokens, credits, and per-request attribution (2026)","description":"AI cost management guide: how to read an AI bill in three layers — token pricing, credits, and per-request records that tie every dollar to a project.","datePublished":"2026-07-21","dateModified":"2026-07-21","inLanguage":"en","keywords":"AI billing, AI cost management, ATP","url":"https://atptoken.ai/blog/how-to-read-your-ai-bill/","mainEntityOfPage":"https://atptoken.ai/blog/how-to-read-your-ai-bill/","image":"https://atptoken.ai/og/blog/how-to-read-your-ai-bill.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T5d3,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a token in AI services?","acceptedAnswer":{"@type":"Answer","text":"A token is the smallest unit a large language model uses to price and process text — roughly a fragment of a word. Input and output tokens are priced separately, and output usually costs several times more than input."}},{"@type":"Question","name":"What is the difference between credits and tokens?","acceptedAnswer":{"@type":"Answer","text":"Tokens are the model's pricing unit; credits are the billing settlement unit. Each model converts its token consumption into credits at its own rate, so usage across different models lands in one unit that finance can reconcile."}},{"@type":"Question","name":"How do I attribute AI costs to a department or project?","acceptedAnswer":{"@type":"Answer","text":"First enforce one key per project, then keep per-request records. Each request logs its project, model, and token counts, and summing them gives each department's true spend; a shared key makes this impossible."}},{"@type":"Question","name":"Why does my AI bill swing so much month to month?","acceptedAnswer":{"@type":"Answer","text":"The usual causes, in order: context length changed (someone started pasting whole documents into prompts), a switch to a differently priced model, a drop in cache hit rate, and plain traffic change. With per-request records, all four can be confirmed or ruled out in minutes."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"How to read your AI bill: a 3-layer guide to tokens, credits, and per-request attribution (2026)\",\"item\":\"https://atptoken.ai/blog/how-to-read-your-ai-bill/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"1D4DZsfbxL_82v4AXbxNN"}
-a:T226e,<p>An AI bill is the usage statement a company receives for large language model and other AI services: models price in tokens, billing settles in credits or cash, and every line of spend should trace back to a <a class="doc-term" href="/en/docs/resources" data-def="The unit that permissions and billing hang off — keys, allowed models, and credit budget all belong to one.">project</a>. This guide is for the engineers, finance partners, and managers accountable for that number for the first time.</p>
-<p>The answer up front: an AI bill has exactly three layers — tokens are the pricing unit, credits are the settlement unit, and per-request records are the audit unit. When a bill feels unreadable, one layer is missing: only a monthly total (no third layer), inconsistent units across vendors (no second layer), or no idea whether the money went to input or output (no first layer). The rest of this guide takes the layers one at a time, then maps them to roles and to the three most common anomalies.</p>
-<h2 id="layer-one-the-token-is-the-unit-of-pricing">Layer one: the token is the unit of pricing</h2>
-<p>Think of a token as a fragment of a word. Three pricing facts at this layer determine the shape of your bill.</p>
-<h3 id="input-and-output-are-priced-separately-output-costs-several-times-more">Input and output are priced separately — output costs several times more</h3>
-<p>For the same request, longer answers cost more. Constraining output length (for example, fixing a response format) is the most direct cost lever you have.</p>
-<h3 id="longer-context-costs-more-every-pasted-paragraph-is-metered">Longer context costs more — every pasted paragraph is metered</h3>
-<p>Every document and every turn of chat history you put in the prompt counts as input tokens. Unusually heavy input almost always means the context is carrying content it doesn&#39;t need.</p>
-<h3 id="cache-hits-bill-at-a-different-rate-repeated-prefixes-cost-a-fraction">Cache hits bill at a different rate — repeated prefixes cost a fraction</h3>
-<p>System prompts and document prefixes that repeat can be far cheaper on a cache hit than as fresh input. Vendor rate pages list all three facts as tables — see <a href="https://openai.com/api/pricing/" target="_blank" rel="noopener noreferrer">OpenAI&#39;s pricing page</a> for one example — and the same sentence can differ in cost by an order of magnitude across models; compare pricing modes in the <a href="/en/docs/models">model catalog</a>.</p>
-<p>So rather than staring at price sheets, track <strong>average cost per thousand requests</strong>: one number that reflects model choice, prompt length, and caching strategy together. For multi-step agents, pair it with cost per completed task — see <a href="/en/blog/what-is-the-agent-tax">what is the agent tax</a>.</p>
-<h2 id="layer-two-credits-turn-many-rate-cards-into-one-unit">Layer two: credits turn many rate cards into one unit</h2>
-<p>Run several model vendors at once and finance receives invoices written in several languages: different currencies, rate tables, and metering rules. This is what a credit system is for: top up once, let each model draw down at its own rate, and every model&#39;s consumption lands in the same unit.</p>
-<h3 id="why-you-need-a-single-settlement-unit">Why you need a single settlement unit</h3>
-<p>Credits are not a pricing trick — they are a translation layer that turns each vendor&#39;s billing logic into something finance can reconcile, so budgets, month-end closes, and trend lines share one baseline. Mechanics are in the <a href="/en/docs/credits" class="doc-term-def" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">credits docs</a>.</p>
-<h3 id="low-balance-alerts-keep-workloads-from-stopping-mid-run">Low-balance alerts keep workloads from stopping mid-run</h3>
-<p>With balance alerts and auto <a class="doc-term" href="/en/docs/topup" data-def="Adding credits to the wallet. Minimum 5 USD, pay as you go.">top-up</a>, &quot;ran out of credits halfway&quot; becomes a notification instead of an incident.</p>
-<p><a href="/en/pricing">See pricing →</a></p>
-<h2 id="layer-three-per-request-attribution-is-the-smallest-auditable-unit">Layer three: per-request attribution is the smallest auditable unit</h2>
-<blockquote>
-<p>A bill you can actually read has &quot;one request&quot; as its smallest unit — not &quot;one month.&quot;</p>
-</blockquote>
-<h3 id="what-a-per-request-record-looks-like">What a per-request record looks like</h3>
-<p>A monthly total says how much; it cannot say who or why. A per-request record writes down the project, key, model, and token counts of every call:</p>
-<pre><code>{
-  &quot;request_id&quot;: &quot;req_01HZXK3T9&quot;,
-  &quot;project&quot;: &quot;support-bot&quot;,
-  &quot;model&quot;: &quot;claude-sonnet-5&quot;,
+a:I[51713,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js","/_next/static/chunks/031jyqwh2ymjo.js","/_next/static/chunks/12btwas-eg9md.js","/_next/static/chunks/0tc57bytaqvvw.js"],"default"]
+c:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+:HL["/_next/static/chunks/0bk251ba95uho.css","style"]
+2:T4b0,{"@context":"https://schema.org","@type":"BlogPosting","headline":"LLM token cost: how to calculate it and read your AI bill, with 5-model examples (2026)","description":"LLM token cost explained: the per-request formula, one request priced on 5 models, input vs output ratios, cached and reasoning tokens, and how to read a bill.","datePublished":"2026-07-21","dateModified":"2026-07-21","inLanguage":"en","keywords":"LLM token cost, AI billing, ATP","url":"https://atptoken.ai/blog/how-to-read-your-ai-bill/","mainEntityOfPage":"https://atptoken.ai/blog/how-to-read-your-ai-bill/","image":"https://atptoken.ai/og/blog/how-to-read-your-ai-bill.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI Growth & Brand Manager","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token Blog","url":"https://atptoken.ai/blog/","description":"Field notes from the ATP Token team on AI governance, usage accounting, and running many models in production with one key.","inLanguage":"en","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T686,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you calculate LLM token cost?","acceptedAnswer":{"@type":"Answer","text":"Multiply input tokens by the model's input rate and output tokens by its output rate, then divide each by 1,000,000 because rates are quoted per million tokens. Add the two. For example, 1,284 input and 412 output tokens on claude-sonnet-4-6 at $3 / $15 cost $0.003852 + $0.00618 = $0.010032."}},{"@type":"Question","name":"Why are output tokens more expensive than input tokens?","acceptedAnswer":{"@type":"Answer","text":"Vendors price generation higher than reading. On ATP list rates, output costs 6× input on gpt-5.5, 5× on claude-sonnet-4-6 and 2× on deepseek-v4-flash, so a request with a short prompt and a long answer is mostly output cost."}},{"@type":"Question","name":"Are reasoning tokens billed?","acceptedAnswer":{"@type":"Answer","text":"Yes. OpenAI and Anthropic both bill reasoning (thinking) tokens as output tokens even though you do not see them in the answer. A request with 1,500 thinking tokens on claude-sonnet-4-6 adds $0.0225 to its cost."}},{"@type":"Question","name":"How many credits does a request use on ATP Token?","acceptedAnswer":{"@type":"Answer","text":"1 credit = USD 0.01, so credits = USD cost × 100. A $0.010032 request uses 1.0032 credits. Balances are shown to four decimal places."}},{"@type":"Question","name":"How long are ATP request logs kept?","acceptedAnswer":{"@type":"Answer","text":"Request logs are kept for 7 days and are a debugging view. Billing events are the billing source of truth and appear in the console as a 90-day ledger."}}]}0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://atptoken.ai/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"LLM token cost: how to calculate it and read your AI bill, with 5-model examples (2026)\",\"item\":\"https://atptoken.ai/blog/how-to-read-your-ai-bill/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],"$L4"],["$L5","$L6","$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"q8ogy5bwfTluQawd-N4pH"}
+b:T2d6e,<p>LLM token cost is what you pay a model for the tokens it reads (input) and writes (output), each charged at its own rate per million tokens. This guide gives you the formula, prices one real-sized request on five models, explains why output, cached and reasoning tokens change the math, and shows which fields to read when the monthly AI bill does not add up.</p>
+<p>All rates below are ATP list rates from each model page, as of October 2026. The vendor rates quoted for comparison link to the vendor&#39;s own pricing page.</p>
+<h2 id="the-token-cost-formula">The token cost formula</h2>
+<p>Every per-request cost on a token-priced API comes from the same three steps:</p>
+<ol>
+<li>Input cost = input tokens × input rate ÷ 1,000,000</li>
+<li>Output cost = output tokens × output rate ÷ 1,000,000</li>
+<li>Request cost = input cost + output cost</li>
+</ol>
+<p>On ATP Token, the request is then charged in credits against the <a class="doc-term" href="/docs/resources/" data-def="The unit that permissions and billing hang off — keys, allowed models, and credit budget all belong to one.">project</a>&#39;s balance, at <a href="/docs/credits/" class="doc-term-def" data-def="The billing unit. 1 USD = 100 credits; usage converts at each model's list rate.">1 credit = USD 0.01</a>. Credits = USD cost × 100.</p>
+<h3 id="worked-example-one-support-bot-reply">Worked example: one support-bot reply</h3>
+<p>A support bot sends a 1,284-token prompt (system prompt, retrieved help-center snippet, customer message) to claude-sonnet-4-6 at $3 input / $15 output per 1M tokens, and gets a 412-token answer.</p>
+<ul>
+<li>Input: 1,284 × $3 ÷ 1,000,000 = $0.003852</li>
+<li>Output: 412 × $15 ÷ 1,000,000 = $0.00618</li>
+<li>Total: $0.010032 = 1.0032 credits</li>
+</ul>
+<p>At 100,000 replies a month that is $1,003.20. Output is only 24% of the tokens in this request but 61.6% of its cost.</p>
+<h3 id="a-token-cost-calculator-you-can-paste">A token cost calculator you can paste</h3>
+<p>The SDK response already carries the token counts. With the OpenAI format the fields are <code>usage.prompt_tokens</code> and <code>usage.completion_tokens</code>; with the Anthropic format they are <code>usage.input_tokens</code> and <code>usage.output_tokens</code>.</p>
+<pre><code class="language-python">RATES = {  # USD per 1M tokens: (input, output), ATP list rates
+    &quot;gpt-5.5&quot;: (5.00, 30.00),
+    &quot;claude-sonnet-4-6&quot;: (3.00, 15.00),
+    &quot;gemini-3-5-flash&quot;: (1.50, 9.00),
+    &quot;deepseek-v4-flash&quot;: (0.20, 0.40),
+    &quot;qwen-3-7-flash&quot;: (0.03, 0.13),
+}
+
+def token_cost(model, input_tokens, output_tokens):
+    rate_in, rate_out = RATES[model]
+    usd = (input_tokens * rate_in + output_tokens * rate_out) / 1_000_000
+    return usd, usd * 100  # (USD, ATP credits)
+
+print(token_cost(&quot;claude-sonnet-4-6&quot;, 1284, 412))  # about (0.010032, 1.0032)
+</code></pre>
+<h2 id="the-same-request-on-5-models">The same request on 5 models</h2>
+<p>Here is the 1,284-in / 412-out request priced on five models. The qwen-3-7-flash rate is its tier for prompts up to 32K tokens.</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>ATP list rate (input / output per 1M)</th>
+<th>Cost per request</th>
+<th>Credits per request</th>
+<th>Per 100k requests</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="/models/gpt-5.5/">gpt-5.5</a></td>
+<td>$5 / $30</td>
+<td>$0.01878</td>
+<td>1.878</td>
+<td>$1,878.00</td>
+</tr>
+<tr>
+<td><a href="/models/claude-sonnet-4-6/">claude-sonnet-4-6</a></td>
+<td>$3 / $15</td>
+<td>$0.010032</td>
+<td>1.0032</td>
+<td>$1,003.20</td>
+</tr>
+<tr>
+<td><a href="/models/gemini-3-5-flash/">gemini-3-5-flash</a></td>
+<td>$1.50 / $9</td>
+<td>$0.005634</td>
+<td>0.5634</td>
+<td>$563.40</td>
+</tr>
+<tr>
+<td><a href="/models/deepseek-v4-flash/">deepseek-v4-flash</a></td>
+<td>$0.20 / $0.40</td>
+<td>$0.0004216</td>
+<td>0.04216</td>
+<td>$42.16</td>
+</tr>
+<tr>
+<td><a href="/models/qwen-3-7-flash/">qwen-3-7-flash</a></td>
+<td>$0.03 / $0.13</td>
+<td>$0.00009208</td>
+<td>0.009208</td>
+<td>$9.21</td>
+</tr>
+</tbody></table>
+<p>The table holds token counts constant to isolate the rate. Real counts differ by model, because each vendor&#39;s tokenizer splits text differently. Anthropic says the tokenizer in Claude 4.7 and later models &quot;produces approximately 30% more tokens for the same text&quot; (<a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer">Anthropic pricing</a>), so the same 1,284-token prompt would come out near 1,670 tokens on a 4.7+ model. Test your own prompts before comparing models on rate alone, and check quality side by side, for example in the <a href="/compare/deepseek-vs-claude/">DeepSeek vs Claude comparison</a>.</p>
+<h2 id="why-output-tokens-dominate-the-bill">Why output tokens dominate the bill</h2>
+<p>The ratio between output and input rates decides where your money goes.</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Output rate ÷ input rate</th>
+<th>Output share of the example request&#39;s cost</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>gpt-5.5</td>
+<td>6×</td>
+<td>65.8%</td>
+</tr>
+<tr>
+<td>claude-sonnet-4-6</td>
+<td>5×</td>
+<td>61.6%</td>
+</tr>
+<tr>
+<td>deepseek-v4-flash</td>
+<td>2×</td>
+<td>39.1%</td>
+</tr>
+</tbody></table>
+<p>Two practical consequences. On a 5× or 6× model, trimming the answer is worth more per token than trimming the prompt: cutting 200 output tokens on claude-sonnet-4-6 saves $0.003, the same as cutting 1,000 input tokens. And workloads that generate long text (drafting, code generation, report writing) should be priced mainly from their expected output length.</p>
+<h2 id="cached-input-and-reasoning-tokens">Cached input and reasoning tokens</h2>
+<p>Two token types appear on vendor price sheets and confuse first-time readers.</p>
+<h3 id="cached-input-is-a-vendor-pricing-feature">Cached input is a vendor pricing feature</h3>
+<p>Some vendors price repeated prompt prefixes lower when they are served from cache. OpenAI lists GPT-5.5 cached input at $0.50 per 1M tokens against $5 for regular input (<a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noopener noreferrer">OpenAI pricing</a>). Anthropic prices cache reads at 0.1× the base input rate on most models, with cache writes at 1.25× (5-minute) or 2× (1-hour) (<a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer">Anthropic pricing</a>). These are vendor rates for calls made under those vendors&#39; caching rules. ATP Token bills on input and output tokens per its <a href="/docs/pricing-model/">pricing model</a>, so plan ATP budgets on the input and output list rates.</p>
+<h3 id="reasoning-tokens-bill-as-output">Reasoning tokens bill as output</h3>
+<p>Reasoning models think before they answer, and those hidden tokens count. OpenAI states reasoning tokens &quot;are billed as output tokens&quot; (<a href="https://developers.openai.com/api/docs/guides/reasoning" target="_blank" rel="noopener noreferrer">OpenAI reasoning guide</a>), and Anthropic bills extended-thinking tokens as output (<a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener noreferrer">Claude Code costs</a>). If the support-bot request above used 1,500 thinking tokens on claude-sonnet-4-6, it would add 1,500 × $15 ÷ 1,000,000 = $0.0225, taking the request from $0.010032 to $0.032532, about 3.2×.</p>
+<p>Reasoning budgets also explain a puzzling log line: a <code>200</code> with empty content. When <code>max_tokens</code> is too low, the model spends the whole budget thinking and returns no text. On ATP that request typically shows zero usage and deducts no credits; the fix is a higher <code>max_tokens</code> (<a href="/docs/errors/">errors</a>).</p>
+<h2 id="what-a-per-request-record-tells-you">What a per-request record tells you</h2>
+<p>A monthly total says how much. A per-request record says which project, which model and how many tokens. The record below is illustrative; it shows the fields you need to price one call, not ATP&#39;s literal log format.</p>
+<pre><code class="language-json">{
+  &quot;request_id&quot;: &quot;req_example_01&quot;,
+  &quot;project&quot;: &quot;support-bot-prod&quot;,
+  &quot;model&quot;: &quot;claude-sonnet-4-6&quot;,
   &quot;input_tokens&quot;: 1284,
   &quot;output_tokens&quot;: 412,
-  &quot;cost_credits&quot;: 0.0087
+  &quot;cost_usd&quot;: 0.010032,
+  &quot;cost_credits&quot;: 1.0032
 }
 </code></pre>
-<h3 id="the-key-determines-attribution-quality">The key determines attribution quality</h3>
-<p>If several applications share one key, the record above can tell you the model and the cost, but never the team. Project keys and per-request attribution are really one feature: the key stamps each request with an owner, and the log makes the stamp auditable later. This is why <a href="/en/blog/ai-governance-checklist">the enterprise AI governance checklist</a> puts &quot;one project, one key&quot; at number 1. Fields and reports are covered in the <a href="/en/docs/spend">spend docs</a>.</p>
-<h2 id="by-role-what-engineering-finance-and-management-each-read">By role: what engineering, finance, and management each read</h2>
-<h3 id="engineering-reads-layer-one-token-structure">Engineering reads layer one: token structure</h3>
-<p>Input-to-output ratio, cache hit rate, model mix — three numbers that decide whether unit cost can drop further.</p>
-<h3 id="finance-reads-layer-two-credits-and-top-up-cadence">Finance reads layer two: credits and top-up cadence</h3>
-<p>One unit, one bill, a predictable top-up cycle; anomalies get escalated to layer three.</p>
-<h3 id="management-reads-layer-three-rolled-up-trends-by-project">Management reads layer three, rolled up: trends by project</h3>
-<p>Month-over-month spend summed by project is the only defensible basis for renewing next year&#39;s AI budget.</p>
-<h2 id="by-scenario-three-common-billing-anomalies">By scenario: three common billing anomalies</h2>
-<h3 id="spend-jumps-suddenly-sort-by-project-then-drill-into-models">Spend jumps suddenly — sort by project, then drill into models</h3>
-<p>Nine times out of ten the jump concentrates in a single project — the same pattern as <a href="/en/blog/why-ai-bills-explode-after-go-live">why AI bills explode after go-live</a>; per-request records narrow it to one model, and often one deployment window, in minutes.</p>
-<h3 id="input-tokens-balloon-inspect-the-context-assembly-logic">Input tokens balloon — inspect the context assembly logic</h3>
-<p>The usual culprit is &quot;paste the whole document into every turn&quot;; the usual fix is summarization or retrieval.</p>
-<h3 id="a-balance-runs-dry-mid-run-set-alert-thresholds-and-auto-top-up">A balance runs dry mid-run — set alert thresholds and auto top-up</h3>
-<p>Make &quot;credits remaining&quot; a number on a dashboard you glance at daily, not the first line of an incident report.</p>
-<h2 id="the-more-modern-approach-make-attribution-the-default-with-atp-token">The more modern approach: make attribution the default with ATP Token</h2>
-<p>You can build each of the three layers yourself; the more modern approach is a platform where they are simply the defaults. Project keys set ownership, every request writes its own record, and all models settle in credits — engineering keeps its existing call patterns (compatible with the OpenAI, Anthropic, and Gemini formats; integration is a base_url swap), and finance reads one bill a month.</p>
-<p><a href="/en/docs/quickstart">Start with the quickstart →</a></p>
-<h2 id="further-reading">Further reading</h2>
+<p>In ATP Token the same information lives in three places:</p>
 <ul>
-<li><a href="/en/blog/enterprise-ai-cost-management-guide">Enterprise AI cost management: the complete guide to tokens, credits, keys, and caps</a></li>
-<li><a href="/en/blog/why-ai-bills-explode-after-go-live">Why AI bills explode after go-live: 5 control gaps and how to close them</a></li>
-<li><a href="/en/blog/what-is-the-agent-tax">What is the agent tax? Why multi-step AI agents inflate token bills</a></li>
+<li>Request logs, one row per call: time, scope (workspace and project), model, endpoint, HTTP status, provider result, input and output tokens, billing status and request ID. Filter by time range, scope, model, status or request ID (<a href="/docs/monitoring/">Usage &amp; logs</a>). Retention is 7 days, so investigate a spike within the week.</li>
+<li>Billing events, the line-item ledger shown in the console as a 90-day view, filterable by model, key, billing status or request ID (<a href="/docs/console-api-billing/">billing API</a>). Use this ledger as the billing source of truth.</li>
+<li>The Usage page, which totals credits and tokens by model and by API key for a period.</li>
 </ul>
-<p>A bill should be a dashboard you glance at daily, not a month-end surprise. Once the three layers line up, &quot;how much is AI costing us&quot; stops being a puzzle and becomes a query.</p>
-<p><a href="/en/enterprise-plan">Apply for the enterprise plan →</a></p>4:["$","$L9",null,{"data":{"lang":"en","post":{"slug":"how-to-read-your-ai-bill","title":"How to read your AI bill: a 3-layer guide to tokens, credits, and per-request attribution (2026)","metaTitle":"How to read your AI bill: 3-layer guide (2026)","description":"AI cost management guide: how to read an AI bill in three layers — token pricing, credits, and per-request records that tie every dollar to a project.","date":"2026-07-21","tags":["AI billing","AI cost management","ATP"],"author":"hung-chien","authorTitle":"AI Growth & Brand Manager","tldr":["An AI bill has exactly three layers: tokens are the pricing unit, credits are the settlement unit, per-request records are the audit unit. When all three line up, the bill reads itself.","The most useful internal metric is not the price sheet but average cost per thousand requests — it captures model choice, prompt length, and caching strategy in one number.","Attribution quality is set by the key: one project, one key gives every request an owner; several systems sharing one key means the bill can only ever say 'everyone.'"],"faq":[{"q":"What is a token in AI services?","a":"A token is the smallest unit a large language model uses to price and process text — roughly a fragment of a word. Input and output tokens are priced separately, and output usually costs several times more than input."},{"q":"What is the difference between credits and tokens?","a":"Tokens are the model's pricing unit; credits are the billing settlement unit. Each model converts its token consumption into credits at its own rate, so usage across different models lands in one unit that finance can reconcile."},{"q":"How do I attribute AI costs to a department or project?","a":"First enforce one key per project, then keep per-request records. Each request logs its project, model, and token counts, and summing them gives each department's true spend; a shared key makes this impossible."},{"q":"Why does my AI bill swing so much month to month?","a":"The usual causes, in order: context length changed (someone started pasting whole documents into prompts), a switch to a differently priced model, a drop in cache hit rate, and plain traffic change. With per-request records, all four can be confirmed or ruled out in minutes."}],"readingMinutes":5,"cover":"how-to-read-your-ai-bill","html":"$a"},"newer":{"slug":"why-ai-bills-explode-after-go-live","title":"Why AI bills explode after go-live: 5 control gaps and how to close them (2026)","date":"2026-07-29"},"older":{"slug":"ai-governance-checklist","title":"Enterprise AI governance checklist: 12 checks for adopting multiple AI services (2026)","date":"2026-07-14"}}}]
-5:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
-6:["$","script","script-1",{"src":"/_next/static/chunks/1hbxtvg5etpqa.js","async":true}]
-7:["$","script","script-2",{"src":"/_next/static/chunks/0ey98fxnyu7te.js","async":true}]
-8:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
-d:null
+<p>Every response also carries an <code>x-request-id</code> header, so an engineer can match one call in application logs to its row in the console.</p>
+<h2 id="three-bill-anomalies-and-where-to-look">Three bill anomalies and where to look</h2>
+<h3 id="spend-jumps-in-one-week">Spend jumps in one week</h3>
+<p>Sort Usage by API key. If keys map one-to-one to projects, the jump lands on one owner immediately. Then filter request logs on that project and compare tokens per request before and after the jump. A rise from about 1,300 to 13,000 input tokens per call usually means someone started sending a whole document on every turn.</p>
+<h3 id="the-rate-looks-right-but-the-total-does-not">The rate looks right but the total does not</h3>
+<p>Check the model mix. Moving 20% of the 100,000 support replies from claude-sonnet-4-6 to gpt-5.5 raises that month from $1,003.20 to $1,178.16, with no change in traffic.</p>
+<h3 id="requests-succeed-with-no-text">Requests succeed with no text</h3>
+<p>Look for <code>200</code> rows with zero output tokens on a reasoning model. Raise <code>max_tokens</code> to cover thinking plus the answer.</p>
+<h2 id="setting-this-up-in-atp-token">Setting this up in ATP Token</h2>
+<ol>
+<li>Create one project per service and environment, each with its own <code>atp-</code> key, so Usage by key reads as usage by owner.</li>
+<li>Allocate credits to each project. The allocation is the project&#39;s ceiling; when its balance runs out, calls return <code>402</code> (<a href="/docs/cb-budget-caps/">budget caps recipe</a>). Projects can also turn on auto <a class="doc-term" href="/docs/topup/" data-def="Adding credits to the wallet. Minimum 5 USD, pay as you go.">top-up</a> with a trigger threshold and a monthly cap.</li>
+<li>Log <code>usage</code> from every response with the model id, and run the calculator above per project each week.</li>
+<li>Reconcile month-end against billing events, and use request logs for drill-downs inside the 7-day window.</li>
+</ol>
+<p><a href="/docs/quickstart/">Start with the quickstart</a></p>
+<h2 id="related-reading">Related reading</h2>
+<ul>
+<li><a href="/blog/enterprise-ai-cost-management-guide/">Enterprise AI cost management and LLM cost optimization guide</a></li>
+<li><a href="/blog/why-ai-bills-explode-after-go-live/">Why AI bills explode after go-live</a></li>
+<li><a href="/blog/what-is-the-agent-tax/">What is the agent tax?</a></li>
+</ul>4:["$","$La",null,{"data":{"lang":"en","post":{"slug":"how-to-read-your-ai-bill","title":"LLM token cost: how to calculate it and read your AI bill, with 5-model examples (2026)","metaTitle":"LLM token cost: calculate your AI bill (2026)","description":"LLM token cost explained: the per-request formula, one request priced on 5 models, input vs output ratios, cached and reasoning tokens, and how to read a bill.","date":"2026-07-21","tags":["LLM token cost","AI billing","ATP"],"author":"hung-chien","authorTitle":"AI Growth & Brand Manager","tldr":["LLM token cost per request = input tokens × input rate + output tokens × output rate, with rates quoted per 1M tokens. On claude-sonnet-4-6 ($3 / $15), 1,284 input and 412 output tokens cost $0.010032, or 1.0032 ATP credits.","The same request costs $0.01878 on gpt-5.5 and $0.00009208 on qwen-3-7-flash, a 204× spread. Model choice moves the bill more than any other single setting.","Output tokens are priced 2× to 6× input on common models, and reasoning tokens bill as output. Read the bill by project and model first, then drill into single requests while the 7-day request logs still hold them."],"faq":[{"q":"How do you calculate LLM token cost?","a":"Multiply input tokens by the model's input rate and output tokens by its output rate, then divide each by 1,000,000 because rates are quoted per million tokens. Add the two. For example, 1,284 input and 412 output tokens on claude-sonnet-4-6 at $3 / $15 cost $0.003852 + $0.00618 = $0.010032."},{"q":"Why are output tokens more expensive than input tokens?","a":"Vendors price generation higher than reading. On ATP list rates, output costs 6× input on gpt-5.5, 5× on claude-sonnet-4-6 and 2× on deepseek-v4-flash, so a request with a short prompt and a long answer is mostly output cost."},{"q":"Are reasoning tokens billed?","a":"Yes. OpenAI and Anthropic both bill reasoning (thinking) tokens as output tokens even though you do not see them in the answer. A request with 1,500 thinking tokens on claude-sonnet-4-6 adds $0.0225 to its cost."},{"q":"How many credits does a request use on ATP Token?","a":"1 credit = USD 0.01, so credits = USD cost × 100. A $0.010032 request uses 1.0032 credits. Balances are shown to four decimal places."},{"q":"How long are ATP request logs kept?","a":"Request logs are kept for 7 days and are a debugging view. Billing events are the billing source of truth and appear in the console as a 90-day ledger."}],"readingMinutes":6,"cover":"how-to-read-your-ai-bill","html":"$b"},"newer":{"slug":"why-ai-bills-explode-after-go-live","title":"Why LLM costs explode after launch: 5 control gaps and a worked example (2026)","date":"2026-07-29","cover":"why-ai-bills-explode-after-go-live"},"older":{"slug":"ai-governance-checklist","title":"AI governance checklist: 12 verifiable checks for model API usage (2026)","date":"2026-07-14","cover":"ai-governance-checklist"}}}]
+5:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0bk251ba95uho.css","precedence":"next"}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/031jyqwh2ymjo.js","async":true}]
+7:["$","script","script-1",{"src":"/_next/static/chunks/12btwas-eg9md.js","async":true}]
+8:["$","script","script-2",{"src":"/_next/static/chunks/0tc57bytaqvvw.js","async":true}]
+9:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null

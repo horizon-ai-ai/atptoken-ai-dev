@@ -1,38 +1,291 @@
 1:"$Sreact.fragment"
-2:I[51713,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/2tn6oalf1ynjw.js","/_next/static/chunks/1hbxtvg5etpqa.js","/_next/static/chunks/0ey98fxnyu7te.js"],"default"]
-8:I[97367,["/_next/static/chunks/3629_rsmfo4lu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
-9:"$Sreact.suspense"
-3:Tcb9,<p>从座位到 token 描述成本驱动从具名授权变成计量模型用量时的预算转变。</p>
-<p><strong>人头不再预测账单。</strong> Agent 与长上下文让十人花得像一百人。预算建在<strong>分配、归属与任务经济学</strong>上。基础：<a href="/zh-cn/blog/enterprise-ai-cost-management-guide">成本管理指南</a>、<a href="/zh-cn/blog/how-to-read-your-ai-bill">读懂账单</a>。</p>
-<h2 id="为何座位逻辑失效">为何座位逻辑失效</h2>
-<p>更多使用者→更多成本 vs 同一使用者更长提示→更多成本；月可预测 vs agent／批次尖峰；部门＝授权数 vs 部门＝<a class="doc-term" href="/zh-cn/docs/resources" data-def="权限与帐务的最小单位；金钥、允许模型、点数预算都挂在 project 上。">项目</a>分配。</p>
-<h2 id="新原语">新原语</h2>
-<p>结算单位（<a href="/zh-cn/docs/credits" class="doc-term-def" data-def="计费单位。1 美元 = 100 点；用量依各模型牌价换算成点数扣抵。">点数</a>、<a href="/zh-cn/docs/topup" class="doc-term-def" data-def="为钱包加值点数，最低 5 美元，用多少付多少。">储值</a>）；项目主人（<a href="/zh-cn/blog/one-project-one-key">一项目一密钥</a>）；先告警的 cap（<a href="/zh-cn/blog/ai-spending-caps-that-work">花费上限</a>、<a href="/zh-cn/blog/why-ai-bills-explode-after-go-live">账单爆炸</a>）。</p>
-<h2 id="财务可跑的指标">财务可跑的指标</h2>
-<p>已分配 vs 已消耗、每千次成本、每次 agent 任务（<a href="/zh-cn/blog/what-is-the-agent-tax">agent tax</a>）、402/403 作为控制健康。</p>
-<h2 id="更现代的做法">更现代的做法</h2>
-<p>ERP / SaaS 会持续在座位上加 AI 计量；企业仍需 API 形用量的治理与账务整合层。ATP Token 提供阶层点数与请求级稽核，对齐 Horizon AI 导入方法论。</p>
-<p><a href="/zh-cn/pricing">定价 →</a> · <a href="/zh-cn/docs/quickstart">快速开始 →</a></p>
-<h2 id="常见问题">常见问题</h2>
-<h3 id="token-计价的-ai-与座位制-saas-有何不同">Token 计价的 AI 与座位制 SaaS 有何不同？</h3>
-<p>座位跟人头；token 跟用量形态，可不增人就暴冲。</p>
-<h3 id="什么指标取代每位座位成本">什么指标取代每位座位成本？</h3>
-<p>点数消耗 vs 分配、每千次成本、每次 agent 任务成本。</p>
-<h3 id="2026-部门应如何编-ai-预算">2026 部门应如何编 AI 预算？</h3>
-<p>项目分配、每周看燃烧、沙盒低 cap。</p>
-<h3 id="为什么-saas-内建-ai-让-erp-预算更难">为什么 SaaS 内建 AI 让 ERP 预算更难？</h3>
-<p>座位上再加用量计量，无 cap 即意外科目。</p>
-<h3 id="现代化-ai-预算的第一步">现代化 AI 预算的第一步？</h3>
-<p>盘点、结算单位、项目主人、可执行分配。</p>
+4:I[51713,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js","/_next/static/chunks/031jyqwh2ymjo.js","/_next/static/chunks/12btwas-eg9md.js","/_next/static/chunks/0tc57bytaqvvw.js"],"default"]
+b:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+:HL["/_next/static/chunks/0bk251ba95uho.css","style"]
+2:T506,{"@context":"https://schema.org","@type":"BlogPosting","headline":"Token 计价 vs 按席位计价：写给财务负责人的 AI 预算指南（2026）","description":"Token 计价是什么、与按席位计价有何不同：40 人团队的成本对比、盈亏平衡计算、以点数分摊到项目的内部结算模型，以及每月 AI 预算测算表。","datePublished":"2026-09-04","dateModified":"2026-09-04","inLanguage":"zh-Hans-CN","keywords":"Token 计价, AI 预算, ATP","url":"https://atptoken.ai/zh-cn/blog/from-seats-to-tokens-ai-budgeting/","mainEntityOfPage":"https://atptoken.ai/zh-cn/blog/from-seats-to-tokens-ai-budgeting/","image":"https://atptoken.ai/og/blog/from-seats-to-tokens-ai-budgeting.jpg","author":{"@type":"Person","name":"hung-chien","jobTitle":"AI 增长与品牌经理","worksFor":{"@id":"https://www.horizon-ai.ai/#organization"}},"publisher":{"@id":"https://www.horizon-ai.ai/#organization"},"isPartOf":{"@type":"Blog","@id":"https://atptoken.ai/#blog","name":"ATP Token 博客","url":"https://atptoken.ai/blog/","description":"ATP Token 团队的实务笔记：企业 AI 治理、AI Token 用量账务，以及用一把密钥管理多个模型的日常。","inLanguage":"zh-Hans-CN","publisher":{"@id":"https://www.horizon-ai.ai/#organization"}}}3:T6d5,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"什么是 token 计价？","acceptedAnswer":{"@type":"Answer","text":"Token 计价是按模型读入（输入）与写出（输出）的 token 收费，两者各有每 100 万 token 的单价，且各模型不同。claude-sonnet-4-6（$3 / $15）处理 1,284 个输入与 412 个输出 token 的请求，成本是 $0.010032。"}},{"@type":"Question","name":"Token 计价会比按席位计价省钱吗？","acceptedAnswer":{"@type":"Answer","text":"取决于每个人用多少。按每次请求 $0.018 测算，用户每月约 1,389 次请求、即每个工作日约 66 次，才与 $25 的席位持平。如果每次提示都带长文档，持平点会降到每个工作日约 17 次。"}},{"@type":"Question","name":"财务会遇到哪些 AI 计价模式？","acceptedAnswer":{"@type":"Answer","text":"三种：按席位订阅（例如 Claude Team）、席位加用量（Claude Enterprise 列出席位价加上按 API 单价计算的用量），以及纯 token 计价的 API。很多公司会同时使用不止一种。"}},{"@type":"Question","name":"AI 成本怎么分摊到各部门？","acceptedAnswer":{"@type":"Answer","text":"把各部门的工作负载分到各自的项目，为每个项目分配点数，再按各成本中心实际消耗的点数结算，分配额只作为上限。在 ATP Token 上，1 点 = 0.01 美元。"}},{"@type":"Question","name":"Token 计价的 AI 用量怎么编预算？","acceptedAnswer":{"@type":"Answer","text":"每个工作负载用每月请求数 × 每次平均 token 数 × 模型单价，加上例如 20% 的缓冲，再换算成点数。每周对比已消耗与已分配，调整下个月的分配额。"}}]}5:T297d,<p>Token 计价是一种计费模式：按 AI 模型读入与写出的 token 数，依各模型每 100 万 token 的单价付费，不按用户人数收取固定费用。本文把按席位与 token 计价放在 40 人团队上并排对比，算出盈亏平衡点，并给出财务负责人可以直接套用的内部分摊模型与每月预算测算表。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>按席位订阅</th>
+<th>Token 计价（API）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>付费对象</td>
+<td>每月的实名用户</td>
+<td>每次请求的输入与输出 token</td>
+</tr>
+<tr>
+<td>成本驱动</td>
+<td>人数</td>
+<td>请求数 × token 数 × 模型单价</td>
+</tr>
+<tr>
+<td>轻度或闲置用户</td>
+<td>每人照付全额席位</td>
+<td>接近零</td>
+</tr>
+<tr>
+<td>重度用户</td>
+<td>同样的席位价</td>
+<td>可能超过一个席位</td>
+</tr>
+<tr>
+<td>上限怎么设</td>
+<td>席位数量</td>
+<td>按<a class="doc-term" href="/zh-cn/docs/resources/" data-def="权限与帐务的最小单位；金钥、允许模型、点数预算都挂在 project 上。">项目</a>或密钥设预算</td>
+</tr>
+</tbody></table>
+<h2 id="财务会遇到的三种-ai-计价模式">财务会遇到的三种 AI 计价模式</h2>
+<p>截至 2026 年 10 月，<a href="https://claude.com/pricing" target="_blank" rel="noopener noreferrer">Claude 定价页</a>上同一家厂商就有三种模式：</p>
+<ul>
+<li>按席位：Claude Team 标准席位按月付费为每席每月 $25，按年付费为 $20。Premium 席位按月 $125、按年 $100。</li>
+<li>席位加用量：Claude Enterprise 写的是「席位价 + 按 API 单价计算的用量」，每席每月 $20、按年付费，用量成本随模型与任务变化。</li>
+<li>Token 计价：API 按 token 收费。Claude Sonnet 4.6 为每 100 万输入 token $3、每 100 万输出 token $15（<a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener noreferrer">Anthropic 定价</a>），与 <a href="/zh-cn/models/claude-sonnet-4-6/">claude-sonnet-4-6</a> 的 ATP 标价相同。</li>
+</ul>
+<p>多数公司最后是混合使用：整天和模型对话的人用席位，从代码调用模型的应用、自动化与 agent 用 token 计价。</p>
+<h2 id="实算对比-40-人团队">实算对比：40 人团队</h2>
+<p>假设一个月 21 个工作日，所有请求都使用 claude-sonnet-4-6（$3 / $15）：</p>
+<ul>
+<li>普通请求为 3,000 输入、600 输出 token：3,000 × $3 ÷ 100 万 + 600 × $15 ÷ 100 万 = $0.009 + $0.009 = $0.018。</li>
+<li>长文档请求为 20,000 输入、600 输出 token：$0.06 + $0.009 = $0.069。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>用户分组</th>
+<th>人数</th>
+<th>每工作日请求数</th>
+<th>每次成本</th>
+<th>每人每月 token 成本</th>
+<th>分组合计</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>重度，常带长文档</td>
+<td>8</td>
+<td>40</td>
+<td>$0.069</td>
+<td>$57.96</td>
+<td>$463.68</td>
+</tr>
+<tr>
+<td>普通</td>
+<td>20</td>
+<td>15</td>
+<td>$0.018</td>
+<td>$5.67</td>
+<td>$113.40</td>
+</tr>
+<tr>
+<td>轻度</td>
+<td>12</td>
+<td>2</td>
+<td>$0.018</td>
+<td>$0.756</td>
+<td>$9.07</td>
+</tr>
+<tr>
+<td>合计</td>
+<td>40</td>
+<td></td>
+<td></td>
+<td></td>
+<td>$586.15</td>
+</tr>
+</tbody></table>
+<p>同样 40 人使用 Claude Team 标准席位，按月付费是 40 × $25 = 每月 $1,000，按年付费是 40 × $20 = $800。</p>
+<p>财务可以从这张表看出三点：</p>
+<ol>
+<li>持平点要逐人看。每次 $0.018 时，用户每月 $25 ÷ $0.018 = 1,389 次请求才与 $25 席位持平，约每个工作日 66 次。每次 $0.069 时约每月 362 次，即每个工作日 17 次。</li>
+<li>重度分组每人 token 成本 $57.96，是 $25 席位的两倍以上；轻度分组每人不到 $1。</li>
+<li>这个对比只计算模型用量。席位包含厂商的对话应用与功能；token 用量则需要内部工具或集成来调用 API，这部分也有成本。</li>
+</ol>
+<p>Agent 类工作的量级完全不同。Anthropic 表示 Claude Code 平均每位开发者每个活跃日约 $13，每月约 $150 到 $250（<a href="https://code.claude.com/docs/en/costs" target="_blank" rel="noopener noreferrer">Claude Code 成本</a>），是上面对话用量的好几倍。编程 agent 请单独列一行预算。</p>
+<h2 id="以项目点数做内部分摊">以项目点数做内部分摊</h2>
+<p>席位的内部分摊很简单：各部门席位数 × 单价。Token 的分摊多一步，因为花费落在工作负载上，不直接对应到人。月底结账时站得住的做法是：</p>
+<ul>
+<li>每个工作负载是一个项目、有自己的密钥，每个部门一个工作区。</li>
+<li>财务为组织充值，每个项目每月分配一笔点数（1 点 = 0.01 美元）。</li>
+<li>各成本中心按实际消耗的点数结算，与分配额无关。</li>
+</ul>
+<p>示例月份，分配额沿用下一节测算表的结果：</p>
+<table>
+<thead>
+<tr>
+<th>工作区</th>
+<th>项目</th>
+<th>已分配点数</th>
+<th>已消耗点数</th>
+<th>使用率</th>
+<th>分摊金额</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Support</td>
+<td>support-bot-prod</td>
+<td>145,000</td>
+<td>118,240</td>
+<td>81.5%</td>
+<td>$1,182.40</td>
+</tr>
+<tr>
+<td>Support</td>
+<td>ticket-triage</td>
+<td>1,500</td>
+<td>1,105</td>
+<td>73.7%</td>
+<td>$11.05</td>
+</tr>
+<tr>
+<td>Sales</td>
+<td>proposal-drafts</td>
+<td>27,000</td>
+<td>26,880</td>
+<td>99.6%</td>
+<td>$268.80</td>
+</tr>
+<tr>
+<td>Engineering</td>
+<td>code-review-bot</td>
+<td>49,000</td>
+<td>37,615</td>
+<td>76.8%</td>
+<td>$376.15</td>
+</tr>
+<tr>
+<td>All staff</td>
+<td>team-assistant</td>
+<td>70,500</td>
+<td>61,020</td>
+<td>86.6%</td>
+<td>$610.20</td>
+</tr>
+<tr>
+<td>合计</td>
+<td></td>
+<td>293,000</td>
+<td>244,860</td>
+<td>83.6%</td>
+<td>$2,448.60</td>
+</tr>
+</tbody></table>
+<p>按部门：Support $1,193.45、Sales $268.80、Engineering $376.15、All staff $610.20。没花掉的 48,140 点留在各项目余额里，按量付费的点数不会过期，所以下个月的分配额可以少一些。proposal-drafts 用掉分配额的 99.6%，这是先问负责人用量是否增长、再决定是否调高的信号。</p>
+<h2 id="每月-ai-预算测算表">每月 AI 预算测算表</h2>
+<p>每个工作负载填一行。请求数与平均 token 数取请求日志中完整一周的数据，再乘以 4.33 周。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>模型</th>
+<th>每月请求数</th>
+<th>平均输入 / 输出 token</th>
+<th>每次成本</th>
+<th>每月成本</th>
+<th>含 20% 缓冲</th>
+<th>点数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>support-bot-prod</td>
+<td>claude-sonnet-4-6</td>
+<td>120,000</td>
+<td>1,284 / 412</td>
+<td>$0.010032</td>
+<td>$1,203.84</td>
+<td>$1,444.61</td>
+<td>144,461</td>
+</tr>
+<tr>
+<td>ticket-triage</td>
+<td><a href="/zh-cn/models/qwen-3-7-flash/">qwen-3-7-flash</a></td>
+<td>400,000</td>
+<td>800 / 50</td>
+<td>$0.0000305</td>
+<td>$12.20</td>
+<td>$14.64</td>
+<td>1,464</td>
+</tr>
+<tr>
+<td>proposal-drafts</td>
+<td><a href="/zh-cn/models/gpt-5.5/">gpt-5.5</a></td>
+<td>3,000</td>
+<td>6,000 / 1,500</td>
+<td>$0.075</td>
+<td>$225.00</td>
+<td>$270.00</td>
+<td>27,000</td>
+</tr>
+<tr>
+<td>code-review-bot</td>
+<td>claude-sonnet-4-6</td>
+<td>8,000</td>
+<td>12,000 / 1,000</td>
+<td>$0.051</td>
+<td>$408.00</td>
+<td>$489.60</td>
+<td>48,960</td>
+</tr>
+<tr>
+<td>team-assistant（长文档）</td>
+<td>claude-sonnet-4-6</td>
+<td>6,720</td>
+<td>20,000 / 600</td>
+<td>$0.069</td>
+<td>$463.68</td>
+<td>$556.42</td>
+<td>55,642</td>
+</tr>
+<tr>
+<td>team-assistant（普通）</td>
+<td>claude-sonnet-4-6</td>
+<td>6,804</td>
+<td>3,000 / 600</td>
+<td>$0.018</td>
+<td>$122.47</td>
+<td>$146.97</td>
+<td>14,697</td>
+</tr>
+<tr>
+<td>合计</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>$2,435.19</td>
+<td>$2,922.23</td>
+<td>292,224</td>
+</tr>
+</tbody></table>
+<p>各项目向上取整后，分配额为 145,000、1,500、27,000、49,000 与 70,500 点，合计 293,000 点。三次 1,000 美元的 Scale 充值（每次 10 万点）共 30 万点，组织层级还留 7,000 点作为备用。单价取自各模型页；qwen-3-7-flash 采用提示在 32K token 以内的单价。</p>
+<h2 id="token-预算为什么会失准">Token 预算为什么会失准</h2>
+<ul>
+<li>换模型。proposal-drafts 从 gpt-5.5 换到 claude-sonnet-4-6，用量不变，每次成本从 $0.075 变成 $0.0405。换之前与换之后都可以查看<a href="/zh-cn/models/compare/">模型对比页</a>。</li>
+<li>上下文变长。support-bot 的提示从 1,284 涨到 4,000 输入 token，每条回复成本从 $0.010032 变成 $0.01818。</li>
+<li>推理 token。OpenAI 与 Anthropic 都把推理 token 按输出计费，开启 extended thinking 可能让输出成本成倍增加，回答看起来却没变。</li>
+<li>Agent。每一步都重发上下文；Anthropic 表示在 plan mode 下，agent teams 的 token 用量约为普通会话的 7 倍。</li>
+</ul>
+<p>每周对比一次已消耗与已分配，四种情况都能在月底前发现。数字怎么读，见 <a href="/zh-cn/blog/how-to-read-your-ai-bill/">LLM token 成本怎么算</a>。</p>
+<h2 id="在-atp-token-上怎么设置">在 ATP Token 上怎么设置</h2>
+<ol>
+<li>创建 Team 组织，每个部门一个工作区、每个工作负载一个项目（<a href="/zh-cn/docs/console-setup/" class="doc-term-def" data-def="帐号的最上层，底下再分 workspace 与 project。">设置组织</a>）。</li>
+<li>在账务页充值（最低 5 美元；套餐有 5、50、200、1,000 美元），再从组织把点数分配到工作区与项目（<a href="/zh-cn/docs/topup/" class="doc-term-def" data-def="为钱包加值点数，最低 5 美元，用多少付多少。">充值与钱包</a>）。充值不可退款。</li>
+<li>设置每个项目的可用模型并创建 <code>atp-</code> 密钥，让按密钥的花费等于按项目的花费。</li>
+<li>每周在用量页的分配树对比 Allocated 与 Consumed（<a href="/zh-cn/docs/spend/">跟踪花费</a>）。</li>
+<li>月底用账务事件结账，按各成本中心消耗的点数分摊（<a href="/zh-cn/docs/credits/" class="doc-term-def" data-def="计费单位。1 美元 = 100 点；用量依各模型牌价换算成点数扣抵。">点数如何运作</a>）。</li>
+</ol>
+<p><a href="/zh-cn/pricing/">查看定价</a></p>
 <h2 id="延伸阅读">延伸阅读</h2>
 <ul>
-<li><a href="/zh-cn/blog/enterprise-ai-cost-management-guide">企业 AI 成本管理指南</a></li>
-<li><a href="/zh-cn/blog/ai-spending-caps-that-work">有效的 AI 花费上限</a></li>
-<li><a href="/zh-cn/blog/what-is-the-agent-tax">什么是 agent tax</a></li>
-</ul>
-<p><a href="/zh-cn/enterprise-plan">申请企业方案 →</a></p>0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-cn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"博客\",\"item\":\"https://atptoken.ai/zh-cn/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"从座位到 token：AI 如何打破 SaaS 预算逻辑（2026）\",\"item\":\"https://atptoken.ai/zh-cn/blog/from-seats-to-tokens-ai-budgeting/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"从座位到 token：AI 如何打破 SaaS 预算逻辑（2026）\",\"description\":\"AI 把以座位为主的 SaaS 预算变成 token 与点数计量。当用量——而非人数——驱动成本时，需要新指标、部门分配与控制。\",\"datePublished\":\"2026-09-04\",\"dateModified\":\"2026-09-04\",\"inLanguage\":\"zh-Hans-CN\",\"keywords\":\"AI 预算, 用量计价, ATP\",\"url\":\"https://atptoken.ai/zh-cn/blog/from-seats-to-tokens-ai-budgeting/\",\"mainEntityOfPage\":\"https://atptoken.ai/zh-cn/blog/from-seats-to-tokens-ai-budgeting/\",\"image\":\"https://atptoken.ai/og/blog/from-seats-to-tokens-ai-budgeting.jpg\",\"author\":{\"@type\":\"Person\",\"name\":\"hung-chien\",\"jobTitle\":\"AI 增长与品牌经理\",\"worksFor\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}},\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"},\"isPartOf\":{\"@type\":\"Blog\",\"@id\":\"https://atptoken.ai/#blog\",\"name\":\"ATP Token 博客\",\"url\":\"https://atptoken.ai/blog/\",\"description\":\"ATP Token 团队的实务笔记：企业 AI 治理、AI Token 用量账务，以及用一把密钥管理多个模型的日常。\",\"inLanguage\":\"zh-Hans-CN\",\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}}}"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Token 计价的 AI 与座位制 SaaS 有何不同？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"座位随具名使用者扩；token 随用量形态——提示长度、输出、重试、agent 步数——扩，可不增人就暴冲。\"}},{\"@type\":\"Question\",\"name\":\"什么指标取代每位座位成本？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"项目已消耗 vs 已分配点数、每千次请求平均成本、每次完成 agent 任务成本。只有月总额做不了决策。\"}},{\"@type\":\"Question\",\"name\":\"2026 部门应如何编 AI 预算？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"在共享结算单位下给各产品或 BU 项目分配，每周看燃烧，实验沙盒用独立低 cap。\"}},{\"@type\":\"Question\",\"name\":\"为什么 SaaS 内建 AI 功能让 ERP 预算更难？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"供应商在座位上再加 token／AI action／文件处理等计量。没有 cap 与报告权，采用成长就成意外科目。\"}},{\"@type\":\"Question\",\"name\":\"现代化 AI 预算的第一步？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"盘点所有 AI 路径与密钥、选定结算单位、指定项目主人，并对正式工作负载放可执行分配。\"}}]}"}}]],["$","$L2",null,{"data":{"lang":"zh-CN","post":{"slug":"from-seats-to-tokens-ai-budgeting","title":"从座位到 token：AI 如何打破 SaaS 预算逻辑（2026）","metaTitle":"从座位到 token：AI 预算（2026）","description":"AI 把以座位为主的 SaaS 预算变成 token 与点数计量。当用量——而非人数——驱动成本时，需要新指标、部门分配与控制。","date":"2026-09-04","tags":["AI 预算","用量计价","ATP"],"author":"hung-chien","authorTitle":"AI 增长与品牌经理","tldr":["座位预算假设成本跟人头走；token 预算跟着工作、上下文与 agent——同一人头可一夜 10 倍花费。","财务需要作为单一单位的点数、项目主人，以及先告警再硬停的 cap。","内部 chargeback 要改：每次任务成本与每千次请求成本取代每位座位成本。"],"faq":[{"q":"Token 计价的 AI 与座位制 SaaS 有何不同？","a":"座位随具名使用者扩；token 随用量形态——提示长度、输出、重试、agent 步数——扩，可不增人就暴冲。"},{"q":"什么指标取代每位座位成本？","a":"项目已消耗 vs 已分配点数、每千次请求平均成本、每次完成 agent 任务成本。只有月总额做不了决策。"},{"q":"2026 部门应如何编 AI 预算？","a":"在共享结算单位下给各产品或 BU 项目分配，每周看燃烧，实验沙盒用独立低 cap。"},{"q":"为什么 SaaS 内建 AI 功能让 ERP 预算更难？","a":"供应商在座位上再加 token／AI action／文件处理等计量。没有 cap 与报告权，采用成长就成意外科目。"},{"q":"现代化 AI 预算的第一步？","a":"盘点所有 AI 路径与密钥、选定结算单位、指定项目主人，并对正式工作负载放可执行分配。"}],"readingMinutes":1,"cover":"from-seats-to-tokens-ai-budgeting","html":"$3"},"newer":null,"older":{"slug":"shadow-ai-governed-control-plane","title":"企业 Shadow AI：从个人密钥到可治理的控制平面（2026）","date":"2026-09-02"}}}]],["$L4","$L5","$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"1D4DZsfbxL_82v4AXbxNN"}
-4:["$","script","script-0",{"src":"/_next/static/chunks/2tn6oalf1ynjw.js","async":true}]
-5:["$","script","script-1",{"src":"/_next/static/chunks/1hbxtvg5etpqa.js","async":true}]
-6:["$","script","script-2",{"src":"/_next/static/chunks/0ey98fxnyu7te.js","async":true}]
-7:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
-a:null
+<li><a href="/zh-cn/blog/enterprise-ai-cost-management-guide/">企业 AI 成本管理与 LLM 成本优化指南</a></li>
+<li><a href="/zh-cn/blog/ai-spending-caps-that-work/">真正有效的 AI 花费上限</a></li>
+<li><a href="/zh-cn/blog/what-is-the-agent-tax/">什么是 agent tax？</a></li>
+</ul>0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-cn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"博客\",\"item\":\"https://atptoken.ai/zh-cn/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Token 计价 vs 按席位计价：写给财务负责人的 AI 预算指南（2026）\",\"item\":\"https://atptoken.ai/zh-cn/blog/from-seats-to-tokens-ai-budgeting/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$3"}}]],["$","$L4",null,{"data":{"lang":"zh-CN","post":{"slug":"from-seats-to-tokens-ai-budgeting","title":"Token 计价 vs 按席位计价：写给财务负责人的 AI 预算指南（2026）","metaTitle":"Token 计价 vs 按席位计价：AI 预算指南（2026）","description":"Token 计价是什么、与按席位计价有何不同：40 人团队的成本对比、盈亏平衡计算、以点数分摊到项目的内部结算模型，以及每月 AI 预算测算表。","date":"2026-09-04","tags":["Token 计价","AI 预算","ATP"],"author":"hung-chien","authorTitle":"AI 增长与品牌经理","tldr":["Token 计价按每次请求的输入与输出 token、依各模型单价收费，成本随用量变化，与人数无关。按席位计价则是每位实名用户固定月费，不管天天用还是一个月用两次。","以 40 人团队测算：Claude Team 标准席位按月付费为每月 $1,000；同一团队的对话用量按 claude-sonnet-4-6 标价计算是 $586.15，其中 8 位重度用户高于席位价，另外 32 位远低于席位价。","按项目编制 token 预算：请求数 × token 数 × 单价，加上缓冲，按项目分配点数，月底按实际消耗点数做内部分摊。"],"faq":[{"q":"什么是 token 计价？","a":"Token 计价是按模型读入（输入）与写出（输出）的 token 收费，两者各有每 100 万 token 的单价，且各模型不同。claude-sonnet-4-6（$3 / $15）处理 1,284 个输入与 412 个输出 token 的请求，成本是 $0.010032。"},{"q":"Token 计价会比按席位计价省钱吗？","a":"取决于每个人用多少。按每次请求 $0.018 测算，用户每月约 1,389 次请求、即每个工作日约 66 次，才与 $25 的席位持平。如果每次提示都带长文档，持平点会降到每个工作日约 17 次。"},{"q":"财务会遇到哪些 AI 计价模式？","a":"三种：按席位订阅（例如 Claude Team）、席位加用量（Claude Enterprise 列出席位价加上按 API 单价计算的用量），以及纯 token 计价的 API。很多公司会同时使用不止一种。"},{"q":"AI 成本怎么分摊到各部门？","a":"把各部门的工作负载分到各自的项目，为每个项目分配点数，再按各成本中心实际消耗的点数结算，分配额只作为上限。在 ATP Token 上，1 点 = 0.01 美元。"},{"q":"Token 计价的 AI 用量怎么编预算？","a":"每个工作负载用每月请求数 × 每次平均 token 数 × 模型单价，加上例如 20% 的缓冲，再换算成点数。每周对比已消耗与已分配，调整下个月的分配额。"}],"readingMinutes":5,"cover":"from-seats-to-tokens-ai-budgeting","html":"$5"},"newer":null,"older":{"slug":"shadow-ai-governed-control-plane","title":"什么是 Shadow AI（影子 AI）？风险、实例与收回管控的方法（2026）","date":"2026-09-02","cover":"shadow-ai-governed-control-plane"}}}]],["$L6","$L7","$L8","$L9"],"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"q8ogy5bwfTluQawd-N4pH"}
+6:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0bk251ba95uho.css","precedence":"next"}]
+7:["$","script","script-0",{"src":"/_next/static/chunks/031jyqwh2ymjo.js","async":true}]
+8:["$","script","script-1",{"src":"/_next/static/chunks/12btwas-eg9md.js","async":true}]
+9:["$","script","script-2",{"src":"/_next/static/chunks/0tc57bytaqvvw.js","async":true}]
+a:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

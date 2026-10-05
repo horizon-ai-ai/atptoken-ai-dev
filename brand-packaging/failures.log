@@ -1,9 +1,0 @@
-2026-08-04T13:59:24.178Z water-bottle: o-banana-pro → /Users/hung/Desktop/ATP - SEO/portal-fe/public/brand-packaging/water-bottle.png … FAIL — create 402: {"error":{"message":"Insufficient credits"}}
-2026-08-04T13:59:24.179Z coffee-bag: ano-banana-pro → /Users/hung/Desktop/ATP - SEO/portal-fe/public/brand-packaging/coffee-bag.png … FAIL — create 402: {"error":{"message":"Insufficient credits"}}
-2026-08-04T13:59:24.179Z earbuds-box: no-banana-pro → /Users/hung/Desktop/ATP - SEO/portal-fe/public/brand-packaging/earbuds-box.png … FAIL — create 402: {"error":{"message":"Insufficient credits"}}
-2026-08-04T13:59:24.179Z skincare-tube: -banana-pro → /Users/hung/Desktop/ATP - SEO/portal-fe/public/brand-packaging/skincare-tube.png … FAIL — create 402: {"error":{"message":"Insufficient credits"}}
-2026-08-04T14:08:04.189Z skincare-tube: s_Create under Azure OpenAI API version 2024-02-01. Please retry after 19 seconds. To increase your default rate limit, visit: https://aka.ms/oai/quotaincrease.
-2026-08-04T14:08:04.190Z cola-desk: s_Create under Azure OpenAI API version 2024-02-01. Please retry after 19 seconds. To increase your default rate limit, visit: https://aka.ms/oai/quotaincrease.
-2026-08-04T14:08:04.190Z surge-dramatic: s_Create under Azure OpenAI API version 2024-02-01. Please retry after 19 seconds. To increase your default rate limit, visit: https://aka.ms/oai/quotaincrease.
-2026-08-04T14:08:04.190Z coffee-in-hand: s_Create under Azure OpenAI API version 2024-02-01. Please retry after 19 seconds. To increase your default rate limit, visit: https://aka.ms/oai/quotaincrease.
-2026-08-04T14:08:04.190Z cargo-desk: s_Create under Azure OpenAI API version 2024-02-01. Please retry after 19 seconds. To increase your default rate limit, visit: https://aka.ms/oai/quotaincrease.
