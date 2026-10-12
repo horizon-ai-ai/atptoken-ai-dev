@@ -10,7 +10,27 @@ Seedance 2.0 is the current video generation model on ATP. It supports text-to-v
 >
 > Use `seedance-2-0` in the `model` field. Other Seedance variants may exist in internal pricing data, but they are not exposed in the public catalog yet.
 
-### Parameters
+## Supported modes
+
+| Mode | What to send |
+| --- | --- |
+| Text to video | a text part only |
+| Image to video | an image part with `role: "first_frame"` |
+| First and last frame | image parts with `first_frame` and `last_frame` |
+| Reference image | an image part with `role: "reference_image"` |
+| Generated audio | `generate_audio: true` |
+
+### Media roles
+
+| Role | Purpose |
+| --- | --- |
+| `first_frame` | The starting frame for image-to-video. |
+| `last_frame` | The ending frame for controlled transitions. |
+| `reference_image` | Visual, style, or character reference. This is not the same as a boundary frame. |
+| `reference_video` | Motion or style reference video. |
+| `reference_audio` | Audio reference when supported by the selected workflow. |
+
+## Parameters
 
 | Field | Accepted values | Notes |
 | --- | --- | --- |
@@ -22,15 +42,11 @@ Seedance 2.0 is the current video generation model on ATP. It supports text-to-v
 | `return_last_frame` | `true`, `false` | When enabled, completed task output can include the final frame URL. |
 | `content` | text plus optional media parts | Use `role` on image/video/audio parts to explain how the asset should be used. |
 
-### Media roles
+## Image inputs
 
-| Role | Purpose |
-| --- | --- |
-| `first_frame` | The starting frame for image-to-video. |
-| `last_frame` | The ending frame for controlled transitions. |
-| `reference_image` | Visual, style, or character reference. This is not the same as a boundary frame. |
-| `reference_video` | Motion or style reference video. |
-| `reference_audio` | Audio reference when supported by the selected workflow. |
+Use an HTTPS image URL, base64 image URL, or an `asset://…` URI from the asset API (use the returned `AssetUri` exactly as is). To get an asset URI, register the image through the asset API and wait until it is `Completed`; the steps are on [video generation](https://atptoken.ai/docs/media-video/). Put the URI in `image_url.url` only; the part has no top-level `url`.
+
+## Examples
 
 ### Text to video
 
@@ -56,8 +72,6 @@ curl "$ATP_BASE_URL/v1/media/v1/contents/generations/tasks" \
 The create response returns a task id such as `cgt_...`.
 
 ### Image to video
-
-Use an HTTPS image URL, base64 image URL, or an uploaded `asset://...` reference.
 
 ```json
 {
@@ -115,7 +129,7 @@ Use an HTTPS image URL, base64 image URL, or an uploaded `asset://...` reference
 }
 ```
 
-### Poll the task
+## Get the result
 
 ```bash
 curl "$ATP_BASE_URL/v1/media/v1/contents/generations/tasks/cgt_xxx" \
@@ -124,7 +138,7 @@ curl "$ATP_BASE_URL/v1/media/v1/contents/generations/tasks/cgt_xxx" \
 
 Poll until the task reaches `succeeded`, `failed`, or `canceled`. Successful responses include the generated video URL and usage metadata.
 
-### Billing
+## Billing
 
 Video is billed on video tokens:
 
@@ -134,3 +148,16 @@ cost = video_tokens × resolution_rate
 ```
 
 Failed tasks are not billed. Use `480p`, `duration: 4`, and `generate_audio: false` for the cheapest end-to-end smoke test.
+
+**Price per second of output · 480p**
+
+| Item | USD / s |
+|---|---:|
+| seedance-2-0 | $0.07 |
+| seedance-2-0-fast | $0.0538 |
+
+## Next steps
+
+- [Video generation](https://atptoken.ai/docs/media-video/) — The endpoint reference, including accepted `url` forms and the asset API.
+- [Pricing](https://atptoken.ai/docs/pricing-model/) — How usage-based billing and per-model rates work.
+- [How credits work](https://atptoken.ai/docs/credits/) — How usage is charged against your credits.

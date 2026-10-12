@@ -2,7 +2,7 @@
 
 > ATP Token is an AI model management gateway by Horizon AI. One project-scoped API key routes OpenAI-compatible, Anthropic (Claude), Gemini, DeepSeek, Qwen and Kimi requests — plus image, video, audio and embedding models — through a single OpenAI-compatible endpoint, with per-project access control, request logs and pay-as-you-go credits.
 
-Enterprise AI governance and billing platform: one key for OpenAI-compatible, Anthropic, and Gemini-style models, with per-request logs and unified credits.
+A single enterprise gateway unifying multi-LLM supply, usage metering and quota governance — for production-grade AI teams.
 
 ATP Token centralizes AI usage governance and billing: organizations, workspaces and projects each get scoped model access and budgets, so every request is attributable and auditable in one console.
 
@@ -17,7 +17,7 @@ ATP Token centralizes AI usage governance and billing: organizations, workspaces
 - Unified API: one key for models from OpenAI, Anthropic, Google, DeepSeek, Alibaba (Qwen), Moonshot (Kimi) and more; switch models by changing one parameter.
 - Governance: organization → workspace → project hierarchy with per-project model permissions and credit budgets.
 - Observability: request logs and per-model usage tracking for cost attribution.
-- Billing: pay-as-you-go credits, no monthly fee, USD 5 minimum top-up (1 USD = 100 credits). List rates are published per model.
+- Billing: pay-as-you-go credits, no monthly fee, USD 5 minimum top-up (USD 1 = 100 credits). List rates are published per model.
 
 ## Models
 Browse the catalog (73 public models; text: 35, image: 9, video: 26, audio: 1, embedding: 2):
@@ -41,45 +41,49 @@ Each model page includes list rates, capability flags, project-key usage notes, 
 ## Docs
 Every documentation page is also served as plain Markdown: append `.md` to the page URL (for example https://atptoken.ai/docs/overview.md). Traditional Chinese lives under `/zh-tw/`, Simplified Chinese under `/zh-cn/`.
 
-### Docs · Overview
+### Guides · Get started
 
-- [Overview](https://atptoken.ai/docs/overview.md): ATP is a unified API that gives you access to many AI models through a single endpoint, while handling provider fallbacks and billing in one place. P…
-- [Quickstart](https://atptoken.ai/docs/quickstart.md): Create a project API key, list the models that key can use, then send a request through the Gateway with any of three SDK formats.
+- [Overview](https://atptoken.ai/docs/overview.md): ATP is a unified API that gives you access to many AI models through a single endpoint, with provider fallbacks and billing in one place.
+- [Quickstart](https://atptoken.ai/docs/quickstart.md): Call a model with a project API key through the SDK you already use, then find the request under "Request logs" in the Console. This page uses the Op…
 - [How it works](https://atptoken.ai/docs/how-it-works.md): The Gateway sits between your client and the upstream model providers. Every request flows through the same four stages, whichever SDK format you use.
 - [Authentication](https://atptoken.ai/docs/auth.md): The Gateway accepts a project API key in any of the locations below. Use whichever your SDK sends by default. The Gateway strips the key before forwa…
-- [FAQ](https://atptoken.ai/docs/faq.md): No. The Gateway is compatible with the OpenAI, Anthropic, and Google GenAI SDKs — point them at the Gateway base URL and use a project API key. See I…
+- [FAQ](https://atptoken.ai/docs/faq.md): Short answers to common questions about connecting to the Gateway, which models you can call, and how usage is billed.
 
-### Docs · Models & routing
+### Guides · Routing & pricing
 
-- [Model discovery](https://atptoken.ai/docs/models.md): Lists every model available on the platform. Use it to get exact, current model IDs instead of copying names from a marketing page or provider dashbo…
-- [Media models](https://atptoken.ai/docs/media.md): Beyond text, the catalog includes image, video, audio (text-to-speech) and embedding models. They share the same account, credits and project scoping…
-- [Seedance 2.0](https://atptoken.ai/docs/seedance-2-0.md): Seedance 2.0 is the current video generation model on ATP. It supports text-to-video, image-to-video, first and last frame control, reference images,…
 - [Provider routing](https://atptoken.ai/docs/provider-routing.md): Each model on the platform is served by a pool of one or more upstream providers. You call a single model id; the Gateway chooses a provider for the…
 - [Pricing](https://atptoken.ai/docs/pricing-model.md): Billing is usage-based, measured on input + output tokens. Each model has its own rate; the exact per-model economics are resolved by the gateway's p…
 
-### Docs · Console
+### Guides · Console
 
 - [Set up your org](https://atptoken.ai/docs/console-setup.md): Everything in the console hangs off a four-level hierarchy. You create an organization once, then nest workspaces, projects, and keys inside it.
 - [Workspaces & projects](https://atptoken.ai/docs/resources.md): The Resources page is where you create workspaces and projects and move credits between them.
 - [Managing API keys](https://atptoken.ai/docs/console-keys.md): The Create key wizard walks you through naming the key, choosing (or creating) the workspace and project, and optionally seeding starting credits. A…
-- [Team & roles](https://atptoken.ai/docs/team.md): Team organizations can add people and assign them roles at the workspace or project level. There are three roles:
-- [Usage & logs](https://atptoken.ai/docs/monitoring.md): Three places tell you what happened and what it cost:
+- [Team & roles](https://atptoken.ai/docs/team.md): Team organizations can add people and assign them roles at the workspace or project level.
+- [Usage & logs](https://atptoken.ai/docs/monitoring.md): Three places tell you what happened and what it cost.
+- [From request to month-end](https://atptoken.ai/docs/console-reconcile.md): Follow one request through the Console — Request logs, Credit charges, Runway, and the month-end reconciliation CSV.
 
-### Docs · Billing & credits
+### Guides · Billing & credits
 
-- [How credits work](https://atptoken.ai/docs/credits.md): Usage is paid for in credits. 1 credit = USD 0.01 (100 credits = USD 1). Pay-as-you-go credits don't expire (committed contract credits may carry an…
-- [Top up & wallet](https://atptoken.ai/docs/topup.md): Your pay-as-you-go (PAYG) wallet is funded through Stripe from the Billing page. The minimum top-up is USD 5, and every tier converts at a flat 100 c…
-- [Tracking spend](https://atptoken.ai/docs/spend.md): The Usage page summarizes credits and tokens for a chosen period, broken down by model and by API key. The credit allocation tree lets you drill from…
+- [How credits work](https://atptoken.ai/docs/credits.md): Usage is paid for in credits. 1 credit = USD 0.01 (100 credits = USD 1).
+- [Top up & wallet](https://atptoken.ai/docs/topup.md): Your pay-as-you-go (PAYG) wallet is funded through Stripe from the Billing page.
+- [Tracking spend](https://atptoken.ai/docs/spend.md): The Usage page and the credit allocation tree show where your credits go.
+
+### Guides · Recipes
+
+- [Run Claude Code on ATP](https://atptoken.ai/docs/cb-claude-code.md): Point Claude Code at the Gateway and drive any allowed model through a project key — no code changes, just environment variables.
+- [Team with budget caps](https://atptoken.ai/docs/cb-budget-caps.md): Give a team its own spending limit by allocating credits down the organization → workspace → project tree. A project can only spend what it was alloc…
+- [Migrate from OpenAI](https://atptoken.ai/docs/cb-migrate-openai.md): Moving an existing OpenAI integration to ATP is usually a two-line change: swap the base URL to the Gateway and the API key to a project key. Your re…
 
 ### API reference · Endpoints
 
 - [/v1/chat/completions](https://atptoken.ai/docs/chat.md): Use this endpoint with any OpenAI SDK client. The request body follows OpenAI's chat completions schema unchanged. The model field must be a value re…
-- [/v1/messages](https://atptoken.ai/docs/messages.md): Anthropic Messages requests are accepted and normalized by the Gateway. The top-level system field must be a string. The array form used by Anthropic…
+- [/v1/messages](https://atptoken.ai/docs/messages.md): Anthropic Messages requests are accepted and normalized by the Gateway.
 - [/v1/models/{model}:generateContent](https://atptoken.ai/docs/gemini.md): Gemini REST-style generateContent and streamGenerateContent routes are supported under both /v1 and /v1beta (the Google GenAI SDK default). Authentic…
 - [/v1/files](https://atptoken.ai/docs/files.md): Upload a file to the Gateway and reference it in subsequent chat or messages requests by the returned id (format an_<ULID>).
-- [OpenAI SSE](https://atptoken.ai/docs/sse-openai.md): When you set stream: true on /v1/chat/completions, the Gateway streams the upstream provider response as OpenAI-format SSE chunks. The final chunk co…
-- [Anthropic SSE](https://atptoken.ai/docs/sse-anthropic.md): /v1/messages with stream: true emits this event sequence regardless of which upstream provider served the request:
-- [Errors](https://atptoken.ai/docs/errors.md): All error responses include a request_id — quote it when contacting support. The error envelope follows whichever SDK format you called (OpenAI / Ant…
+- [OpenAI SSE](https://atptoken.ai/docs/sse-openai.md): When you set stream: true on /v1/chat/completions, the Gateway streams the upstream provider response as OpenAI-format SSE chunks.
+- [Anthropic SSE](https://atptoken.ai/docs/sse-anthropic.md): /v1/messages with stream: true emits the event sequence below regardless of which upstream provider served the request.
+- [Error codes](https://atptoken.ai/docs/errors.md): Look up a status code the Gateway returned to see what it means, what to check first, and what to do next.
 
 ### API reference · Media generation
 
@@ -91,10 +95,19 @@ Every documentation page is also served as plain Markdown: append `.md` to the p
 
 - [Console API overview](https://atptoken.ai/docs/console-api.md): Everything you can see in the ATP Token web console is also available as a REST API at https://admin.atptoken.ai/api — real-time balances, monthly us…
 - [Usage & balance](https://atptoken.ai/docs/console-api-usage.md): Credits flow down the hierarchy Account → Org → Workspace → Project. Only the project (leaf) balance is consumed in real time — the gateway decrement…
-- [Billing & top-ups](https://atptoken.ai/docs/console-api-billing.md): Line-item billing activity (the 90-day ledger view shown in the console). Filter by time range, modality, model, billing status, key or request id; c…
-- [Model catalog](https://atptoken.ai/docs/console-api-models.md): Five modality-scoped catalog endpoints, each returning the deduplicated, alphabetically sorted list of active unifiedModelName values on the platform:
+- [Billing & top-ups](https://atptoken.ai/docs/console-api-billing.md): Read billing events and top-up records, poll a checkout session, get a payment link, and list manual credit adjustments.
+- [Model catalog](https://atptoken.ai/docs/console-api-models.md): Five modality-scoped catalog endpoints, each returning the deduplicated, alphabetically sorted list of active unifiedModelName values on the platform.
 - [Resources & members](https://atptoken.ai/docs/console-api-resources.md): Read your resource tree — the source of the org_id / workspace_id / project_id values every usage endpoint needs.
 - [Request logs](https://atptoken.ai/docs/console-api-logs.md): Per-request observability records from the gateway — endpoint, model, HTTP status, provider result, token counts and billing status for every call ma…
+
+### Models · Catalog
+
+- [Model discovery](https://atptoken.ai/docs/models.md): Lists every model available on the platform. Use it to get exact, current model IDs instead of copying names from a marketing page or provider dashbo…
+- [Media models](https://atptoken.ai/docs/media.md): Beyond text, the catalog includes image, video, audio (text-to-speech) and embedding models. They share the same account, credits and project scoping…
+
+### Models · Video
+
+- [Seedance 2.0](https://atptoken.ai/docs/seedance-2-0.md): Seedance 2.0 is the current video generation model on ATP. It supports text-to-video, image-to-video, first and last frame control, reference images,…
 
 ### Integrations · Agents
 
@@ -111,13 +124,12 @@ Every documentation page is also served as plain Markdown: append `.md` to the p
 
 - [Platforms](https://atptoken.ai/docs/platforms.md): Tools where you assemble AI through an interface instead of writing code — app builders, workflow automation — talk to the Gateway the same way an SD…
 
-### Cookbook · Recipes
-
-- [Run Claude Code on ATP](https://atptoken.ai/docs/cb-claude-code.md): Point Claude Code at the Gateway and drive any allowed model through a project key — no code changes, just environment variables.
-- [Team with budget caps](https://atptoken.ai/docs/cb-budget-caps.md): Give a team its own spending limit by allocating credits down the organization → workspace → project tree. A project can only spend what it was alloc…
-- [Migrate from OpenAI](https://atptoken.ai/docs/cb-migrate-openai.md): Moving an existing OpenAI integration to ATP is usually a two-line change: swap the base URL to the Gateway and the API key to a project key. Your re…
-
 - [Docs home](https://atptoken.ai/docs/): browsable HTML version of everything above.
+
+## Changelog
+Dated updates to models, API behavior, docs and console, newest first. Full list: [Changelog](https://atptoken.ai/changelog/)
+
+No entries yet.
 
 ## Articles
 Long-form pieces on AI cost governance, key management, and gateway architecture.

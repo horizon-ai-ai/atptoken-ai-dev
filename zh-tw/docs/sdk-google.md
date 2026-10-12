@@ -4,6 +4,8 @@
 
 直接用 Google GenAI SDK，不改任何東西。把 base URL 設成 Gateway、以 `x-goog-api-key`（SDK 預設）驗證，並呼叫 [GET /v1/models](https://atptoken.ai/zh-tw/docs/models/) 回傳的任一模型。
 
+## 設定 client
+
 | 設定 | 值 |
 |---|---|
 | Base URL | `https://api.atptoken.ai` |
@@ -24,4 +26,12 @@ r = client.models.generate_content(
 print(r.text)
 ```
 
+## 支援的路由
+
 `generateContent` 與 `streamGenerateContent` 路由在 `/v1` 與 `/v1beta`（SDK 預設）底下皆可用。完整端點規格：[/v1/models/{model}:generateContent](https://atptoken.ai/zh-tw/docs/gemini/)。
+
+## 下一步
+
+- [/v1/models/{model}:generateContent](https://atptoken.ai/zh-tw/docs/gemini/) — 這個端點的參數與回應格式。
+- [列出平台可用模型](https://atptoken.ai/zh-tw/docs/models/) — 取得要填進 `model` 的模型 ID。
+- [驗證方式](https://atptoken.ai/zh-tw/docs/auth/) — 三種可接受的金鑰位置，包括 `x-goog-api-key`。

@@ -4,16 +4,41 @@
 
 `POST /omni/media/v1/contents/generations/tasks`
 
-Video generation is **asynchronous**: create a task (`202` + task id), poll until the status is terminal, then read the signed URL. Same base URL and `atp-` key as image. The gateway routes your unified `model` to a video provider with same-name failover. Available video models: `seedance-2-0` (standard), `seedance-2-0-mini` (lighter / lower cost), `seedance-2-0-fast` (faster rendering), and the Kling family (preview): `kling-v3-standard`/`-pro`, `kling-o3-standard`/`-pro` with `-i2v` / `-reference` / `-reference-7` / `-v2v` / `-video-edit` variants — all billed per second by resolution (Kling audio generation not yet available); plus the Alibaba family (preview): `wan-2-7-t2v`, `wan-2-7-i2v`, `happyhorse-1.1-t2v`, `happyhorse-1.1-i2v`, `happyhorse-1.1-r2v` (up to 9 reference images) and `happyhorse-1.0-video-edit` (source clip 3–60 s + up to 5 reference images). HappyHorse duration is 3–15 s and its watermark defaults to on (pass `watermark: false`); `wan-2-7-*` currently renders and bills 1080P regardless of the requested resolution. Confirm names with `GET /v1/models`.
+Video generation is **asynchronous**: create a task (`202` + task id), poll until the status is terminal, then read the signed URL. Same base URL and `atp-` key as image. The gateway routes your unified `model` to a video provider with same-name failover.
+
+**Every video task**
+
+1. Create the task — `POST …/contents/generations/tasks` — `202` + task id; `402` if the balance is ≤ 0
+2. Poll until terminal — `GET …/contents/generations/tasks/{id}`
+3. Download `content.video_url` — signed URL — 30-minute TTL
+   - succeeded
+   - failed
+   - `expired: true` after 30 minutes · re-create to regenerate
 
 - **A succeeded task carries `content.video_url` — a signed edge URL with a **30-minute TTL**. After expiry the task still reports `succeeded` but `video_url` is `null` and `expired: true` (re-create to regenerate).**
 - Requests are refused with `402 insufficient_quota` when the project balance is ≤ 0.
+
+## Available video models
+
+Confirm names with `GET /v1/models`.
+
+| Family | Models | Notes |
+| --- | --- | --- |
+| Seedance | `seedance-2-0` | standard |
+| Seedance | `seedance-2-0-mini` | lighter / lower cost |
+| Seedance | `seedance-2-0-fast` | faster rendering |
+| Kling (preview) | `kling-v3-standard`, `kling-v3-pro`, `kling-o3-standard`, `kling-o3-pro` | billed per second by resolution; Kling audio generation not yet available |
+| Kling (preview) | `-i2v`, `-reference`, `-reference-7`, `-v2v`, `-video-edit` | variants of the Kling models above |
+| Alibaba (preview) | `wan-2-7-t2v`, `wan-2-7-i2v` | renders and bills 1080P regardless of the requested resolution |
+| Alibaba (preview) | `happyhorse-1.1-t2v`, `happyhorse-1.1-i2v` | 3–15 s; watermark on by default (pass `watermark: false`) |
+| Alibaba (preview) | `happyhorse-1.1-r2v` | up to 9 reference images; 3–15 s; watermark on by default |
+| Alibaba (preview) | `happyhorse-1.0-video-edit` | source clip 3–60 s + up to 5 reference images; watermark on by default |
 
 > **Check the model and project permission first**
 >
 > Call `GET https://api.atptoken.ai/v1/models` with the same key used to create the task. If a model is absent, that project cannot use it; installing a skill or knowing the model name does not bypass allowed models.
 
-#### Create a task
+## Create a task
 
 ```
 curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks \
@@ -44,21 +69,27 @@ curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks \
 | seed | integer | |
 | watermark | boolean | |
 
-**`content[]` blocks** — Each block is `{ "type": "text" | "image_url" | "video_url" | "audio_url", ... }`. Text only → text-to-video; include an image → image-to-video. `image_url`/`video_url` take `{ "url": "…" }`; `role` is `first_frame` / `last_frame` / `reference_image` / `reference_video`.
+**`content[]` blocks** — Each block is `{ "type": "text" | "image_url" | "video_url" | "audio_url", ... }`.
 
-#### What `url` accepts
+- Text only → text-to-video; include an image → image-to-video.
+- `image_url`/`video_url` take `{ "url": "…" }`.
+- `role` is `first_frame` / `last_frame` / `reference_image` / `reference_video`.
 
-> **Verified against production 2026-08-04**
+### What `url` accepts
+
+> **Video endpoints take public https URLs or asset URIs**
 >
-> **The video endpoint accepts public `https://` URLs only.**
+> **The video endpoint accepts public `https://` URLs, and on Seedance, `asset://` URIs from the asset API.**
 >
 > | Form | Video endpoint | Image endpoint |
 > | --- | --- | --- |
 > | public `https://…` URL | works | works |
 > | `data:image/…;base64,…` | **rejected** — `invalid_parameters: The parameter combination is not supported.` | works |
-> | `asset://<id>` / `asset://<pid>.<id>` | **not supported** | **not supported** |
+> | `asset://…` (`AssetUri` from the asset API) | works (Seedance) | **not supported** |
 >
-> `asset://` was previously documented here as a valid form. It is not: both spellings, on both endpoints, fail at generation time with `provider_error / generation_failed`. Do not spend calls on it.
+> On the image endpoint, `asset://` references fail at generation time with `provider_error / generation_failed`.
+
+### Reference an uploaded file
 
 To reference something you uploaded, turn the upload into a public URL:
 
@@ -76,7 +107,24 @@ curl -sD - -o /dev/null https://api.atptoken.ai/v1/files/an_01H... \
 
 Use that `Location` value as the `url`. It needs no authentication, which is what the upstream provider requires — but it expires in about 15 minutes, so resolve it immediately before creating the task rather than caching it.
 
-#### Poll until terminal
+### Reference a registered asset
+
+Seedance also takes an image registered through the asset API. Register the image, wait until it is `Completed`, then pass the returned `AssetUri` (an `asset://…` URI — use it exactly as returned) as the image block's `url`:
+
+**Register an image as an asset**
+
+1. Create an asset group — `POST /omni/media/v1/asset-groups`
+2. Register the image — `POST /omni/media/v1/assets`
+3. Poll until `Completed` — `POST /omni/media/v1/assets/get` — returns `AssetUri`
+4. Create the video task — `POST …/contents/generations/tasks` — URI in `content[].image_url.url`
+
+```
+{ "type": "image_url", "image_url": { "url": "asset://…" }, "role": "reference_image" }
+```
+
+The URI goes only in `image_url.url`; the block has no top-level `url`. A `/v1/files` id is not an asset URI.
+
+## Poll until terminal
 
 ```
 curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks/task_... \
@@ -91,7 +139,7 @@ curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks/task_... \
 | GET | /omni/media/v1/contents/generations/tasks | list |
 | DELETE | /omni/media/v1/contents/generations/tasks/{id} | cancel |
 
-### Alibaba video models — model guide
+## Alibaba video models
 
 `wan-2-7-t2v` / `wan-2-7-i2v` and the HappyHorse text/image/reference models use the same unified endpoint and `content[]` shape as every other video model — the notes below are the model-specific parts. **`happyhorse-1.0-video-edit` is the exception: it is served on a separate DashScope-compatible endpoint** (see below).
 
@@ -106,13 +154,13 @@ curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks/task_... \
 
 > **wan-2-7 renders 1080P regardless of the requested resolution**
 >
-> `wan-2-7-t2v` / `wan-2-7-i2v` currently return a 1080P clip even when the request says `720P`, and billing follows what was produced — so a 5-second clip costs the 1080P rate. Budget for 1080P, or use `happyhorse-1.1-*` when you need 720P pricing.
+> `wan-2-7-t2v` / `wan-2-7-i2v` return a 1080P clip even when the request says `720P`, and billing follows what was produced — so a 5-second clip costs the 1080P rate. Budget for 1080P, or use `happyhorse-1.1-*` when you need 720P pricing.
 
 > **HappyHorse accepts 720P and 1080P only**
 >
 > These models support `720P` and `1080P`. A request for `480P` is **not** rejected — it renders at roughly 1080P and is billed at the 1080P rate. Send `720P` when you want 720P pricing.
 
-**Text-to-video**
+### Text-to-video
 
 ```
 curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks \
@@ -125,7 +173,9 @@ curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks \
   }'
 ```
 
-**Image-to-video** — add one image block with `role: "first_frame"`:
+### Image-to-video
+
+Add one image block with `role: "first_frame"`:
 
 ```
 "content": [
@@ -134,7 +184,9 @@ curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks \
 ]
 ```
 
-**Reference-to-video** (`happyhorse-1.1-r2v`) — 1 to 9 reference images, each with `role: "reference_image"`. Refer to them in the prompt as `[Image 1]`, `[Image 2]`, …:
+### Reference-to-video
+
+`happyhorse-1.1-r2v` takes 1 to 9 reference images, each with `role: "reference_image"`. Refer to them in the prompt as `[Image 1]`, `[Image 2]`, …:
 
 ```
 "content": [
@@ -146,9 +198,11 @@ curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks \
 
 > **Validate multi-image composition on a small run first**
 >
-> In one test against production (2026-08-04) a `kling-o3-pro-reference` task with two `reference_image` blocks and the prompt *"place [Image 1] in the scene of [Image 2]"* was accepted, rendered and billed — but the composition instruction was **not** carried out: the output kept Image 1's own background. That was a single test with synthetic source images, so it is not evidence the feature is broken. It does mean you should not assume `[Image N]` cross-image composition works: run one short, low-resolution clip and look at it before committing a batch.
+> With multiple `reference_image` inputs, `kling-o3-pro-reference` may not follow cross-image composition instructions such as placing [Image 1] in [Image 2]. The task can still produce a video and incur charges. Try a short, low-resolution clip before generating a batch.
 
-**Video editing** (`happyhorse-1.0-video-edit`) — **use the DashScope-compatible endpoint, not the unified one.** The unified endpoint rejects this model with `400 video-edit requires a source video`. Create the task with `input.media[]` and poll `GET /omni/media/v1/tasks/{id}`:
+### Video editing
+
+For `happyhorse-1.0-video-edit`, **use the DashScope-compatible endpoint, not the unified one.** The unified endpoint rejects this model with `400 video-edit requires a source video`. Create the task with `input.media[]` and poll `GET /omni/media/v1/tasks/{id}`:
 
 ```
 curl https://api.atptoken.ai/omni/media/v1/services/aigc/video-generation/video-synthesis \
@@ -171,21 +225,31 @@ curl https://api.atptoken.ai/omni/media/v1/tasks/cgt_... -H "Authorization: Bear
 # → { "output": { "task_status": "SUCCEEDED", "video_url": "https://media.atptoken.ai/v/..." }, "usage": { … } }
 ```
 
-`input.media[].type` accepts `video` or `reference_image` only, and the URL key is `url` (not `video_url`). Every URL — source clip and reference images alike — must be publicly downloadable without authentication; if any of them cannot be fetched the task ends `FAILED` with `Failed to download …` and is not billed. This endpoint returns the DashScope response shape (`output.task_status`, `output.video_url`), and the output length currently follows the source clip rather than `parameters.duration`.
+- `input.media[].type` accepts `video` or `reference_image` only, and the URL key is `url` (not `video_url`).
+- Every URL — source clip and reference images alike — must be publicly downloadable without authentication; if any of them cannot be fetched the task ends `FAILED` with `Failed to download …` and is not billed.
+- This endpoint returns the DashScope response shape (`output.task_status`, `output.video_url`), and the output length follows the source clip rather than `parameters.duration`.
 
-**Billing** — per second of output at the requested resolution, metered as video tokens (`width × height × seconds × 24 fps ÷ 1024`). For `-r2v` and `-video-edit` the input clip's seconds are billed too, so a 5-second edit of a 5-second source bills 10 seconds. Failed tasks are not billed. Rates are on the [pricing page](https://atptoken.ai/pricing/).
+### Billing
 
-**Other model-specific notes**
+Per second of output at the requested resolution, metered as video tokens (`width × height × seconds × 24 fps ÷ 1024`). For `-r2v` and `-video-edit` the input clip's seconds are billed too, so a 5-second edit of a 5-second source bills 10 seconds. Failed tasks are not billed. Rates are on the [pricing page](https://atptoken.ai/pricing/).
+
+### Other model-specific notes
 
 - **Watermark**: HappyHorse has the watermark **on by default** — pass `watermark: false` to disable it. Wan 2.7 defaults to off.
 - **Ratio**: HappyHorse also accepts `4:5`, `5:4`, `9:21`, `21:9` on top of the shared list.
 - **Prompt length**: 5,000 characters (HappyHorse: 2,500 for Chinese text).
 - `generate_audio` is not available on these models yet.
 
-### Errors
+## Errors
 
 - 400 — invalid request body.
 - 402 — `insufficient_quota`: project balance ≤ 0 (create only; poll / list / cancel stay open).
 - 403 — `permission_denied`: the gated model is not enabled for this project.
 - 422 — the model has no video provider.
 - 502 — upstream generation failed.
+
+## Next steps
+
+- [Seedance 2.0](https://atptoken.ai/docs/seedance-2-0/) — Parameters, media roles and request examples for `seedance-2-0`.
+- [/v1/files](https://atptoken.ai/docs/files/) — Upload a file and turn it into a reference URL.
+- [Error codes](https://atptoken.ai/docs/errors/) — What each status code means and what to check first.

@@ -4,13 +4,17 @@
 
 Billing is usage-based, measured on **input + output tokens**. Each model has its own rate; the exact per-model economics are resolved by the gateway's pricing tables at request time, not by a static table on this page. Which models a key may call is scoped by its project.
 
-There is no monthly fee. See the [pricing page](https://atptoken.ai/pricing/) for the current model lineup and access tiers.
+## Monthly fee and access tiers
 
-Estimate a video or text request from the current list rates:
+There is no monthly fee. See the [pricing page](https://atptoken.ai/pricing/) for the model lineup and access tiers.
+
+## Estimate a request
+
+Estimate a video or text request from the list rates:
 
 **Billing calculator**
 
-Video: video tokens ≈ width × height × seconds × 24 ÷ 1024; cost ≈ video tokens × the resolution tier's USD per 1M video tokens. Pixels assume 16:9. Output can run slightly longer than requested (a 5 s request returned 5.04 s in our test), so results are approximate.
+Video: video tokens ≈ width × height × seconds × 24 ÷ 1024; cost ≈ video tokens × the resolution tier's USD per 1M video tokens. Pixels assume 16:9. Output can run slightly longer than requested (e.g. 5.04 s for a 5 s request), so results are approximate.
 
 | Model | Resolution | Video tokens (5 s) | USD / 1M | USD (5 s) |
 | --- | --- | --- | --- | --- |
@@ -98,3 +102,9 @@ Text: cost = input tokens × input rate + cache-read tokens × cache-read rate +
 | `deepseek-v3-2` | 0.57 | 0.114 | 1.71 |
 | `gemini-3-5-flash-lite` | 0.3 | 0.03 | 2.5 |
 | `gemini-3-6-flash` | 1.5 | — | 7.5 |
+
+## Next steps
+
+- [How credits work](https://atptoken.ai/docs/credits/) — What one credit is worth and how credits flow to a project.
+- [Top up & wallet](https://atptoken.ai/docs/topup/) — Buy credits and see the top-up packages.
+- [Tracking spend](https://atptoken.ai/docs/spend/) — See where credits go by model, key, and level.

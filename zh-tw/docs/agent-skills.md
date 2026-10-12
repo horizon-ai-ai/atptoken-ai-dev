@@ -2,18 +2,20 @@
 
 > Source: https://atptoken.ai/zh-tw/docs/agent-skills/
 
-ATP Agent Skills 是提供給 Codex、Claude Code 與其他支援 `SKILL.md` 的 agent 使用的公開操作手冊。安裝後，agent 會知道 ATP 的驗證方式、統一模型名稱、API payload、非同步媒體任務與常見錯誤，不需要把上游 provider 的介面寫進你的專案。
+ATP Agent Skills 是提供給 Codex、Claude Code 與其他支援 `SKILL.md` 的 agent 使用的公開操作手冊。安裝後，agent 會知道 ATP 的驗證方式、統一模型名稱、API payload、非同步媒體任務與常見錯誤，不需要把上游供應商的介面寫進你的專案（project）。
+
+## 開始之前
 
 Skills 是接上之後的那一層，不是接上本身。先把 agent 指向 Gateway，再安裝這些 Skills。
 
 - [先接上你的 agent](https://atptoken.ai/zh-tw/docs/agents/)
-  Claude Code、Codex CLI 與其他 agent 的 base URL、key 與模型設定 — 另外還有三個需要特別處理的工具。
+  Claude Code、Codex CLI 與其他 agent 的 base URL、金鑰與模型設定——另外還有三個需要特別處理的工具。
 
-> **Skills 不會保存你的 API key**
+> **Skills 不會保存你的 API 金鑰**
 >
-> Skills 只有 Markdown 指引。`atp-` key 仍應放在環境變數或密鑰管理服務，不要寫入 `SKILL.md`、程式碼或 git。
+> Skills 只有 Markdown 指引。`atp-` 金鑰仍應放在環境變數或密鑰管理服務，不要寫入 `SKILL.md`、程式碼或 git。
 
-### 一行安裝
+## 一行安裝
 
 安裝全部七個官方 Skills：
 
@@ -42,7 +44,7 @@ less /tmp/install-atptoken-skills.sh
 sh /tmp/install-atptoken-skills.sh codex
 ```
 
-### Skills 內容
+## Skills 內容
 
 | Skill | 何時使用 |
 |---|---|
@@ -58,7 +60,7 @@ sh /tmp/install-atptoken-skills.sh codex
 
 機器可讀的完整清單在 [`/skills/manifest.json`](../../../skills/manifest.json)。
 
-### 驗證安裝
+## 驗證安裝
 
 ```bash
 # Codex
@@ -70,8 +72,14 @@ find "${CLAUDE_HOME:-$HOME/.claude}/skills" -maxdepth 2 -name SKILL.md \
   -path "*/atptoken-*"
 ```
 
-接著在 agent 中要求「使用 ATP 產生一張圖片」或「用 ATP 建立 Wan 影片任務」。agent 應先以同一把 project key 呼叫 `GET https://api.atptoken.ai/v1/models`，再選擇該 project 已啟用的模型 — 也就是 [把任何 coding agent 接上 ATP](https://atptoken.ai/zh-tw/docs/agents/) 講的同一個第一步。如果 agent 跳過這一步、自己寫死一個模型名，那就是要糾正的行為。
+接著在 agent 中要求「使用 ATP 產生一張圖片」或「用 ATP 建立 Wan 影片任務」。agent 應先以同一把專案金鑰呼叫 `GET https://api.atptoken.ai/v1/models`，再選擇該專案已啟用的模型——也就是 [把任何 coding agent 接上 ATP](https://atptoken.ai/zh-tw/docs/agents/) 講的同一個第一步。如果 agent 跳過這一步、自己寫死一個模型名，那就是要糾正的行為。
 
-> **模型權限仍由 project 控管**
+> **模型權限仍由專案控管**
 >
-> 安裝 Skill 不會自動啟用模型，也不會繞過 allowed models。`GET /v1/models` 沒有出現的模型不能用；請先到 Console 的 Resources 調整 project 模型。
+> 安裝 Skill 不會自動啟用模型，也不會繞過 allowed models。`GET /v1/models` 沒有出現的模型不能用；請先到主控台的「資源」調整專案模型。
+
+## 下一步
+
+- [把任何 coding agent 接上 ATP](https://atptoken.ai/zh-tw/docs/agents/) — 設好 Skills 依賴的 base URL、金鑰與模型。
+- [列出平台可用模型](https://atptoken.ai/zh-tw/docs/models/) — agent 選模型之前應該先讀的模型清單。
+- [錯誤碼](https://atptoken.ai/zh-tw/docs/errors/) — 請求失敗時，每個狀態碼代表什麼。

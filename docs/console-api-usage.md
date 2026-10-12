@@ -6,7 +6,13 @@
 
 Credits flow down the hierarchy Account → Org → Workspace → Project. **Only the project (leaf) balance is consumed in real time** — the gateway decrements it on every request. Org and workspace balances are allocation pools that change only when you allocate or refund.
 
-#### GET /api/quota/balance
+## Read balances
+
+> **Which endpoint should I poll?**
+>
+> For automatic model switching or budget alarms, poll **`/api/quota/balance`** with all three ids — it is the only value updated on every single request. `billing/summary` aggregates settle within minutes and are for reporting, not admission decisions.
+
+### GET /api/quota/balance
 
 The endpoint for automation. `proj_balance` is read from the live store the gateway decrements on each request, so it reflects usage instantly; `proj_inflight` is the amount reserved by requests still running.
 
@@ -16,16 +22,24 @@ The endpoint for automation. `proj_balance` is read from the live store the gate
 | workspace_id | string | Adds workspace scope. |
 | project_id | string | Requires workspace_id; returns the real-time project balance. |
 
+#### Request
+
 ```
 curl -sS "https://admin.atptoken.ai/api/quota/balance?org_id=<org>&workspace_id=<ws>&project_id=<proj>" \
   -H "Authorization: Bearer $TOKEN"
 ```
 
-#### GET /api/quota/status
+### GET /api/quota/status
 
 Same three-level balances in a block-per-level shape. Returns remaining balance only — the credit model stores no "initial quota", so no usage-percentage field.
 
-#### GET /api/billing/summary
+### GET /api/billing/wallet
+
+Account-level plan and credit balance for the calling account.
+
+## Read usage
+
+### GET /api/billing/summary
 
 Monthly usage and billing rollup: per-model token totals, request counts, metered quantities and credits for the chosen `period` (`YYYY-MM`, defaults to the current UTC month). Scope-wide — covers all keys in the org/workspace/project.
 
@@ -35,26 +49,24 @@ Monthly usage and billing rollup: per-model token totals, request counts, metere
 | period | string | `YYYY-MM` (UTC). Defaults to current month. |
 | workspace_id / project_id | string | Narrow the scope. |
 
-#### GET /api/billing/usage-by-key
+### GET /api/billing/usage-by-key
 
 Monthly usage per API key. **Returns only keys created by the calling user** — it is a personal view, not an org-wide report (use `billing/summary` for that).
 
-#### GET /api/billing/usage-series
+### GET /api/billing/usage-series
 
 Daily usage trend for one month (UTC buckets), with `interval` and `group_by` options. Personal view, same as usage-by-key.
 
-#### GET /api/quota/monthly
+### GET /api/quota/monthly
 
 Historical month-end snapshots (closed by the worker at month boundary), plus a synthetic `is_current: true` entry for the open month. `months` 1–24 (default 6) or a single `period`.
 
-#### GET /api/quota/history
+### GET /api/quota/history
 
 Raw token-usage ledger records with `since`/`until`/`cursor` paging.
 
-#### GET /api/billing/wallet
+## Next steps
 
-Account-level plan and credit balance for the calling account.
-
-> **Which endpoint should I poll?**
->
-> For automatic model switching or budget alarms, poll **`/api/quota/balance`** with all three ids — it is the only value updated on every single request. `billing/summary` aggregates settle within minutes and are for reporting, not admission decisions.
+- [Billing & top-ups](https://atptoken.ai/docs/console-api-billing/) — Line-item billing events and top-up records.
+- [Request logs](https://atptoken.ai/docs/console-api-logs/) — Per-request records for debugging.
+- [Team with budget caps](https://atptoken.ai/docs/cb-budget-caps/) — Set budget caps for a team.

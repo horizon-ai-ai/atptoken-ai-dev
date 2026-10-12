@@ -33,3 +33,9 @@ Run a prompt in Claude Code, then open the console: the call shows up under Requ
 > **Codex too**
 >
 > The same idea works for Codex and other agents that speak the OpenAI or Anthropic wire format — see [Coding agents](https://atptoken.ai/docs/agents/) for the Codex config.
+
+## Next steps
+
+- [Coding agents](https://atptoken.ai/docs/agents/) — Codex, Cline, and other agents on the same Gateway.
+- [Model discovery](https://atptoken.ai/docs/models/) — List the model ids you can set as `ANTHROPIC_MODEL`.
+- [Usage & logs](https://atptoken.ai/docs/monitoring/) — Find each Claude Code call and the credits it used.

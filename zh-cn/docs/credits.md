@@ -2,15 +2,27 @@
 
 > Source: https://atptoken.ai/zh-cn/docs/credits/
 
-用量是用 credits 支付。**1 credit = USD 0.01**（100 credits = USD 1）。按量付费（PAYG）的 credits 不会过期（合约承诺的 contract credits 可能带到期日 — 见「充值与钱包」）。余额显示到小数点后四位；非零但低于此的金额会显示为 `<0.0001`。
+用量是用点数支付。**1 点数 = USD 0.01**（100 点数 = USD 1）。
 
-Credits 沿阶层往下流 — organization → workspace → project — 一把 key 从其 project 的余额扣款。每一层都回报相同的四个数字：
+## 效期与余额显示
+
+随用随付（PAYG）的点数不会过期（合约承诺的 contract 点数可能带到期日——见「充值与钱包」）。余额显示到小数点后四位；非零但低于此的金额会显示为 `<0.0001`。
+
+## 点数如何沿阶层往下流
+
+点数沿阶层往下流——组织 → 工作区 → 项目（project）——一把密钥从其项目的余额扣款。每一层都回报相同的四个数字：
 
 | 用词 | 意义 |
 |---|---|
-| Available | 这一层可花费或可分配的 credits。 |
-| Received | 从上一层收到的 credits 总额。 |
-| Allocated | 已往下拨给子 workspace 或 project 的 credits。 |
-| Consumed | 实际花在 API 呼叫上的 credits（project 层级）。 |
+| 可用 | 这一层可花用或可分配的点数。 |
+| 已收到 | 从上一层收到的点数总额。 |
+| 已分配 | 已往下拨给子工作区或项目的点数。 |
+| 已用 | 实际花在 API 呼叫上的点数（项目层级）。 |
 
-若某个 project 花得比被分配的还多，会被标为 **In debt**，直到再充值为止。
+若某个项目花得比被分配的还多，会被标为 **In debt**，直到再充值为止。
+
+## 下一步
+
+- [充值与钱包](https://atptoken.ai/zh-cn/docs/topup/) — 购买点数，以及充值会进到哪里。
+- [工作区与项目](https://atptoken.ai/zh-cn/docs/resources/) — 从工作区把点数拨给项目。
+- [追踪消耗](https://atptoken.ai/zh-cn/docs/spend/) — 比较每一层的已分配与已用。

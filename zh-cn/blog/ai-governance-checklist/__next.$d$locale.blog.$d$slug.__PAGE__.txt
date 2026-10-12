@@ -1,9 +1,9 @@
 1:"$Sreact.fragment"
-2:I[51713,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js","/_next/static/chunks/031jyqwh2ymjo.js","/_next/static/chunks/12btwas-eg9md.js","/_next/static/chunks/0tc57bytaqvvw.js"],"default"]
-9:I[97367,["/_next/static/chunks/3t8toeybct1ql.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/1fmxoc5c4a_2q.js"],"OutletBoundary"]
+2:I[51713,["/_next/static/chunks/0-_9rrnf13cij.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/40txhucjvzfkn.js","/_next/static/chunks/3bmkvr51yr3yf.js","/_next/static/chunks/16aekt4_xi60t.js","/_next/static/chunks/0ajm7nxng_-k1.js"],"default"]
+9:I[97367,["/_next/static/chunks/0-_9rrnf13cij.js","/_next/static/chunks/14mrh2-p_w84d.js","/_next/static/chunks/40txhucjvzfkn.js"],"OutletBoundary"]
 a:"$Sreact.suspense"
-:HL["/_next/static/chunks/0bk251ba95uho.css","style"]
-3:T3b87,<p>AI 治理清单是一份可以逐项验证的管控清单，每一项都有负责人和证据，用来证明公司清楚知道哪些团队用哪些 AI 模型、发送了什么数据、花了多少钱。本文针对模型 API 使用，整理 4 组共 12 个检查项；每一项都写明「完成」是什么样子、谁负责、审计人员会要看什么，并把四组对应到 NIST AI 风险管理框架的四个功能。</p>
+:HL["/_next/static/chunks/1jwevguitou0r.css","style"]
+3:T3b81,<p>AI 治理清单是一份可以逐项验证的管控清单，每一项都有负责人和证据，用来证明公司清楚知道哪些团队用哪些 AI 模型、发送了什么数据、花了多少钱。本文针对模型 API 使用，整理 4 组共 12 个检查项；每一项都写明「完成」是什么样子、谁负责、审计人员会要看什么，并把四组对应到 NIST AI 风险管理框架的四个功能。</p>
 <h2 id="这份清单覆盖什么">这份清单覆盖什么</h2>
 <p>这是一份针对模型 API 使用的运营型清单，范围是 API 密钥、模型访问、数据边界、费用与事件响应。偏见与公平性测试、透明度与可解释性、模型验证，以及 AI 决策对人的影响，都不在范围内。这些请参考 <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">NIST AI 风险管理框架</a>（AI RMF 1.0，2023 年 1 月 26 日发布）及其生成式 AI 配置文件 NIST-AI-600-1（2024 年 7 月 26 日发布）。</p>
 <h2 id="12-个检查项一览">12 个检查项一览</h2>
@@ -167,7 +167,7 @@ a:"$Sreact.suspense"
 </ul>
 <h2 id="第三组-费用与归属-measure">第三组：费用与归属（Measure）</h2>
 <h3 id="7-每个项目都有硬性花费上限">7. 每个项目都有硬性花费上限</h3>
-<p>超支的第一个信号，应该在账单寄来之前就由上限触发。指定一个人，在项目碰到上限时决定下一步：<a class="doc-term" href="/zh-cn/docs/topup/" data-def="为钱包加值点数，最低 5 美元，用多少付多少。">充值</a>、等待，或改用更小的模型。</p>
+<p>超支的第一个信号，应该在账单寄来之前就由上限触发。指定一个人，在项目碰到上限时决定下一步：<a class="doc-term" href="/zh-cn/docs/topup/" data-def="为钱包加值点数，USD 5 起充值，用多少付多少。">充值</a>、等待，或改用更小的模型。</p>
 <ul>
 <li>完成标准：每个生产与沙盒项目都配置了上限，并有明确的预算负责人。</li>
 <li>负责人：各项目的预算负责人。</li>
@@ -251,12 +251,12 @@ a:"$Sreact.suspense"
 <tbody><tr>
 <td>1</td>
 <td>组织 → 工作区 → 项目 → 密钥的层级；每把密钥只属于一个项目，API 密钥页列出所有工作区与项目的密钥</td>
-<td><a href="/zh-cn/docs/console-setup/" class="doc-term-def" data-def="帐号的最上层，底下再分 workspace 与 project。">设置组织</a>、<a href="/zh-cn/docs/console-keys/" class="doc-term-def" data-def="以 atp- 开头的金钥，继承所属 project 的允许模型清单与点数余额。">管理 API 密钥</a></td>
+<td><a href="/zh-cn/docs/console-setup/" class="doc-term-def" data-def="账号的最上层，底下再分 工作区 与 项目。">设置组织</a>、<a href="/zh-cn/docs/console-keys/" class="doc-term-def" data-def="以 atp- 开头的密钥，继承所属 项目 的允许模型清单与点数余额。">管理 API 密钥</a></td>
 </tr>
 <tr>
 <td>2</td>
 <td>吊销的密钥立即失效并保留在列表中；工作区或项目层级的 Owner / Admin / Member 角色</td>
-<td><a href="/zh-cn/docs/console-keys/" class="doc-term-def" data-def="以 atp- 开头的金钥，继承所属 project 的允许模型清单与点数余额。">管理 API 密钥</a>、<a href="/zh-cn/docs/team/">团队与角色</a></td>
+<td><a href="/zh-cn/docs/console-keys/" class="doc-term-def" data-def="以 atp- 开头的密钥，继承所属 项目 的允许模型清单与点数余额。">管理 API 密钥</a>、<a href="/zh-cn/docs/team/">团队与角色</a></td>
 </tr>
 <tr>
 <td>3、7</td>
@@ -266,7 +266,7 @@ a:"$Sreact.suspense"
 <tr>
 <td>4</td>
 <td>允许的模型按项目设置（至少一个）；调用其他模型会在发到厂商之前返回 <code>403</code></td>
-<td><a href="/zh-cn/docs/resources/" class="doc-term-def" data-def="这个 project 可以呼叫的模型清单；不在清单上的一律回 403。">工作区与项目</a>、<a href="/zh-cn/docs/how-it-works/">工作原理</a></td>
+<td><a href="/zh-cn/docs/resources/" class="doc-term-def" data-def="这个 项目 可以呼叫的模型清单；不在清单上的一律回 403。">工作区与项目</a>、<a href="/zh-cn/docs/how-it-works/">工作原理</a></td>
 </tr>
 <tr>
 <td>8</td>
@@ -276,7 +276,7 @@ a:"$Sreact.suspense"
 <tr>
 <td>9</td>
 <td>11 家厂商 70+ 个模型用同一种单位：1 点数 = 0.01 美元；用量页按模型和密钥拆分</td>
-<td><a href="/zh-cn/docs/credits/" class="doc-term-def" data-def="计费单位。1 美元 = 100 点；用量依各模型牌价换算成点数扣抵。">点数如何运作</a>、<a href="/zh-cn/docs/spend/">跟踪花费</a></td>
+<td><a href="/zh-cn/docs/credits/" class="doc-term-def" data-def="计费单位。1 点＝USD 0.01；用量依各模型牌价换算成点数扣抵。">点数如何运作</a>、<a href="/zh-cn/docs/spend/">跟踪花费</a></td>
 </tr>
 <tr>
 <td>11、12</td>
@@ -291,10 +291,10 @@ a:"$Sreact.suspense"
 <li><a href="/zh-cn/blog/one-project-one-key/">一项目一密钥</a></li>
 <li><a href="/zh-cn/blog/ai-spending-caps-that-work/">有效的 AI 花费上限</a></li>
 <li><a href="/zh-cn/blog/shadow-ai-governed-control-plane/">什么是 Shadow AI？</a></li>
-</ul>0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-cn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"博客\",\"item\":\"https://atptoken.ai/zh-cn/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"AI 治理清单：模型 API 使用的 12 个可验证检查项（2026）\",\"item\":\"https://atptoken.ai/zh-cn/blog/ai-governance-checklist/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"AI 治理清单：模型 API 使用的 12 个可验证检查项（2026）\",\"description\":\"AI 治理清单：针对模型 API 使用的 12 个检查项，每项都有负责人、完成标准与审计证据，并对照 NIST AI RMF 框架的四大功能。\",\"datePublished\":\"2026-07-14\",\"dateModified\":\"2026-07-14\",\"inLanguage\":\"zh-Hans-CN\",\"keywords\":\"AI 治理, AI 治理清单, ATP\",\"url\":\"https://atptoken.ai/zh-cn/blog/ai-governance-checklist/\",\"mainEntityOfPage\":\"https://atptoken.ai/zh-cn/blog/ai-governance-checklist/\",\"image\":\"https://atptoken.ai/og/blog/ai-governance-checklist.jpg\",\"author\":{\"@type\":\"Person\",\"name\":\"hung-chien\",\"jobTitle\":\"AI 增长与品牌经理\",\"worksFor\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}},\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"},\"isPartOf\":{\"@type\":\"Blog\",\"@id\":\"https://atptoken.ai/#blog\",\"name\":\"ATP Token 博客\",\"url\":\"https://atptoken.ai/blog/\",\"description\":\"ATP Token 团队的实务笔记：企业 AI 治理、AI Token 用量账务，以及用一把密钥管理多个模型的日常。\",\"inLanguage\":\"zh-Hans-CN\",\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}}}"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"什么是 AI 治理清单？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"AI 治理清单是一份可验证的管控项清单，每一项都有负责人和证据，用来证明企业对 AI 的使用经过批准、可归属、可审查。像本文这种运营型清单，聚焦在模型 API 的使用：密钥、模型访问、数据边界、费用与事件响应。\"}},{\"@type\":\"Question\",\"name\":\"AI 治理清单应该包含哪些项？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"至少包括：密钥归属与吊销、沙盒与生产环境分离、每个项目的模型白名单、数据分级表、厂商条款登记、花费上限、逐条请求日志、每月对账、新服务接入流程、密钥泄露应急预案，以及每季度访问权限审查。\"}},{\"@type\":\"Question\",\"name\":\"AI 治理清单和 AI 治理框架有什么区别？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"NIST AI 风险管理框架这类框架，描述组织应管理的完整成果，包括公平性、透明度与对人的影响。清单则把其中一部分转成有负责人、有证据的具体检查项。本清单覆盖的是模型 API 使用的运营层面。\"}},{\"@type\":\"Question\",\"name\":\"企业的 AI 治理由谁负责？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"通常会拆开：平台团队负责密钥、模型访问与日志；安全与法务负责数据分级与厂商条款；财务与各预算负责人负责花费上限与对账。每一个检查项都应指定一位最终负责人。\"}},{\"@type\":\"Question\",\"name\":\"AI 治理管控多久要检查一次？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"访问权限与密钥每季度审查，费用每月对账，密钥泄露应急预案至少每年演练一次。厂商变更条款或你新增套餐时，就重新审一次厂商条款。\"}}]}"}}]],["$","$L2",null,{"data":{"lang":"zh-CN","post":{"slug":"ai-governance-checklist","title":"AI 治理清单：模型 API 使用的 12 个可验证检查项（2026）","metaTitle":"AI 治理清单：AI API 的 12 个检查项（2026）","description":"AI 治理清单：针对模型 API 使用的 12 个检查项，每项都有负责人、完成标准与审计证据，并对照 NIST AI RMF 框架的四大功能。","date":"2026-07-14","tags":["AI 治理","AI 治理清单","ATP"],"author":"hung-chien","authorTitle":"AI 增长与品牌经理","tldr":["这份清单覆盖企业如何使用模型 API：密钥、模型访问、数据边界、费用与事件响应。偏见、透明度与模型验证，属于 NIST AI RMF 这类完整框架的范围。","12 个检查项都有完成标准、明确的负责人，以及审计人员会要的证据，评审当天就能判定通过或不通过。","四组检查项对应 NIST AI RMF 的 Govern、Map、Measure、Manage 四个功能。数据分级与厂商保留条款，无论用什么工具，都仍由安全与法务负责。"],"faq":[{"q":"什么是 AI 治理清单？","a":"AI 治理清单是一份可验证的管控项清单，每一项都有负责人和证据，用来证明企业对 AI 的使用经过批准、可归属、可审查。像本文这种运营型清单，聚焦在模型 API 的使用：密钥、模型访问、数据边界、费用与事件响应。"},{"q":"AI 治理清单应该包含哪些项？","a":"至少包括：密钥归属与吊销、沙盒与生产环境分离、每个项目的模型白名单、数据分级表、厂商条款登记、花费上限、逐条请求日志、每月对账、新服务接入流程、密钥泄露应急预案，以及每季度访问权限审查。"},{"q":"AI 治理清单和 AI 治理框架有什么区别？","a":"NIST AI 风险管理框架这类框架，描述组织应管理的完整成果，包括公平性、透明度与对人的影响。清单则把其中一部分转成有负责人、有证据的具体检查项。本清单覆盖的是模型 API 使用的运营层面。"},{"q":"企业的 AI 治理由谁负责？","a":"通常会拆开：平台团队负责密钥、模型访问与日志；安全与法务负责数据分级与厂商条款；财务与各预算负责人负责花费上限与对账。每一个检查项都应指定一位最终负责人。"},{"q":"AI 治理管控多久要检查一次？","a":"访问权限与密钥每季度审查，费用每月对账，密钥泄露应急预案至少每年演练一次。厂商变更条款或你新增套餐时，就重新审一次厂商条款。"}],"readingMinutes":8,"cover":"ai-governance-checklist","html":"$3"},"newer":{"slug":"how-to-read-your-ai-bill","title":"LLM token 成本怎么算？计算公式、5 个模型实算与 AI 账单读法（2026）","date":"2026-07-21","cover":"how-to-read-your-ai-bill"},"older":null}}]],["$L4","$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"q8ogy5bwfTluQawd-N4pH"}
-4:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0bk251ba95uho.css","precedence":"next"}]
-5:["$","script","script-0",{"src":"/_next/static/chunks/031jyqwh2ymjo.js","async":true}]
-6:["$","script","script-1",{"src":"/_next/static/chunks/12btwas-eg9md.js","async":true}]
-7:["$","script","script-2",{"src":"/_next/static/chunks/0tc57bytaqvvw.js","async":true}]
+</ul>0:{"rsc":["$","$1","c",{"children":[[[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://atptoken.ai/zh-cn/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"观点\",\"item\":\"https://atptoken.ai/zh-cn/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"AI 治理清单：模型 API 使用的 12 个可验证检查项（2026）\",\"item\":\"https://atptoken.ai/zh-cn/blog/ai-governance-checklist/\"}]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"AI 治理清单：模型 API 使用的 12 个可验证检查项（2026）\",\"description\":\"AI 治理清单：针对模型 API 使用的 12 个检查项，每项都有负责人、完成标准与审计证据，并对照 NIST AI RMF 框架的四大功能。\",\"datePublished\":\"2026-07-14\",\"dateModified\":\"2026-07-14\",\"inLanguage\":\"zh-Hans-CN\",\"keywords\":\"AI 治理, AI 治理清单, ATP\",\"url\":\"https://atptoken.ai/zh-cn/blog/ai-governance-checklist/\",\"mainEntityOfPage\":\"https://atptoken.ai/zh-cn/blog/ai-governance-checklist/\",\"image\":\"https://atptoken.ai/og/zh-cn/blog/ai-governance-checklist.jpg\",\"author\":{\"@type\":\"Person\",\"name\":\"hung-chien\",\"jobTitle\":\"AI 增长与品牌经理\",\"worksFor\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}},\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"},\"isPartOf\":{\"@type\":\"Blog\",\"@id\":\"https://atptoken.ai/#blog\",\"name\":\"ATP Token 观点\",\"url\":\"https://atptoken.ai/blog/\",\"description\":\"ATP Token 团队的实务笔记：企业 AI 治理、AI Token 用量账务，以及用一把密钥管理多个模型的日常。\",\"inLanguage\":\"zh-Hans-CN\",\"publisher\":{\"@id\":\"https://www.horizon-ai.ai/#organization\"}}}"}}],["$","script","2",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"什么是 AI 治理清单？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"AI 治理清单是一份可验证的管控项清单，每一项都有负责人和证据，用来证明企业对 AI 的使用经过批准、可归属、可审查。像本文这种运营型清单，聚焦在模型 API 的使用：密钥、模型访问、数据边界、费用与事件响应。\"}},{\"@type\":\"Question\",\"name\":\"AI 治理清单应该包含哪些项？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"至少包括：密钥归属与吊销、沙盒与生产环境分离、每个项目的模型白名单、数据分级表、厂商条款登记、花费上限、逐条请求日志、每月对账、新服务接入流程、密钥泄露应急预案，以及每季度访问权限审查。\"}},{\"@type\":\"Question\",\"name\":\"AI 治理清单和 AI 治理框架有什么区别？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"NIST AI 风险管理框架这类框架，描述组织应管理的完整成果，包括公平性、透明度与对人的影响。清单则把其中一部分转成有负责人、有证据的具体检查项。本清单覆盖的是模型 API 使用的运营层面。\"}},{\"@type\":\"Question\",\"name\":\"企业的 AI 治理由谁负责？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"通常会拆开：平台团队负责密钥、模型访问与日志；安全与法务负责数据分级与厂商条款；财务与各预算负责人负责花费上限与对账。每一个检查项都应指定一位最终负责人。\"}},{\"@type\":\"Question\",\"name\":\"AI 治理管控多久要检查一次？\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"访问权限与密钥每季度审查，费用每月对账，密钥泄露应急预案至少每年演练一次。厂商变更条款或你新增套餐时，就重新审一次厂商条款。\"}}]}"}}]],["$","$L2",null,{"data":{"lang":"zh-CN","post":{"slug":"ai-governance-checklist","title":"AI 治理清单：模型 API 使用的 12 个可验证检查项（2026）","metaTitle":"AI 治理清单：AI API 的 12 个检查项（2026）","description":"AI 治理清单：针对模型 API 使用的 12 个检查项，每项都有负责人、完成标准与审计证据，并对照 NIST AI RMF 框架的四大功能。","date":"2026-07-14","tags":["AI 治理","AI 治理清单","ATP"],"author":"hung-chien","authorTitle":"AI 增长与品牌经理","tldr":["这份清单覆盖企业如何使用模型 API：密钥、模型访问、数据边界、费用与事件响应。偏见、透明度与模型验证，属于 NIST AI RMF 这类完整框架的范围。","12 个检查项都有完成标准、明确的负责人，以及审计人员会要的证据，评审当天就能判定通过或不通过。","四组检查项对应 NIST AI RMF 的 Govern、Map、Measure、Manage 四个功能。数据分级与厂商保留条款，无论用什么工具，都仍由安全与法务负责。"],"faq":[{"q":"什么是 AI 治理清单？","a":"AI 治理清单是一份可验证的管控项清单，每一项都有负责人和证据，用来证明企业对 AI 的使用经过批准、可归属、可审查。像本文这种运营型清单，聚焦在模型 API 的使用：密钥、模型访问、数据边界、费用与事件响应。"},{"q":"AI 治理清单应该包含哪些项？","a":"至少包括：密钥归属与吊销、沙盒与生产环境分离、每个项目的模型白名单、数据分级表、厂商条款登记、花费上限、逐条请求日志、每月对账、新服务接入流程、密钥泄露应急预案，以及每季度访问权限审查。"},{"q":"AI 治理清单和 AI 治理框架有什么区别？","a":"NIST AI 风险管理框架这类框架，描述组织应管理的完整成果，包括公平性、透明度与对人的影响。清单则把其中一部分转成有负责人、有证据的具体检查项。本清单覆盖的是模型 API 使用的运营层面。"},{"q":"企业的 AI 治理由谁负责？","a":"通常会拆开：平台团队负责密钥、模型访问与日志；安全与法务负责数据分级与厂商条款；财务与各预算负责人负责花费上限与对账。每一个检查项都应指定一位最终负责人。"},{"q":"AI 治理管控多久要检查一次？","a":"访问权限与密钥每季度审查，费用每月对账，密钥泄露应急预案至少每年演练一次。厂商变更条款或你新增套餐时，就重新审一次厂商条款。"}],"readingMinutes":8,"cover":"ai-governance-checklist","html":"$3"},"newer":{"slug":"how-to-read-your-ai-bill","title":"LLM token 成本怎么算？计算公式、5 个模型实算与 AI 账单读法（2026）","date":"2026-07-21","cover":"how-to-read-your-ai-bill"},"older":null}}]],["$L4","$L5","$L6","$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"42XVI2an97e2gGkRL_OhC"}
+4:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1jwevguitou0r.css","precedence":"next"}]
+5:["$","script","script-0",{"src":"/_next/static/chunks/3bmkvr51yr3yf.js","async":true}]
+6:["$","script","script-1",{"src":"/_next/static/chunks/16aekt4_xi60t.js","async":true}]
+7:["$","script","script-2",{"src":"/_next/static/chunks/0ajm7nxng_-k1.js","async":true}]
 8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
 b:null

@@ -8,7 +8,7 @@ Tools where you assemble AI through an interface instead of writing code — app
 >
 > Add `.md` to any docs URL to read the page as plain text: `https://atptoken.ai/docs/platforms.md`. Useful when you want to hand the whole page to an assistant.
 
-### Before you start
+## Before you start
 
 Three values, the same everywhere:
 
@@ -25,7 +25,7 @@ Where the tools differ is whether they can read your model list for you:
 
 If you are wiring up a coding agent instead — Claude Code, Codex, Cline — see [Coding agents](https://atptoken.ai/docs/agents/).
 
-### Dify
+## Connect Dify
 
 Install the **OpenAI-API-compatible** model provider from the marketplace, then use **Add Model** on its card. The fields that matter:
 
@@ -45,7 +45,7 @@ Dify does not read `GET /v1/models`, so each model is a separate Add Model entry
 
 The setup is identical on Dify Cloud and self-hosted.
 
-### n8n
+## Connect n8n
 
 n8n uses its built-in **OpenAI** credential. Create one, then under **Add option** set **Base URL** to `https://api.atptoken.ai/v1` and paste the `atp-…` key into **API Key**.
 
@@ -61,7 +61,7 @@ Two more notes. The Base URL field lives on the credential, not on the node — 
 
 The credential behaves the same on n8n Cloud and self-hosted.
 
-### Troubleshooting
+## Troubleshooting
 
 - **`403`** — the model is not enabled for the key's project. Open the project's Resources in the Console and enable it.
 - **`404`** — `/v1` is in the wrong place, or the tool appended `/chat/completions` to a base URL that already ended in it.

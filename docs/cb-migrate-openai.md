@@ -36,3 +36,9 @@ Send a request and check the console: it appears in Request logs with input / ou
 > **Same shapes, one bill**
 >
 > Because the OpenAI wire format passes through unchanged, response parsing in your app doesn't change. Usage across every model is now metered in credits. See [How credits work](https://atptoken.ai/docs/credits/).
+
+## Next steps
+
+- [OpenAI SDK](https://atptoken.ai/docs/sdk-openai/) — Full OpenAI SDK setup against the Gateway.
+- [/v1/chat/completions](https://atptoken.ai/docs/chat/) — The endpoint your migrated calls hit.
+- [How credits work](https://atptoken.ai/docs/credits/) — How usage is metered in credits.

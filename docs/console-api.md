@@ -6,11 +6,13 @@ Everything you can see in the ATP Token web console is also available as a REST 
 
 The full, always-in-sync specification is served as a live Swagger UI at [admin.atptoken.ai/api/docs](https://admin.atptoken.ai/api/docs) — every endpoint on the pages that follow can be tried there directly. A static, agent-readable mirror of the same surface — with operation IDs and typed parameters for function-calling tools — is published at [/openapi.json](https://atptoken.ai/openapi.json).
 
+## Authentication
+
 > **Two different credentials — do not mix them**
 >
 > Your **`atp-` API key** authenticates the data plane only (`api.atptoken.ai` — chat, media, embeddings). The Console API uses a **session token from `POST /api/users/login`** (your console email + password). Sending an `atp-` key to Console API endpoints returns `401` — it will never work, no matter the endpoint.
 
-#### Authentication
+#### Request
 
 ```
 curl -sS -X POST https://admin.atptoken.ai/api/users/login \
@@ -21,7 +23,7 @@ curl -sS -X POST https://admin.atptoken.ai/api/users/login \
 
 The returned `token` is a Bearer token valid for roughly **2 hours**. Long-running scripts should re-login on `401` rather than caching the token forever. `POST /api/users/logout` revokes the current session.
 
-#### Quickstart — poll balance, switch models
+## Poll the balance and switch models
 
 The most common integration: watch the real-time project balance and switch to a cheaper model when it crosses a threshold.
 
@@ -40,7 +42,7 @@ curl -sS "https://admin.atptoken.ai/api/billing/summary?org_id=<org>" \
   -H "Authorization: Bearer $TOKEN"
 ```
 
-#### Finding your IDs
+## Find your IDs
 
 Most endpoints take `org_id` / `workspace_id` / `project_id` query parameters. List them with:
 
@@ -50,7 +52,7 @@ curl -sS "https://admin.atptoken.ai/api/workspaces?org=<org_id>" -H "Authorizati
 curl -sS "https://admin.atptoken.ai/api/projects?workspace=<workspace_id>" -H "Authorization: Bearer $TOKEN"
 ```
 
-#### Sections
+## Endpoint groups
 
 - [Usage & balance](https://atptoken.ai/docs/console-api-usage/) — real-time balance, monthly usage, per-key usage, trends, wallet
 - [Billing & top-ups](https://atptoken.ai/docs/console-api-billing/) — billing events, top-up records, checkout, credit adjustments
@@ -58,7 +60,15 @@ curl -sS "https://admin.atptoken.ai/api/projects?workspace=<workspace_id>" -H "A
 - [Resources & members](https://atptoken.ai/docs/console-api-resources/) — orgs, workspaces, projects, members, your account
 - [Request logs](https://atptoken.ai/docs/console-api-logs/) — per-request observability records (7-day retention)
 
+## Errors
+
 - 400 — Missing or malformed parameter (most endpoints require `org_id`).
 - 401 — Missing/expired session token, or an `atp-` API key was sent instead.
 - 403 — Authenticated, but no access to the requested scope.
 - 404 — Resource not found within your visible scope.
+
+## Next steps
+
+- [Usage & balance](https://atptoken.ai/docs/console-api-usage/) — Read the real-time project balance and monthly usage.
+- [Resources & members](https://atptoken.ai/docs/console-api-resources/) — Look up the org, workspace and project IDs most endpoints need.
+- [Request logs](https://atptoken.ai/docs/console-api-logs/) — Find a failed request by status code or request ID.

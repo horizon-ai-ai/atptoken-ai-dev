@@ -4,7 +4,9 @@
 
 `GET /api/video/models`
 
-Five modality-scoped catalog endpoints, each returning the deduplicated, alphabetically sorted list of active `unifiedModelName` values on the platform:
+Five modality-scoped catalog endpoints, each returning the deduplicated, alphabetically sorted list of active `unifiedModelName` values on the platform.
+
+## Endpoints by modality
 
 | Endpoint | Modality |
 |---|---|
@@ -14,6 +16,12 @@ Five modality-scoped catalog endpoints, each returning the deduplicated, alphabe
 | `GET /api/audio/models` | Speech (TTS) |
 | `GET /api/embedding/models` | Embeddings |
 
-> **Platform catalog vs. your project's models**
->
-> These endpoints list what exists **on the platform**. What *your key* can call is the project's allowed-model list — query that on the data plane with `GET https://api.atptoken.ai/v1/models` using your `atp-` key (chat models only). Media models enabled for your project are shown in the console's key wizard.
+## Platform catalog vs. your project's models
+
+These endpoints list what exists **on the platform**. What *your key* can call is the project's allowed-model list — query that on the data plane with `GET https://api.atptoken.ai/v1/models` using your `atp-` key (chat models only). Media models enabled for your project are shown in the console's key wizard.
+
+## Next steps
+
+- [List available models](https://atptoken.ai/docs/models/) — Query model IDs on the data plane with an `atp-` key.
+- [Resources & members](https://atptoken.ai/docs/console-api-resources/) — A project's detail view includes its allowed-model list.
+- [Media models](https://atptoken.ai/docs/media/) — How image, video, audio and embedding models are billed.

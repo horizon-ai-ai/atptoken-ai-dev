@@ -2,13 +2,13 @@
 
 > Source: https://atptoken.ai/docs/media/
 
-Beyond text, the catalog includes **image, video, audio (text-to-speech) and embedding** models. They share the same account, credits and project scoping as text models, but each modality bills on its own meter instead of input + output tokens. Current models and list prices are on the [pricing page](https://atptoken.ai/pricing/).
+Beyond text, the catalog includes **image, video, audio (text-to-speech) and embedding** models. They share the same account, credits and project scoping as text models, but each modality bills on its own meter instead of input + output tokens. Models and list prices are on the [pricing page](https://atptoken.ai/pricing/).
 
 > **Preview status**
 >
 > Media generation is rolling out in preview. Models marked **Preview** on the pricing page are live in testing but their list prices are not yet published. If your team wants early access at scale, [tell us about your use case](https://atptoken.ai/enterprise-plan/).
 
-### Video
+## Video
 
 Video models: **seedance-2-0** (standard), **seedance-2-0-mini** (lighter, lower cost) and **seedance-2-0-fast** (faster rendering). Per-model rates are on the [pricing page](https://atptoken.ai/pricing/).
 
@@ -36,16 +36,23 @@ Worth knowing before you render:
 - **4K is not yet available**; requests above 1080p are rejected before any task is created.
 - **Failed tasks are not billed.**
 
-For the current video model parameters and examples, see [Seedance 2.0](https://atptoken.ai/docs/seedance-2-0/).
+For video model parameters and examples, see [Seedance 2.0](https://atptoken.ai/docs/seedance-2-0/).
 
-### Image
+## Image
 
 Text-to-image generation runs synchronously — prompt in, image URL back. List pricing will be published at launch; the model appears on the pricing page as **Preview** until then.
 
-### Audio (text-to-speech)
+## Audio (text-to-speech)
 
 TTS bills **per character** of input text rather than per token. List pricing will be published at launch.
 
-### Embeddings
+## Embeddings
 
 Embedding models bill on **input tokens only** — there is no output meter. Rates are on the [pricing page](https://atptoken.ai/pricing/).
+
+## Next steps
+
+- [Seedance 2.0](https://atptoken.ai/docs/seedance-2-0/) — Video model parameters, examples and limits.
+- [Video generation](https://atptoken.ai/docs/media-video/) — Create a video task and poll for the result.
+- [Image generation](https://atptoken.ai/docs/media-image/) — Generate images from a prompt.
+- [Speech generation (TTS)](https://atptoken.ai/docs/media-audio/) — Turn text into speech.

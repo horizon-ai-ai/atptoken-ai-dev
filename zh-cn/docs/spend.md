@@ -2,4 +2,29 @@
 
 > Source: https://atptoken.ai/zh-cn/docs/spend/
 
-Usage 页会汇整选定期间的 credits 与 tokens，并依模型与 API key 拆分。Credit 分配树让你从 organization 往下钻到 workspace 与 project，看每一层的 Allocated 与 Consumed，让你在余额见底前就清楚 credits 到底花去哪里。
+用量页与点数分配树告诉你点数花去哪里。
+
+> **在哪里**
+>
+> 控制台左栏「用量」。页首的「工作区」「项目」筛选范围，默认是所有工作区。
+
+## 依模型与密钥看用量
+
+用量页会汇整选定期间的点数与 tokens，并依模型与 API 密钥拆分。
+
+- **本期已用**：所选范围这段期间扣掉的点数，旁边是请求数与 Tokens。
+- **逐日趋势**：每根柱代表一个 UTC 日；按「比较：上月」可以叠上上个月对照。
+- **各模型用量**：每个模型的计费用量、点数、Token 数与请求数。
+
+## 看每一层的分配
+
+点数分配树让你从组织往下钻到工作区与项目（project），看每一层的「已分配」与「已用」，让你在余额见底前就清楚点数到底花去哪里。
+
+「点数分配」表的「已用 / 已分配」栏：项目显示 API 呼叫消耗的点数；组织与工作区显示已分配给下层的点数。
+
+## 下一步
+
+- [用量与记录](https://atptoken.ai/zh-cn/docs/monitoring/) — 用量、请求记录与活动记录三个页面。
+- [点数如何运作](https://atptoken.ai/zh-cn/docs/credits/) — 已分配与已用各代表什么。
+- [充值与钱包](https://atptoken.ai/zh-cn/docs/topup/) — 补点数，或在团队组织往下拨点。
+- [建立带预算上限的团队](https://atptoken.ai/zh-cn/docs/cb-budget-caps/) — 把分配额当成花费上限。

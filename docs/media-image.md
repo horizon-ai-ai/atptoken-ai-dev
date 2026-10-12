@@ -13,7 +13,7 @@ Image generation runs in **two steps**: create a task (`202` + task id), then po
 >
 > Media availability depends on the environment and project. Call `GET https://api.atptoken.ai/v1/models` first; a model absent from that response is not available to that key.
 
-#### Create a task
+## Create a task
 
 ```
 curl https://api.atptoken.ai/omni/media/v1/images/generations/tasks \
@@ -34,11 +34,14 @@ curl https://api.atptoken.ai/omni/media/v1/images/generations/tasks \
 
 Reuse the same `Idempotency-Key` when retrying a create after a network failure; use a fresh key for a genuinely new task.
 
-#### Input images for edit-style models — `reference_assets`
+### Input images for edit-style models — `reference_assets`
 
-> **Verified against production 2026-08-04**
+> **Put editing input images in `reference_assets`**
 >
-> Edit-style models (`nano-banana-pro-edit`, `qwen-image-edit-max`, …) take their input images in a **top-level `reference_assets` array of objects**. `content[]`, `image` and `image_url` are all rejected with `422 Invalid input.reference_assets: required.`, and a plain array of URL strings is rejected as `Invalid input.reference_assets`. It must be `[{ "url": "…" }]`.
+> Edit-style models (`nano-banana-pro-edit`, `qwen-image-edit-max`, …) take their input images in a **top-level `reference_assets` array of objects**. It must be `[{ "url": "…" }]`.
+>
+> - `content[]`, `image` and `image_url` are all rejected with `422 Invalid input.reference_assets: required.`
+> - A plain array of URL strings is rejected as `Invalid input.reference_assets`.
 
 ```
 curl https://api.atptoken.ai/omni/media/v1/images/generations/tasks \
@@ -55,7 +58,7 @@ curl https://api.atptoken.ai/omni/media/v1/images/generations/tasks \
 # → 202 { "id": "img_..." }
 ```
 
-**What `url` accepts** (image endpoint, verified 2026-08-04):
+**What `url` accepts** (image endpoint):
 
 | Form | Image endpoint | Notes |
 | --- | --- | --- |
@@ -67,24 +70,7 @@ The simplest way to turn an upload into a usable URL: `POST /v1/files` (the resp
 
 `prompt` is still required on an edit call. A short instruction is enough, but the field cannot be omitted.
 
-#### How per-image billing picks a size tier
-
-Models billed per image are charged by the tier of the image **we actually deliver**, measured from its **longest side**:
-
-| Longest side | Tier |
-| --- | --- |
-| ≤ 1024 px | `1K` |
-| ≤ 2048 px | `2K` |
-| larger | `4K` |
-
-Two things worth knowing before you budget:
-
-- **A model's default output can be wider than you expect.** For example a 1408×768 result (about 1.1 megapixels) has a longest side of 1408, so it is billed at the `2K` tier even though its pixel count is closer to a 1K image.
-- **Some models ignore the requested `size`** and always return their native resolution. If the tier matters for your cost, read the dimensions of the returned image rather than assuming the request was honoured.
-
-Only delivered images are billed — a failed generation, or one whose upload never completed, costs nothing. Where a model prices several tiers the same (Nano Banana, Nano Banana Pro), the tier makes no difference to what you pay.
-
-#### Poll until terminal
+## Poll until terminal
 
 Poll every 3–8 seconds:
 
@@ -97,7 +83,7 @@ curl https://api.atptoken.ai/omni/media/v1/images/generations/tasks/img_... \
 - `status` transitions `queued` → `running` → `succeeded` / `failed` / `cancelled` / `expired`.
 - A succeeded task's `data[].url` is a signed URL with a **30-minute TTL**; after expiry the task still reports `succeeded` with `expired: true` and a null `url` — download promptly (re-create to regenerate).
 - `usage` reports token usage for billing transparency; a `failed` task carries a structured `error` object.
-- **The extension in `data[].url` is not a reliable format signal** (verified 2026-08-04): a URL ending in `.png` can carry JPEG bytes. If the format matters — you are re-uploading the result, or converting it — sniff the bytes (magic number) rather than trusting the filename.
+- **The extension in `data[].url` is not a reliable format signal**: a URL ending in `.png` can carry JPEG bytes. If the format matters — you are re-uploading the result, or converting it — sniff the bytes (magic number) rather than trusting the filename.
 
 | Method | Path | Action |
 | --- | --- | --- |
@@ -106,7 +92,7 @@ curl https://api.atptoken.ai/omni/media/v1/images/generations/tasks/img_... \
 | GET | /omni/media/v1/images/generations/tasks | list |
 | DELETE | /omni/media/v1/images/generations/tasks/{id} | cancel |
 
-### Python example
+## Python example
 
 A minimal create-and-poll flow:
 
@@ -151,10 +137,33 @@ else:
     raise RuntimeError(task.get("error"))
 ```
 
-### Errors
+## How per-image billing picks a size tier
+
+Models billed per image are charged by the tier of the image **we actually deliver**, measured from its **longest side**:
+
+| Longest side | Tier |
+| --- | --- |
+| ≤ 1024 px | `1K` |
+| ≤ 2048 px | `2K` |
+| larger | `4K` |
+
+Two things worth knowing before you budget:
+
+- **A model's default output can be wider than you expect.** For example a 1408×768 result (about 1.1 megapixels) has a longest side of 1408, so it is billed at the `2K` tier even though its pixel count is closer to a 1K image.
+- **Some models ignore the requested `size`** and always return their native resolution. If the tier matters for your cost, read the dimensions of the returned image rather than assuming the request was honoured.
+
+Only delivered images are billed — a failed generation, or one whose upload never completed, costs nothing. Where a model prices several tiers the same (Nano Banana, Nano Banana Pro), the tier makes no difference to what you pay.
+
+## Errors
 
 - 400 — missing `model` or `prompt`.
 - 402 — `insufficient_quota`: project balance ≤ 0; top up and retry (don't hammer).
 - 404 — task not found or not owned by this project (poll).
 - 422 — the model has no image provider.
 - 502 — upstream generation failed.
+
+## Next steps
+
+- [/v1/files](https://atptoken.ai/docs/files/) — Upload an input image and turn it into a reference URL.
+- [Video generation](https://atptoken.ai/docs/media-video/) — The same task flow for video models.
+- [Error codes](https://atptoken.ai/docs/errors/) — What each status code means and what to check first.

@@ -4,6 +4,8 @@
 
 Use the Google GenAI SDK unchanged. Set the base URL to the Gateway, authenticate with `x-goog-api-key` (the SDK default), and call any model returned by [GET /v1/models](https://atptoken.ai/docs/models/).
 
+## Configure the client
+
 | Setting | Value |
 |---|---|
 | Base URL | `https://api.atptoken.ai` |
@@ -24,4 +26,12 @@ r = client.models.generate_content(
 print(r.text)
 ```
 
+## Supported routes
+
 The `generateContent` and `streamGenerateContent` routes work under both `/v1` and `/v1beta` (the SDK default). Full endpoint reference: [/v1/models/{model}:generateContent](https://atptoken.ai/docs/gemini/).
+
+## Next steps
+
+- [/v1/models/{model}:generateContent](https://atptoken.ai/docs/gemini/) — Parameters and response shape for this endpoint.
+- [List available models](https://atptoken.ai/docs/models/) — Get the model IDs to pass as `model`.
+- [Authentication](https://atptoken.ai/docs/auth/) — The three accepted key locations, including `x-goog-api-key`.

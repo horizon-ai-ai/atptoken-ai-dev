@@ -9,6 +9,8 @@ Text-to-speech is **synchronous** — text in, one audio file out as a signed UR
 - **Output is written to object storage and returned as a signed edge URL (`https://media-<env>.atptoken.ai/v/...`) with a **30-minute TTL** — never inline base64. Fetch it promptly.**
 - Requests are refused with `402 insufficient_quota` when the project balance is ≤ 0.
 
+## Generate speech
+
 ```
 curl https://api.atptoken.ai/omni/media/v1/audio/generations \
   -H "Authorization: Bearer atp-..." -H "Content-Type: application/json" \
@@ -25,7 +27,11 @@ curl https://api.atptoken.ai/omni/media/v1/audio/generations \
 | prosody | object | `{ "speed": 1, "volume": 0, "normalize_loudness": true }` |
 | temperature | number | expressiveness 0–1 (default `0.7`) |
 
-#### Response `200`
+**OpenAI-style clients:** OpenAI TTS models also accept the OpenAI shape — `input`, `voice`, `response_format` — which the gateway maps.
+
+## Response
+
+#### `200`
 
 ```
 {
@@ -36,10 +42,14 @@ curl https://api.atptoken.ai/omni/media/v1/audio/generations \
 }
 ```
 
-**OpenAI-style clients:** OpenAI TTS models also accept the OpenAI shape — `input`, `voice`, `response_format` — which the gateway maps.
-
-### Errors
+## Errors
 
 - 400 — missing `model` / `text`, or an invalid `format`.
-- 402 insufficient_quota — project balance ≤ 0; top up and retry (don't hammer).
+- 402 — `insufficient_quota`: project balance ≤ 0; top up and retry (don't hammer).
 - 422 — the model has no audio provider.
+
+## Next steps
+
+- [Media models](https://atptoken.ai/docs/media/) — Which image, video and audio models are in the catalog.
+- [Image generation](https://atptoken.ai/docs/media-image/) — Generate images with the same base URL and key.
+- [Error codes](https://atptoken.ai/docs/errors/) — What each status code means and what to check first.

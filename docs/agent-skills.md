@@ -4,6 +4,8 @@
 
 ATP Agent Skills are public operating guides for Codex, Claude Code, and other agents that support `SKILL.md`. They teach an agent ATP authentication, unified model names, request payloads, asynchronous media tasks, and common errors without exposing provider-specific APIs in your application.
 
+## Before you start
+
 Skills are the layer above the connection, not a replacement for it. Point the agent at the Gateway first, then install these.
 
 - [Connect your agent first](https://atptoken.ai/docs/agents/)
@@ -13,7 +15,7 @@ Skills are the layer above the connection, not a replacement for it. Point the a
 >
 > Skills are Markdown instructions only. Keep the `atp-` key in an environment variable or secret manager; never put it in `SKILL.md`, source code, or git.
 
-### One-command install
+## One-command install
 
 Install all seven official skills:
 
@@ -42,7 +44,7 @@ less /tmp/install-atptoken-skills.sh
 sh /tmp/install-atptoken-skills.sh codex
 ```
 
-### Included skills
+## Included skills
 
 | Skill | Use it for |
 |---|---|
@@ -58,7 +60,7 @@ Direct downloads: [Gateway](../../../skills/atptoken-gateway/SKILL.md) · [OpenA
 
 The machine-readable catalogue is available at [`/skills/manifest.json`](../../../skills/manifest.json).
 
-### Verify the install
+## Verify the install
 
 ```bash
 # Codex
@@ -75,3 +77,9 @@ Then ask the agent to “generate an image with ATP” or “create a Wan video 
 > **Project permissions still apply**
 >
 > Installing a skill does not enable a model or bypass allowed models. If a model is absent from `GET /v1/models`, it cannot be used; enable it for the project in Console Resources first.
+
+## Next steps
+
+- [Connect any coding agent](https://atptoken.ai/docs/agents/) — Set the base URL, key and model the skills rely on.
+- [List available models](https://atptoken.ai/docs/models/) — The model list an agent should read before it picks a model.
+- [Error codes](https://atptoken.ai/docs/errors/) — What each status code means when a request fails.

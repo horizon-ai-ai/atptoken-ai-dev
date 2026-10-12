@@ -6,10 +6,14 @@
 
 Per-request observability records from the gateway — endpoint, model, HTTP status, provider result, token counts and billing status for every call made with your keys. **Retention is 7 days**; this is a debugging view, not the billing source of truth (use [billing events](https://atptoken.ai/docs/console-api-billing/) for that).
 
+## Request
+
 ```
 curl -sS "https://admin.atptoken.ai/api/request-logs?org_id=<org>&limit=50&min_status=400" \
   -H "Authorization: Bearer $TOKEN"
 ```
+
+## Parameters
 
 | Param | Type | Description |
 |---|---|---|
@@ -25,3 +29,9 @@ curl -sS "https://admin.atptoken.ai/api/request-logs?org_id=<org>&limit=50&min_s
 > **Correlating errors**
 >
 > Every gateway response carries an `x-request-id` header (also `id` in the body). When reporting an issue, quote it — support can match it to the exact log row here.
+
+## Next steps
+
+- [Error codes](https://atptoken.ai/docs/errors/) — What a failed request's status code means and how to fix it.
+- [Billing & top-ups](https://atptoken.ai/docs/console-api-billing/) — Billing events, the source of truth for charges.
+- [Usage & logs](https://atptoken.ai/docs/monitoring/) — Request logs, usage and activity in the Console.

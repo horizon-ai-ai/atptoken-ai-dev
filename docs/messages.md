@@ -4,18 +4,11 @@
 
 `POST /v1/messages`
 
-Anthropic Messages requests are accepted and normalized by the Gateway. The top-level `system` field must be a **string**. The array form used by Anthropic's cache_control feature is not yet supported — sending an array returns 400 `invalid_request_error`. The `anthropic-version` header is accepted and forwarded unchanged.
+Anthropic Messages requests are accepted and normalized by the Gateway.
 
-| Field | Type | Description |
-|---|---|---|
-| model | string · required | A model id from GET /v1/models. |
-| max_tokens | integer · required | Max output tokens (Anthropic requires this). With extended thinking, the thinking budget counts against it — too low returns a `200` with empty content (see [Errors](https://atptoken.ai/docs/errors/)). |
-| messages | array · required | Conversation turns, each { role, content }. |
-| system | string | System prompt. Must be a string, not an array. |
-| temperature | number | Sampling temperature, 0–1. |
-| stream | boolean | Stream as Anthropic SSE events. |
+## Request
 
-#### Request
+The `anthropic-version` header is accepted and forwarded unchanged.
 
 ```curl
 curl https://api.atptoken.ai/v1/messages \
@@ -51,3 +44,22 @@ const msg = await client.messages.create({
 });
 console.log(msg.content[0].text);
 ```
+
+## Parameters
+
+The top-level `system` field accepts a string or an array of text blocks (`cache_control` on a block is accepted).
+
+| Field | Type | Description |
+|---|---|---|
+| model | string · required | A model id from GET /v1/models. |
+| max_tokens | integer · required | Max output tokens (Anthropic requires this). With extended thinking, the thinking budget counts against it — too low returns a `200` with empty content (see [Errors](https://atptoken.ai/docs/errors/)). |
+| messages | array · required | Conversation turns, each { role, content }. |
+| system | string or array | System prompt, as a string or an array of text blocks. |
+| temperature | number | Sampling temperature, 0–1. |
+| stream | boolean | Stream as Anthropic SSE events. |
+
+## Next steps
+
+- [Anthropic SSE](https://atptoken.ai/docs/sse-anthropic/) — the event sequence you get with `stream: true`
+- [Anthropic SDK](https://atptoken.ai/docs/sdk-anthropic/) — call this endpoint from the official SDK
+- [Error codes](https://atptoken.ai/docs/errors/) — what to check first for each status code

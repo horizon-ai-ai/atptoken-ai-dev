@@ -2,13 +2,13 @@
 
 > Source: https://atptoken.ai/zh-tw/docs/media/
 
-除了文字之外，目錄還包含**圖像、影片、語音（text-to-speech）與 embedding** 模型。它們與文字模型共用同一套帳號、credits 與 project 控管，但每種模態有自己的計費單位，不是 input + output tokens。目前的模型與定價見[價格頁](https://atptoken.ai/zh-tw/pricing/)。
+除了文字之外，目錄還包含**圖像、影片、語音（text-to-speech）與 embedding** 模型。它們與文字模型共用同一套帳號、點數與專案（project）控管，但每種模態有自己的計費單位，不是 input + output tokens。模型與定價見[價格頁](https://atptoken.ai/zh-tw/pricing/)。
 
 > **Preview 狀態**
 >
 > 媒體生成正以 preview 形式陸續開放。價格頁上標示 **Preview** 的模型已在測試中上線，但價格尚未公布。若你的團隊想要規模化搶先使用，[告訴我們你的使用情境](https://atptoken.ai/zh-tw/enterprise-plan/)。
 
-### 影片
+## 影片
 
 影片模型：**seedance-2-0**（標準）、**seedance-2-0-mini**（輕量、較省）與 **seedance-2-0-fast**（加速）。各模型費率見[價格頁](https://atptoken.ai/zh-tw/pricing/)。
 
@@ -36,16 +36,23 @@ cost = video_tokens × per-1M rate for the resolution tier
 - **4K 尚未開放**；超過 1080p 的請求會在建立任務前被拒絕。
 - **任務失敗不計費。**
 
-目前影片模型的參數與範例見 [Seedance 2.0](https://atptoken.ai/zh-tw/docs/seedance-2-0/)。
+影片模型的參數與範例見 [Seedance 2.0](https://atptoken.ai/zh-tw/docs/seedance-2-0/)。
 
-### 圖像
+## 圖像
 
 文生圖為同步生成——送出 prompt、回傳圖片 URL。價格將於正式上線時公布；在那之前模型在價格頁標示為 **Preview**。
 
-### 語音（text-to-speech）
+## 語音（text-to-speech）
 
 TTS 按輸入文字的**字元數**計費，不是 token。價格將於正式上線時公布。
 
-### Embeddings
+## Embeddings
 
 Embedding 模型只按 **input tokens** 計費——沒有 output 計量。費率見[價格頁](https://atptoken.ai/zh-tw/pricing/)。
+
+## 下一步
+
+- [Seedance 2.0](https://atptoken.ai/zh-tw/docs/seedance-2-0/) — 影片模型的參數、範例與限制。
+- [影片生成](https://atptoken.ai/zh-tw/docs/media-video/) — 建立影片任務並輪詢結果。
+- [圖像生成](https://atptoken.ai/zh-tw/docs/media-image/) — 用 prompt 生成圖片。
+- [語音生成 (TTS)](https://atptoken.ai/zh-tw/docs/media-audio/) — 把文字轉成語音。

@@ -4,18 +4,11 @@
 
 `POST /v1/messages`
 
-Anthropic Messages 请求会被 Gateway 接受并正规化。最上层的 `system` 栏位必须是 **字串**。Anthropic cache_control 功能用的阵列形式尚未支援 — 送阵列会回传 400 `invalid_request_error`。`anthropic-version` header 会被接受并原样转送。
+Anthropic Messages 请求会被 Gateway 接受并正规化。
 
-| Field | Type | Description |
-|---|---|---|
-| model | string · required | 来自 GET /v1/models 的 model id。 |
-| max_tokens | integer · required | 最大输出 token 数（Anthropic 必填）。开 extended thinking 时思考预算也算在内——设太低会拿到内容为空的 `200`（见[错误](https://atptoken.ai/zh-cn/docs/errors/)）。 |
-| messages | array · required | 对话轮次，每则为 { role, content }。 |
-| system | string | System prompt。必须是字串，不能是阵列。 |
-| temperature | number | 取样温度，0–1。 |
-| stream | boolean | 以 Anthropic SSE 事件串流。 |
+## 请求
 
-#### Request
+`anthropic-version` header 会被接受并原样转送。
 
 ```curl
 curl https://api.atptoken.ai/v1/messages \
@@ -51,3 +44,22 @@ const msg = await client.messages.create({
 });
 console.log(msg.content[0].text);
 ```
+
+## 参数
+
+最上层的 `system` 栏位可以是字串，也可以是文字区块阵列（区块上的 `cache_control` 会被接受）。
+
+| Field | Type | Description |
+|---|---|---|
+| model | string · 必填 | 来自 GET /v1/models 的模型 ID。 |
+| max_tokens | integer · 必填 | 最大输出 token 数（Anthropic 必填）。开 extended thinking 时思考预算也算在内——设太低会拿到内容为空的 `200`（见[错误](https://atptoken.ai/zh-cn/docs/errors/)）。 |
+| messages | array · 必填 | 对话轮次，每则为 { role, content }。 |
+| system | string or array | System prompt，字串或文字区块阵列皆可。 |
+| temperature | number | 取样温度，0–1。 |
+| stream | boolean | 以 Anthropic SSE 事件串流。 |
+
+## 下一步
+
+- [Anthropic SSE](https://atptoken.ai/zh-cn/docs/sse-anthropic/) — 带 `stream: true` 时收到的事件序列
+- [Anthropic SDK](https://atptoken.ai/zh-cn/docs/sdk-anthropic/) — 用官方 SDK 呼叫这个端点
+- [错误码](https://atptoken.ai/zh-cn/docs/errors/) — 每个状态码先检查什么

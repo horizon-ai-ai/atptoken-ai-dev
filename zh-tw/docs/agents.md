@@ -2,9 +2,9 @@
 
 > Source: https://atptoken.ai/zh-tw/docs/agents/
 
-任何會說 Anthropic 或 OpenAI wire format 的 agent 都能跑在 project key 上。真正要填的只有三個值：Gateway 的 base URL、一把 `atp-` 開頭的 key，以及該 project 已啟用的 model id。這一頁涵蓋我們完整記錄的兩個 agent（Claude Code 與 Codex CLI）、其他工具共用的通用規則，以及三個套用通用規則會壞掉的工具。
+任何會說 Anthropic 或 OpenAI wire format 的 agent 都能跑在專案（project）金鑰上。真正要填的只有三個值：Gateway 的 base URL、一把 `atp-` 開頭的金鑰，以及該專案已啟用的模型 ID。這一頁涵蓋我們完整記錄的兩個 agent（Claude Code 與 Codex CLI）、其他工具共用的通用規則，以及三個套用通用規則會壞掉的工具。
 
-### 貼給你的 agent
+## 貼給你的 agent
 
 多數人不會自己一格一格填，而是直接叫 agent 去接。下面這段就是為了整段複製而寫的，把 `<你的工具名>` 換成你要接的工具即可。
 
@@ -19,22 +19,24 @@ then pick one from that list and configure it.
 
 > **每一頁都有純 markdown 版本**
 >
-> 任何文件網址後面加上 `.md`，就會拿到這一頁的 markdown 原始碼 — 沒有頁面外框、不需要剖析 HTML。上面那段指令要 agent 讀的就是它。
+> 任何文件網址後面加上 `.md`，就會拿到這一頁的 markdown 原始碼——沒有頁面外框、不需要剖析 HTML。上面那段指令要 agent 讀的就是它。
 
-### 第一步永遠是 GET /v1/models
+## 第一步永遠是 GET /v1/models
 
-碰任何設定檔之前，先列出這把 key 實際能呼叫哪些模型。agent 最常見的失敗，就是自己猜一個模型名。
+碰任何設定檔之前，先列出這把金鑰實際能呼叫哪些模型。agent 最常見的失敗，就是自己猜一個模型名。
 
 ```bash
 curl https://api.atptoken.ai/v1/models \
   -H "Authorization: Bearer $ATP_API_KEY"
 ```
 
-回傳裡的每一個 id，這把 key 都能用。清單上沒有的模型，代表它沒有在該 key 所屬的 project 啟用，呼叫下去會拿到 `403` — 請先到 Console 的 Resources 開啟，再跑一次上面的請求，把 id 原樣抄過去。
+回傳裡的每一個 id，這把金鑰都能用。清單上沒有的模型，代表它沒有在該金鑰所屬的專案啟用，呼叫下去會拿到 `403`——請先到主控台的「資源」開啟，再跑一次上面的請求，把 id 原樣抄過去。
+
+## 設定你的 agent
 
 ### Claude Code
 
-設定 base URL（不用加 `/v1` — Claude Code 會自己補上 `/v1/messages`），並把 key 當成 auth token 送出。清掉 `ANTHROPIC_API_KEY`，避免它蓋過去。
+設定 base URL（不用加 `/v1`——Claude Code 會自己補上 `/v1/messages`），並把金鑰當成 auth token 送出。清掉 `ANTHROPIC_API_KEY`，避免它蓋過去。
 
 ```
 export ANTHROPIC_BASE_URL="https://api.atptoken.ai"
@@ -59,7 +61,7 @@ claude
 
 ### Codex CLI
 
-在 `~/.codex/config.toml` 把 Gateway 加成自訂的 OpenAI-compatible provider（base URL **要包含** `/v1`），再 export `env_key` 指定的那把 key。
+在 `~/.codex/config.toml` 把 Gateway 加成自訂的 OpenAI-compatible 供應商（base URL **要包含** `/v1`），再 export `env_key` 指定的那把金鑰。
 
 ```
 # ~/.codex/config.toml
@@ -78,11 +80,11 @@ export ATP_API_KEY="atp-..."
 codex
 ```
 
-兩個工具都用 `Authorization: Bearer atp-…` 驗證。模型必須在該 key 所屬 project 已啟用，否則 Gateway 回傳 `403`。
+兩個工具都用 `Authorization: Bearer atp-…` 驗證。模型必須在該金鑰所屬專案已啟用，否則 Gateway 回傳 `403`。
 
 ### Hermes Agent
 
-Hermes 把密鑰放在 `~/.hermes/.env`，其餘設定放 `~/.hermes/config.yaml`。把 Gateway 加成一個具名 provider：
+Hermes 把密鑰放在 `~/.hermes/.env`，其餘設定放 `~/.hermes/config.yaml`。把 Gateway 加成一個具名供應商：
 
 ```
 # ~/.hermes/config.yaml
@@ -105,7 +107,7 @@ ATP_API_KEY=atp-...
 
 ### OpenClaw
 
-OpenClaw 的設定在 `~/.openclaw/openclaw.json`（JSON5 格式）。把 Gateway 註冊成一個 provider，再把 agent 的預設模型指過去：
+OpenClaw 的設定在 `~/.openclaw/openclaw.json`（JSON5 格式）。把 Gateway 註冊成一個供應商，再把 agent 的預設模型指過去：
 
 ```
 {
@@ -128,35 +130,35 @@ OpenClaw 的設定在 `~/.openclaw/openclaw.json`（JSON5 格式）。把 Gatewa
 
 有三個地方會咬人。OpenClaw 直接拒絕純 HTTP，網址一定要是 `https`。模型清單要手動列——它不會去打 `GET /v1/models`，沒列到的 id 就是選不到。還有 `baseUrl` 同時是網路信任邊界，只有那個完全相符的 `scheme://host:port` 會被放行，所以打錯字的症狀是「請求被擋」而不是「網址錯誤」。
 
-### 其他 agent 的通用規則
+## 其他 agent 的通用規則
 
-只要工具有「OpenAI compatible」這一類的 provider，要填的幾乎都是同樣三個值：
+只要工具有「OpenAI compatible」這一類的供應商，要填的幾乎都是同樣三個值：
 
-- **Base URL** — 填 `https://api.atptoken.ai/v1`。要含 `/v1`，但不要接 `/chat/completions`，路徑由工具自己補。
-- **API Key** — 那把 `atp-…` 開頭的 project key。
-- **Model** — `GET /v1/models` 回傳的其中一個 id。
+- **Base URL**——填 `https://api.atptoken.ai/v1`。要含 `/v1`，但不要接 `/chat/completions`，路徑由工具自己補。
+- **API 金鑰**——那把 `atp-…` 開頭的專案金鑰。
+- **Model**——`GET /v1/models` 回傳的其中一個 id。
 
 | 工具 | 設定位置 | 欄位或變數 | Base URL |
 |---|---|---|---|
-| Cline | VS Code 設定介面 → API Provider 選 OpenAI Compatible | Base URL / API Key / Model | 含 `/v1` |
-| Roo Code | VS Code 設定面板 → API Provider 選 OpenAI Compatible | Base URL / API Key / Model | 含 `/v1` |
+| Cline | VS Code 設定介面 → API 供應商選 OpenAI Compatible | Base URL / API 金鑰 / Model | 含 `/v1` |
+| Roo Code | VS Code 設定面板 → API 供應商選 OpenAI Compatible | Base URL / API 金鑰 / Model | 含 `/v1` |
 | Continue.dev | `~/.continue/config.yaml` | `provider: openai` 加上 `apiBase` | 含 `/v1` |
 | OpenCode | `opencode.json` 或 `~/.config/opencode/opencode.json` | `options.baseURL`（npm 套件用 `@ai-sdk/openai-compatible`） | 含 `/v1` |
 | Aider | 環境變數 | `OPENAI_API_BASE` 加上 `OPENAI_API_KEY` | 含 `/v1` |
 
 有三件事特別常踩：
 
-- **Aider** — model 要寫成 `openai/<model-id>`。少了這個前綴，請求會被路由到錯的 provider。
-- **Cline 與 Roo Code** — context window 與 max output tokens 必須自己手動填。留白的話工具會套預設值，token 帳就算錯了。
-- **OpenCode** — 模型清單要自己列（`models`）。它不會去讀 `GET /v1/models`，沒列之前模型選單是空的。
+- **Aider**——model 要寫成 `openai/<model-id>`。少了這個前綴，請求會被路由到錯的供應商。
+- **Cline 與 Roo Code**——context window 與 max output tokens 必須自己手動填。留白的話工具會套預設值，token 帳就算錯了。
+- **OpenCode**——模型清單要自己列（`models`）。它不會去讀 `GET /v1/models`，沒列之前模型選單是空的。
 
 欄位名稱與選單位置會隨版本改動，這張表只是起點，實際以你的工具版本為準。
 
-> **未查證**
+> **Cline 請選 OpenAI Compatible**
 >
-> Cline 也可以改用它的 Anthropic provider 並填自訂 base URL。那個網址結尾要不要加 `/v1`，我們沒有查證過，所以刻意不寫進上面的表 — 請改用 OpenAI Compatible provider。
+> 本頁的 Cline 設定使用 OpenAI Compatible 供應商；請依上表填入 base URL，不要直接套用到 Anthropic 供應商設定。
 
-### Agent Skills 一行安裝
+## Agent Skills 一行安裝
 
 Skills 是 markdown 格式的操作手冊，讓 agent 在動手寫程式之前，先知道 ATP 的驗證方式、模型查詢、媒體任務與錯誤處理。
 
@@ -174,16 +176,16 @@ curl -fsSL https://atptoken.ai/skills/install.sh | sh -s -- both
 - [ATP Agent Skills](https://atptoken.ai/zh-tw/docs/agent-skills/)
   七個官方 Skills 的內容、安裝方式，以及怎麼確認裝到哪裡了。
 
-### 排錯
+## 疑難排解
 
-- **`403`** — 模型沒有在該 key 所屬的 project 啟用。到 Console 的 Resources 開啟即可。這是最常見的失敗。
-- **`404`** — `/v1` 加錯位置。有些工具會把 host 與路徑分成兩個欄位填，這時 `/v1` 要放在路徑那一邊，不要放進 host。對照上面表格裡你那個工具的那一列。
-- **工具說找不到這個模型** — 多數工具需要你手動列出 model id，它們不會自己去讀 `GET /v1/models`。
-- **Roo Code 專屬** — Roo 只支援 native tool calling，沒有 XML fallback，所以挑的模型必須完整支援 function calling。
+- **`403`**——模型沒有在該金鑰所屬的專案啟用。到主控台的「資源」開啟即可。這是最常見的失敗。
+- **`404`**——`/v1` 加錯位置。有些工具會把 host 與路徑分成兩個欄位填，這時 `/v1` 要放在路徑那一邊，不要放進 host。對照上面表格裡你那個工具的那一列。
+- **工具說找不到這個模型**——多數工具需要你手動列出模型 ID，它們不會自己去讀 `GET /v1/models`。
+- **Roo Code 專屬**——Roo 只支援 native tool calling，沒有 XML 自動備援（fallback），所以挑的模型必須完整支援 function calling。
 
-## 後續步驟
+## 下一步
 
 - [平台與工作流工具](https://atptoken.ai/zh-tw/docs/platforms/) — Dify、n8n 等用介面組裝的工具
 - [Agent Skills](https://atptoken.ai/zh-tw/docs/agent-skills/) — 安裝七個官方 Skills 並驗證安裝結果。
-- [驗證方式](https://atptoken.ai/zh-tw/docs/auth/) — 三種可接受的 key 放置位置，以及 `401` 代表什麼。
-- [Errors](https://atptoken.ai/zh-tw/docs/errors/) — Gateway 會回傳的每一個狀態碼，以及各自的處理方式。
+- [驗證方式](https://atptoken.ai/zh-tw/docs/auth/) — 三種可接受的金鑰放置位置，以及 `401` 代表什麼。
+- [錯誤碼](https://atptoken.ai/zh-tw/docs/errors/) — Gateway 會回傳的每一個狀態碼，以及各自的處理方式。

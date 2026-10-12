@@ -4,7 +4,7 @@
 
 Any agent that speaks the Anthropic or OpenAI wire format can run on a project key. Three values do the whole job: the Gateway base URL, an `atp-` key, and a model id the project has enabled. This page covers the two agents we document end to end (Claude Code and Codex CLI), the general rule for everything else, and the three tools where the general rule breaks.
 
-### Paste this to your agent
+## Paste this to your agent
 
 Most people never fill in these fields by hand — they ask the agent to do it. The block below is written to be pasted verbatim; replace `<your tool>` with the tool you want connected.
 
@@ -19,7 +19,7 @@ then pick one from that list and configure it.
 >
 > Append `.md` to any documentation URL to get the source Markdown — no app shell, no HTML to parse. That is what the prompt above points the agent at.
 
-### Start with GET /v1/models
+## Start with GET /v1/models
 
 Before touching any config file, list what the key can actually call. Guessing a model name is the single most common way an agent gets this wrong.
 
@@ -29,6 +29,8 @@ curl https://api.atptoken.ai/v1/models \
 ```
 
 Every id in the response is usable by that key. A model that is missing from the list is not enabled for the key's project, and calling it returns `403` — enable it in Console under Resources first, then re-run the request above and copy the id verbatim.
+
+## Configure your agent
 
 ### Claude Code
 
@@ -126,7 +128,7 @@ OpenClaw keeps its configuration in `~/.openclaw/openclaw.json` (JSON5). Registe
 
 Three things that bite. OpenClaw rejects plain HTTP outright, so the URL has to be `https`. The model list is manual — it never calls `GET /v1/models`, and an id you leave out simply is not selectable. And `baseUrl` doubles as a network trust boundary: only that exact `scheme://host:port` origin is allowed through, so a typo reads as a blocked request rather than a wrong URL.
 
-### Every other agent
+## Every other agent
 
 Almost every tool with an "OpenAI compatible" provider needs the same three values:
 
@@ -150,11 +152,11 @@ Three things bite people repeatedly:
 
 Field names and menu paths move between releases, so treat the table as a starting point and follow your tool's own version.
 
-> **Not verified**
+> **Choose OpenAI Compatible in Cline**
 >
-> Cline can also be pointed at its Anthropic provider with a custom base URL. We have not verified whether that URL wants `/v1` on the end, so it is deliberately absent from the table above — use the OpenAI Compatible provider instead.
+> This guide uses Cline’s OpenAI Compatible provider. Enter the base URL from the table above; do not reuse these settings for its Anthropic provider.
 
-### Agent Skills in one command
+## Agent Skills in one command
 
 Skills are Markdown operating guides that teach an agent ATP authentication, model discovery, media tasks, and error handling before it writes any code.
 
@@ -172,7 +174,7 @@ curl -fsSL https://atptoken.ai/skills/install.sh | sh -s -- both
 - [ATP Agent Skills](https://atptoken.ai/docs/agent-skills/)
   The seven official skills, install options, and how to verify what landed on disk.
 
-### Troubleshooting
+## Troubleshooting
 
 - **`403`** — the model is not enabled for the key's project. Turn it on in Console under Resources. This is by far the most common failure.
 - **`404`** — `/v1` is in the wrong position. Some tools split the host and the request path into two separate fields; when they do, `/v1` belongs on the path side, not in the host. Check your tool's row in the table above.

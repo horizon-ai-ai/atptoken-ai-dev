@@ -29,3 +29,9 @@ The Usage page shows Allocated versus Consumed at each level, so you can see a p
 > In a team organization, keys spend from the org's allocated credits — not an individual's wallet. Top-ups credit your personal account; allocate from there to the org in Resources. See [Top up & wallet](https://atptoken.ai/docs/topup/).
 
 For the design rationale behind allocation-as-ceiling, see [AI spending caps that work](https://atptoken.ai/blog/ai-spending-caps-that-work/).
+
+## Next steps
+
+- [How credits work](https://atptoken.ai/docs/credits/) — What Available, Received, Allocated, and Consumed mean.
+- [Team & roles](https://atptoken.ai/docs/team/) — What Owner, Admin, and Member can do.
+- [Tracking spend](https://atptoken.ai/docs/spend/) — Watch Allocated versus Consumed at each level.

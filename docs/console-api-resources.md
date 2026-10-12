@@ -6,11 +6,15 @@
 
 Read your resource tree — the source of the `org_id` / `workspace_id` / `project_id` values every usage endpoint needs.
 
+## Find your org, workspace and project IDs
+
 ```
 curl -sS "https://admin.atptoken.ai/api/orgs" -H "Authorization: Bearer $TOKEN"
 curl -sS "https://admin.atptoken.ai/api/workspaces?org=<org_id>" -H "Authorization: Bearer $TOKEN"
 curl -sS "https://admin.atptoken.ai/api/projects?workspace=<workspace_id>" -H "Authorization: Bearer $TOKEN"
 ```
+
+## Resource and member endpoints
 
 | Endpoint | Returns |
 |---|---|
@@ -23,3 +27,9 @@ curl -sS "https://admin.atptoken.ai/api/projects?workspace=<workspace_id>" -H "A
 | `GET /api/project-members` | Members of a project (`projectId`). |
 
 List endpoints use `limit` / `page` paging (`limit` capped at 100).
+
+## Next steps
+
+- [Usage & balance](https://atptoken.ai/docs/console-api-usage/) — Pass these IDs to read balances and usage.
+- [Workspaces & projects](https://atptoken.ai/docs/resources/) — Create workspaces and projects and move credits between them.
+- [Team & roles](https://atptoken.ai/docs/team/) — Add people and assign them roles at the workspace or project level.

@@ -14,7 +14,9 @@ Inside a workspace, create a project and choose its **allowed models** (at least
 
 ## 3. Allocate credits
 
-Credits flow down the tree: organization → workspace → project. Allocate a budget to the project so its keys have something to spend. See [How credits work](#credits) for the terminology.
+Credits flow down the tree: organization → workspace → project. Allocate a budget to the project so its keys have something to spend. See [How credits work](https://atptoken.ai/docs/credits/) for the terminology.
+
+## See how an allocation works
 
 Drag the slider to see how an allocation decides whether a project's keys can spend.
 
@@ -35,3 +37,9 @@ Drag the slider to see how an allocation decides whether a project's keys can sp
 - **Workspace**: Groups projects and holds a pool of credits it can allocate to them — never more than it received.
 - **Project**: Has its own credit budget and allowed models. Every key in the project can call only those models.
 - **Key**: Belongs to exactly one project and spends from that project's balance.
+
+## Next steps
+
+- [Managing API keys](https://atptoken.ai/docs/console-keys/) — Issue a key from the project you just funded.
+- [How credits work](https://atptoken.ai/docs/credits/) — What Available, Received, Allocated, and Consumed mean.
+- [Team & roles](https://atptoken.ai/docs/team/) — Give people access at the workspace or project level.

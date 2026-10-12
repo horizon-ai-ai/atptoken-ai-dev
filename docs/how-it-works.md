@@ -4,14 +4,16 @@
 
 The Gateway sits between your client and the upstream model providers. Every request flows through the same four stages, whichever SDK format you use.
 
-```text
-  Request (project key): support-bot
-→ Organization · key: KEY VALID
-→ Workspace · budget: BUDGET OK · 62%
-→ Project · model allowlist: MODEL ALLOWED
-→ Provider: ROUTED → anthropic
-→ Request log: support-bot · claude-sonnet-5 · 690ms · 0.0312 credits · 200
-```
+## The request path
+
+**One request through the Gateway**
+
+1. Your client — `atp-…` key — OpenAI, Anthropic or Gemini format
+2. Authenticate — key check — `401` if missing, disabled or expired
+3. Authorize the model — project allowed list — `403` if the model isn't on it
+4. Route to a provider — failover — on a provider error or timeout
+5. Meter and bill — credits — `402` when the balance is exhausted
+6. Upstream provider — never sees your ATP key
 
 ## 1. Authenticate
 
@@ -29,7 +31,7 @@ The Gateway picks a provider from the pool configured for that model and fails o
 
 Input and output tokens are metered and charged in credits against the project's balance. If the balance is exhausted the request is rejected with `402`. See [How credits work](https://atptoken.ai/docs/credits/).
 
-### What the Gateway changes — and what it doesn't
+## What the Gateway changes and what it doesn't
 
 The Gateway translates authentication and routing, but leaves your request and response bodies in the shape your SDK already expects.
 
@@ -42,7 +44,7 @@ The Gateway translates authentication and routing, but leaves your request and r
 
 Because the wire formats pass through unchanged, migrating an existing OpenAI, Anthropic, or Gemini integration is usually just a base-URL and key change.
 
-### Go deeper on each stage
+## Go deeper on each stage
 
 - [Authentication](https://atptoken.ai/docs/auth/)
   The three accepted key locations, and what a `401` actually means.
@@ -53,7 +55,8 @@ Because the wire formats pass through unchanged, migrating an existing OpenAI, A
 - [How credits work](https://atptoken.ai/docs/credits/)
   What gets metered, and what happens when a project balance runs out.
 
-#### Related reading
+## Next steps
 
-- [OpenAI API vs enterprise AI gateway](https://atptoken.ai/blog/openai-api-vs-enterprise-ai-gateway/)
-- [AI gateway comparison 2026](https://atptoken.ai/blog/ai-gateway-comparison-2026/)
+- [Quickstart](https://atptoken.ai/docs/quickstart/) — Send a first request through the Gateway.
+- [OpenAI API vs enterprise AI gateway](https://atptoken.ai/blog/openai-api-vs-enterprise-ai-gateway/) — Calling a provider directly compared with going through a gateway.
+- [AI gateway comparison 2026](https://atptoken.ai/blog/ai-gateway-comparison-2026/) — How AI gateways compare.

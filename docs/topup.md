@@ -2,7 +2,11 @@
 
 > Source: https://atptoken.ai/docs/topup/
 
-Your pay-as-you-go (PAYG) wallet is funded through Stripe from the Billing page. The minimum top-up is **USD 5**, and every tier converts at a flat 100 credits per dollar:
+Your pay-as-you-go (PAYG) wallet is funded through Stripe from the Billing page.
+
+## Top-up packages
+
+The minimum top-up is **USD 5**, and every tier converts at a flat 100 credits per dollar:
 
 | Package | Price | Credits |
 |---|---|---|
@@ -11,8 +15,16 @@ Your pay-as-you-go (PAYG) wallet is funded through Stripe from the Billing page.
 | Pro | USD 200 | 20,000 |
 | Scale | USD 1,000 | 100,000 |
 
+## Billing history and wallet balance
+
 Every top-up is recorded in the Billing history (date, amount, credits added, balance after, status). **Top-ups and credits are non-refundable.** Credits are shown as a single Wallet balance. Enterprise accounts may also hold committed **contract credits** (with an expiry date); these are included in that balance and listed on the Billing page.
 
 > **Personal vs team organizations**
 >
 > Top-ups credit your **personal account**. In a **personal organization** that balance is what your keys spend directly. For a **team organization**, allocate credits to it (Console → Resources) — keys in a team org spend from the org's allocated credits, not from an individual's wallet.
+
+## Next steps
+
+- [How credits work](https://atptoken.ai/docs/credits/) — What a credit is worth and how it flows down the hierarchy.
+- [Workspaces & projects](https://atptoken.ai/docs/resources/) — Allocate credits in Resources.
+- [Tracking spend](https://atptoken.ai/docs/spend/) — See where credits go before the balance runs low.

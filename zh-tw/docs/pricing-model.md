@@ -2,15 +2,19 @@
 
 > Source: https://atptoken.ai/zh-tw/docs/pricing-model/
 
-Billing 以用量計費，計算基準是 **input + output tokens**。每個模型有自己的費率；確切的單模型計價由 gateway 的 pricing table 在 request time 決定，不是靠這一頁的靜態表。一把 key 能呼叫哪些模型，由其 project 範圍決定。
+帳單以用量計費，計算基準是 **input + output tokens**。每個模型有自己的費率；確切的單模型計價由 Gateway 的 pricing table 在 request time 決定，不是靠這一頁的靜態表。一把金鑰能呼叫哪些模型，由其專案（project）範圍決定。
 
-沒有月費。目前的模型陣容與存取層級請見 [價格頁](https://atptoken.ai/zh-tw/pricing/)。
+## 月費與存取層級
 
-用目前的牌價試算一次影片或文字請求：
+沒有月費。模型陣容與存取層級請見 [價格頁](https://atptoken.ai/zh-tw/pricing/)。
+
+## 試算一次請求
+
+用牌價試算一次影片或文字請求：
 
 **計費試算**
 
-影片：video tokens ≈ 寬 × 高 × 秒數 × 24 ÷ 1024；費用 ≈ video tokens × 該解析度檔每 1M video tokens 的 USD 費率。像素以 16:9 計。實際輸出可能比要求略長（實測 5 秒請求輸出 5.04 秒），所以結果是約略值。
+影片：video tokens ≈ 寬 × 高 × 秒數 × 24 ÷ 1024；費用 ≈ video tokens × 該解析度檔每 1M video tokens 的 USD 費率。像素以 16:9 計。實際輸出可能比要求略長（例如要求 5 秒、輸出 5.04 秒），所以結果是約略值。
 
 | 模型 | 解析度 | Video tokens（5 秒） | USD / 1M | USD（5 秒） |
 | --- | --- | --- | --- | --- |
@@ -98,3 +102,9 @@ Billing 以用量計費，計算基準是 **input + output tokens**。每個模�
 | `deepseek-v3-2` | 0.57 | 0.114 | 1.71 |
 | `gemini-3-5-flash-lite` | 0.3 | 0.03 | 2.5 |
 | `gemini-3-6-flash` | 1.5 | — | 7.5 |
+
+## 下一步
+
+- [點數如何運作](https://atptoken.ai/zh-tw/docs/credits/) — 一點值多少，以及點數怎麼流到專案。
+- [儲值與錢包](https://atptoken.ai/zh-tw/docs/topup/) — 購買點數，查看儲值方案。
+- [追蹤消耗](https://atptoken.ai/zh-tw/docs/spend/) — 依模型、金鑰與層級看點數花去哪裡。

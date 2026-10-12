@@ -1,22 +1,24 @@
-# Workspaces 與 projects
+# 工作區與專案
 
 > Source: https://atptoken.ai/zh-tw/docs/resources/
 
-Resources 頁是你建立 workspace、project，以及在它們之間搬移 credits 的地方。
+「資源」頁是你建立工作區、專案（project），以及在它們之間搬移點數的地方。
 
-## 1. 建立 workspace
+## 1. 建立工作區
 
-Workspace 把多個 project 分在一起，並持有一池可往下分配的 credits。多數團隊會為每個產品或環境用一個 workspace。
+工作區把多個專案分在一起，並持有一池可往下分配的點數。多數團隊會為每個產品或環境用一個工作區。
 
-## 2. 建立 project 並挑選允許的模型
+## 2. 建立專案並挑選允許的模型
 
-在 workspace 裡建立 project，並選擇它的 **allowed models**（至少一個）。只有這些模型能被該 project 底下的每一把 key 呼叫。模型存取權是設在 project，不是設在單一 key。
+在工作區裡建立專案，並選擇它的 **allowed models**（至少一個）。只有這些模型能被該專案底下的每一把金鑰呼叫。模型存取權是設在專案，不是設在單一金鑰。
 
-## 3. 分配 credits
+## 3. 分配點數
 
-Credits 沿樹往下流：organization → workspace → project。撥一筆預算給 project，它底下的 key 才有額度可花。用詞說明見 [點數如何運作](#credits)。
+點數沿樹往下流：組織 → 工作區 → 專案。撥一筆預算給專案，它底下的金鑰才有額度可花。用詞說明見 [點數如何運作](https://atptoken.ai/zh-tw/docs/credits/)。
 
-拖動滑桿，看撥給 project 的點數如何決定它的 key 能不能花。
+## 看分配如何運作
+
+拖動滑桿，看撥給專案的點數如何決定它的金鑰能不能花。
 
 **誰能花多少** — _示意_
 
@@ -35,3 +37,9 @@ Credits 沿樹往下流：organization → workspace → project。撥一筆預�
 - **工作區**：把專案分成一組，持有一池可再往下撥給專案的點數——不會超過它收到的。
 - **專案**：有自己的點數預算與允許模型；專案裡每一把金鑰只能呼叫這些模型。
 - **金鑰**：只屬於一個專案，從該專案的餘額扣點。
+
+## 下一步
+
+- [管理 API 金鑰](https://atptoken.ai/zh-tw/docs/console-keys/) — 從剛撥好點數的專案建立金鑰。
+- [點數如何運作](https://atptoken.ai/zh-tw/docs/credits/) — 可用、已收到、已分配與已用各代表什麼。
+- [團隊與角色](https://atptoken.ai/zh-tw/docs/team/) — 在工作區或專案層級給成員權限。

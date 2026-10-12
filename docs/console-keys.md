@@ -8,6 +8,16 @@ The Create key wizard walks you through naming the key, choosing (or creating) t
 >
 > Keys start with `atp-` and are 92 characters long. The full secret is displayed once at creation — copy and store it safely. Afterwards only the prefix is visible.
 
+## Find and revoke keys
+
 The **API keys** page lists every key in the organization across all workspaces and projects. Search by name or prefix, filter by workspace, and revoke a key at any time — revoked keys stop working immediately but stay in the roster for audit.
 
+## One key per project
+
 Project-scoped keys keep spend and access attributable. For the operating pattern, see [One project, one key](https://atptoken.ai/blog/one-project-one-key/).
+
+## Next steps
+
+- [Authentication](https://atptoken.ai/docs/auth/) — Where the key goes in a request.
+- [Workspaces & projects](https://atptoken.ai/docs/resources/) — Set the models and credits a key inherits.
+- [Usage & logs](https://atptoken.ai/docs/monitoring/) — See per-key token totals and requests.
