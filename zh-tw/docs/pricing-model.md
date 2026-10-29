@@ -64,12 +64,18 @@
 | --- | --- | --- | --- |
 | `gpt-5.4-pro` | 30 | — | 180 |
 | `claude-fable-5` | 10 | 1 | 50 |
+| `claude-opus-5-5` | 4 | 0.2 | 20 |
+| `claude-fable-5-1` | 10 | 0.25 | 50 |
+| `claude-haiku-5-5` (級距 ≤100K) | 0.1 | 0.01 | 0.5 |
+| `claude-haiku-5-5` (級距 >100K) | 0.5 | 0.05 | 2.5 |
 | `claude-opus-5` | 5 | 0.5 | 25 |
 | `gpt-5.6-sol` | 5 | — | 30 |
 | `gpt-5.5` | 5 | — | 30 |
 | `claude-opus-4-8` | 5 | 0.5 | 25 |
 | `claude-opus-4-7` | 5 | 0.5 | 25 |
-| `claude-sonnet-5` | 3 | 0.3 | 15 |
+| `claude-opus-4-6` | 5 | 0.5 | 25 |
+| `claude-sonnet-5-5` | 2 | 0.1 | 10 |
+| `claude-sonnet-5` | 2 | 0.2 | 10 |
 | `gpt-5.6-terra` | 2.5 | — | 15 |
 | `claude-sonnet-4-6` | 3 | 0.3 | 15 |
 | `gpt-5.4` | 2.5 | — | 15 |

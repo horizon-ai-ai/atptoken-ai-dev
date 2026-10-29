@@ -20,7 +20,7 @@ ATP Token centralizes AI usage governance and billing: organizations, workspaces
 - Billing: pay-as-you-go credits, no monthly fee, USD 5 minimum top-up (USD 1 = 100 credits). List rates are published per model.
 
 ## Models
-Browse the catalog (73 public models; text: 35, image: 9, video: 26, audio: 1, embedding: 2):
+Browse the catalog (78 public models; text: 40, image: 9, video: 26, audio: 1, embedding: 2):
 - [Model catalog](https://atptoken.ai/models/)
 - [Model price table](https://atptoken.ai/models/?view=table): every model's price, filterable by type, vendor and positioning
 - [Pricing: how credits work](https://atptoken.ai/pricing/)
