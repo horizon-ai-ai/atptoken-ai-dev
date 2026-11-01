@@ -1,0 +1,11 @@
+{
+  "servers": [
+    {
+      "name": "atptoken-api-docs",
+      "description": "ATP Token API guide, live model check and video-request checker. No key needed to connect; atptoken_list_models uses an ATP API key.",
+      "url": "https://mcp.atptoken.ai/mcp",
+      "transport": "streamable-http",
+      "documentation": "https://atptoken.ai/connect.md"
+    }
+  ]
+}

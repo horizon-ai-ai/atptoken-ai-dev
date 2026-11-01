@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATP Token MCP server</title>
+<meta name="description" content="The ATP Token MCP server is at https://mcp.atptoken.ai/mcp. No key is needed to add it.">
+<link rel="canonical" href="https://atptoken.ai/mcp/">
+<link rel="alternate" type="text/markdown" href="/connect.md" title="ATP Token setup for AI assistants">
+<style>
+  body { margin: 0; background: #f5f5f5; color: #1e1e1e; font: 16px/1.7 system-ui, -apple-system, "Noto Sans TC", sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 16px 64px; }
+  h1 { font-size: 28px; line-height: 1.3; margin: 0 0 8px; }
+  h2 { font-size: 18px; margin: 32px 0 8px; }
+  code, pre { font-family: ui-monospace, Menlo, monospace; font-size: 14px; }
+  pre { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 12px 16px; white-space: pre-wrap; overflow-wrap: anywhere; }
+  a { color: #c73a2b; }
+  .muted { color: #5f5f5f; }
+</style>
+</head>
+<body>
+<!-- 2026-11-01：AI 常把「網域/mcp」當成 MCP 網址來猜。這裡不是 MCP 端點（靜態站無法回應 MCP 請求），
+     而是告訴猜到這裡的 AI 與人：真正的端點在 mcp.atptoken.ai。內容與 /connect.md 3m、/docs/agents 同一組指令。 -->
+<main>
+<h1>ATP Token MCP server</h1>
+<p>The MCP server is <strong><code>https://mcp.atptoken.ai/mcp</code></strong> (Streamable HTTP), named <code>atptoken-api-docs</code>. This page is not the endpoint itself. No key is needed to add it.</p>
+<p class="muted">ATP 的 MCP 網址是 <code>https://mcp.atptoken.ai/mcp</code>，這一頁不是 MCP 端點本身。加上它不需要金鑰。</p>
+
+<h2>Add it</h2>
+<pre>claude mcp add --transport http atptoken-api-docs https://mcp.atptoken.ai/mcp
+codex mcp add atptoken-api-docs --url https://mcp.atptoken.ai/mcp</pre>
+<p>Other tools: add the remote MCP URL <code>https://mcp.atptoken.ai/mcp</code>. Start a new session afterwards so the tools load.</p>
+
+<h2>What it gives your assistant</h2>
+<ul>
+  <li><code>atptoken_docs</code>: the ATP API guide and call order</li>
+  <li><code>atptoken_list_models</code>: which models your key's project allows (needs your ATP key)</li>
+  <li><code>atptoken_check_media_request</code>: checks a video request before you send it</li>
+  <li><code>atptoken_install</code>: install commands for more tools</li>
+</ul>
+<p>Making pictures, videos or speech, or running your assistant on ATP models, uses an ATP API key from <a href="/console/keys/">the console</a>.</p>
+
+<h2>Full setup</h2>
+<p>For both ways of connecting (API or MCP), step by step for an AI assistant: <a href="/connect.md">https://atptoken.ai/connect.md</a>. For people: <a href="/docs/agents/">Connect coding agents</a>.</p>
+</main>
+</body>
+</html>
