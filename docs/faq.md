@@ -6,6 +6,10 @@ Short answers to common questions about connecting to the Gateway, which models 
 
 ## Connecting to the Gateway
 
+### Is there an MCP server?
+
+Yes: `atptoken-api-docs` at `https://mcp.atptoken.ai/mcp`. It gives Claude Code, Codex and other agents the API guide, a live model check and a video-request checker, and adding it needs no key. Commands for each tool are in [SDKs and coding agents](https://atptoken.ai/docs/agents/).
+
 ### Do I need a special SDK?
 
 No. The Gateway is compatible with the OpenAI, Anthropic, and Google GenAI SDKs — point them at the Gateway base URL and use a project API key. See [Integrations](https://atptoken.ai/docs/agents/).

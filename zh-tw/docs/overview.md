@@ -9,7 +9,7 @@ ATP 是一個統一 API，讓你透過單一端點存取多種 AI 模型，同�
 - [API 參考](https://atptoken.ai/zh-tw/docs/chat/)
   端點、參數、回應與錯誤碼。
 - [SDK 與 coding agent](https://atptoken.ai/zh-tw/docs/agents/)
-  把 OpenAI、Anthropic、Google SDK，或 Claude Code、Codex 指向 Gateway。
+  把 OpenAI、Anthropic、Google SDK，或 Claude Code、Codex 指向 Gateway，或加上 ATP 的 MCP 伺服器（https://mcp.atptoken.ai/mcp）。
 - [使用主控台](https://atptoken.ai/zh-tw/docs/console-setup/)
   設定組織、專案與金鑰，再追蹤用量與帳單。
 

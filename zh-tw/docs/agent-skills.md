@@ -4,6 +4,17 @@
 
 ATP Agent Skills 是提供給 Codex、Claude Code 與其他支援 `SKILL.md` 的 agent 使用的公開操作手冊。安裝後，agent 會知道 ATP 的驗證方式、統一模型名稱、API payload、非同步媒體任務與常見錯誤，不需要把上游供應商的介面寫進你的專案（project）。
 
+## 想用 MCP？ATP 有 MCP 伺服器
+
+同一套指引也有 MCP 版本：`atptoken-api-docs`，網址 `https://mcp.atptoken.ai/mcp`（Streamable HTTP）。它提供 API 文件、即時查模型、送影片任務前的檢查。加上它不需要金鑰：
+
+```
+claude mcp add --transport http atptoken-api-docs https://mcp.atptoken.ai/mcp
+codex mcp add atptoken-api-docs --url https://mcp.atptoken.ai/mcp
+```
+
+想讓 agent 自己接好，把這句話貼給它：`照 https://atptoken.ai/connect.md 的步驟，幫我把 ATP Token 接上。`
+
 ## 開始之前
 
 Skills 是接上之後的那一層，不是接上本身。先把 agent 指向 Gateway，再安裝這些 Skills。

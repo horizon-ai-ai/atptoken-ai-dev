@@ -4,6 +4,17 @@
 
 ATP Agent Skills are public operating guides for Codex, Claude Code, and other agents that support `SKILL.md`. They teach an agent ATP authentication, unified model names, request payloads, asynchronous media tasks, and common errors without exposing provider-specific APIs in your application.
 
+## Prefer MCP? Use the ATP MCP server
+
+The same guidance is also an MCP server: `atptoken-api-docs` at `https://mcp.atptoken.ai/mcp` (Streamable HTTP). It gives an agent the API guide, a live model check and a checker for video requests. Adding it needs no key:
+
+```
+claude mcp add --transport http atptoken-api-docs https://mcp.atptoken.ai/mcp
+codex mcp add atptoken-api-docs --url https://mcp.atptoken.ai/mcp
+```
+
+To have an agent set up either way for you, paste this to it: `Follow https://atptoken.ai/connect.md to connect ATP Token for me.`
+
 ## Before you start
 
 Skills are the layer above the connection, not a replacement for it. Point the agent at the Gateway first, then install these.

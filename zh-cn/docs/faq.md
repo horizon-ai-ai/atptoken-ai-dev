@@ -6,6 +6,10 @@
 
 ## 连接 Gateway
 
+### 有 MCP 服务器吗？
+
+有：`atptoken-api-docs`，网址 `https://mcp.atptoken.ai/mcp`。它让 Claude Code、Codex 等 agent 有 API 文档、实时查模型、提交视频任务前的检查，加上它不需要密钥。各工具的安装指令见 [SDK 与 coding agent](https://atptoken.ai/zh-cn/docs/agents/)。
+
 ### 我需要特别的 SDK 吗？
 
 不用。Gateway 相容 OpenAI、Anthropic 与 Google GenAI SDK——把它们指向 Gateway base URL 并用项目（project） API 密钥即可。见 [Integrations](https://atptoken.ai/zh-cn/docs/agents/)。

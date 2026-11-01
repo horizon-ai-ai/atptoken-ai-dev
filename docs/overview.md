@@ -9,7 +9,7 @@ ATP is a unified API that gives you access to many AI models through a single en
 - [API reference](https://atptoken.ai/docs/chat/)
   Endpoints, parameters, responses, and error codes.
 - [SDKs and coding agents](https://atptoken.ai/docs/agents/)
-  Point the OpenAI, Anthropic, or Google SDK — or Claude Code and Codex — at the Gateway.
+  Point the OpenAI, Anthropic, or Google SDK — or Claude Code and Codex — at the Gateway, or add the ATP MCP server (https://mcp.atptoken.ai/mcp).
 - [Use the Console](https://atptoken.ai/docs/console-setup/)
   Set up organizations, projects, and keys, then track usage and billing.
 
