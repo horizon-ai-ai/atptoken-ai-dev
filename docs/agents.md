@@ -4,7 +4,14 @@
 
 Any agent that speaks the Anthropic or OpenAI wire format can run on a project key. Three values do the whole job: the Gateway base URL, an `atp-` key, and a model id the project has enabled. This page covers the two agents we document end to end (Claude Code and Codex CLI), the general rule for everything else, and the three tools where the general rule breaks.
 
-ATP Token has no MCP server: an agent connects with the same three values, whether it runs on ATP models or keeps its own model and calls ATP for images and videos. [connect.md](https://atptoken.ai/connect.md/) walks an agent through both.
+An agent can also keep its own model and add ATP's MCP server, `atptoken-api-docs`, which gives it the API guide, a live model check and a video-request checker. Adding it needs no key:
+
+```
+claude mcp add --transport http atptoken-api-docs https://mcp.atptoken.ai/mcp
+codex mcp add atptoken-api-docs --url https://mcp.atptoken.ai/mcp
+```
+
+[connect.md](https://atptoken.ai/connect.md/) walks an agent through both ways.
 
 ## Paste this to your agent
 

@@ -6,24 +6,27 @@ one API key and one endpoint for OpenAI, Anthropic, Gemini, DeepSeek, Qwen,
 Kimi and more, plus image, video and speech models, billed against their ATP
 project.
 
-## 0. Two ways to connect: API or MCP-style tools
+## 0. Two ways to connect: API or MCP
 
-People connect ATP in one of two ways, and the choice is theirs. Most people
-have not heard of the difference, so if their words do not already pick one,
-it helps to explain both before starting. What they usually need to hear:
+People connect ATP in one of two ways, and the choice is theirs; they can also
+do both. Most people have not heard of the difference, so if their words do
+not already pick one, it helps to explain both before starting. What they
+usually need to hear:
 
 1. **API connection**: the model behind the assistant (Claude Code / Codex)
    becomes an ATP model, so every reply is billed to their ATP credits. For
    people who want ATP to be where their models and spending are managed.
-2. **MCP-style tools**: the assistant keeps the model it uses now and gains
-   new abilities: making pictures, videos and speech through ATP. ATP has no
-   MCP server; this is done with ATP's skills and the same API key, and in use
-   it feels like MCP tools: they just ask for a picture or a video.
-
-Both need one ATP API key. There is no MCP URL to look for.
+   Needs an ATP API key.
+2. **MCP connection**: the assistant keeps the model it uses now and adds
+   ATP's MCP server, `atptoken-api-docs` at `https://mcp.atptoken.ai/mcp`.
+   It gives the assistant ATP's API guide, a live model check and a checker
+   for video requests, so it can call ATP correctly, for example to make
+   pictures, videos and speech. Adding it needs no key; actually calling ATP
+   (and spending credits) does.
 
 - 1 = **path A, API connection**: steps 1 to 4.
-- 2 = **path B, MCP-style tools**: steps 1, 2, 3d and 5.
+- 2 = **path B, MCP connection**: step 3m. When the person also wants you to
+  make media through ATP now, steps 1, 2 and 3d as well.
 
 Everything needed for either path is on this page or at a `.md` link below.
 The website and the console are written for people, and the console needs a
@@ -66,20 +69,21 @@ curl -s https://api.atptoken.ai/v1/models -H "Authorization: Bearer $ATP_API_KEY
 ```
 
 Use ids from this reply exactly; never guess a model id. A `200` proves the
-key works; a `401` means it is wrong or revoked: go back to step 1. The list
-shows the platform's models; a model must also be enabled for the key's
-project, and a request to one that is not returns `403` (**Person:** they
+key works; a `401` means it is wrong or revoked: go back to step 1. This list
+holds the models the key's project allows on the chat endpoints
+(`/v1/chat/completions`, `/v1/responses`); `GET /v1/project/models` lists
+everything the project allows, including image, video and speech models. A
+request to a model the project does not allow returns `403` (**Person:** they
 enable it at https://atptoken.ai/console/workspaces).
 
 Path A: pick a model the person asked for. If they did not say, pick a
 coding model from the list (for Claude Code, a `claude-` model) and tell them
-which. Path B: you do not change your own model. Image, video and speech
-models, with prices, are listed at https://atptoken.ai/models/ and in
-https://atptoken.ai/docs/media.md.
+which. Path B: you do not change your own model. Prices of every model are
+at https://atptoken.ai/models/.
 
 ## 3. Find out which app you are, then configure it
 
-Path B goes straight to **3d**. For path A:
+Path B goes to **3m** (and **3d** when it uses a key). For path A:
 
 - Claude Code (you can run the `claude` command): **3a**.
 - Codex (CLI, IDE extension or desktop app; settings in `~/.codex/config.toml`): **3b**.
@@ -151,11 +155,29 @@ person's shell startup file (`~/.zshrc` on macOS, `~/.bashrc` on most Linux),
 or on Windows run `setx ATP_API_KEY "KEY"`. New terminals and new sessions of
 you pick it up; for this session, use the key directly.
 
+### 3m. Add the ATP MCP server
+
+No key is needed for this.
+
+- Claude Code: `claude mcp add --transport http --scope user atptoken-api-docs https://mcp.atptoken.ai/mcp`
+- Codex: `codex mcp add atptoken-api-docs --url https://mcp.atptoken.ai/mcp`
+- Another tool: add the remote (Streamable HTTP) MCP URL
+  `https://mcp.atptoken.ai/mcp`; its `atptoken_install` tool lists the command
+  for Cursor, Windsurf, Zed, Cline, Continue and stdio-only tools.
+
+Optional: with the key attached, its `atptoken_list_models` tool can check
+live which models this key's project allows. In Claude Code add
+`-H "Authorization: Bearer $ATP_API_KEY"` to the command above; in Codex add
+`--bearer-token-env-var ATP_API_KEY`.
+
+**Person:** ask them to start a new session of you; MCP tools load at start.
+
 ## 4. Check it works
 
-Path B: step 2 already proved the key works, and it cost nothing. Do step 5,
-then tell the person they can now ask you for pictures, videos and speech
-through ATP, each paid from the project's credits.
+Path B: in the new session, call the `atptoken_docs` tool with path `start`.
+A reply means the MCP connection works, and it costs nothing. Tell the person
+it is connected; if they also gave a key, tell them they can now ask you for
+pictures, videos and speech through ATP, each paid from the project's credits.
 
 Path A: the first message in the restarted tool is the check. Then tell the person, in
 their language, that their tool now runs on ATP Token, which model it uses, and
@@ -167,11 +189,11 @@ of credits (**Person:** top up at https://atptoken.ai/console/billing), `403`
 the model is not enabled for this project. More in
 https://atptoken.ai/docs/errors.md.
 
-## 5. Install the ATP skills (path B; optional for path A)
+## 5. Optional: install the ATP skills
 
-They teach you ATP's API, in this session and later ones: model listing,
-image, video and audio tasks, errors. Path B needs them to make media. Ask the
-person first, then run:
+The same guidance as the MCP server, kept as local files instead: model
+listing, image, video and audio tasks, errors. Useful for tools without MCP.
+Ask the person first, then run:
 
 ```sh
 npx skills add https://atptoken.ai -g -a claude-code -y
