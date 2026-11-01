@@ -27,25 +27,9 @@ Jump to: [400](#status-400) · [401](#status-401) · [402](#status-402) · [403]
 
 Choose a scenario to see where the request stops and what the response looks like.
 
-**Request path through ATP**
+****
 
-| Step | Check | Stops with |
-| --- | --- | --- |
-| 1. Client | Sends a project key | — |
-| 2. Key check | Valid, active key | 401 |
-| 3. Model allowlist | Model enabled for the project | 403 |
-| 4. Credits | Project balance left | 402 |
-| 5. Rate limit | Within limits | 429 |
-| 6. Provider | Routed with failover | — |
-| 7. Log & billing | Metered in credits | — |
-
-| Scenario | Stops at | Status | Response |
-| --- | --- | --- | --- |
-| OK | Log & billing | 200 OK | headers: `x-ratelimit-limit-requests`, `x-ratelimit-remaining-requests`, `x-ratelimit-reset-requests` — The body is the provider's response in your SDK's format. Rate-limit headers tell you how much room is left. |
-| Bad key | Key check | 401 Unauthorized | `{"message":"API key has been revoked or does not exist.","error":"token_revoked"}` |
-| Model not allowed | Model allowlist | 403 Forbidden | `{"error":{"message":"model not available for this project","type":"permission_denied","request_id":"..."}}` |
-| Out of credits | Credits | 402 Payment Required | An error body in your SDK's error format: the wallet or credit pool is exhausted. Top up to resume; retrying won't help. |
-| Rate limited | Rate limit | 429 Too Many Requests | An error body in your SDK's error format: a rate limit, quota or provider cooldown. Back off and retry; honor Retry-After if present. |
+_(Interactive diagram — see the web version of this page.)_
 
 ## 200 with empty content
 

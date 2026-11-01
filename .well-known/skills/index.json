@@ -1,0 +1,62 @@
+{
+  "skills": [
+    {
+      "name": "atptoken-onboarding",
+      "description": "Get an agent from zero to a working ATP Token integration — one API key, then OpenAI-, Anthropic-, or Gemini-compatible calls to text, image, video, audio, and embedding models. Read this first; it tells you which of the detailed skills to load next.",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "atptoken-gateway",
+      "description": "Call the Atptoken LLM Gateway — an OpenAI/Anthropic/Gemini-compatible API fronting many model providers behind one endpoint and key. Use when integrating with Atptoken, calling api.atptoken.ai, listing available models, or handling gateway auth, errors, and rate limits. Start here, then load atptoken-openai / atptoken-anthropic / atptoken-gemini for the specific SDK.",
+      "files": [
+        "SKILL.md",
+        "references/errors.md",
+        "references/files.md"
+      ]
+    },
+    {
+      "name": "atptoken-openai",
+      "description": "Call the Atptoken LLM Gateway using the OpenAI SDK or OpenAI-compatible HTTP API — chat completions, the Responses API, and streaming. Use when the user has OpenAI-format code/tools and wants them to run against Atptoken (api.atptoken.ai) with an atp- API key. See atptoken-gateway for base URL, auth, models, and errors.",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "atptoken-anthropic",
+      "description": "Call the Atptoken LLM Gateway using the Anthropic SDK or Anthropic-compatible HTTP API — the Messages API, streaming, and count_tokens. Use when the user has Anthropic/Claude-format code and wants it to run against Atptoken (api.atptoken.ai) with an atp- API key. See atptoken-gateway for base URL, auth, models, and errors.",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "atptoken-gemini",
+      "description": "Call the Atptoken LLM Gateway using the Google Gemini SDK or Gemini-compatible HTTP API — generateContent and streamGenerateContent. Use when the user has Google GenAI / Gemini-format code and wants it to run against Atptoken (api.atptoken.ai) with an atp- API key. See atptoken-gateway for base URL, auth, models, and errors.",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "atptoken-image",
+      "description": "Generate and edit images through the Atptoken LLM Gateway media surface at /omni/media/v1. Asynchronous — POST /omni/media/v1/images/generations/tasks returns 202 + a task id; poll until terminal, then download the signed URL. Edit-style models take their input images in a top-level reference_assets array. Use for nano-banana / gpt-image-2 and other image models via Atptoken with an atp- key. See atptoken-gateway for auth and errors.",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "atptoken-video",
+      "description": "Generate video (text-to-video / image-to-video) through the Atptoken LLM Gateway media surface at /omni/media/v1. Video is asynchronous — create a task, poll until it succeeds, then fetch a short-lived signed URL. Two client dialects (ModelArk-compatible and DashScope-native). Use for Seedance / Wan and other video models via Atptoken with an atp- key. See atptoken-gateway for auth and errors.",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "atptoken-audio",
+      "description": "Generate speech (text-to-speech / TTS) through the Atptoken LLM Gateway media surface at /omni/media/v1/audio/generations. Synchronous — text in, a short-lived signed audio URL out. Use for gpt-4o-mini-tts / gemini-tts / Fish Audio voices via Atptoken with an atp- key. See atptoken-gateway for auth and errors.",
+      "files": [
+        "SKILL.md"
+      ]
+    }
+  ]
+}

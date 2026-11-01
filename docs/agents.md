@@ -6,18 +6,15 @@ Any agent that speaks the Anthropic or OpenAI wire format can run on a project k
 
 ## Paste this to your agent
 
-Most people never fill in these fields by hand — they ask the agent to do it. The block below is written to be pasted verbatim; replace `<your tool>` with the tool you want connected.
+Most people never fill in these fields by hand — they ask the agent to do it. Paste the line below as it is. The agent works out which tool it is, asks you for a key only if it has none, lists the models that key can use, and writes the settings.
 
 ```
-Read https://atptoken.ai/docs/agents.md and follow it to connect my <your tool> to ATP Token.
-My key is in the ATP_API_KEY environment variable.
-First call GET https://api.atptoken.ai/v1/models to see which models are available,
-then pick one from that list and configure it.
+Follow https://atptoken.ai/connect.md to connect my AI tool to ATP Token.
 ```
 
 > **Every docs page has a plain-Markdown twin**
 >
-> Append `.md` to any documentation URL to get the source Markdown — no app shell, no HTML to parse. That is what the prompt above points the agent at.
+> Append `.md` to any documentation URL to get the source Markdown — no app shell, no HTML to parse.
 
 ## Start with GET /v1/models
 
@@ -70,7 +67,7 @@ model_provider = "atp"
 name = "ATP"
 base_url = "https://api.atptoken.ai/v1"
 env_key = "ATP_API_KEY"
-wire_api = "chat"
+wire_api = "responses"
 ```
 
 ```

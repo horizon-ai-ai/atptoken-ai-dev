@@ -14,6 +14,10 @@ This file is the entry point. It gets you oriented in about a minute, then hands
 you off to the specific skill you actually need. **Do not guess at endpoints,
 model ids, or prices** — every one of them is listed at a URL below.
 
+If the person wants their coding tool itself (Claude Code, Codex, Cline and
+similar) to run on ATP rather than code that calls the API, follow
+`https://atptoken.ai/connect.md` instead; it is the complete setup.
+
 ## What you need before writing code
 
 1. **An `atp-` API key**, scoped to one project. The human you are working with

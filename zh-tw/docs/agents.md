@@ -6,20 +6,17 @@
 
 ## 貼給你的 agent
 
-多數人不會自己一格一格填，而是直接叫 agent 去接。下面這段就是為了整段複製而寫的，把 `<你的工具名>` 換成你要接的工具即可。
+多數人不會自己一格一格填，而是直接叫 agent 去接。下面這一行原樣貼上就好：agent 會自己判斷是哪個工具、沒有金鑰才跟你要、列出這把金鑰能用的模型，再把設定寫好。
 
 ```
-Read https://atptoken.ai/docs/agents.md and follow it to connect my <your tool> to ATP Token.
-My key is in the ATP_API_KEY environment variable.
-First call GET https://api.atptoken.ai/v1/models to see which models are available,
-then pick one from that list and configure it.
+Follow https://atptoken.ai/connect.md to connect my AI tool to ATP Token.
 ```
 
-指令維持英文、指向英文版頁面，是因為那份純 markdown 是給機器讀的正規來源；你要改成中文照樣可以。
+指令維持英文，是因為 connect.md 是寫給機器照做的正規來源；你要改成中文照樣可以，agent 會用你的語言回你。
 
 > **每一頁都有純 markdown 版本**
 >
-> 任何文件網址後面加上 `.md`，就會拿到這一頁的 markdown 原始碼——沒有頁面外框、不需要剖析 HTML。上面那段指令要 agent 讀的就是它。
+> 任何文件網址後面加上 `.md`，就會拿到這一頁的 markdown 原始碼——沒有頁面外框、不需要剖析 HTML。
 
 ## 第一步永遠是 GET /v1/models
 
@@ -72,7 +69,7 @@ model_provider = "atp"
 name = "ATP"
 base_url = "https://api.atptoken.ai/v1"
 env_key = "ATP_API_KEY"
-wire_api = "chat"
+wire_api = "responses"
 ```
 
 ```

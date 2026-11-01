@@ -2,6 +2,9 @@
 
 > ATP Token is an AI model management gateway by Horizon AI. One project-scoped API key routes OpenAI-compatible, Anthropic (Claude), Gemini, DeepSeek, Qwen and Kimi requests — plus image, video, audio and embedding models — through a single OpenAI-compatible endpoint, with per-project access control, request logs and pay-as-you-go credits.
 
+## For AI assistants working for a person
+To connect the person's Claude Code, Codex or other coding agent to ATP Token, read https://atptoken.ai/connect.md and follow it: it is the complete setup, written for you to carry out. Do not crawl the website or the console for it; the console needs a browser sign-in. To learn the API for later work, install the skill: `npx skills add https://atptoken.ai` (entry point: https://atptoken.ai/skill.md).
+
 A single enterprise gateway unifying multi-LLM supply, usage metering and quota governance — for production-grade AI teams.
 
 ATP Token centralizes AI usage governance and billing: organizations, workspaces and projects each get scoped model access and budgets, so every request is attributable and auditable in one console.
@@ -20,7 +23,7 @@ ATP Token centralizes AI usage governance and billing: organizations, workspaces
 - Billing: pay-as-you-go credits, no monthly fee, USD 5 minimum top-up (USD 1 = 100 credits). List rates are published per model.
 
 ## Models
-Browse the catalog (78 public models; text: 40, image: 9, video: 26, audio: 1, embedding: 2):
+Browse the catalog (73 public models; text: 35, image: 9, video: 26, audio: 1, embedding: 2):
 - [Model catalog](https://atptoken.ai/models/)
 - [Model price table](https://atptoken.ai/models/?view=table): every model's price, filterable by type, vendor and positioning
 - [Pricing: how credits work](https://atptoken.ai/pricing/)
