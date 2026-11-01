@@ -6,20 +6,29 @@ one API key and one endpoint for OpenAI, Anthropic, Gemini, DeepSeek, Qwen,
 Kimi and more, plus image, video and speech models, billed against their ATP
 project.
 
-## 0. What "connect" means here
+## 0. Ask: API or MCP-style tools
 
-ATP Token has no MCP server, so there is no MCP URL to find or ask for. If the
-person says "connect ATP with MCP" or "add ATP as a tool", they mean one of
-these two, and both are done through the API key:
+There are two ways to connect, and the person decides. Unless their words
+already pick one, ask before anything else, once, in their language and plain
+words, as two numbered choices, and explain both like this:
 
-- **A. Run this AI tool on ATP's models** (Claude Code or Codex answers using a
-  model billed to ATP): steps 1 to 4.
-- **B. Let you make images, videos or speech, or call ATP models from code,
-  while you keep your current model**: steps 1, 2, 3d and 5.
+> ATP can be connected in two ways. Which one do you want?
+>
+> 1. **API connection**: the model behind me (Claude Code / Codex) becomes an
+>    ATP model. Every reply I give is then billed to your ATP credits. Good if
+>    you want ATP to be where your models and spending are managed.
+> 2. **MCP-style tools**: I keep the model I use now and gain new abilities:
+>    making pictures, videos and speech through ATP. ATP has no MCP server; I
+>    add this with ATP's skills and your key, and you use it the same way as
+>    MCP tools: just ask me for a picture or a video.
+>
+> Both need one ATP API key.
 
-If their words do not settle it, ask once, in their language and plain words,
-for example: "Do you want me to run on ATP's models, or keep my current model
-and use ATP to make pictures and videos?" Then follow that path.
+Do not ask anything else in the same message. Do not search for an MCP URL;
+there is none.
+
+- 1 = **path A, API connection**: steps 1 to 4.
+- 2 = **path B, MCP-style tools**: steps 1, 2, 3d and 5.
 
 This page is the whole setup. Do not crawl the rest of atptoken.ai to work it
 out: the website and the console are written for people, and the console needs
