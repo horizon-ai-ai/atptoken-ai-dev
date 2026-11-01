@@ -6,34 +6,28 @@ one API key and one endpoint for OpenAI, Anthropic, Gemini, DeepSeek, Qwen,
 Kimi and more, plus image, video and speech models, billed against their ATP
 project.
 
-## 0. Ask: API or MCP-style tools
+## 0. Two ways to connect: API or MCP-style tools
 
-There are two ways to connect, and the person decides. Unless their words
-already pick one, ask before anything else, once, in their language and plain
-words, as two numbered choices, and explain both like this:
+People connect ATP in one of two ways, and the choice is theirs. Most people
+have not heard of the difference, so if their words do not already pick one,
+it helps to explain both before starting. What they usually need to hear:
 
-> ATP can be connected in two ways. Which one do you want?
->
-> 1. **API connection**: the model behind me (Claude Code / Codex) becomes an
->    ATP model. Every reply I give is then billed to your ATP credits. Good if
->    you want ATP to be where your models and spending are managed.
-> 2. **MCP-style tools**: I keep the model I use now and gain new abilities:
->    making pictures, videos and speech through ATP. ATP has no MCP server; I
->    add this with ATP's skills and your key, and you use it the same way as
->    MCP tools: just ask me for a picture or a video.
->
-> Both need one ATP API key.
+1. **API connection**: the model behind the assistant (Claude Code / Codex)
+   becomes an ATP model, so every reply is billed to their ATP credits. For
+   people who want ATP to be where their models and spending are managed.
+2. **MCP-style tools**: the assistant keeps the model it uses now and gains
+   new abilities: making pictures, videos and speech through ATP. ATP has no
+   MCP server; this is done with ATP's skills and the same API key, and in use
+   it feels like MCP tools: they just ask for a picture or a video.
 
-Do not ask anything else in the same message. Do not search for an MCP URL;
-there is none.
+Both need one ATP API key. There is no MCP URL to look for.
 
 - 1 = **path A, API connection**: steps 1 to 4.
 - 2 = **path B, MCP-style tools**: steps 1, 2, 3d and 5.
 
-This page is the whole setup. Do not crawl the rest of atptoken.ai to work it
-out: the website and the console are written for people, and the console needs
-a browser sign-in you do not have. Every fact you need is here or at a `.md`
-link below.
+Everything needed for either path is on this page or at a `.md` link below.
+The website and the console are written for people, and the console needs a
+browser sign-in.
 
 Talk to the person in their own language, in plain words: they may not be a
 programmer. Do the steps yourself; ask the person only for what is marked
