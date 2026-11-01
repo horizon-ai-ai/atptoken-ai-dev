@@ -1,9 +1,25 @@
 # Connect ATP Token — steps for an AI assistant
 
 You are an AI assistant (Claude Code, Codex or another coding agent), and the
-person you work for wants their AI tool to run on ATP Token
-(https://atptoken.ai): one API key and one endpoint for OpenAI, Anthropic,
-Gemini, DeepSeek, Qwen, Kimi and more, billed against their ATP project.
+person you work for wants to connect you to ATP Token (https://atptoken.ai):
+one API key and one endpoint for OpenAI, Anthropic, Gemini, DeepSeek, Qwen,
+Kimi and more, plus image, video and speech models, billed against their ATP
+project.
+
+## 0. What "connect" means here
+
+ATP Token has no MCP server, so there is no MCP URL to find or ask for. If the
+person says "connect ATP with MCP" or "add ATP as a tool", they mean one of
+these two, and both are done through the API key:
+
+- **A. Run this AI tool on ATP's models** (Claude Code or Codex answers using a
+  model billed to ATP): steps 1 to 4.
+- **B. Let you make images, videos or speech, or call ATP models from code,
+  while you keep your current model**: steps 1, 2, 3d and 5.
+
+If their words do not settle it, ask once, in their language and plain words,
+for example: "Do you want me to run on ATP's models, or keep my current model
+and use ATP to make pictures and videos?" Then follow that path.
 
 This page is the whole setup. Do not crawl the rest of atptoken.ai to work it
 out: the website and the console are written for people, and the console needs
@@ -33,24 +49,34 @@ me. It is shown only once." If they have no account, they sign up at
 https://atptoken.ai/signup first. Wait for the key; do not continue with a
 placeholder.
 
+If they would rather not paste the key in the chat, give them the line from
+step 3d to run themselves with their key in it, ask them to open a new
+terminal and start you again, and continue once `ATP_API_KEY` is set.
+
 Treat the key like a password. Do not repeat it back, write it into project
 files, or commit it. It belongs only in the user-level config named below.
 
-## 2. List the models this key can use
+## 2. List the model ids
 
 ```sh
 curl -s https://api.atptoken.ai/v1/models -H "Authorization: Bearer $ATP_API_KEY"
 ```
 
-Every `id` in the reply works with this key; nothing else does. Never guess a
-model id. If the reply is `401`, the key is wrong or revoked: go back to
-step 1. If the list is empty, **Person:** they enable models for the key's
-project at https://atptoken.ai/console/workspaces, then you list again.
+Use ids from this reply exactly; never guess a model id. A `200` proves the
+key works; a `401` means it is wrong or revoked: go back to step 1. The list
+shows the platform's models; a model must also be enabled for the key's
+project, and a request to one that is not returns `403` (**Person:** they
+enable it at https://atptoken.ai/console/workspaces).
 
-Pick a model the person asked for. If they did not say, pick a coding model
-from the list (for Claude Code, a `claude-` model) and tell them which.
+Path A: pick a model the person asked for. If they did not say, pick a
+coding model from the list (for Claude Code, a `claude-` model) and tell them
+which. Path B: you do not change your own model. Image, video and speech
+models, with prices, are listed at https://atptoken.ai/models/ and in
+https://atptoken.ai/docs/media.md.
 
 ## 3. Find out which app you are, then configure it
+
+Path B goes straight to **3d**. For path A:
 
 - Claude Code (you can run the `claude` command): **3a**.
 - Codex (CLI, IDE extension or desktop app; settings in `~/.codex/config.toml`): **3b**.
@@ -97,10 +123,7 @@ env_key = "ATP_API_KEY"
 wire_api = "responses"
 ```
 
-Codex reads the key from `ATP_API_KEY`. If it is not already set, add
-`export ATP_API_KEY="KEY"` to the person's shell startup file (`~/.zshrc` on
-macOS, `~/.bashrc` on most Linux), or on Windows run
-`setx ATP_API_KEY "KEY"`.
+Codex reads the key from `ATP_API_KEY`. If it is not already set, do 3d.
 
 Current Codex accepts only `wire_api = "responses"`. Older ATP pages showed
 `wire_api = "chat"`; Codex now refuses it, so do not use it.
@@ -118,9 +141,20 @@ Most tools have an "OpenAI compatible" provider. Fill in base URL
 Roo Code, Continue, OpenCode, Hermes and OpenClaw, are in
 https://atptoken.ai/docs/agents.md.
 
+### 3d. Keep the key in `ATP_API_KEY`
+
+If `ATP_API_KEY` is not already set, add `export ATP_API_KEY="KEY"` to the
+person's shell startup file (`~/.zshrc` on macOS, `~/.bashrc` on most Linux),
+or on Windows run `setx ATP_API_KEY "KEY"`. New terminals and new sessions of
+you pick it up; for this session, use the key directly.
+
 ## 4. Check it works
 
-The first message in the restarted tool is the check. Then tell the person, in
+Path B: step 2 already proved the key works, and it cost nothing. Do step 5,
+then tell the person they can now ask you for pictures, videos and speech
+through ATP, each paid from the project's credits.
+
+Path A: the first message in the restarted tool is the check. Then tell the person, in
 their language, that their tool now runs on ATP Token, which model it uses, and
 that each request appears in https://atptoken.ai/console/logs and is paid from
 the project's credits.
@@ -130,10 +164,11 @@ of credits (**Person:** top up at https://atptoken.ai/console/billing), `403`
 the model is not enabled for this project. More in
 https://atptoken.ai/docs/errors.md.
 
-## 5. Optional: install the ATP skills
+## 5. Install the ATP skills (path B; optional for path A)
 
-They teach you ATP's API in later sessions too: model listing, image, video
-and audio tasks, errors. Ask the person first, then run:
+They teach you ATP's API, in this session and later ones: model listing,
+image, video and audio tasks, errors. Path B needs them to make media. Ask the
+person first, then run:
 
 ```sh
 npx skills add https://atptoken.ai -g -a claude-code -y
@@ -141,7 +176,8 @@ npx skills add https://atptoken.ai -g -a claude-code -y
 
 For Codex use `-a codex`. If `npx` is missing, use
 `curl -fsSL https://atptoken.ai/skills/install.sh | sh -s -- claude` (or
-`codex`). If the person prefers not to install anything, skip this step.
+`codex`). If the person prefers not to install anything, read
+https://atptoken.ai/skill.md and follow it for this session instead.
 
 ## 6. Tell the person what they can ask for
 

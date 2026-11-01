@@ -4,6 +4,8 @@
 
 任何会说 Anthropic 或 OpenAI wire format 的 agent 都能跑在项目（project）密钥上。真正要填的只有三个值：Gateway 的 base URL、一把 `atp-` 开头的密钥，以及该项目已启用的模型 ID。这一页涵盖我们完整记录的两个 agent（Claude Code 与 Codex CLI）、其他工具共用的通用规则，以及三个套用通用规则会坏掉的工具。
 
+ATP Token 没有 MCP 服务器：不论 agent 是改用 ATP 的模型，还是保留原本的模型、通过 ATP 生成图片和视频，都是用同样三个值连接。[connect.md](https://atptoken.ai/zh-cn/connect.md/) 会带 agent 走完这两种。
+
 ## 贴给你的 agent
 
 多数人不会自己一格一格填，而是直接叫 agent 去接。下面这一行原样贴上就好：agent 会自己判断是哪个工具、没有密钥才跟你要、列出这把密钥能用的模型，再把设置写好。

@@ -3,7 +3,7 @@
 > ATP Token is an AI model management gateway by Horizon AI. One project-scoped API key routes OpenAI-compatible, Anthropic (Claude), Gemini, DeepSeek, Qwen and Kimi requests — plus image, video, audio and embedding models — through a single OpenAI-compatible endpoint, with per-project access control, request logs and pay-as-you-go credits.
 
 ## For AI assistants working for a person
-To connect the person's Claude Code, Codex or other coding agent to ATP Token, read https://atptoken.ai/connect.md and follow it: it is the complete setup, written for you to carry out. Do not crawl the website or the console for it; the console needs a browser sign-in. To learn the API for later work, install the skill: `npx skills add https://atptoken.ai` (entry point: https://atptoken.ai/skill.md).
+To connect the person's Claude Code, Codex or other coding agent to ATP Token, read https://atptoken.ai/connect.md and follow it: it is the complete setup, written for you to carry out, both for running the agent on ATP models and for letting it make images and videos through ATP. ATP Token connects by API key; it has no MCP server, so do not look for an MCP URL. Do not crawl the website or the console for it; the console needs a browser sign-in. To learn the API for later work, install the skill: `npx skills add https://atptoken.ai` (entry point: https://atptoken.ai/skill.md).
 
 A single enterprise gateway unifying multi-LLM supply, usage metering and quota governance — for production-grade AI teams.
 
