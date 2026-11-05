@@ -27,9 +27,25 @@
 
 選一個情境，看請求被哪一道檢查擋下、回應長什麼樣子。
 
-****
+**一筆請求在 ATP 裡的路徑**
 
-_（互動圖——請看本頁的網頁版。）_
+| 步驟 | 檢查 | 擋下時 |
+| --- | --- | --- |
+| 1. 用戶端 | 帶專案金鑰送出 | — |
+| 2. 金鑰檢查 | 金鑰有效且啟用 | 401 |
+| 3. 模型允許清單 | 專案已開放此模型 | 403 |
+| 4. 點數 | 專案還有餘額 | 402 |
+| 5. 速率限制 | 未超過限制 | 429 |
+| 6. 供應商 | 路由與備援 | — |
+| 7. 紀錄與計費 | 以點數計量 | — |
+
+| 情境 | 停在 | 狀態 | 回應 |
+| --- | --- | --- | --- |
+| 放行 | 紀錄與計費 | 200 OK | 標頭：`x-ratelimit-limit-requests`, `x-ratelimit-remaining-requests`, `x-ratelimit-reset-requests` — 本體是供應商的回應，格式跟你用的 SDK 一致。速率限制標頭告訴你還剩多少額度。 |
+| 金鑰無效 | 金鑰檢查 | 401 Unauthorized | `{"message":"API key has been revoked or does not exist.","error":"token_revoked"}` |
+| 模型未開放 | 模型允許清單 | 403 Forbidden | `{"error":{"message":"model not available for this project","type":"permission_denied","request_id":"..."}}` |
+| 點數用完 | 點數 | 402 Payment Required | 錯誤本體沿用 SDK 的錯誤格式：錢包或點數池已用完。儲值後恢復；重試沒有用。 |
+| 被限流 | 速率限制 | 429 Too Many Requests | 錯誤本體沿用 SDK 的錯誤格式：速率限制、配額或供應商冷卻。退避後重試；有 Retry-After 就照它等。 |
 
 ## 200 但內容為空
 

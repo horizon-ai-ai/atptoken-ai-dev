@@ -27,9 +27,25 @@
 
 选一个情境，看请求被哪一道检查挡下、回应长什么样子。
 
-****
+**一次请求在 ATP 里的路径**
 
-_（交互图——请看本页的网页版。）_
+| 步骤 | 检查 | 拦截时 |
+| --- | --- | --- |
+| 1. 客户端 | 带项目密钥发出 | — |
+| 2. 密钥校验 | 密钥有效且已启用 | 401 |
+| 3. 模型白名单 | 项目已开通该模型 | 403 |
+| 4. 点数 | 项目还有余额 | 402 |
+| 5. 限流 | 未超出限制 | 429 |
+| 6. 供应商 | 路由与故障转移 | — |
+| 7. 记录与计费 | 按点数计量 | — |
+
+| 场景 | 停在 | 状态 | 响应 |
+| --- | --- | --- | --- |
+| 放行 | 记录与计费 | 200 OK | 响应头：`x-ratelimit-limit-requests`, `x-ratelimit-remaining-requests`, `x-ratelimit-reset-requests` — 响应体是供应商的回应，格式与你使用的 SDK 一致。限流响应头告诉你还剩多少额度。 |
+| 密钥无效 | 密钥校验 | 401 Unauthorized | `{"message":"API key has been revoked or does not exist.","error":"token_revoked"}` |
+| 模型未开通 | 模型白名单 | 403 Forbidden | `{"error":{"message":"model not available for this project","type":"permission_denied","request_id":"..."}}` |
+| 点数用完 | 点数 | 402 Payment Required | 错误响应体沿用 SDK 的错误格式：钱包或点数池已用完。充值后恢复；重试没有用。 |
+| 被限流 | 限流 | 429 Too Many Requests | 错误响应体沿用 SDK 的错误格式：限流、配额或供应商冷却。退避后重试；有 Retry-After 就按它等。 |
 
 ## 200 但内容为空
 
