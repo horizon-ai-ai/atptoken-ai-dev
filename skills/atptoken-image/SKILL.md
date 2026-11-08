@@ -100,26 +100,14 @@ Rejected shapes (all verified 2026-08-04):
 | Form | Image endpoint | Notes |
 |---|---|---|
 | public `https://…` URL | **works** | the upstream must be able to fetch it **without auth** |
-| `data:image/png;base64,…` | **works** | whole payload travels in the request body |
+| `data:image/png;base64,…` | **works** | whole payload travels in the request body; keep the base64 under 2 MB, larger payloads can fail upstream |
 | `asset://<id>` or `asset://<pid>.<id>` | **NOT SUPPORTED** | fails at generation with `provider_error / generation_failed` |
 
-`asset://` was previously documented as valid. It is not, on either the image or the
-video endpoint. Eight calls across both spellings and both endpoints all failed.
-**Do not attempt it.**
+`asset://` is not supported on the image endpoint. **Do not attempt it.**
 
-To use a file you uploaded to `POST /v1/files`, resolve it to a no-auth URL — read the
-`Location` header of `GET /v1/files/{id}` **without following the redirect**:
-
-```bash
-FILE_ID=$(curl -s https://api.atptoken.ai/v1/files \
-  -H "Authorization: Bearer $ATP_KEY" -F "file=@./product.png" | jq -r .id)
-# NOTE: the response key is `id`, not `gw_file_id`.
-
-REF_URL=$(curl -sD - -o /dev/null "https://api.atptoken.ai/v1/files/$FILE_ID" \
-  -H "Authorization: Bearer $ATP_KEY" | grep -i '^location:' | cut -d' ' -f2 | tr -d '\r')
-# presigned object-store URL, no auth needed, ~15-minute TTL — resolve it right
-# before creating the task; do not cache it.
-```
+A file uploaded to `POST /v1/files` cannot be used here either: its `id` is not a media
+reference, and `GET /v1/files/{id}` returns the file's bytes, not a URL. To use a local
+image, host it at a public `https://` URL, or send a small image as a `data:` URI.
 
 ## Poll until terminal
 

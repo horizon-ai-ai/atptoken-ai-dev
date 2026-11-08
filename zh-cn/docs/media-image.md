@@ -63,10 +63,10 @@ curl https://api.atptoken.ai/omni/media/v1/images/generations/tasks \
 | 形式 | 图片端点 | 说明 |
 | --- | --- | --- |
 | 公开 `https://…` URL | 可用 | 上游必须能**免验证**抓取 |
-| `data:image/png;base64,…` | 可用 | 整段内容都塞在 request body，别放太大的档 |
+| `data:image/png;base64,…` | 可用 | 整段内容都塞在 request body，base64 请控制在 2 MB 以内，过大可能在上游失败 |
 | `asset://<id>`／`asset://<pid>.<id>` | **不支持** | 每次都在生成阶段失败，回 `provider_error / generation_failed` |
 
-把上传文件换成可用 URL 的最简做法：`POST /v1/files`（回应的密钥是 **`id`**），再对 `GET /v1/files/{id}` **不跟随重导**、取 `Location` header——那是物件储存的 presigned URL，免验证、时效约 15 分钟。见 [/v1/files](https://atptoken.ai/zh-cn/docs/files/)。
+`/v1/files` 上传的文件不能用在这里：它的 `id` 不是媒体引用，`GET /v1/files/{id}` 回传的是文件内容，不是 URL。要用本机图片，请放到公开 `https://` URL，或把小图片编码成 `data:` URI 传入。见 [/v1/files](https://atptoken.ai/zh-cn/docs/files/)。
 
 编辑呼叫仍然必填 `prompt`。带一句简短指示就够，但这个栏位不能省略。
 
@@ -164,6 +164,6 @@ else:
 
 ## 下一步
 
-- [/v1/files](https://atptoken.ai/zh-cn/docs/files/) — 上传输入图并换成可引用的 URL。
+- [/v1/files](https://atptoken.ai/zh-cn/docs/files/) — 上传给 chat 与 messages 请求使用的文件。媒体任务无法使用。
 - [影片生成](https://atptoken.ai/zh-cn/docs/media-video/) — 影片模型用的是同一套任务流程。
 - [错误码](https://atptoken.ai/zh-cn/docs/errors/) — 每个状态码代表什么、先检查什么。

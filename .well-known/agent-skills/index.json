@@ -6,14 +6,14 @@
       "type": "skill-md",
       "description": "Get an agent from zero to a working ATP Token integration — one API key, then OpenAI-, Anthropic-, or Gemini-compatible calls to text, image, video, audio, and embedding models. Read this first; it tells you which of the detailed skills to load next.",
       "url": "/.well-known/agent-skills/atptoken-onboarding/SKILL.md",
-      "digest": "sha256:037a433052d390fcbc6e97cd21989706f05005e072e96aa94260bb87280abbb5"
+      "digest": "sha256:124c60d37f55e6e856a6ba9cb0d4cbeebcb89d369876b13e747634b1917c7450"
     },
     {
       "name": "atptoken-gateway",
       "type": "skill-md",
       "description": "Call the Atptoken LLM Gateway — an OpenAI/Anthropic/Gemini-compatible API fronting many model providers behind one endpoint and key. Use when integrating with Atptoken, calling api.atptoken.ai, listing available models, or handling gateway auth, errors, and rate limits. Start here, then load atptoken-openai / atptoken-anthropic / atptoken-gemini for the specific SDK.",
       "url": "/.well-known/agent-skills/atptoken-gateway/SKILL.md",
-      "digest": "sha256:bb3486df19b3520b168c60549a8932ecb1860a0e055860b14f979607b8912e97"
+      "digest": "sha256:57737a79623751e36f60f68e1bb5cf8c8e0b22aa1371d9b434e65ddf73bd29d1"
     },
     {
       "name": "atptoken-openai",
@@ -41,14 +41,14 @@
       "type": "skill-md",
       "description": "Generate and edit images through the Atptoken LLM Gateway media surface at /omni/media/v1. Asynchronous — POST /omni/media/v1/images/generations/tasks returns 202 + a task id; poll until terminal, then download the signed URL. Edit-style models take their input images in a top-level reference_assets array. Use for nano-banana / gpt-image-2 and other image models via Atptoken with an atp- key. See atptoken-gateway for auth and errors.",
       "url": "/.well-known/agent-skills/atptoken-image/SKILL.md",
-      "digest": "sha256:eae16ac10fdafe5a1b5b39d804b89ac6b9b048957df69972376671f3490fb47f"
+      "digest": "sha256:09e822cfce00723ecba9176f5018c034f0602a8c117c0d5e8d53ee66b00a6fcc"
     },
     {
       "name": "atptoken-video",
       "type": "skill-md",
       "description": "Generate video (text-to-video / image-to-video) through the Atptoken LLM Gateway media surface at /omni/media/v1. Video is asynchronous — create a task, poll until it succeeds, then fetch a short-lived signed URL. Two client dialects (ModelArk-compatible and DashScope-native). Use for Seedance / Wan and other video models via Atptoken with an atp- key. See atptoken-gateway for auth and errors.",
       "url": "/.well-known/agent-skills/atptoken-video/SKILL.md",
-      "digest": "sha256:615a5891c5330725557448c9ac101cf9c49010696c743045f3c71b9796d96e27"
+      "digest": "sha256:4f9de6b3554f0b898baa116def4c4c2544d22bf5af774c2cedceb7eddd1ff42a"
     },
     {
       "name": "atptoken-audio",

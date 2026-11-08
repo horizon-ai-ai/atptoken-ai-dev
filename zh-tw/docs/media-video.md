@@ -33,6 +33,7 @@
 | 阿里（preview） | `happyhorse-1.1-t2v`、`happyhorse-1.1-i2v` | 3–15 秒；浮水印預設開啟（可傳 `watermark: false` 關閉） |
 | 阿里（preview） | `happyhorse-1.1-r2v` | 最多 9 張參考圖；3–15 秒；浮水印預設開啟 |
 | 阿里（preview） | `happyhorse-1.0-video-edit` | 來源影片 3–60 秒＋最多 5 張參考圖；浮水印預設開啟 |
+| 阿里（preview） | `wan-3-0-video`、`wan-3-0-video-pro` | 扁平請求，不用 `content[]`，見下方 Wan 3.0 |
 
 > **先確認模型與專案權限**
 >
@@ -77,35 +78,38 @@ curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks \
 
 ### `url` 接受哪些形式
 
-> **影片端點接受公開 https URL 或素材 URI**
+> **影片端點接受公開 https URL、base64 或素材 URI**
 >
-> **影片端點接受公開 `https://` URL；Seedance 另外接受素材 API 產生的 `asset://` URI。**
+> **影片端點接受公開 `https://` URL 和 base64 `data:` URI；Seedance 另外接受素材 API 產生的 `asset://` URI。**
 >
 > | 形式 | 影片端點 | 圖片端點 |
 > | --- | --- | --- |
 > | 公開 `https://…` URL | 可用 | 可用 |
-> | `data:image/…;base64,…` | **被擋**——`invalid_parameters: The parameter combination is not supported.` | 可用 |
+> | `data:image/…;base64,…` | 可用，請控制在 2 MB 內 | 可用 |
 > | 素材 API 回傳的 `asset://…`（`AssetUri`） | 可用（Seedance） | **不支援** |
 >
 > 圖片端點收到 `asset://` 引用時，會在生成階段回 `provider_error / generation_failed`。
+>
+> Wan 3.0 用 base64 送首幀或參考圖時，影片生成後任務狀態可能一直停在 `running`，所以 Wan 3.0 請改用公開 `https://` URL。
 
-### 引用上傳的檔案
+### 使用本機檔案
 
-要引用自己上傳的檔案，先把它換成公開 URL：
+本機檔案有兩種送法：
+
+- **轉成 base64：** 把檔案編碼成 `data:` URI 直接放進 `url`，請控制在 2 MB 內。
+- **放到公開網址：** 把檔案放到供應商免驗證就能抓取的公開 `https://` URL，再傳入那個 URL。
 
 ```
-# 1. upload — the response key is `id` (an_<ULID>), not gw_file_id
-curl -s https://api.atptoken.ai/v1/files \
-  -H "Authorization: Bearer atp-..." -F "file=@./first-frame.png"
-# → 201 { "id": "an_01H...", "object": "file", "bytes": 152340, ... }
-
-# 2. resolve to a no-auth URL — read the 302 Location, do NOT follow it
-curl -sD - -o /dev/null https://api.atptoken.ai/v1/files/an_01H... \
-  -H "Authorization: Bearer atp-..." | grep -i '^location:'
-# → location: https://<object-store>/gateway-files/...?<presigned>  (~15-minute TTL)
+{
+  "type": "image_url",
+  "image_url": { "url": "data:image/jpeg;base64,/9j/4AAQSkZJRg..." },
+  "role": "first_frame"
+}
 ```
 
-把那個 `Location` 值當 `url` 用。它免驗證即可下載——正是上游供應商需要的——但約 15 分鐘就過期，所以請在建立任務前才解析，不要快取。
+`/v1/files` 上傳的檔案不能當 `url`：它的 `id` 不是媒體引用，`GET /v1/files/{id}` 回傳的是檔案內容，不是 URL。
+
+在 Seedance 上，也可以把公開 URL 登記成素材，改傳 `asset://` URI，做法見下一節。
 
 ### 引用登記的素材
 
@@ -123,6 +127,8 @@ Seedance 也接受透過素材 API 登記的圖片。登記圖片、等到狀態
 ```
 
 URI 只放在 `image_url.url`，區塊沒有頂層 `url`。`/v1/files` 的 id 不是素材 URI。
+
+真人照片的公開 URL 可能被拒，回 `400 may contain real person`。請把圖片登記成素材，改傳 `AssetUri`。`seedance-2-0-fast` 只接受直接網址，所以不要用它處理真人照片。
 
 ## 輪詢至終態
 
@@ -240,6 +246,38 @@ curl https://api.atptoken.ai/omni/media/v1/tasks/cgt_... -H "Authorization: Bear
 - **Prompt 長度**：5,000 字元（HappyHorse 中文 2,500 字）。
 - 這些模型尚未支援 `generate_audio`。
 
+### Wan 3.0 使用扁平請求
+
+`wan-3-0-video` 和 `wan-3-0-video-pro` 不吃 `content[]`，提示詞和素材都放在頂層欄位。`content` 陣列會被丟掉，內容因此變空時回 `missing_prompt_or_image`。
+
+```
+curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks \
+  -H "Authorization: Bearer atp-..." -H "Content-Type: application/json" \
+  -d '{
+    "model": "wan-3-0-video",
+    "prompt": "a paper boat drifting on still water",
+    "first_frame": "https://example.com/first-frame.png",
+    "resolution": "720P",
+    "ratio": "16:9",
+    "duration": 5,
+    "audio": false
+  }'
+# → 202 { "id": "task_..." }
+```
+
+| 欄位 | 可用值 | 說明 |
+| --- | --- | --- |
+| `prompt` | 字串 | 必填 |
+| `first_frame`、`last_frame` | 圖片 URL | 首尾幀模式 |
+| `reference_images` | 最多 10 個 URL | 參考素材模式 |
+| `reference_videos`、`reference_audios` | 各最多 5 個 URL | 參考素材模式 |
+| `resolution` | 480P、720P、1080P；`-pro` 另有 2K、4K | 要大寫 |
+| `duration` | 2–30 秒 | |
+| `ratio` | 16:9、9:16、4:3、3:4、1:1、adaptive | |
+| `audio` | 布林值 | 不是 `generate_audio` |
+
+同一個請求只能用首尾幀模式或參考素材模式，不能混用。送 `aspect_ratio`、`generate_audio`、`watermark` 或 `media` 會回 `400 Extra inputs are not permitted`。
+
 ## 錯誤
 
 - 400 — 請求內容格式錯誤。
@@ -251,5 +289,5 @@ curl https://api.atptoken.ai/omni/media/v1/tasks/cgt_... -H "Authorization: Bear
 ## 下一步
 
 - [Seedance 2.0](https://atptoken.ai/zh-tw/docs/seedance-2-0/) — `seedance-2-0` 的參數、媒體 role 與請求範例。
-- [/v1/files](https://atptoken.ai/zh-tw/docs/files/) — 上傳檔案並換成可引用的 URL。
+- [/v1/files](https://atptoken.ai/zh-tw/docs/files/) — 上傳給 chat 與 messages 請求使用的檔案。媒體任務無法使用。
 - [錯誤碼](https://atptoken.ai/zh-tw/docs/errors/) — 每個狀態碼代表什麼、先檢查什麼。

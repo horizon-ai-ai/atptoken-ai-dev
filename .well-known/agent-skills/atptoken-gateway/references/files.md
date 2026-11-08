@@ -1,19 +1,21 @@
 # Files through the gateway
 
-Upload a file once, get a reference id, and use that id in later requests instead of re-sending the bytes.
+Upload a file once, get a reference id, and use that id in later chat and messages requests instead of re-sending the bytes. The gateway forwards the file to the providers and keeps no copy, so an id lasts **one hour**.
 
 ## Upload — `POST /v1/files`
 
-`multipart/form-data` with a `file` part and an optional `purpose` field (default `user_data`). Maximum size **20 MB**.
+`multipart/form-data` with a `file` part that carries a `Content-Type`. Maximum size **20 MB**.
+
+`purpose` and any other form fields are forwarded to the providers as sent, and the gateway adds no default. Accepted values differ by provider, and a provider that refuses the upload does not hold the file. Use `assistants` for a file you will reference in chat: some providers accept `user_data` at upload, then answer the chat request with `404 Files [file-…] were not found`.
 
 ```bash
 curl https://api.atptoken.ai/v1/files \
   -H "Authorization: Bearer $ATPTOKEN_API_KEY" \
   -F "file=@./data.csv" \
-  -F "purpose=user_data"
+  -F "purpose=assistants"
 ```
 
-Response (OpenAI Files-compatible):
+Response `200` (OpenAI Files-compatible):
 
 ```json
 {
@@ -21,62 +23,45 @@ Response (OpenAI Files-compatible):
   "object":     "file",
   "bytes":      152340,
   "created_at": 1714579200,
-  "expires_at": 1715184000,
+  "expires_at": 1714582800,
   "filename":   "data.csv",
-  "purpose":    "user_data",
+  "purpose":    "assistants",
   "mime_type":  "text/csv"
 }
 ```
 
-Use the returned `id` to reference the file in subsequent chat/messages requests.
+Use the returned `id` to reference the file in subsequent chat/messages requests. After `expires_at` the id is dead; upload the file again.
 
-**Idempotent:** uploading identical bytes again returns the existing record (HTTP `200` instead of `201`) — no duplicate is stored.
+**No deduplication:** every upload returns a different `id`, even for identical bytes.
 
-**Errors:** `400` (no file part) · `413` (over 20 MB) · `500` (storage failure).
+**Gemini models cannot use an `id`.** Send the file inline with `inline_data`.
+
+**Errors:** `400` (no file part, no `Content-Type`, or no model in this project has a provider with a Files API) · `413` (over 20 MB) · `503` (no provider could complete the request; retry later). When every provider refuses with a client error, you get that status and their words after `no provider accepted this file:`.
 
 ## Retrieve — `GET /v1/files/{id}`
 
 ```bash
-curl -L https://api.atptoken.ai/v1/files/an_01J9ZK7VQHX3M9PNQ4ABCDEFGH \
-  -H "Authorization: Bearer $ATPTOKEN_API_KEY"
+curl https://api.atptoken.ai/v1/files/an_01J9ZK7VQHX3M9PNQ4ABCDEFGH \
+  -H "Authorization: Bearer $ATPTOKEN_API_KEY" -o data.csv
 ```
 
-Returns a `302` redirect to a short-lived download URL; pass `-L` (or let your HTTP client follow redirects) to fetch the bytes. A file can only be retrieved with a key from the same account that uploaded it (otherwise `403`); unknown ids return `404`.
+Returns `200` with the file's bytes, read back from a provider that holds it. There is no redirect, and not every provider supports this read: when none can return the file, you get the provider's status and words after `upstream refused to return this file:`. An expired id, an unknown id, and another organization's id all return `404`.
 
-## Using an upload with the media endpoints
+## Using a file with the media endpoints
 
-> **Verified 2026-08-04 against production.**
-
-The image and video endpoints under `/omni/media/v1` do **not** understand
-`asset://<id>` or `asset://<pid>.<id>`. Both spellings, on both endpoints, are accepted
-at create time and then fail during generation with `provider_error /
-generation_failed`. **Do not use `asset://`.**
+The image and video endpoints under `/omni/media/v1` cannot use a `/v1/files` upload. The `id` is not a media reference, `asset://<file id>` fails during generation with `provider_error / generation_failed`, and `GET /v1/files/{id}` returns bytes, not a URL a provider can fetch.
 
 What each endpoint accepts for a reference URL:
 
 | Form | Image (`/images/generations/tasks`) | Video (`/contents/generations/tasks`) |
 |---|---|---|
 | public `https://…` URL | works | works |
-| `data:image/png;base64,…` | works | rejected — `invalid_parameters: The parameter combination is not supported.` |
-| `asset://…` | not supported | not supported |
+| `data:image/png;base64,…` | works | works — keep it under 2 MB (Wan 3.0: see the video skill) |
+| `asset://…` (`AssetUri` from the asset API) | not supported | works (Seedance) |
 
-So the portable pattern is: upload, then turn the upload into a public URL by reading
-the `Location` header **without** following the redirect.
-
-```bash
-FILE_ID=$(curl -s https://api.atptoken.ai/v1/files \
-  -H "Authorization: Bearer $ATPTOKEN_API_KEY" -F "file=@./frame.png" | jq -r .id)
-
-REF_URL=$(curl -sD - -o /dev/null "https://api.atptoken.ai/v1/files/$FILE_ID" \
-  -H "Authorization: Bearer $ATPTOKEN_API_KEY" \
-  | grep -i '^location:' | cut -d' ' -f2 | tr -d '\r')
-```
-
-`REF_URL` is an object-store presigned URL: downloadable **without authentication**
-(which is what the upstream provider needs) and valid for roughly **15 minutes**.
-Resolve it immediately before creating the generation task; never cache or persist it.
-
-Then pass it as:
+So the portable pattern is: host the file at a public `https://` URL the provider can fetch **without authentication**, then pass it as:
 
 - image editing → top-level `reference_assets: [{ "url": REF_URL }]`
 - video → `content: [{ "type": "image_url", "image_url": { "url": REF_URL }, "role": "first_frame" }]`
+
+Registering an asset also takes a public URL, so a local file has to be hosted first either way.

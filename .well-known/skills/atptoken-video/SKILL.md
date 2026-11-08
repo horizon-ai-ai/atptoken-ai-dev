@@ -65,38 +65,37 @@ curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks \
 
 **`content[]` block**: `{ "type": "text"|"image_url"|"video_url"|"audio_url", ... }`
 - `text` — the prompt text (`type: text`)
-- `image_url` / `video_url` — `{ "url": "<url>" }`. **The video endpoint accepts public `https://` URLs only** — see below.
+- `image_url` / `video_url` — `{ "url": "<url>" }`. **The video endpoint accepts public `https://` URLs and, on Seedance, `asset://` URIs from the asset API** — see below.
 - `role` — `first_frame` / `last_frame` / `reference_image` / `reference_video` / `reference_audio`
 
-### What `url` accepts — verified 2026-08-04 against production
+### What `url` accepts
 
 | Form | Video endpoint | Image endpoint |
 |---|---|---|
 | public `https://…` URL | **works** | works |
-| `data:image/…;base64,…` | **REJECTED** — `invalid_parameters: The parameter combination is not supported.` | works |
-| `asset://<id>` or `asset://<pid>.<id>` | **NOT SUPPORTED** | NOT SUPPORTED |
+| `data:image/…;base64,…` | **works** — keep it under 2 MB | works |
+| `asset://…` (`AssetUri` from the asset API) | **works** (Seedance) | NOT SUPPORTED |
 
-An earlier revision of this skill listed `asset://<pid>.<id>` as a valid form. **It is
-not.** Both spellings, on both the video and image endpoints, fail at generation time
-with `provider_error / generation_failed` — eight calls, zero successes. Do not attempt
-it, and do not fall back to base64 on the video endpoint either.
+Use the `AssetUri` exactly as the asset API returns it. A `/v1/files` id is not an asset:
+`asset://<file id>` fails at generation time with `provider_error / generation_failed`.
+Base64 `data:` URIs work on the video endpoint (verified 2026-11-08 on Seedance 2.0,
+Seedance 2.5 and Wan 3.0). Wan 3.0 tasks sent with base64 can currently stay `running`
+after the video is ready, so use a public URL for Wan 3.0 until that is fixed.
 
-**To reference a file you uploaded**, resolve it to a URL the upstream can fetch without
-auth: read the `Location` header of `GET /v1/files/{id}` **without following the
-redirect**.
+**To use a local file**, either inline it as a base64 `data:` URI (keep it under 2 MB), or
+host it at a public `https://` URL the upstream can fetch without auth, then pass it as
+`content[].image_url.url` with `role: "first_frame"`.
+`POST /v1/files` cannot supply this URL: its `id` is not a media reference, and
+`GET /v1/files/{id}` returns the file's bytes, not a URL.
 
-```bash
-FILE_ID=$(curl -s https://api.atptoken.ai/v1/files \
-  -H "Authorization: Bearer $ATP_KEY" -F "file=@./first-frame.png" | jq -r .id)
-# NOTE: the response key is `id` (an_<ULID>), not `gw_file_id`.
+**On Seedance**, you can also register that URL as an asset:
 
-FRAME_URL=$(curl -sD - -o /dev/null "https://api.atptoken.ai/v1/files/$FILE_ID" \
-  -H "Authorization: Bearer $ATP_KEY" | grep -i '^location:' | cut -d' ' -f2 | tr -d '\r')
-# presigned object-store URL: no auth, ~15-minute TTL. Resolve it immediately before
-# creating the task — do not cache it, and do not store it in a manifest.
-```
+1. `POST /omni/media/v1/asset-groups` — create an asset group.
+2. `POST /omni/media/v1/assets` — register the image by its `url`.
+3. `POST /omni/media/v1/assets/get` — poll until `Completed`, then read `AssetUri`.
+4. Pass the URI as `content[].image_url.url`; the block has no top-level `url`.
 
-Then pass `$FRAME_URL` as `content[].image_url.url` with `role: "first_frame"`.
+**Photos of real people:** a public URL can be rejected with `400 may contain real person`. Register the image as an asset and pass the `AssetUri`. `seedance-2-0-fast` takes direct URLs only, so do not use it for these photos.
 
 **Idempotency** (retry-safe create): send one of `Idempotency-Key`, `X-Idempotency-Key`, `X-Thankyou-Task-Id`. The same key returns the original task id without creating a duplicate (no double charge). No key → a fresh task every call.
 
@@ -181,6 +180,22 @@ curl https://api.atptoken.ai/omni/media/v1/services/aigc/video-generation/video-
 
 Use the ATP ModelArk-compatible endpoint above. ATP keeps the unified model name
 and task lifecycle while forwarding the model-specific fields.
+
+**Wan 3.0 (`wan-3-0-video`, `wan-3-0-video-pro`) uses a flat body, not `content[]`**
+
+```json
+{
+  "model": "wan-3-0-video",
+  "prompt": "a paper boat drifting on still water",
+  "first_frame": "https://example.com/first-frame.png",
+  "resolution": "720P",
+  "ratio": "16:9",
+  "duration": 5,
+  "audio": false
+}
+```
+
+A `content` array is dropped; a body left empty returns `missing_prompt_or_image`. Use `first_frame` / `last_frame` or `reference_images` (up to 10) / `reference_videos` / `reference_audios` (up to 5 each), never both groups. `resolution` is uppercase. The audio field is `audio`. Sending `aspect_ratio`, `generate_audio`, `watermark`, or `media` returns `400 Extra inputs are not permitted`.
 
 **Wan 2.6 text-to-video**
 

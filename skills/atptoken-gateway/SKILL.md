@@ -100,12 +100,11 @@ Quick summary:
 
 ## File inputs
 
-The gateway can store a file and give you a reference ID to use in later requests. See `references/files.md`.
+The gateway forwards a file to the providers and gives you a reference ID, valid for one hour, to use in later chat and messages requests. See `references/files.md`.
 
-**Media endpoints are the exception** (verified 2026-08-04): they do **not** accept an
-`asset://` reference to an uploaded file. Resolve the upload to a public URL first —
-`GET /v1/files/{id}` without following the redirect gives you a no-auth presigned URL in
-the `Location` header (~15-minute TTL). Details in `references/files.md`.
+**Media endpoints are the exception**: they cannot use that ID, and `GET /v1/files/{id}`
+returns the file's bytes, not a URL. Pass a public `https://` URL instead; Seedance video
+also takes an `asset://` URI from the asset API. Details in `references/files.md`.
 
 ## More
 

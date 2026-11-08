@@ -63,10 +63,10 @@ curl https://api.atptoken.ai/omni/media/v1/images/generations/tasks \
 | Form | Image endpoint | Notes |
 | --- | --- | --- |
 | public `https://…` URL | works | must be fetchable by the upstream **without authentication** |
-| `data:image/png;base64,…` | works | the whole payload travels in the request body — keep it small |
+| `data:image/png;base64,…` | works | the whole payload travels in the request body — keep the base64 under 2 MB; larger payloads can fail upstream |
 | `asset://<id>` / `asset://<pid>.<id>` | **not supported** | every attempt fails at generation time with `provider_error / generation_failed` |
 
-The simplest way to turn an upload into a usable URL: `POST /v1/files` (the response key is **`id`**), then `GET /v1/files/{id}` **without following the redirect** and use the `Location` header — an object-store presigned URL that needs no auth and lives about 15 minutes. See [/v1/files](https://atptoken.ai/docs/files/).
+A `/v1/files` upload cannot be used here: its `id` is not a media reference, and `GET /v1/files/{id}` returns the file's bytes, not a URL. To use a local image, host it at a public `https://` URL, or send a small image as a `data:` URI. See [/v1/files](https://atptoken.ai/docs/files/).
 
 `prompt` is still required on an edit call. A short instruction is enough, but the field cannot be omitted.
 
@@ -164,6 +164,6 @@ Only delivered images are billed — a failed generation, or one whose upload ne
 
 ## Next steps
 
-- [/v1/files](https://atptoken.ai/docs/files/) — Upload an input image and turn it into a reference URL.
+- [/v1/files](https://atptoken.ai/docs/files/) — Upload files for chat and messages requests. Media tasks cannot use them.
 - [Video generation](https://atptoken.ai/docs/media-video/) — The same task flow for video models.
 - [Error codes](https://atptoken.ai/docs/errors/) — What each status code means and what to check first.

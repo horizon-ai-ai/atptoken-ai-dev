@@ -11,41 +11,51 @@
 ```
 curl https://api.atptoken.ai/v1/files \
   -H "Authorization: Bearer atp-..." \
-  -F "file=@./input.pdf"
-# → 201 { "id": "an_01H...", "object": "file", "bytes": 152340, "filename": "input.pdf", ... }
+  -F "file=@./input.pdf" \
+  -F "purpose=assistants"
+# → 200 { "id": "an_01H...", "object": "file", "bytes": 152340, ... }
 ```
 
 > **檔案 ID 欄位是 `id`**
 >
-> 回應與 OpenAI Files 相容，檔案 ID 在 **`id`**。重複上傳相同內容會回傳同一個 `id`，HTTP 由 `201` 變 `200`（以 SHA-256 去重）。
+> 回應與 OpenAI Files 相容，檔案 ID 在 **`id`**。每次上傳都會拿到不同的 `id`，內容相同也一樣。
+
+Gateway 會把 `purpose` 和其他表單欄位原樣轉發給供應商，不補預設值。各供應商接受的值不同，拒絕這次上傳的供應商就不會持有這個檔案。要在 chat 引用的檔案請用 `assistants`：有些供應商上傳時接受 `user_data`，之後的 chat 請求卻回 `404 Files [file-…] were not found`。
 
 ## 端點
 
 ### POST /v1/files
-multipart/form-data 上傳，帶一個 `file` part。上限 20 MB。相同位元組會以 SHA-256 去重。
+multipart/form-data 上傳，`file` part 必須帶 `Content-Type`。成功回 `200`。Gateway 把檔案轉發給供應商，自己不留存。
 ### GET /v1/files/:id
-回傳 302 導向物件儲存上的短效 presigned URL。跟隨重導即可下載。
+回傳檔案內容，由持有檔案的供應商讀回。不會重導，也不是每個供應商都支援讀取。
 
-## 把上傳的檔案當媒體參考 URL 用
+## 在媒體任務中使用檔案
 
-`/v1/files` 的 id 不是 `asset://` 引用，媒體端點無法用 id 取檔。Seedance 影片只接受另一套素材 API 產生的 `asset://` URI，見[影片生成](https://atptoken.ai/zh-tw/docs/media-video/)。要把上傳的圖片餵給圖片編輯或圖生影片模型，請對 `GET /v1/files/{id}` **不要跟隨重導**、直接讀 `Location` header，拿那個 URL 用：
+媒體任務不能使用 `/v1/files` 上傳的檔案。`id` 不是 `asset://` 引用，媒體端點無法用 `id` 取檔，`GET /v1/files/{id}` 回傳的也是檔案內容，不是供應商能抓取的 URL。請改傳下列其中一種：
 
-**上傳 → 媒體參考 URL**
+| 輸入 | 適用端點 | 取得方式 |
+| --- | --- | --- |
+| 公開 `https://` URL | 圖片與影片端點 | 把檔案放在供應商免驗證就能抓取的位置。 |
+| `asset://` URI | Seedance 影片 | 用公開 URL 透過素材 API 登記，見[影片生成](https://atptoken.ai/zh-tw/docs/media-video/)。 |
+| `data:` URI | 圖片與影片端點 | 把檔案編碼成 base64，控制在 2 MB 內，見[影片生成](https://atptoken.ai/zh-tw/docs/media-video/)。 |
 
-1. 上傳檔案 — `POST /v1/files` — 回 `201`，帶 `id`（`an_…`）
-2. 不跟隨重導地解析 — `GET /v1/files/{id}` — 讀 `302` 的 `Location` header
-3. 立刻建立任務 — presigned URL — 時效約 15 分鐘
+## 錯誤
 
-```
-curl -sD - -o /dev/null https://api.atptoken.ai/v1/files/an_01H... \
-  -H "Authorization: Bearer atp-..." | grep -i '^location:'
-# → location: https://<object-store>/gateway-files/...?<presigned>
-```
+所有供應商都以用戶端錯誤拒絕時，你會收到該狀態碼和供應商自己的訊息；上傳時訊息以 `no provider accepted this file:` 開頭，讀取時以 `upstream refused to return this file:` 開頭。
 
-這個 presigned URL **免驗證**即可下載——正是上游供應商需要的形式——時效約 **15 分鐘**。請在建立任務前才解析、不要快取。另見[圖像生成](https://atptoken.ai/zh-tw/docs/media-image/)與[影片生成](https://atptoken.ai/zh-tw/docs/media-video/)。
+- 400 — 上傳時：缺少 file part、file part 沒帶 Content-Type，或這個專案的模型都沒有支援 Files API 的供應商。
+- 404 — 讀取時：檔案 ID 已過期、不存在，或屬於其他組織。
+- 413 — 上傳時：檔案超過 20 MB。
+- 503 — 沒有供應商能完成這個請求。請稍後重試。
+
+## 限制
+
+- **保留時間：** `id` 的效期是 1 小時，到期時間見回應的 `expires_at`。過期後請重新上傳。
+- **大小：** 每個檔案上限 20 MB。
+- **Gemini 模型：** 無法使用 `id`，請改用 `inline_data` 內嵌檔案。
 
 ## 下一步
 
-- [影片生成](https://atptoken.ai/zh-tw/docs/media-video/) — 把 URL 或素材 URI 當首幀或參考圖傳入。
-- [圖像生成](https://atptoken.ai/zh-tw/docs/media-image/) — 把 URL 當編輯類模型的輸入圖。
+- [影片生成](https://atptoken.ai/zh-tw/docs/media-video/) — 把公開 URL 或素材 URI 當首幀或參考圖傳入。
+- [圖像生成](https://atptoken.ai/zh-tw/docs/media-image/) — 把公開 URL 當編輯類模型的輸入圖。
 - [/v1/messages](https://atptoken.ai/zh-tw/docs/messages/) — 送出引用已上傳檔案的請求。

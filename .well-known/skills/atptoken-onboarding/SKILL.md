@@ -121,13 +121,12 @@ special handling), the maintained page is `https://atptoken.ai/docs/agents`.
   `POST /omni/media/v1/images/generations/tasks` and
   `POST /omni/media/v1/contents/generations/tasks` — the bare
   `/images/generations` path returns `404` (verified 2026-08-04).
-- **Uploaded files cannot be referenced with `asset://` on media endpoints**
-  (verified 2026-08-04). `POST /v1/files` returns the id in **`id`** (not
-  `gw_file_id`); to use that file as a first frame or an edit reference, call
-  `GET /v1/files/{id}` **without following the redirect** and pass the `Location`
-  header — a no-auth presigned URL, ~15-minute TTL. Base64 data URIs work on
-  **both** the image and the video endpoints (verified 2026-08-05), so an upload
-  is only needed when the file is not already reachable by URL.
+- **Media endpoints cannot use `POST /v1/files` uploads.** The upload returns its
+  id in **`id`** (not `gw_file_id`), but that id is not a media reference, and
+  `GET /v1/files/{id}` returns the file's bytes, not a URL. Pass a public `https://`
+  URL the provider can fetch without auth. Seedance video also takes an `asset://`
+  URI from the asset API, and the image and video endpoints also take base64 data
+  URIs (keep them under 2 MB).
 - **Image editing puts its input images in a top-level `reference_assets`
   array of objects** — `reference_assets: [{ "url": "…" }]`. Putting them in
   `content[]`, `image`, or `image_url` fails with `422`, and a bare array of URL

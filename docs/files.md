@@ -11,41 +11,51 @@ Upload a file to the Gateway and reference it in subsequent chat or messages req
 ```
 curl https://api.atptoken.ai/v1/files \
   -H "Authorization: Bearer atp-..." \
-  -F "file=@./input.pdf"
-# → 201 { "id": "an_01H...", "object": "file", "bytes": 152340, "filename": "input.pdf", ... }
+  -F "file=@./input.pdf" \
+  -F "purpose=assistants"
+# → 200 { "id": "an_01H...", "object": "file", "bytes": 152340, ... }
 ```
 
 > **The file ID field is `id`**
 >
-> The response follows OpenAI Files: the file ID is in **`id`**. Uploading identical content returns the same ID, with HTTP `200` instead of `201` (SHA-256 deduplication).
+> The response follows OpenAI Files: the file ID is in **`id`**. Every upload returns a different `id`, even for identical content.
+
+The Gateway forwards `purpose` and any other form fields to the providers as sent, and adds no default. Accepted values differ by provider, and a provider that refuses the upload does not hold the file. Use `assistants` for a file you will reference in chat: some providers accept `user_data` at upload, then answer the chat request with `404 Files [file-…] were not found`.
 
 ## Endpoints
 
 ### POST /v1/files
-multipart/form-data upload with a `file` part. Max 20 MB. Identical bytes are deduped by SHA-256.
+multipart/form-data upload with a `file` part that carries a `Content-Type`. Returns `200`. The Gateway forwards the file to the providers and keeps no copy.
 ### GET /v1/files/:id
-Returns 302 to a short-lived presigned URL on the object store. Follow the redirect to download.
+Returns the file's bytes, read back from a provider that holds it. There is no redirect, and not every provider supports this read.
 
-## Use an upload as a media reference URL
+## Use files in media tasks
 
-A `/v1/files` id is not an `asset://` reference, and the media endpoints cannot fetch it by id. Seedance video accepts `asset://` URIs only from the separate asset API; see [video generation](https://atptoken.ai/docs/media-video/). To feed an uploaded image to an image-edit or image-to-video model, read the `Location` header of `GET /v1/files/{id}` **without following the redirect** and pass that URL:
+Media tasks cannot use a `/v1/files` upload. The `id` is not an `asset://` reference, the media endpoints cannot fetch a file by `id`, and `GET /v1/files/{id}` returns the file's bytes rather than a URL a provider can fetch. Pass one of these instead:
 
-**Upload → media reference URL**
+| Input | Accepted by | How to get it |
+| --- | --- | --- |
+| public `https://` URL | image and video endpoints | Host the file where the provider can fetch it without authentication. |
+| `asset://` URI | Seedance video | Register a public URL through the asset API; see [video generation](https://atptoken.ai/docs/media-video/). |
+| `data:` URI | image and video endpoints | Encode the file as base64 and keep it under 2 MB; see [video generation](https://atptoken.ai/docs/media-video/). |
 
-1. Upload the file — `POST /v1/files` — `201` with `id` (`an_…`)
-2. Resolve without following the redirect — `GET /v1/files/{id}` — read the `302` `Location` header
-3. Create the task right away — presigned URL — lives about 15 minutes
+## Errors
 
-```
-curl -sD - -o /dev/null https://api.atptoken.ai/v1/files/an_01H... \
-  -H "Authorization: Bearer atp-..." | grep -i '^location:'
-# → location: https://<object-store>/gateway-files/...?<presigned>
-```
+When every provider refuses a request with a client error, you get that status with their own words, after `no provider accepted this file:` on upload or `upstream refused to return this file:` on read.
 
-That presigned URL is downloadable without authentication — which is what the upstream provider needs — and lives about **15 minutes**. Resolve it immediately before creating the task; do not cache it. See [image generation](https://atptoken.ai/docs/media-image/) and [video generation](https://atptoken.ai/docs/media-video/).
+- 400 — on upload: the file part is missing, has no Content-Type, or no model in this project has a provider with a Files API.
+- 404 — on read: the ID has expired, does not exist, or belongs to another organization.
+- 413 — on upload: the file exceeds 20 MB.
+- 503 — no provider could complete the request. Retry later.
+
+## Limits
+
+- **Lifetime:** an `id` lasts one hour; the response gives the time in `expires_at`. After that, upload the file again.
+- **Size:** 20 MB per file.
+- **Gemini models:** these cannot use an `id`. Send the file inline with `inline_data`.
 
 ## Next steps
 
-- [Video generation](https://atptoken.ai/docs/media-video/) — Pass the URL, or an asset URI, as a frame or reference image.
-- [Image generation](https://atptoken.ai/docs/media-image/) — Use the URL as an input image for edit-style models.
+- [Video generation](https://atptoken.ai/docs/media-video/) — Pass a public URL, or an asset URI, as a frame or reference image.
+- [Image generation](https://atptoken.ai/docs/media-image/) — Use a public URL as an input image for edit-style models.
 - [/v1/messages](https://atptoken.ai/docs/messages/) — Send requests that reference your uploaded file.
