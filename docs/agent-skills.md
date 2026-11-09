@@ -9,11 +9,11 @@ ATP Agent Skills are public operating guides for Codex, Claude Code, and other a
 The same guidance is also an MCP server: `atptoken-api-docs` at `https://mcp.atptoken.ai/mcp` (Streamable HTTP). It gives an agent the API guide, a live model check and a checker for video requests. Adding it needs no key; only the live model check asks for one. Once it is in one agent, its `atptoken_install` tool can add it to another:
 
 ```
-claude mcp add --transport http --scope user atptoken-api-docs https://mcp.atptoken.ai/mcp
+claude mcp add --transport http atptoken-api-docs https://mcp.atptoken.ai/mcp
 codex mcp add atptoken-api-docs --url https://mcp.atptoken.ai/mcp
 ```
 
-Setup for the Claude app, ChatGPT, Cursor and other tools is in [Add the ATP MCP server](https://atptoken.ai/docs/mcp/). To have an agent set up either way for you, paste this to it: `Follow https://atptoken.ai/connect.md to connect ATP Token for me.`
+To have an agent set up either way for you, paste this to it: `Follow https://atptoken.ai/connect.md to connect ATP Token for me.`
 
 ## Before you start
 

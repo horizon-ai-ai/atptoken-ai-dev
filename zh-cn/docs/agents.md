@@ -4,14 +4,14 @@
 
 任何会说 Anthropic 或 OpenAI wire format 的 agent 都能跑在项目（project）密钥上。真正要填的只有三个值：Gateway 的 base URL、一把 `atp-` 开头的密钥，以及该项目已启用的模型 ID。这一页涵盖我们完整记录的两个 agent（Claude Code 与 Codex CLI）、其他工具共用的通用规则，以及三个套用通用规则会坏掉的工具。
 
-agent 也可以保留原本的模型，改加上 ATP 的 MCP 伺服器 `atptoken-api-docs`：它提供 API 文件、即时查模型、送影片任务前的检查。加上它不需要密钥，只有「即时查模型」要带密钥。装进一个 agent 之后，它的 `atptoken_install` 工具可以再帮你装到别的 agent：
+agent 也可以保留原本的模型，改加上 ATP 的 MCP 服务器 `atptoken-api-docs`：它提供 API 文档、实时查模型、提交视频任务前的检查。加上它不需要密钥，只有「实时查模型」要带密钥。装进一个 agent 之后，它的 `atptoken_install` 工具可以再帮你装到别的 agent：
 
 ```
-claude mcp add --transport http --scope user atptoken-api-docs https://mcp.atptoken.ai/mcp
+claude mcp add --transport http atptoken-api-docs https://mcp.atptoken.ai/mcp
 codex mcp add atptoken-api-docs --url https://mcp.atptoken.ai/mcp
 ```
 
-Claude 应用程式、ChatGPT、Cursor 等工具的设定见[加入 ATP MCP 伺服器](https://atptoken.ai/zh-cn/docs/mcp/)。[connect.md](https://atptoken.ai/zh-cn/connect.md/) 会带 agent 走完这两种接法。
+[connect.md](https://atptoken.ai/zh-cn/connect.md/) 会带 agent 走完这两种接法。
 
 ## 贴给你的 agent
 

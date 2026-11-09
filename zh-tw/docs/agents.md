@@ -7,11 +7,11 @@
 agent 也可以保留原本的模型，改加上 ATP 的 MCP 伺服器 `atptoken-api-docs`：它提供 API 文件、即時查模型、送影片任務前的檢查。加上它不需要金鑰，只有「即時查模型」要帶金鑰。裝進一個 agent 之後，它的 `atptoken_install` 工具可以再幫你裝到別的 agent：
 
 ```
-claude mcp add --transport http --scope user atptoken-api-docs https://mcp.atptoken.ai/mcp
+claude mcp add --transport http atptoken-api-docs https://mcp.atptoken.ai/mcp
 codex mcp add atptoken-api-docs --url https://mcp.atptoken.ai/mcp
 ```
 
-Claude 應用程式、ChatGPT、Cursor 等工具的設定見[加入 ATP MCP 伺服器](https://atptoken.ai/zh-tw/docs/mcp/)。[connect.md](https://atptoken.ai/zh-tw/connect.md/) 會帶 agent 走完這兩種接法。
+[connect.md](https://atptoken.ai/zh-tw/connect.md/) 會帶 agent 走完這兩種接法。
 
 ## 貼給你的 agent
 

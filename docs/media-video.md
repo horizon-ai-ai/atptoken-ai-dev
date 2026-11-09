@@ -130,7 +130,7 @@ Where this chain usually goes wrong:
 - **Groups have a quota (about 50).** Reuse groups; do not open one per asset.
 - **`name` is at most 64 characters.** A longer name still gets 200 at registration and only fails when polled (`InvalidParameter.Name`); a task using it gets `ATP_ASSET_FAILED`. Shorten the name.
 - **One task cannot mix assets from different sources**; that returns `400`.
-- The asset is ready when its status is `Completed` or `Active` (depending on the upstream).
+- The asset is ready when its status is `Completed` or `Active`; which one you get is up to the upstream.
 
 **Some models queue registrations.** Each group accepts one creation every 20 seconds, so you immediately get an `asset-q-…` id (`AssetUri` is `asset://asset-q-…`), status `Processing`, and an estimated wait in `Retry-After`. Poll until `Completed` before using it. Different groups queue independently.
 

@@ -8,7 +8,7 @@
 
 ### 有 MCP 伺服器嗎？
 
-有：`atptoken-api-docs`，網址 `https://mcp.atptoken.ai/mcp`。它讓 Claude Code、Codex 等 agent 有 API 文件、即時查模型、送影片任務前的檢查。加上它不需要金鑰；只有「即時查模型」要帶你的金鑰。各工具的設定方式見[加入 ATP MCP 伺服器](https://atptoken.ai/zh-tw/docs/mcp/)。
+有：`atptoken-api-docs`，網址 `https://mcp.atptoken.ai/mcp`。它讓 Claude Code、Codex 等 agent 有 API 文件、即時查模型、送影片任務前的檢查。加上它不需要金鑰；只有「即時查模型」要帶你的金鑰。各工具的安裝指令見 [SDK 與 coding agent](https://atptoken.ai/zh-tw/docs/agents/)。
 
 ### 我需要特別的 SDK 嗎？
 

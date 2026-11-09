@@ -23,7 +23,7 @@ ATP Token centralizes AI usage governance and billing: organizations, workspaces
 - Billing: pay-as-you-go credits, no monthly fee, USD 5 minimum top-up (USD 1 = 100 credits). List rates are published per model.
 
 ## Models
-Browse the catalog (83 public models; text: 45, image: 9, video: 26, audio: 1, embedding: 2):
+Browse the catalog (89 public models; text: 45, image: 9, video: 32, audio: 1, embedding: 2):
 - [Model catalog](https://atptoken.ai/models/)
 - [Model price table](https://atptoken.ai/models/?view=table): every model's price, filterable by type, vendor and positioning
 - [Pricing: how credits work](https://atptoken.ai/pricing/)
@@ -115,7 +115,6 @@ Every documentation page is also served as plain Markdown: append `.md` to the p
 ### Integrations · Agents
 
 - [Coding agents](https://atptoken.ai/docs/agents.md): Any agent that speaks the Anthropic or OpenAI wire format can run on a project key. Three values do the whole job: the Gateway base URL, an atp- key,…
-- [MCP server](https://atptoken.ai/docs/mcp.md): Add https://mcp.atptoken.ai/mcp to Claude, ChatGPT, Cursor, Codex and other AI tools so they can look up and check ATP API calls. No key needed. Your…
 - [Agent Skills](https://atptoken.ai/docs/agent-skills.md): ATP Agent Skills are public operating guides for Codex, Claude Code, and other agents that support SKILL.md. They teach an agent ATP authentication,…
 
 ### Integrations · SDKs
@@ -161,7 +160,6 @@ Each Markdown twin leads with the article's TL;DR and closes with its FAQ.
 - [OpenAPI specification](https://atptoken.ai/openapi.json): machine-readable spec for the console API (organizations, workspaces, projects, usage, billing, request logs) — operation IDs, typed parameters and auth scheme included for function-calling tools.
 - [API reference docs](https://atptoken.ai/docs/console-api/)
 - [Agents & automation guide](https://atptoken.ai/docs/agents/)
-- [MCP server setup for each AI tool](https://atptoken.ai/docs/mcp/)
 - [Agent Skills](https://atptoken.ai/docs/agent-skills/)
 - Live Swagger UI (authoritative, backend-hosted): https://admin.atptoken.ai/api/docs
 - [Contact / support](https://atptoken.ai/contact/)
