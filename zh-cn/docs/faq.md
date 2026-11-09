@@ -6,9 +6,9 @@
 
 ## 连接 Gateway
 
-### 有 MCP 服务器吗？
+### 有 MCP 伺服器吗？
 
-有：`atptoken-api-docs`，网址 `https://mcp.atptoken.ai/mcp`。它让 Claude Code、Codex 等 agent 有 API 文档、实时查模型、提交视频任务前的检查。加上它不需要密钥；只有「实时查模型」要带你的密钥。各工具的安装指令见 [SDK 与 coding agent](https://atptoken.ai/zh-cn/docs/agents/)。
+有：`atptoken-api-docs`，网址 `https://mcp.atptoken.ai/mcp`。它让 Claude Code、Codex 等 agent 有 API 文件、即时查模型、送影片任务前的检查。加上它不需要密钥；只有「即时查模型」要带你的密钥。各工具的设定方式见[加入 ATP MCP 伺服器](https://atptoken.ai/zh-cn/docs/mcp/)。
 
 ### 我需要特别的 SDK 吗？
 

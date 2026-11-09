@@ -4,16 +4,16 @@
 
 ATP Agent Skills 是提供给 Codex、Claude Code 与其他支持 `SKILL.md` 的 agent 使用的公开操作手册。安装后，agent 会知道 ATP 的验证方式、统一模型名称、API payload、非同步媒体任务与常见错误，不需要把上游供应商的介面写进你的项目（project）。
 
-## 想用 MCP？ATP 有 MCP 服务器
+## 想用 MCP？ATP 有 MCP 伺服器
 
-同一套指引也有 MCP 版本：`atptoken-api-docs`，网址 `https://mcp.atptoken.ai/mcp`（Streamable HTTP）。它提供 API 文档、实时查模型、提交视频任务前的检查。加上它不需要密钥，只有「实时查模型」要带密钥。装进一个 agent 之后，它的 `atptoken_install` 工具可以再帮你装到别的 agent：
+同一套指引也有 MCP 版本：`atptoken-api-docs`，网址 `https://mcp.atptoken.ai/mcp`（Streamable HTTP）。它提供 API 文件、即时查模型、送影片任务前的检查。加上它不需要密钥，只有「即时查模型」要带密钥。装进一个 agent 之后，它的 `atptoken_install` 工具可以再帮你装到别的 agent：
 
 ```
-claude mcp add --transport http atptoken-api-docs https://mcp.atptoken.ai/mcp
+claude mcp add --transport http --scope user atptoken-api-docs https://mcp.atptoken.ai/mcp
 codex mcp add atptoken-api-docs --url https://mcp.atptoken.ai/mcp
 ```
 
-想让 agent 自己接好，把这句话贴给它：`照 https://atptoken.ai/connect.md 的步骤，帮我把 ATP Token 接上。`
+Claude 应用程式、ChatGPT、Cursor 等工具的设定见[加入 ATP MCP 伺服器](https://atptoken.ai/zh-cn/docs/mcp/)。想让 agent 自己接好，把这句话贴给它：`照 https://atptoken.ai/connect.md 的步骤，帮我把 ATP Token 接上。`
 
 ## 开始之前
 

@@ -9,11 +9,11 @@ ATP Agent Skills 是提供給 Codex、Claude Code 與其他支援 `SKILL.md` 的
 同一套指引也有 MCP 版本：`atptoken-api-docs`，網址 `https://mcp.atptoken.ai/mcp`（Streamable HTTP）。它提供 API 文件、即時查模型、送影片任務前的檢查。加上它不需要金鑰，只有「即時查模型」要帶金鑰。裝進一個 agent 之後，它的 `atptoken_install` 工具可以再幫你裝到別的 agent：
 
 ```
-claude mcp add --transport http atptoken-api-docs https://mcp.atptoken.ai/mcp
+claude mcp add --transport http --scope user atptoken-api-docs https://mcp.atptoken.ai/mcp
 codex mcp add atptoken-api-docs --url https://mcp.atptoken.ai/mcp
 ```
 
-想讓 agent 自己接好，把這句話貼給它：`照 https://atptoken.ai/connect.md 的步驟，幫我把 ATP Token 接上。`
+Claude 應用程式、ChatGPT、Cursor 等工具的設定見[加入 ATP MCP 伺服器](https://atptoken.ai/zh-tw/docs/mcp/)。想讓 agent 自己接好，把這句話貼給它：`照 https://atptoken.ai/connect.md 的步驟，幫我把 ATP Token 接上。`
 
 ## 開始之前
 

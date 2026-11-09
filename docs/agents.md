@@ -7,11 +7,11 @@ Any agent that speaks the Anthropic or OpenAI wire format can run on a project k
 An agent can also keep its own model and add ATP's MCP server, `atptoken-api-docs`, which gives it the API guide, a live model check and a video-request checker. Adding it needs no key; only the live model check asks for one. Once it is in one agent, its `atptoken_install` tool can add it to another:
 
 ```
-claude mcp add --transport http atptoken-api-docs https://mcp.atptoken.ai/mcp
+claude mcp add --transport http --scope user atptoken-api-docs https://mcp.atptoken.ai/mcp
 codex mcp add atptoken-api-docs --url https://mcp.atptoken.ai/mcp
 ```
 
-[connect.md](https://atptoken.ai/connect.md/) walks an agent through both ways.
+Setup for the Claude app, ChatGPT, Cursor and other tools is in [Add the ATP MCP server](https://atptoken.ai/docs/mcp/). [connect.md](https://atptoken.ai/connect.md/) walks an agent through both ways.
 
 ## Paste this to your agent
 

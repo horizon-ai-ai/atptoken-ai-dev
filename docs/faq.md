@@ -8,7 +8,7 @@ Short answers to common questions about connecting to the Gateway, which models 
 
 ### Is there an MCP server?
 
-Yes: `atptoken-api-docs` at `https://mcp.atptoken.ai/mcp`. It gives Claude Code, Codex and other agents the API guide, a live model check and a video-request checker. Adding it needs no key; only the live model check asks for your key. Commands for each tool are in [SDKs and coding agents](https://atptoken.ai/docs/agents/).
+Yes: `atptoken-api-docs` at `https://mcp.atptoken.ai/mcp`. It gives Claude Code, Codex and other agents the API guide, a live model check and a video-request checker. Adding it needs no key; only the live model check asks for your key. Setup for each tool is in [Add the ATP MCP server](https://atptoken.ai/docs/mcp/).
 
 ### Do I need a special SDK?
 

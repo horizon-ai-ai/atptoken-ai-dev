@@ -27,9 +27,9 @@
 <p class="muted">ATP 的 MCP 網址是 <code>https://mcp.atptoken.ai/mcp</code>，這一頁不是 MCP 端點本身。加上它不需要金鑰。</p>
 
 <h2>Add it</h2>
-<pre>claude mcp add --transport http atptoken-api-docs https://mcp.atptoken.ai/mcp
+<pre>claude mcp add --transport http --scope user atptoken-api-docs https://mcp.atptoken.ai/mcp
 codex mcp add atptoken-api-docs --url https://mcp.atptoken.ai/mcp</pre>
-<p>Other tools: add the remote MCP URL <code>https://mcp.atptoken.ai/mcp</code>. Start a new session afterwards so the tools load.</p>
+<p>Claude app, ChatGPT, Cursor, Cline, Gemini CLI and other tools: paste-ready setup for each is at <a href="/docs/mcp/">Add the ATP MCP server</a> (<a href="/docs/mcp.md">Markdown</a>). Start a new session afterwards so the tools load.</p>
 
 <h2>What it gives your assistant</h2>
 <ul>

@@ -115,6 +115,7 @@ Every documentation page is also served as plain Markdown: append `.md` to the p
 ### Integrations · Agents
 
 - [Coding agents](https://atptoken.ai/docs/agents.md): Any agent that speaks the Anthropic or OpenAI wire format can run on a project key. Three values do the whole job: the Gateway base URL, an atp- key,…
+- [MCP server](https://atptoken.ai/docs/mcp.md): Add https://mcp.atptoken.ai/mcp to Claude, ChatGPT, Cursor, Codex and other AI tools so they can look up and check ATP API calls. No key needed. Your…
 - [Agent Skills](https://atptoken.ai/docs/agent-skills.md): ATP Agent Skills are public operating guides for Codex, Claude Code, and other agents that support SKILL.md. They teach an agent ATP authentication,…
 
 ### Integrations · SDKs
@@ -160,6 +161,7 @@ Each Markdown twin leads with the article's TL;DR and closes with its FAQ.
 - [OpenAPI specification](https://atptoken.ai/openapi.json): machine-readable spec for the console API (organizations, workspaces, projects, usage, billing, request logs) — operation IDs, typed parameters and auth scheme included for function-calling tools.
 - [API reference docs](https://atptoken.ai/docs/console-api/)
 - [Agents & automation guide](https://atptoken.ai/docs/agents/)
+- [MCP server setup for each AI tool](https://atptoken.ai/docs/mcp/)
 - [Agent Skills](https://atptoken.ai/docs/agent-skills/)
 - Live Swagger UI (authoritative, backend-hosted): https://admin.atptoken.ai/api/docs
 - [Contact / support](https://atptoken.ai/contact/)

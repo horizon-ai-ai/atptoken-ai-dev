@@ -42,7 +42,7 @@ programmer. Do the steps yourself; ask the person only for what is marked
 |---|---|---|
 | Base URL | `https://api.atptoken.ai` (no `/v1`) | `https://api.atptoken.ai/v1` |
 | API key | an `atp-…` project key | the same key |
-| Model | an id from `GET /v1/models` | an id from `GET /v1/models` |
+| Model | an id from `GET /v1/project/models` | an id from `GET /v1/models` |
 
 ## 1. Get the key
 
@@ -65,20 +65,24 @@ files, or commit it. It belongs only in the user-level config named below.
 ## 2. List the model ids
 
 ```sh
-curl -s https://api.atptoken.ai/v1/models -H "Authorization: Bearer $ATP_API_KEY"
+curl -s https://api.atptoken.ai/v1/project/models -H "Authorization: Bearer $ATP_API_KEY"
 ```
 
-Use ids from this reply exactly; never guess a model id. A `200` proves the
-key works; a `401` means it is wrong or revoked: go back to step 1. This list
-holds the models the key's project allows on the chat endpoints
-(`/v1/chat/completions`, `/v1/responses`); `GET /v1/project/models` lists
-everything the project allows, including image, video and speech models. A
+This lists everything the key's project allows: chat, image, video and speech
+models. Use ids from this reply exactly; never guess a model id. A `200` proves
+the key works; a `401` means it is wrong or revoked: go back to step 1. A
 request to a model the project does not allow returns `403` (**Person:** they
 enable it at https://atptoken.ai/console/workspaces).
 
+`GET /v1/models` is a narrower list: only the OpenAI-format chat models
+(`/v1/chat/completions`, `/v1/responses`). Codex and the tools in 3c can call
+only those, so pick their model from it. Most `claude-*` models are not on it,
+because Claude Code calls them on `/v1/messages`; for Claude Code, pick from
+`GET /v1/project/models`.
+
 Path A: pick a model the person asked for. If they did not say, pick a
-coding model from the list (for Claude Code, a `claude-` model) and tell them
-which. Path B: you do not change your own model. Prices of every model are
+coding model (for Claude Code, a `claude-` model from
+`GET /v1/project/models`) and tell them which. Path B: you do not change your own model. Prices of every model are
 at https://atptoken.ai/models/.
 
 ## 3. Find out which app you are, then configure it
@@ -161,14 +165,15 @@ No key is needed for this.
 
 - Claude Code: `claude mcp add --transport http --scope user atptoken-api-docs https://mcp.atptoken.ai/mcp`
 - Codex: `codex mcp add atptoken-api-docs --url https://mcp.atptoken.ai/mcp`
-- Another tool: add the remote (Streamable HTTP) MCP URL
-  `https://mcp.atptoken.ai/mcp`; its `atptoken_install` tool lists the command
-  for Cursor, Windsurf, Zed, Cline, Continue and stdio-only tools.
+- Claude app (web, desktop), ChatGPT, Cursor, Cline, Gemini CLI and other
+  tools: follow your tool's section in https://atptoken.ai/docs/mcp.md. In
+  short, add the remote (Streamable HTTP) MCP URL `https://mcp.atptoken.ai/mcp`.
 
 Optional: with the key attached, its `atptoken_list_models` tool can check
 live which models this key's project allows. In Claude Code add
-`-H "Authorization: Bearer $ATP_API_KEY"` to the command above; in Codex add
-`--bearer-token-env-var ATP_API_KEY`.
+`--header "Authorization: Bearer $ATP_API_KEY"` to the command above (if the
+server is already added, run `claude mcp remove --scope user atptoken-api-docs`
+first); in Codex add `--bearer-token-env-var ATP_API_KEY`.
 
 **Person:** ask them to start a new session of you; MCP tools load at start.
 
