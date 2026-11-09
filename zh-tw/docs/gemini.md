@@ -4,7 +4,13 @@
 
 `POST /v1/models/{model}:generateContent`
 
-Gemini REST 風格的 `generateContent` 與 `streamGenerateContent` 路由，在 `/v1` 與 `/v1beta`（Google GenAI SDK 預設）底下皆支援。以 `x-goog-api-key` 驗證——這是 SDK 的預設。
+Gemini REST 風格的 `generateContent` 與 `streamGenerateContent` 路由，在 `/v1` 與 `/v1beta` 底下都支援。
+
+請用 `google-genai` SDK（Python 或 Node），不是已棄用的 `google-generativeai`。把 base URL 指到 `https://api.atptoken.ai`，`apiVersion` 設成 `"v1beta"`。
+
+> **apiVersion 要設成 v1beta**
+>
+> 釘在 `apiVersion: "v1"` 的客戶端會去 `/v1/models` 拿模型清單。那是 OpenAI 的清單端點、回 OpenAI 格式，所以 Gemini SDK 會解析出 **0 個**模型，而且不會報錯。聊天呼叫不受影響：`/v1/models/{model}:generateContent` 和 `/v1beta/models/{model}:generateContent` 都是 Gemini 路由，兩條都能用。
 
 ## 路由
 
@@ -15,17 +21,20 @@ Gemini REST 風格的 `generateContent` 與 `streamGenerateContent` 路由，在
 | POST | `/v1/models/{model}:generateContent` | 同 `/v1beta` |
 | POST | `/v1/models/{model}:streamGenerateContent` | 同 `/v1beta` |
 
-`{model}` 是 [GET /v1/models](https://atptoken.ai/zh-tw/docs/models/) 回傳的 id，例如 `gemini-3-5-flash-lite`。
+模型放在 **URL** 裡，不放在 body。`{model}` 是 `GET /v1beta/models` 回傳的 id，這份清單列的就是這些路由收得下的模型，例如 `gemini-3-5-flash-lite`。專案的完整清單見 [GET /v1/project/models](https://atptoken.ai/zh-tw/docs/models/)。
+
+從模型名稱看不出該走哪個入口。`gemini-3-5-flash` 在 `/v1/chat/completions` 服務，`gemini-3-5-flash-lite` 則在這裡。打錯入口會回 `422`，訊息會指名正確的入口。
 
 ## 驗證
 
-三種方式都可以用，依你的客戶端預設即可。見[驗證方式](https://atptoken.ai/zh-tw/docs/auth/)。
+下面幾種都可以用，依你的客戶端預設即可。見[驗證方式](https://atptoken.ai/zh-tw/docs/auth/)。
 
 | 方式 | 範例 |
 | --- | --- |
 | `x-goog-api-key` header | `x-goog-api-key: atp-...`——Google GenAI SDK 的預設 |
 | `key` query 參數 | `…:generateContent?key=atp-...`——log 會遮蔽，但仍建議用 header |
 | Bearer header | `Authorization: Bearer atp-...` |
+| `x-api-key` header | `x-api-key: atp-...` |
 
 ## 請求
 
@@ -43,10 +52,10 @@ from google import genai
 
 client = genai.Client(
     api_key="atp-...",
-    http_options={"base_url": "https://api.atptoken.ai"},
+    http_options={"base_url": "https://api.atptoken.ai", "api_version": "v1beta"},
 )
 r = client.models.generate_content(
-    model="<model from GET /v1/models>",
+    model="<model from GET /v1beta/models>",
     contents="hi",
 )
 print(r.text)
@@ -57,16 +66,28 @@ import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({
   apiKey: "atp-...",
-  httpOptions: { baseUrl: "https://api.atptoken.ai" },
+  httpOptions: { baseUrl: "https://api.atptoken.ai", apiVersion: "v1beta" },
 });
 const r = await ai.models.generateContent({
-  model: "<model from GET /v1/models>",
+  model: "<model from GET /v1beta/models>",
   contents: "hi",
 });
 console.log(r.text);
 ```
 
 `contents`、`systemInstruction` 與 `generationConfig`（例如 `maxOutputTokens`、`temperature`）都使用 Gemini 的欄位名稱。
+
+其他最上層欄位還有工具（`tools`、`toolConfig`）、安全設定、快取內容與標籤。Gateway 會原樣轉送欄位，所以同一個欄位可能 A 模型收、B 模型拒。
+
+### 檔案
+
+- 圖片、音訊、文件用 `inlineData`（base64）內嵌。
+- 或用 `fileData` 帶模型讀得到的 `fileUri`——你自己的 bucket 或 Gemini File API 的 URI，會原樣轉送。
+- 上傳到 Gateway 的檔案（`an_<ulid>`）在這個入口**用不了**：引用它會回 `404 file_unavailable_for_failover`。請改用 `inlineData` 內嵌位元組。
+
+### 工具呼叫
+
+工具宣告放在 `tools[].functionDeclarations`。模型的呼叫會以 `functionCall` part 回來；你把結果放在 `user` 回合的 `functionResponse` part 送回，用**名稱**對應（沒有 id）。這個入口的助理角色叫 `model`，不是 `assistant`。
 
 ## 回應
 
@@ -119,7 +140,9 @@ data: {"candidates":[{"content":{"parts":[{"text":", friend!"}],"role":"model"},
 data: {"candidates":[{"content":{"parts":[{"text":""}],"role":"model"},"finishReason":"STOP","index":0}],"usageMetadata":{"candidatesTokenCount":5,"promptTokenCount":31,"totalTokenCount":36}}
 ```
 
-每個區塊只帶新增的文字。`finishReason` 在最後一個區塊之前都是 `null`，最後一個區塊同時帶有 `usageMetadata`。沒有 `[DONE]` 行——連線關閉就代表串流結束。
+每個 `data:` 事件都是一個完整的 `GenerateContentResponse` JSON 物件，不是 OpenAI 那種增量 delta。
+
+`finishReason` 在最後一個區塊之前都是 `null`，最後一個區塊同時帶有 `usageMetadata`。沒有 `[DONE]` 行——連線關閉就代表串流結束。等 `data: [DONE]` 的程式在這裡會一直卡住。
 
 ## 與 Google API 的差異
 
@@ -129,8 +152,12 @@ data: {"candidates":[{"content":{"parts":[{"text":""}],"role":"model"},"finishRe
 
 ## 錯誤
 
-- 401 — 沒帶金鑰或金鑰無效。
-- 403 — 這個專案沒開放該模型，或模型不存在。
+- 401 — `token_revoked`：沒帶金鑰或金鑰無效。完全沒送金鑰也是這個錯誤。
+- 402 — `insufficient_quota`：餘額用完。不要重試，先儲值。
+- 403 — 這個專案沒開放該模型，或模型不存在。不收費。
+- 404 — `file_unavailable_for_failover`：你引用了上傳的 `an_<ulid>` 檔案。請改用 `inlineData`。
+- 422 — 這個模型不在這個入口服務。訊息會指名正確的入口。
+- 429 — 限流，或這個模型此刻沒有可用容量。依 `Retry-After` 等待。
 
 各狀態碼的意義與先檢查什麼，見[錯誤碼](https://atptoken.ai/zh-tw/docs/errors/)。
 

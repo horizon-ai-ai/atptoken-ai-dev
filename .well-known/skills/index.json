@@ -39,21 +39,21 @@
     },
     {
       "name": "atptoken-image",
-      "description": "Generate and edit images through the Atptoken LLM Gateway media surface at /omni/media/v1. Asynchronous — POST /omni/media/v1/images/generations/tasks returns 202 + a task id; poll until terminal, then download the signed URL. Edit-style models take their input images in a top-level reference_assets array. Use for nano-banana / gpt-image-2 and other image models via Atptoken with an atp- key. See atptoken-gateway for auth and errors.",
+      "description": "Generate and edit images through the Atptoken LLM Gateway media surface at /omni/media/v1. Asynchronous — POST /omni/media/v1/images/generations/tasks returns 202 + a task id; poll until terminal, then download data[].url within 24 hours. Every field except model is forwarded as-is, so each model family has its own parameter names (nano-banana image_size/num_images, qwen-image nested parameters with 1024*1024 sizes, gpt-image-2 size/quality/n) and its own place for edit input images (nano-banana -edit reference_assets, qwen-image messages). Use for nano-banana / qwen-image / gpt-image-2 and other image models via Atptoken with an atp- key. See atptoken-gateway for auth and errors.",
       "files": [
         "SKILL.md"
       ]
     },
     {
       "name": "atptoken-video",
-      "description": "Generate video (text-to-video / image-to-video) through the Atptoken LLM Gateway media surface at /omni/media/v1. Video is asynchronous — create a task, poll until it succeeds, then fetch a short-lived signed URL. Two client dialects (ModelArk-compatible and DashScope-native). Use for Seedance / Wan and other video models via Atptoken with an atp- key. See atptoken-gateway for auth and errors.",
+      "description": "Generate video (text-to-video / image-to-video / video edit) through the Atptoken LLM Gateway media surface at /omni/media/v1. Video is asynchronous — create a task, poll until it is terminal, then download a signed URL within 24 hours. The model decides the body shape. Two client dialects (ModelArk-compatible and DashScope-native). Use for Seedance / Kling / Wan / HappyHorse / MiniMax video models via Atptoken with an atp- key. See atptoken-gateway for auth and errors.",
       "files": [
         "SKILL.md"
       ]
     },
     {
       "name": "atptoken-audio",
-      "description": "Generate speech (text-to-speech / TTS) through the Atptoken LLM Gateway media surface at /omni/media/v1/audio/generations. Synchronous — text in, a short-lived signed audio URL out. Use for gpt-4o-mini-tts / gemini-tts / Fish Audio voices via Atptoken with an atp- key. See atptoken-gateway for auth and errors.",
+      "description": "Generate speech (text-to-speech / TTS) through the Atptoken LLM Gateway media surface at /omni/media/v1/audio/generations/tasks. Asynchronous — POST returns 202 + an aud_ task id; poll until terminal, then download the top-level audio_url (signed, 24 hours). Required fields are model and text. Use for fish-s2-pro / gemini-3-1-flash-tts via Atptoken with an atp- key. See atptoken-gateway for auth and errors.",
       "files": [
         "SKILL.md"
       ]

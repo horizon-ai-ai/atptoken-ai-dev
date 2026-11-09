@@ -9,19 +9,19 @@ Gateway 位在你的程式 与上游模型供应商之间。不论你用哪种 S
 **一个请求经过 Gateway**
 
 1. 你的程式 — `atp-…` 密钥 — OpenAI、Anthropic 或 Gemini 格式
-2. 验证 — 密钥检查 — 缺失、停用或过期回 `401`
-3. 授权模型 — 项目 allowed list — 模型不在清单上回 `403`
+2. 验证 — 密钥检查 — 缺失、停用或过期回 `401 token_revoked`
+3. 授权模型 — 项目 allowed list — 模型不在清单上回 `403`，打错入口回 `422`
 4. 路由到供应商 — 自动备援 — 遇到供应商错误或逾时就切换
 5. 计量与计费 — 点数 — 余额耗尽回 `402`
 6. 上游供应商 — 看不到你的 ATP 密钥
 
 ## 1. 验证
 
-项目（project） API 密钥会先被验证，并在转送上游前移除——供应商永远看不到你的 ATP 密钥。缺失、被停用或过期的密钥会以 `401` 拒绝。见 [验证方式](https://atptoken.ai/zh-cn/docs/auth/)。
+项目（project） API 密钥会先被验证，并在转送上游前移除——供应商永远看不到你的 ATP 密钥。密钥可以放在 `Authorization: Bearer` 或 `x-api-key`。缺失、被停用或过期的密钥会以 `401 token_revoked` 拒绝——完全没送密钥也是这个，所以先检查 header 有没有送出去。见 [验证方式](https://atptoken.ai/zh-cn/docs/auth/)。
 
 ## 2. 授权模型
 
-请求的模型必须在该项目的 allowed list 上。若不在，会在送到任何供应商前以 `403` 拒绝——模型存取权是设在项目、不是设在密钥。见 [模型查询](https://atptoken.ai/zh-cn/docs/models/)。
+请求的模型必须在该项目的 allowed list 上。若不在，会在送到任何供应商前以 `403` 拒绝，不收费——模型存取权是设在项目、不是设在密钥。另外每个模型只在一个入口服务（`/v1/chat/completions` 或 `/v1/responses`、`/v1/messages`、`/v1beta/models/{model}:generateContent`）；打错入口会回 `422`，消息会指名正确的入口。见 [模型查询](https://atptoken.ai/zh-cn/docs/models/)。
 
 ## 3. 路由到供应商
 
@@ -29,7 +29,7 @@ Gateway 会从该模型设定的供应商池 挑一个，遇到供应商错误�
 
 ## 4. 计量与计费
 
-Input 与 output tokens 会被计量，并以点数从该项目余额扣款。余额耗尽时请求会以 `402` 拒绝。见 [点数如何运作](https://atptoken.ai/zh-cn/docs/credits/)。
+Input 与 output tokens 会被计量，并以点数从该项目余额扣款。计费以「请求」为单位，不是以「尝试」为单位：一个请求在记录里可能有好几列，不要加总。余额耗尽时请求会以 `402` 拒绝。见 [点数如何运作](https://atptoken.ai/zh-cn/docs/credits/)。
 
 ## Gateway 改变什么、又不改变什么
 
@@ -37,17 +37,17 @@ Gateway 转译验证与路由，但把你的 request 与 response body 维持在
 
 | 帮你处理 | 维持不变 |
 |---|---|
-| 密钥验证与供应商验证 | Request body schema（依 SDK 格式） |
+| 密钥验证与供应商验证 | Request body schema（依 SDK 格式，不会帮你转换） |
 | 模型存取检查 | Response body schema |
 | 供应商挑选与自动备援（fallback） | 串流事件序列 |
 | 计量与点数扣款 | 模型行为与输出 |
 
-因为 wire format 原样通过，把既有的 OpenAI、Anthropic 或 Gemini 整合搬过来，通常只是改 base URL 与密钥。
+因为 wire format 原样通过，把既有的 OpenAI、Anthropic 或 Gemini 整合搬过来，通常只是改 base URL 与密钥——前提是你要呼叫的模型就在那个 SDK 的入口服务。有两件事不一样：`/v1/chat/completions` 与 `/v1/messages` 的 `stream` 默认是 `true`，请明确送；还有 HTTP `200` 不代表模型看到了你送的全部内容，因为 body 会原样转发，不替你检查每个模型的格式。每个回应都带 `x-request-id`，回报问题时附上它。
 
 ## 四个阶段再往下看
 
 - [验证方式](https://atptoken.ai/zh-cn/docs/auth/)
-  三种可接受的密钥放置位置，以及 `401` 到底代表什么。
+  密钥可以放在哪些位置，以及 `401` 到底代表什么。
 - [模型查询](https://atptoken.ai/zh-cn/docs/models/)
   把模型 ID 写死之前，先列出这把项目密钥能呼叫哪些模型。
 - [供应商路由与备援](https://atptoken.ai/zh-cn/docs/provider-routing/)

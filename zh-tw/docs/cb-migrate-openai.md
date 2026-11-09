@@ -2,7 +2,7 @@
 
 > Source: https://atptoken.ai/zh-tw/docs/cb-migrate-openai/
 
-把既有的 OpenAI 整合搬到 ATP，通常只是兩行改動：把 base URL 換成 Gateway、API 金鑰換成專案（project）金鑰。你的 request 與 response 結構完全不變。
+把既有的 OpenAI 整合搬到 ATP，通常只是兩行改動：把 base URL 換成 Gateway、API 金鑰換成專案（project）金鑰。你的 request 與 response 結構完全不變；唯一不同的預設值是 `stream`（見第 2 步）。
 
 ## 1. 拿一把專案金鑰
 
@@ -10,7 +10,7 @@
 
 ## 2. 換掉 base URL 與金鑰
 
-把 OpenAI SDK 指向 Gateway、用 `atp-` 金鑰。其餘——messages、tools、串流——都不變。
+把 OpenAI SDK 指向 Gateway、用 `atp-` 金鑰。messages 與 tools 都不變。要注意的是串流：`/v1/chat/completions` 的 `stream` 預設是 `true`，跟 OpenAI 官方相反，沒送 `stream` 的呼叫會收到 SSE 而不是 JSON。每個呼叫都明確送 `stream`（`/v1/responses` 則預設 `false`）。
 
 ```
 from openai import OpenAI
@@ -20,6 +20,7 @@ client = OpenAI(base_url="https://api.atptoken.ai/v1", api_key="atp-...")
 
 r = client.chat.completions.create(
     model="<model from GET /v1/models>",
+    stream=False,
     messages=[{"role": "user", "content": "hi"}],
 )
 print(r.choices[0].message.content)
@@ -27,7 +28,7 @@ print(r.choices[0].message.content)
 
 ## 3. 對應你的模型 ID
 
-ATP 的模型 ID 來自 [GET /v1/models](https://atptoken.ai/zh-tw/docs/models/)，不是 OpenAI 的型錄。列出後把 `model` 欄位改成你專案已啟用的 id——未啟用的模型會回 `403`。
+ATP 的模型 ID 來自 [GET /v1/models](https://atptoken.ai/zh-tw/docs/models/)，不是 OpenAI 的型錄。這份清單剛好就是 OpenAI SDK 在這裡能呼叫的模型；把 `model` 欄位改成其中一個。專案沒啟用的模型會回 `403`（不收費）。想用的模型不在上面，就查專案的完整清單 `GET /v1/project/models`：它可能在別的入口服務，例如多數 `claude-*` 走 `/v1/messages`，用 OpenAI SDK 去打會回 `422`，訊息會指名那個入口。
 
 ## 4. 測試並確認
 
@@ -35,7 +36,7 @@ ATP 的模型 ID 來自 [GET /v1/models](https://atptoken.ai/zh-tw/docs/models/)
 
 > **結構一樣，帳單合一**
 >
-> 因為 OpenAI wire format 原樣通過，你 app 裡解析 response 的部分不用改。現在跨所有模型的用量都以點數計量。見 [點數如何運作](https://atptoken.ai/zh-tw/docs/credits/)。
+> 因為 OpenAI wire format 原樣通過，你 app 裡解析 response 的部分不用改——前提是 `stream` 有明確送。現在跨所有模型的用量都以點數計量。見 [點數如何運作](https://atptoken.ai/zh-tw/docs/credits/)。
 
 ## 下一步
 

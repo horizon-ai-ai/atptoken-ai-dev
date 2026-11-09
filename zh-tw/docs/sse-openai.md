@@ -6,7 +6,7 @@
 
 ## 請求
 
-加上 `"stream": true`。curl 要加 `-N`，輸出才不會被緩衝。
+加上 `"stream": true`。在 `/v1/chat/completions` 這本來就是預設，但還是要明確送：`/v1/responses` 預設是 `false`，程式在兩者之間搬動時，串流行為會不聲不響地反過來。curl 要加 `-N`，輸出才不會被緩衝。
 
 ```curl
 curl -N https://api.atptoken.ai/v1/chat/completions \
@@ -50,7 +50,27 @@ for await (const chunk of stream) {
 
 ## 用量與串流結束
 
-最後一個 chunk 含 `usage` 物件；串流以 `data: [DONE]` 結束。
+每個 chunk 帶的是增量的 `delta`。串流以 `data: [DONE]` 結束，請等這一行。
+
+只要是串流請求，Gateway 一律會向上游送 `stream_options: {"include_usage": true}`，就算你沒寫也一樣，因為計費需要 token 數。所以串流尾端、`data: [DONE]` 之前，一定會多一個帶 `usage` 的 chunk。你自己送 `stream_options` 也沒關係。
+
+```
+data: {"choices":[{"delta":{"content":"Hel"}}],…}
+data: {"choices":[{"delta":{"content":"lo"}}],…}
+data: [DONE]
+```
+
+## 串流開始前的錯誤
+
+送出任何 chunk 之前，請求會先依序檢查：模型不在專案允許清單 → `403`；餘額用完 → `402`；此刻沒有可用容量 → `429`。這些會以一般 JSON 錯誤加上 HTTP 狀態碼回傳，不會有串流，所以讀 chunk 前先檢查狀態碼。見[錯誤碼](https://atptoken.ai/zh-tw/docs/errors/)。
+
+## /v1/responses 的串流格式不同
+
+`/v1/responses` 用具名事件（`event: <type>` 加 `data: {...}`），每個事件帶遞增的 `sequence_number`。
+
+- 文字在 `response.output_text.delta` 事件裡。
+- 串流以 `response.completed` 結束，裡面有完整的 `output[]` 和 `usage`。
+- 如果答案被 `max_output_tokens` 截斷，`response.completed` 的 `status` 會是 `"incomplete"`。
 
 ## 下一步
 

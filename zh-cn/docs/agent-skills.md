@@ -4,16 +4,16 @@
 
 ATP Agent Skills 是提供给 Codex、Claude Code 与其他支持 `SKILL.md` 的 agent 使用的公开操作手册。安装后，agent 会知道 ATP 的验证方式、统一模型名称、API payload、非同步媒体任务与常见错误，不需要把上游供应商的介面写进你的项目（project）。
 
-## 想用 MCP？ATP 有 MCP 服务器
+## 想用 MCP？ATP 有 MCP 伺服器
 
-同一套指引也有 MCP 版本：`atptoken-api-docs`，网址 `https://mcp.atptoken.ai/mcp`（Streamable HTTP）。它提供 API 文档、实时查模型、提交视频任务前的检查。加上它不需要密钥：
+同一套指引也有 MCP 版本：`atptoken-api-docs`，网址 `https://mcp.atptoken.ai/mcp`（Streamable HTTP）。它提供 API 文件、即时查模型、送影片任务前的检查。加上它不需要密钥，只有「即时查模型」要带密钥。装进一个 agent 之后，它的 `atptoken_install` 工具可以再帮你装到别的 agent：
 
 ```
-claude mcp add --transport http atptoken-api-docs https://mcp.atptoken.ai/mcp
+claude mcp add --transport http --scope user atptoken-api-docs https://mcp.atptoken.ai/mcp
 codex mcp add atptoken-api-docs --url https://mcp.atptoken.ai/mcp
 ```
 
-想让 agent 自己接好，把这句话贴给它：`照 https://atptoken.ai/connect.md 的步骤，帮我把 ATP Token 接上。`
+Claude 应用程式、ChatGPT、Cursor 等工具的设定见[加入 ATP MCP 伺服器](https://atptoken.ai/zh-cn/docs/mcp/)。想让 agent 自己接好，把这句话贴给它：`照 https://atptoken.ai/connect.md 的步骤，帮我把 ATP Token 接上。`
 
 ## 开始之前
 
@@ -63,7 +63,7 @@ sh /tmp/install-atptoken-skills.sh codex
 | `atptoken-openai` | OpenAI-compatible chat 与 Responses-style 工作流 |
 | `atptoken-anthropic` | Anthropic Messages 格式与 Claude 工具 |
 | `atptoken-gemini` | Gemini 原生 `generateContent` 格式 |
-| `atptoken-image` | 同步图像生成 |
+| `atptoken-image` | 图像生成与改图（非同步任务） |
 | `atptoken-video` | 文生影／图生影、task 建立与轮询 |
 | `atptoken-audio` | TTS、语音与音讯任务 |
 
@@ -83,11 +83,11 @@ find "${CLAUDE_HOME:-$HOME/.claude}/skills" -maxdepth 2 -name SKILL.md \
   -path "*/atptoken-*"
 ```
 
-接著在 agent 中要求「使用 ATP 产生一张图片」或「用 ATP 建立 Wan 影片任务」。agent 应先以同一把项目密钥呼叫 `GET https://api.atptoken.ai/v1/models`，再选择该项目已启用的模型——也就是 [把任何 coding agent 接上 ATP](https://atptoken.ai/zh-cn/docs/agents/) 讲的同一个第一步。如果 agent 跳过这一步、自己写死一个模型名，那就是要纠正的行为。
+接著在 agent 中要求「使用 ATP 产生一张图片」或「用 ATP 建立 Wan 影片任务」。agent 应先以同一把项目密钥呼叫 `GET https://api.atptoken.ai/v1/project/models`（项目的完整清单，媒体模型也在里面），再选择该项目已启用的模型——也就是 [把任何 coding agent 接上 ATP](https://atptoken.ai/zh-cn/docs/agents/) 讲的同一个第一步。这里不能用 `GET /v1/models`：它只列 OpenAI 格式的 chat 模型，图像与影片模型永远不会出现在上面。如果 agent 跳过这一步、自己写死一个模型名，那就是要纠正的行为。
 
 > **模型权限仍由项目控管**
 >
-> 安装 Skill 不会自动启用模型，也不会绕过 allowed models。`GET /v1/models` 没有出现的模型不能用；请先到控制台的「资源」调整项目模型。
+> 安装 Skill 不会自动启用模型，也不会绕过 allowed models。项目没开权限的模型，建立请求时会回 `403`（不收费）；请先到控制台的「资源」调整项目模型。项目允许哪些模型，看 `GET /v1/project/models`——`GET /v1/models` 上没有的模型，可能只是走别的入口。
 
 ## 下一步
 

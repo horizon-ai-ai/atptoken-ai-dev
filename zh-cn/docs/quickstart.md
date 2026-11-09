@@ -23,7 +23,7 @@
 ## 2. 建立 API 密钥
 
 到控制台的「API 密钥」，按「建立 API 密钥」。精灵可选择既有工作区与项目，或在权限允许时建立；接著设定项目可呼叫的模型并产生密钥。**至少勾选一个模型**，这把密钥只能呼叫这些模型。
-密钥以 `atp-` 开头，完整内容只显示这一次，请立刻复制。
+一把密钥只绑一个项目：能用哪些模型、点数从谁扣，都由那个项目决定。密钥以 `atp-` 开头，完整内容只显示这一次，请立刻复制。
 
 ## 3. 安装 SDK 并设定密钥
 
@@ -43,7 +43,7 @@ export ATP_API_KEY="atp-your-key"
 
 Gateway 位址是 `https://api.atptoken.ai/v1`（OpenAI 格式）。密钥可以放在哪些 header，见 [验证方式](https://atptoken.ai/zh-cn/docs/auth/)。
 
-## 4. 查询这把密钥可用的模型
+## 4. 查询 OpenAI 格式能呼叫的模型
 
 ```curl
 curl https://api.atptoken.ai/v1/models \
@@ -67,11 +67,13 @@ const models = await client.models.list();
 for (const m of models.data) console.log(m.id);
 ```
 
-从清单挑一个模型 ID，下一步会用到。如果清单是空的，表示项目还没开通模型：到控制台的「资源」替项目加上模型。
+`GET /v1/models` 是 OpenAI 自己的清单端点，所以只列 `/v1/chat/completions` 与 `/v1/responses` 收的 chat 模型——刚好就是下一步能呼叫的。从这份清单挑一个模型 ID。
+
+它不是项目的完整清单：多数 `claude-*` 走 `/v1/messages`，Gemini 在 `/v1beta/models`，媒体与向量模型也不在里面。要看项目允许的全部模型，用同一把密钥打 `GET /v1/project/models`。两份都是空的，才表示项目还没开通模型：到控制台的「资源」替项目加上模型。
 
 ## 5. 送出第一个请求
 
-把 `MODEL_ID` 换成上一步挑的模型 ID。
+把 `MODEL_ID` 换成上一步挑的模型 ID。`stream` 一定要明确送：`/v1/chat/completions` 默认是 `true`，跟 OpenAI 官方相反，不送就会收到 SSE 而不是 JSON。
 
 ```curl
 curl https://api.atptoken.ai/v1/chat/completions \
@@ -79,18 +81,19 @@ curl https://api.atptoken.ai/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
     "model": "MODEL_ID",
+    "stream": false,
     "messages": [{"role": "user", "content": "hi"}]
   }'
 ```
 
 ```Python
-r = client.chat.completions.create(model="MODEL_ID", messages=[{"role": "user", "content": "hi"}])
+r = client.chat.completions.create(model="MODEL_ID", stream=False, messages=[{"role": "user", "content": "hi"}])
 print(r.choices[0].message.content)
 print(r.usage)
 ```
 
 ```Node.js
-const r = await client.chat.completions.create({ model: "MODEL_ID", messages: [{ role: "user", content: "hi" }] });
+const r = await client.chat.completions.create({ model: "MODEL_ID", stream: false, messages: [{ role: "user", content: "hi" }] });
 console.log(r.choices[0].message.content, r.usage);
 ```
 
@@ -116,9 +119,10 @@ console.log(r.choices[0].message.content, r.usage);
 
 | 回应 | 代表什么 | 怎么处理 |
 |---|---|---|
-| `401` | 密钥没带到、打错，或已停用 | 确认 `ATP_API_KEY` 有值、以 `atp-` 开头；必要时到「API 密钥」重新建立 |
+| `401 token_revoked` | 密钥没带到、打错，或已停用。完全没送密钥也是这个 | 先确认 header 真的有送出去、`ATP_API_KEY` 有值且以 `atp-` 开头；必要时到「API 密钥」重新建立 |
 | `402` | 点数用完 | 到「账单」充值；团队组织再到「资源」拨点数 |
-| `403` | 这个模型没有在项目开通 | 改用第 4 步清单里的模型 ID，或到「资源」替项目加上模型 |
+| `403` | 这个模型没有在项目开通。建立时就被拒，不收费 | 改用第 4 步清单里的模型 ID，或到「资源」替项目加上模型 |
+| `422` | 这个模型不在这个入口服务，消息会指名正确的入口 | 改打消息指名的入口、用对应的 SDK——见 [Anthropic SDK](https://atptoken.ai/zh-cn/docs/sdk-anthropic/) 或 [Google GenAI SDK](https://atptoken.ai/zh-cn/docs/sdk-google/) |
 
 其他状态码见 [错误码](https://atptoken.ai/zh-cn/docs/errors/)。
 

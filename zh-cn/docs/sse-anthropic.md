@@ -6,7 +6,7 @@
 
 ## 请求
 
-在 [/v1/messages](https://atptoken.ai/zh-cn/docs/messages/) 设 `stream: true`。
+在 [/v1/messages](https://atptoken.ai/zh-cn/docs/messages/) 设 `stream: true`。这个端点本来就默认 `true`（和 Anthropic 官方 API 不同），但还是要明确送，行为才不会依赖默认值。
 
 ```curl
 curl -N https://api.atptoken.ai/v1/messages \
@@ -173,11 +173,13 @@ data: {"type":"message_delta","usage":{"input_tokens":672,"cache_read_input_toke
 
 ## 错误
 
-串流开始前就发现的错误，会以一般 JSON 回应加上 HTTP 状态码回传，不会有事件串流。开始读事件前，请先检查状态码（或 `Content-Type: text/event-stream`）。
+串流开始前就发现的错误，会以一般 JSON 回应加上 HTTP 状态码回传，不会有事件串流。检查顺序是：模型不在项目允许清单 → `403`；余额用完 → `402`；此刻没有可用容量 → `429`。开始读事件前，请先检查状态码（或 `Content-Type: text/event-stream`）。
 
 - 401 — 没带密钥或密钥无效。回应内容是 `{"message":"API key has been revoked or does not exist.","error":"token_revoked"}`，没有 `error` 物件，两种格式都要处理。
-- 402 — `insufficient_quota`：项目余额 ≤ 0。
-- 403 — `permission_denied`：这个项目没开放该模型，或模型不存在。
+- 402 — `insufficient_quota`：项目余额 ≤ 0。不要重试，先充值。
+- 403 — `permission_denied`：这个项目没开放该模型，或模型不存在。不收费。
+- 422 — 这个模型不在 /v1/messages 服务。消息会指名正确的端点。
+- 429 — 限流，或这个模型此刻没有可用容量。依 `Retry-After` 等待。
 
 如果连线在 `message_stop` 之前就中断，请把回应视为不完整。重试建议见[错误码](https://atptoken.ai/zh-cn/docs/errors/)。
 

@@ -6,7 +6,7 @@
 
 ## Request
 
-Set `stream: true` on [/v1/messages](https://atptoken.ai/docs/messages/).
+Set `stream: true` on [/v1/messages](https://atptoken.ai/docs/messages/). It is already the default on this endpoint (unlike Anthropic's own API), but send it explicitly so the behaviour never depends on a default.
 
 ```curl
 curl -N https://api.atptoken.ai/v1/messages \
@@ -173,11 +173,13 @@ Treat the tool call `id` (for example `toolu_…`) as opaque. Send it back uncha
 
 ## Errors
 
-Errors found before streaming starts come back as a normal JSON response with an HTTP status and no event stream. Check the status (or `Content-Type: text/event-stream`) before you start reading events.
+Errors found before streaming starts come back as a normal JSON response with an HTTP status and no event stream. The checks run in this order: the model is not on your project's allowed list → `403`; your balance is used up → `402`; no capacity right now → `429`. Check the status (or `Content-Type: text/event-stream`) before you start reading events.
 
 - 401 — no key or an invalid key. The body is `{"message":"API key has been revoked or does not exist.","error":"token_revoked"}`, with no `error` object, so handle both shapes.
-- 402 — `insufficient_quota`: project balance ≤ 0.
-- 403 — `permission_denied`: the model is not enabled for this project, or does not exist.
+- 402 — `insufficient_quota`: project balance ≤ 0. Do not retry; add credits first.
+- 403 — `permission_denied`: the model is not enabled for this project, or does not exist. Not billed.
+- 422 — the model is not served on /v1/messages. The message names the endpoint that serves it.
+- 429 — rate limited, or no capacity for this model right now. Follow `Retry-After`.
 
 If the connection closes before `message_stop`, treat the response as incomplete. See [Error codes](https://atptoken.ai/docs/errors/) for retry guidance.
 

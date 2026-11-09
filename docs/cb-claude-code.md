@@ -6,7 +6,7 @@ Point Claude Code at the Gateway and drive any allowed model through a project k
 
 ## 1. Create a project API key
 
-In the console, create (or choose) an organization, workspace, and project, then issue an API key from that project. The key inherits the project's allowed models and credit balance. Copy the full secret — it's shown only once. See [Managing API keys](https://atptoken.ai/docs/console-keys/).
+Sign in at atptoken.ai and create (or choose) an organization, then a workspace, then a project — all three must exist before you can create a key — and issue an API key from that project. One key is bound to one project: it inherits that project's allowed models and credit balance. Copy the full secret — it's shown only once. See [Managing API keys](https://atptoken.ai/docs/console-keys/).
 
 ## 2. Point Claude Code at the Gateway
 
@@ -16,7 +16,7 @@ Set the base URL (no `/v1` — Claude Code appends `/v1/messages` itself), send 
 export ANTHROPIC_BASE_URL="https://api.atptoken.ai"
 export ANTHROPIC_AUTH_TOKEN="atp-..."
 export ANTHROPIC_API_KEY=""
-export ANTHROPIC_MODEL="claude-sonnet-4-6"   # any model from GET /v1/models
+export ANTHROPIC_MODEL="claude-sonnet-4-6"   # a model from GET /v1/project/models
 claude
 ```
 
@@ -24,7 +24,14 @@ Prefer a config file? Put the same values under the `env` block of `~/.claude/se
 
 ## 3. Pick an allowed model
 
-`ANTHROPIC_MODEL` must be a model id returned by [GET /v1/models](https://atptoken.ai/docs/models/) and enabled for the key's project — otherwise the Gateway returns `403`. List the ids first if you're unsure.
+`ANTHROPIC_MODEL` must be enabled for the key's project and served on `/v1/messages`. Don't look for it in `GET /v1/models`: that is OpenAI's list, and most `claude-*` models are not on it. Call `GET /v1/project/models` with the same key for the project's complete list.
+
+```
+curl https://api.atptoken.ai/v1/project/models \
+  -H "Authorization: Bearer $ANTHROPIC_AUTH_TOKEN"
+```
+
+A model the project isn't allowed to call returns `403` (not billed); a model served on a different entrypoint returns `422` naming that entrypoint. See [Model discovery](https://atptoken.ai/docs/models/).
 
 ## 4. Verify
 

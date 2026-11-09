@@ -6,7 +6,7 @@
 
 ## 1. 建立專案 API 金鑰
 
-在主控台建立（或選擇）組織、工作區與專案，再從該專案建立 API 金鑰。這把金鑰會繼承專案的允許模型與點數餘額。完整密鑰只顯示一次，記得複製。見 [管理 API 金鑰](https://atptoken.ai/zh-tw/docs/console-keys/)。
+登入 atptoken.ai，依序建立（或選擇）組織、工作區、專案——三層都要先有，才看得到建立金鑰的地方——再從該專案建立 API 金鑰。一把金鑰只綁一個專案：它繼承那個專案的允許模型與點數餘額。完整密鑰只顯示一次，記得複製。見 [管理 API 金鑰](https://atptoken.ai/zh-tw/docs/console-keys/)。
 
 ## 2. 把 Claude Code 指向 Gateway
 
@@ -16,7 +16,7 @@
 export ANTHROPIC_BASE_URL="https://api.atptoken.ai"
 export ANTHROPIC_AUTH_TOKEN="atp-..."
 export ANTHROPIC_API_KEY=""
-export ANTHROPIC_MODEL="claude-sonnet-4-6"   # any model from GET /v1/models
+export ANTHROPIC_MODEL="claude-sonnet-4-6"   # a model from GET /v1/project/models
 claude
 ```
 
@@ -24,7 +24,14 @@ claude
 
 ## 3. 挑一個允許的模型
 
-`ANTHROPIC_MODEL` 必須是 [GET /v1/models](https://atptoken.ai/zh-tw/docs/models/) 回傳、且在該金鑰所屬專案已啟用的模型 ID——否則 Gateway 回傳 `403`。不確定就先列出 id。
+`ANTHROPIC_MODEL` 必須是該金鑰所屬專案已啟用、且在 `/v1/messages` 服務的模型。不要去 `GET /v1/models` 找：那是 OpenAI 的清單，多數 `claude-*` 不在上面。用同一把金鑰打 `GET /v1/project/models`，拿專案的完整清單。
+
+```
+curl https://api.atptoken.ai/v1/project/models \
+  -H "Authorization: Bearer $ANTHROPIC_AUTH_TOKEN"
+```
+
+專案沒開權限的模型會回 `403`（不收費）；在別的入口服務的模型會回 `422`，訊息會指名那個入口。見 [模型查詢](https://atptoken.ai/zh-tw/docs/models/)。
 
 ## 4. 驗證
 

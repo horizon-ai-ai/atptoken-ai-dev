@@ -15,7 +15,7 @@ ATP is a unified API that gives you access to many AI models through a single en
 
 ## Send your first request
 
-Replace `MODEL_ID` with a model id from [GET /v1/models](https://atptoken.ai/docs/models/), or pick one from the model menu above the example. You need a project API key in `$ATP_API_KEY` first; the [Quickstart](https://atptoken.ai/docs/quickstart/) walks through it.
+Replace `MODEL_ID` with a model id from [GET /v1/models](https://atptoken.ai/docs/models/) — that list is exactly what `/v1/chat/completions` accepts — or pick one from the model menu above the example. You need a project API key in `$ATP_API_KEY` first; the [Quickstart](https://atptoken.ai/docs/quickstart/) walks through it. Send `stream` explicitly: on this endpoint it defaults to `true`.
 
 ```curl
 curl https://api.atptoken.ai/v1/chat/completions \
@@ -23,14 +23,15 @@ curl https://api.atptoken.ai/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
     "model": "MODEL_ID",
+    "stream": false,
     "messages": [{"role": "user", "content": "hi"}]
   }'
 ```
 
 ## What you get
 
-- **One endpoint, many models.** Discover them with [GET /v1/models](https://atptoken.ai/docs/models/) and call any your project allows.
-- **Three wire formats.** Use the OpenAI, Anthropic, or Google GenAI shape unchanged — only the base URL changes.
+- **One endpoint, many models.** `GET /v1/project/models` lists every model your project allows — chat, media and embeddings. See [Model discovery](https://atptoken.ai/docs/models/).
+- **Three wire formats.** Use the official OpenAI, Anthropic, or Google GenAI SDK unchanged — only the base URL changes. Each model is served on one of them; call it on the wrong one and you get `422` naming the right one.
 - **Automatic fallback.** Each model is served by a provider pool, so a single model id keeps working when one provider is degraded. See [Provider routing](https://atptoken.ai/docs/provider-routing/).
 - **One bill.** Usage across every model and provider is metered in credits. See [How credits work](https://atptoken.ai/docs/credits/).
 

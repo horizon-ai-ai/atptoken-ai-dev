@@ -15,7 +15,7 @@ ATP 是一个统一 API，让你通过单一端点存取多种 AI 模型，同�
 
 ## 送出第一笔请求
 
-把 `MODEL_ID` 换成 [GET /v1/models](https://atptoken.ai/zh-cn/docs/models/) 回传的模型 ID，或从范例上方的模型选单挑一个。先把项目 API 密钥放进 `$ATP_API_KEY`；[快速开始](https://atptoken.ai/zh-cn/docs/quickstart/)有完整步骤。
+把 `MODEL_ID` 换成 [GET /v1/models](https://atptoken.ai/zh-cn/docs/models/) 回传的模型 ID（这份清单刚好就是 `/v1/chat/completions` 收的模型），或从范例上方的模型选单挑一个。先把项目 API 密钥放进 `$ATP_API_KEY`；[快速开始](https://atptoken.ai/zh-cn/docs/quickstart/)有完整步骤。`stream` 请明确送：这个端点默认是 `true`。
 
 ```curl
 curl https://api.atptoken.ai/v1/chat/completions \
@@ -23,14 +23,15 @@ curl https://api.atptoken.ai/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
     "model": "MODEL_ID",
+    "stream": false,
     "messages": [{"role": "user", "content": "hi"}]
   }'
 ```
 
 ## 你会得到什么
 
-- **一个端点、多种模型。** 用 [GET /v1/models](https://atptoken.ai/zh-cn/docs/models/) 查询，呼叫你的项目（project）允许的任一模型。
-- **三种 wire format（请求格式）。** OpenAI、Anthropic 或 Google GenAI 格式原样可用——只换 base URL。
+- **一个端点、多种模型。** `GET /v1/project/models` 会列出你的项目（project）允许的全部模型，文字、媒体、向量都在里面。见 [模型查询](https://atptoken.ai/zh-cn/docs/models/)。
+- **三种 wire format（请求格式）。** 官方 OpenAI、Anthropic、Google GenAI SDK 原样可用——只换 base URL。每个模型只走其中一个入口；打错入口会回 `422`，消息会指名正确的入口。
 - **自动备援（fallback）。** 每个模型由一个供应商池服务，某个供应商降级时同一个模型 ID 仍能运作。见 [供应商路由与备援](https://atptoken.ai/zh-cn/docs/provider-routing/)。
 - **单一账单。** 跨所有模型与供应商的用量都以点数计量。见 [点数如何运作](https://atptoken.ai/zh-cn/docs/credits/)。
 

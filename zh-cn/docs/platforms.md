@@ -2,7 +2,7 @@
 
 > Source: https://atptoken.ai/zh-cn/docs/platforms/
 
-用介面组装 AI、不自己写程式的工具——应用建构平台、工作流自动化——接 Gateway 的方式跟 SDK 一样。把工具里的 OpenAI 相容供应商指向 Gateway，这个项目（project）允许的模型就全部在里面可用，共用一把密钥、一张账单。
+用介面组装 AI、不自己写程式的工具——应用建构平台、工作流自动化——接 Gateway 的方式跟 SDK 一样。把工具里的 OpenAI 相容供应商指向 Gateway，这个项目（project）允许的 OpenAI 格式 chat 模型就能在里面使用，共用一把密钥、一张账单。
 
 > **这一页也有纯 markdown 版本**
 >
@@ -16,12 +16,14 @@
 - **API 密钥**——那把 `atp-…` 开头的项目密钥。
 - **Model**——`GET /v1/models` 回传的其中一个 id。
 
+`GET /v1/models` 是 OpenAI 自己的清单端点，只列 `/v1/chat/completions` 与 `/v1/responses` 收的 chat 模型——刚好就是 OpenAI 相容供应商能呼叫的。你的项目可能允许更多：多数 `claude-*`（走 `/v1/messages`）、走 Gemini 入口的模型、媒体与向量模型都不在上面。完整清单是 `GET /v1/project/models`。
+
 工具之间的差别，在于它能不能自己去读你的模型清单：
 
 | 工具 | 设定位置 | 模型清单 |
 |---|---|---|
 | Dify | Settings → Model 供应商 | 一次加一个，手动 |
-| n8n | OpenAI credential 的 Base URL 栏位 | 从 `GET /v1/models` 自动读 |
+| n8n | OpenAI credential 的 Base URL 栏位 | 从 `GET /v1/models` 自动读（只有 OpenAI 格式 chat 模型） |
 
 如果你要接的是 coding agent——Claude Code、Codex、Cline 那一类——请看 [Coding agents](https://atptoken.ai/zh-cn/docs/agents/)。
 
@@ -49,7 +51,7 @@ Dify Cloud 与自架版的设定方式相同。
 
 n8n 用它内建的 **OpenAI** credential。建一组，在 **Add option** 里把 **Base URL** 设成 `https://api.atptoken.ai/v1`，**API 密钥** 贴上 `atp-…` 密钥。
 
-之后模型下拉选单就会通过这个 base URL 去读 `GET /v1/models`，你项目的模型会自己出现，不用手动列。
+之后模型下拉选单就会通过这个 base URL 去读 `GET /v1/models`，你项目的 OpenAI 格式 chat 模型会自己出现，不用手动列。走别的入口的模型——多数 `claude-*`、Gemini 入口、媒体与向量模型——不会出现在选单里。
 
 使用时，在 **AI Agent** 或 **Basic LLM Chain** 节点底下挂一个 **OpenAI Chat Model** 子节点，选这组 credential。
 
@@ -63,9 +65,11 @@ n8n Cloud 与自架版的行为相同。
 
 ## 疑难排解
 
-- **`403`**——模型没有在这把密钥所属的项目启用。到控制台的「资源」替该项目开启。
+- **`401 token_revoked`**——密钥没送、打错或已撤销。完全没送密钥也是这个，所以先检查密钥栏位。
+- **`403`**——模型没有在这把密钥所属的项目启用。到控制台的「资源」替该项目开启。被拒的请求不收费。
+- **`422`**——这个模型在别的入口服务（例如 `/v1/messages`），OpenAI 相容供应商呼叫不到；消息会指名正确的入口。
 - **`404`**——`/v1` 位置放错，或工具在已经以 `/chat/completions` 结尾的网址后面又接了一次。
-- **模型选单是空的**——Dify 本来就不会替你列模型，要一个个加。n8n 如果是空的，通常代表密钥或 base URL 有误，因为那个下拉是由 `GET /v1/models` 填的。
+- **模型选单是空的**——Dify 本来就不会替你列模型，要一个个加。n8n 的下拉是由 `GET /v1/models` 填的，所以空的代表两种可能：密钥或 base URL 有误，或项目没有开通任何 OpenAI 格式的 chat 模型——拿 `GET /v1/project/models` 对照看看。
 - **工具都没有被呼叫**——Dify 那边的 `Function Call Type` 还停在 `no_call`。
 
 ## 下一步

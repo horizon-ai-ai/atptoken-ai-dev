@@ -6,14 +6,14 @@ ATP Agent Skills are public operating guides for Codex, Claude Code, and other a
 
 ## Prefer MCP? Use the ATP MCP server
 
-The same guidance is also an MCP server: `atptoken-api-docs` at `https://mcp.atptoken.ai/mcp` (Streamable HTTP). It gives an agent the API guide, a live model check and a checker for video requests. Adding it needs no key:
+The same guidance is also an MCP server: `atptoken-api-docs` at `https://mcp.atptoken.ai/mcp` (Streamable HTTP). It gives an agent the API guide, a live model check and a checker for video requests. Adding it needs no key; only the live model check asks for one. Once it is in one agent, its `atptoken_install` tool can add it to another:
 
 ```
-claude mcp add --transport http atptoken-api-docs https://mcp.atptoken.ai/mcp
+claude mcp add --transport http --scope user atptoken-api-docs https://mcp.atptoken.ai/mcp
 codex mcp add atptoken-api-docs --url https://mcp.atptoken.ai/mcp
 ```
 
-To have an agent set up either way for you, paste this to it: `Follow https://atptoken.ai/connect.md to connect ATP Token for me.`
+Setup for the Claude app, ChatGPT, Cursor and other tools is in [Add the ATP MCP server](https://atptoken.ai/docs/mcp/). To have an agent set up either way for you, paste this to it: `Follow https://atptoken.ai/connect.md to connect ATP Token for me.`
 
 ## Before you start
 
@@ -63,7 +63,7 @@ sh /tmp/install-atptoken-skills.sh codex
 | `atptoken-openai` | OpenAI-compatible chat and Responses-style workflows |
 | `atptoken-anthropic` | Anthropic Messages format and Claude tools |
 | `atptoken-gemini` | Native Gemini `generateContent` format |
-| `atptoken-image` | Synchronous image generation |
+| `atptoken-image` | Image generation and editing as asynchronous tasks |
 | `atptoken-video` | Text/image-to-video, task creation, and polling |
 | `atptoken-audio` | TTS, speech, and audio tasks |
 
@@ -83,11 +83,11 @@ find "${CLAUDE_HOME:-$HOME/.claude}/skills" -maxdepth 2 -name SKILL.md \
   -path "*/atptoken-*"
 ```
 
-Then ask the agent to “generate an image with ATP” or “create a Wan video task with ATP.” It should first call `GET https://api.atptoken.ai/v1/models` with the same project key, then choose a model enabled for that project — the same opening move described in [Connect any coding agent](https://atptoken.ai/docs/agents/). If the agent skips it and hard-codes a model name instead, that is the behaviour to correct.
+Then ask the agent to “generate an image with ATP” or “create a Wan video task with ATP.” It should first call `GET https://api.atptoken.ai/v1/project/models` with the same project key — the project's complete list, media models included — then choose a model enabled for that project: the same opening move described in [Connect any coding agent](https://atptoken.ai/docs/agents/). `GET /v1/models` won't do here: it lists only OpenAI-format chat models, so image and video models never appear on it. If the agent skips it and hard-codes a model name instead, that is the behaviour to correct.
 
 > **Project permissions still apply**
 >
-> Installing a skill does not enable a model or bypass allowed models. If a model is absent from `GET /v1/models`, it cannot be used; enable it for the project in Console Resources first.
+> Installing a skill does not enable a model or bypass allowed models. A model the project isn't allowed to call returns `403` at create time (not billed); enable it for the project in Console Resources first. Check `GET /v1/project/models` for what the project allows — a model missing from `GET /v1/models` may simply be served on another entrypoint.
 
 ## Next steps
 

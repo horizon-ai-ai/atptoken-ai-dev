@@ -2,7 +2,7 @@
 
 > Source: https://atptoken.ai/zh-cn/docs/sdk-openai/
 
-直接用官方 OpenAI SDK，不改任何东西。把 base URL 设成 Gateway、带一把项目（project） API 密钥，并呼叫 [GET /v1/models](https://atptoken.ai/zh-cn/docs/models/) 回传的任一模型。
+直接用官方 OpenAI SDK，不改任何东西。把 base URL 设成 Gateway、带一把项目（project） API 密钥，并呼叫 [GET /v1/models](https://atptoken.ai/zh-cn/docs/models/) 回传的任一模型。这份清单是 OpenAI 自己的清单端点，列的刚好就是这个 SDK 能在 `/v1/chat/completions` 与 `/v1/responses` 呼叫的模型。
 
 ## 设定 client
 
@@ -12,12 +12,15 @@
 | 验证 | `Authorization: Bearer atp-…`（SDK 默认） |
 | 模型 | GET /v1/models 的任一 id |
 
+不在这份清单上的模型，你的项目可能还是能用，只是走别的入口——多数 `claude-*` 用 [Anthropic SDK](https://atptoken.ai/zh-cn/docs/sdk-anthropic/)，Gemini 用 [Google GenAI SDK](https://atptoken.ai/zh-cn/docs/sdk-google/)。`GET /v1/project/models` 会全部列出。拿它们打这里会回 `422`，消息会指名正确的入口。
+
 ```
 from openai import OpenAI
 
 client = OpenAI(base_url="https://api.atptoken.ai/v1", api_key="atp-...")
 r = client.chat.completions.create(
     model="<model from GET /v1/models>",
+    stream=False,
     messages=[{"role": "user", "content": "hi"}],
 )
 print(r.choices[0].message.content)
@@ -25,7 +28,7 @@ print(r.choices[0].message.content)
 
 ## 串流，以及与 OpenAI 的差异
 
-设 `stream=True` 即可 SSE 串流——见 [OpenAI SSE](https://atptoken.ai/zh-cn/docs/sse-openai/)。request 与 response body 就是 OpenAI 的原样；跟直接呼叫 OpenAI 的唯一差别是 base URL、`atp-` 密钥，以及未在你项目启用的模型会回 `403`。完整端点规格：[/v1/chat/completions](https://atptoken.ai/zh-cn/docs/chat/)。
+设 `stream=True` 即可 SSE 串流——见 [OpenAI SSE](https://atptoken.ai/zh-cn/docs/sse-openai/)。request 与 response body 就是 OpenAI 的原样。跟直接呼叫 OpenAI 的差别是：base URL、`atp-` 密钥、未在你项目启用的模型会回 `403`（不收费），以及 `stream` 的默认值——`/v1/chat/completions` 默认是 `true`（OpenAI 官方是 `false`），`/v1/responses` 默认是 `false`。程式在两者之间搬动，串流行为会静默反过来，所以 `stream` 一定要明确送。完整端点规格：[/v1/chat/completions](https://atptoken.ai/zh-cn/docs/chat/)。
 
 ## 下一步
 

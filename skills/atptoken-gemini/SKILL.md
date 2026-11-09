@@ -5,11 +5,11 @@ description: Call the Atptoken LLM Gateway using the Google Gemini SDK or Gemini
 
 # Atptoken via the Gemini surface
 
-Point a Google Gemini client at the gateway and use your `atp-` key in place of a Google API key. The gateway speaks the Gemini `generateContent` format and can route to any available model.
+Point the `google-genai` SDK (Python `from google import genai`, Node `@google/genai` — not the deprecated `google-generativeai`) at the gateway and use your `atp-` key in place of a Google API key. Only models served on the Gemini entry point work here; a model served elsewhere returns **422** naming the right entry point.
 
-- **Base URL:** `https://api.atptoken.ai` (the Gemini SDK adds the `/v1beta/models/...` path)
-- **Auth:** `x-goog-api-key: atp-...` **or** `?key=atp-...`
-- **Model:** any `id` from `GET /v1/models`
+- **Base URL:** `https://api.atptoken.ai`, with **`apiVersion: "v1beta"`**. A client pinned to `v1` fetches its model list from `/v1/models` (OpenAI's endpoint, OpenAI shape) and silently parses **zero** models.
+- **Auth:** `x-goog-api-key: atp-...`, `?key=atp-...`, `Authorization: Bearer atp-...` or `x-api-key: atp-...`
+- **Model:** an `id` from `GET /v1beta/models` (what this entry point accepts) or `GET /v1/project/models` (everything your project may call). The model goes in the **URL**, not the body. The name does not tell you the entry point: e.g. `gemini-3-5-flash` is served on `/v1/chat/completions`, `gemini-3-5-flash-lite` here.
 
 ## Endpoints
 
@@ -28,11 +28,11 @@ from google.genai import types
 
 client = genai.Client(
     api_key="atp-...",  # your Atptoken key, sent as x-goog-api-key
-    http_options=types.HttpOptions(base_url="https://api.atptoken.ai"),
+    http_options=types.HttpOptions(base_url="https://api.atptoken.ai", api_version="v1beta"),
 )
 
 resp = client.models.generate_content(
-    model="gemini-2.5-pro",  # an id from /v1/models
+    model="gemini-2.5-pro",  # an id from /v1beta/models
     contents="Explain a gateway in one sentence.",
 )
 print(resp.text)
@@ -61,7 +61,7 @@ curl "https://api.atptoken.ai/v1beta/models/gemini-2.5-pro:generateContent?key=$
 
 ## Streaming
 
-Use the `:streamGenerateContent` action (the SDK's `generate_content_stream` does this for you). The gateway returns the Gemini streaming response format.
+Streaming is a different endpoint, `:streamGenerateContent` (there is no `stream` field); the SDK's `generate_content_stream` does this for you. Each `data:` event is a complete `GenerateContentResponse` object; the last one carries `finishReason` and `usageMetadata`. There is **no `[DONE]` sentinel** — the stream ends when the connection closes.
 
 ```python
 for chunk in client.models.generate_content_stream(
@@ -73,6 +73,7 @@ for chunk in client.models.generate_content_stream(
 
 ## Notes
 
-- Use model `id`s from `GET /v1/models`; an unknown/disallowed model returns a permission error.
-- A model named here may be served by a non-Google provider underneath — the gateway translates the response back to Gemini format.
+- A model your project does not allow returns **403** at create time and is not billed. Not being on a list does not mean unusable.
+- Files: send bytes inline with `inlineData`, or `fileData.fileUri` pointing at your own bucket / Gemini File API URI. A gateway-uploaded file id (`an_<ulid>`) does **not** work on this entry point (`404 file_unavailable_for_failover`).
+- Tools: `tools[].functionDeclarations`; return results as a `functionResponse` part matched by name. The assistant role is `model`.
 - For status codes and retry guidance see `atptoken-gateway/references/errors.md`.

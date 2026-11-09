@@ -6,7 +6,9 @@
 
 ## 一個模型 ID，背後一個供應商池
 
-每個模型的供應商組合與順序是設在平台端，不是逐請求指定。你的程式 永遠只指名模型（來自 [GET /v1/models](https://atptoken.ai/zh-tw/docs/models/)）；實際由哪個供應商服務由 Gateway 處理，且可在請求之間改變，你這端不需改任何 code。
+每個模型的供應商組合與順序是設在平台端，不是逐請求指定。你的程式 永遠只指名模型（來自專案的完整清單 `GET /v1/project/models`，見 [模型查詢](https://atptoken.ai/zh-tw/docs/models/)）；實際由哪個供應商服務由 Gateway 處理，且可在請求之間改變，你這端不需改任何 code。
+
+「在清單上」和「現在有地方跑」是兩回事：清單上的模型可能暫時沒有上游在服務它，這時請求會被以路由錯誤拒絕。
 
 ## 自動備援（fallback）行為
 
@@ -18,7 +20,7 @@
 | `503` | 該模型的所有供應商皆 circuit-open。請遵守 `Retry-After`（60 秒）。 |
 | `429` | 上游速率限制、配額或供應商冷卻中。若有 `Retry-After` 請遵守。 |
 
-完整清單見 [錯誤碼](https://atptoken.ai/zh-tw/docs/errors/)。所有回應都帶一個 `request_id`，路由行為異常時可附上給支援。
+完整清單見 [錯誤碼](https://atptoken.ai/zh-tw/docs/errors/)。每個回應都帶 `x-request-id` header，路由行為異常時附上給支援。它是追查問題的唯一把手；你自己送一個不會被採用。
 
 > **尚未公開的設定**
 >

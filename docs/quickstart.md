@@ -23,7 +23,7 @@ If you use a team organization, top-ups go to your personal wallet first; then g
 ## 2. Create an API key
 
 Open "API Keys" in the Console and choose "Create API key". The wizard lets you pick an existing workspace and project, or create them if your role allows it; then it sets the models the project can call and creates the key. **Select at least one model** — this key can call only those models.
-The key starts with `atp-`, and its full value is shown only once. Copy it right away.
+One key is bound to one project: that project decides which models the key can call and whose credits pay. The key starts with `atp-`, and its full value is shown only once. Copy it right away.
 
 ## 3. Install the SDK and set your key
 
@@ -43,7 +43,7 @@ export ATP_API_KEY="atp-your-key"
 
 The Gateway base URL is `https://api.atptoken.ai/v1` (OpenAI format). For the headers that can carry your key, see [Authentication](https://atptoken.ai/docs/auth/).
 
-## 4. List the models your key can use
+## 4. List the models you can call in OpenAI format
 
 ```curl
 curl https://api.atptoken.ai/v1/models \
@@ -67,11 +67,13 @@ const models = await client.models.list();
 for (const m of models.data) console.log(m.id);
 ```
 
-Pick a model ID from the list for the next step. If the list is empty, the project has no models enabled yet: open "Resources" in the Console and add models to the project.
+`GET /v1/models` is OpenAI's list endpoint, so it lists only the chat models served on `/v1/chat/completions` and `/v1/responses` — exactly what the next step can call. Pick a model ID from it.
+
+It is not your project's full list: most `claude-*` models are called on `/v1/messages`, Gemini models on `/v1beta/models`, and media and embedding models are not on it either. For everything the project allows, call `GET /v1/project/models` with the same key. If both lists are empty, the project has no models enabled yet: open "Resources" in the Console and add models to the project.
 
 ## 5. Send your first request
 
-Replace `MODEL_ID` with the model ID you picked in the previous step.
+Replace `MODEL_ID` with the model ID you picked in the previous step. Always send `stream` explicitly: on `/v1/chat/completions` it defaults to `true`, the opposite of OpenAI's own API, so leave it out and you get SSE instead of JSON.
 
 ```curl
 curl https://api.atptoken.ai/v1/chat/completions \
@@ -79,18 +81,19 @@ curl https://api.atptoken.ai/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
     "model": "MODEL_ID",
+    "stream": false,
     "messages": [{"role": "user", "content": "hi"}]
   }'
 ```
 
 ```Python
-r = client.chat.completions.create(model="MODEL_ID", messages=[{"role": "user", "content": "hi"}])
+r = client.chat.completions.create(model="MODEL_ID", stream=False, messages=[{"role": "user", "content": "hi"}])
 print(r.choices[0].message.content)
 print(r.usage)
 ```
 
 ```Node.js
-const r = await client.chat.completions.create({ model: "MODEL_ID", messages: [{ role: "user", content: "hi" }] });
+const r = await client.chat.completions.create({ model: "MODEL_ID", stream: false, messages: [{ role: "user", content: "hi" }] });
 console.log(r.choices[0].message.content, r.usage);
 ```
 
@@ -116,9 +119,10 @@ A successful call returns an OpenAI-format response: `choices[0].message.content
 
 | Response | What it means | What to do |
 |---|---|---|
-| `401` | The key is missing, mistyped, or disabled | Check that `ATP_API_KEY` is set and starts with `atp-`; if needed, create a new key under "API Keys" |
+| `401 token_revoked` | The key is missing, mistyped, or disabled. Sending no key at all also returns this | First check that the header was actually sent and `ATP_API_KEY` is set and starts with `atp-`; if needed, create a new key under "API Keys" |
 | `402` | Credits are used up | Add credits under "Billing"; for a team organization, also allocate credits under "Resources" |
-| `403` | The model is not enabled for the project | Use a model ID from the list in step 4, or add the model to the project under "Resources" |
+| `403` | The model is not enabled for the project. Rejected at create, not billed | Use a model ID from the list in step 4, or add the model to the project under "Resources" |
+| `422` | The model is not served on this entrypoint; the message names the right one | Call the entrypoint the message names, with that SDK — see [Anthropic SDK](https://atptoken.ai/docs/sdk-anthropic/) or [Google GenAI SDK](https://atptoken.ai/docs/sdk-google/) |
 
 For other status codes, see [Error codes](https://atptoken.ai/docs/errors/).
 
@@ -128,6 +132,6 @@ Open "Overview" in the Console and choose "View all" under "Recent requests", or
 
 ## Next steps
 
-- [Authentication](https://atptoken.ai/docs/auth/) — The three places your key can go, plus Gemini SDK setup.
+- [Authentication](https://atptoken.ai/docs/auth/) — Where your key can go, plus Gemini SDK setup.
 - [How credits work](https://atptoken.ai/docs/credits/) — How tokens convert to credits.
 - [Error codes](https://atptoken.ai/docs/errors/) — What to check first for each status code.

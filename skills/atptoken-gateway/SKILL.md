@@ -11,25 +11,32 @@ You never call a model provider directly and you never need provider API keys. P
 
 ## Base URL
 
-```
-https://api.atptoken.ai/v1
-```
+The host is `https://api.atptoken.ai`. What you put in your SDK's base URL depends on the SDK:
 
-The Gemini surface also accepts the `/v1beta` prefix that the Google SDK uses (see `atptoken-gemini`).
+| SDK | Base URL |
+|-----|----------|
+| `openai` | `https://api.atptoken.ai/v1` |
+| `anthropic` | `https://api.atptoken.ai` (the SDK appends `/v1/messages`) |
+| `google-genai` | `https://api.atptoken.ai`, with `apiVersion: "v1beta"` |
+
+Use `google-genai` (`from google import genai`, `@google/genai`), not the deprecated `google-generativeai` (see `atptoken-gemini`). The domain serves only `/v1*` and `/omni/*`; any other path, such as `/api`, returns `404` with `This domain serves only the LLM Gateway API (/v1, /v1beta)`.
 
 ## Authentication
 
-Every request needs your Atptoken API key — a long opaque string that starts with `atp-`. Obtain one from your Atptoken account/administrator; treat it like a password.
+Every request needs your Atptoken API key — a long opaque string that starts with `atp-`. It is not issued by the API: sign in at `https://atptoken.ai`, create or pick an Organization → Workspace → Project, then create the key inside that project. One key is bound to one project, and that project decides which models it can call. Treat it like a password.
 
 Present it in **one** of these ways (pick whichever your SDK uses):
 
 | Method | Header / param | Typical client |
 |--------|----------------|----------------|
-| Bearer token | `Authorization: Bearer atp-...` | OpenAI & Anthropic SDKs |
+| Bearer token | `Authorization: Bearer atp-...` | OpenAI SDK |
+| API key header | `x-api-key: atp-...` | Anthropic SDK |
 | Google API key header | `x-goog-api-key: atp-...` | Gemini SDK |
 | Query parameter | `?key=atp-...` | Gemini SDK / quick tests |
 
 You do **not** send organization / project / model-routing headers — the gateway derives all of that from your key.
+
+Sending no key at all returns `401 token_revoked` ("API key has been revoked or does not exist") — check that the header was actually sent before suspecting the key.
 
 ## Pick your surface
 
@@ -51,28 +58,35 @@ The chat/embeddings surface lives under `/v1`; generative **media** (video, imag
 > Earlier revisions of these skills documented them as synchronous surfaces. Create a
 > task and poll. (The audio path was confirmed to exist by a routing probe; its exact
 > request/response shape has not been re-verified — read `atptoken-audio` and expect the
-> task pattern.) The surface is just the **wire format you prefer** — any chat surface can reach any available model. An OpenAI-format request can be served by a model that is natively Anthropic or Gemini, transparently.
+> task pattern.)
+
+Media is asynchronous only: create a task (`202` + id), poll until terminal, then download the signed URL within 24 hours — after that the status stays `succeeded` but the URL is `null` and `expired: true`.
+
+**The chat surface is not a matter of preference.** Each model is served on exactly one SDK and one entrypoint, and that entrypoint decides both the request and the response shape — the gateway does not convert between formats. Call a model on the wrong entrypoint and you get **`422` with a message naming the right one**; switch to it. You cannot tell the entrypoint from the model name. Always send `stream` explicitly: it defaults to `true` on `/v1/chat/completions` and `/v1/messages`, `false` on `/v1/responses`; Gemini streams via `:streamGenerateContent`.
 
 ## Discover available models
 
-List the model names you're allowed to use. Use the exact `id` values as the `model` field in your requests.
+List the model names your project is allowed to use. Use the exact `id` values as the `model` field in your requests.
 
 ```bash
-curl https://api.atptoken.ai/v1/models \
+curl https://api.atptoken.ai/v1/project/models \
   -H "Authorization: Bearer $ATPTOKEN_API_KEY"
 ```
 
 ```json
 {
-  "object": "list",
   "data": [
-    { "id": "gpt-5", "object": "model" },
-    { "id": "claude-opus-4-7", "object": "model" }
+    { "id": "gpt-5" },
+    { "id": "claude-opus-4-7" }
   ]
 }
 ```
 
-If a model you request isn't in this list, the gateway returns **403** (`permission_denied`). Always source model names from `/v1/models` rather than hard-coding.
+`GET /v1/project/models` is the only complete list: text, image, video, audio and embedding models together. Each entry has only an `id`, so it says *what* you may call, not *where*. A project with no models returns `{"data": []}`.
+
+The other lists are per entrypoint. `GET /v1/models` is OpenAI's list endpoint and shows only models served on `/v1/chat/completions` and `/v1/responses` — most `claude-*` models are not on it (they use `/v1/messages`, which has no list endpoint), and the Anthropic SDK's `models.list()` hits it too, so it comes back short without an error. `GET /v1beta/models` is Gemini's list. Media and embedding models appear on neither.
+
+A model missing from a list is not necessarily unusable. If the project isn't allowed to call it, the gateway returns **403** (`permission_denied`) at create time and nothing is billed. Source model names from `/v1/project/models` rather than hard-coding.
 
 ## Quick test
 
@@ -82,19 +96,22 @@ curl https://api.atptoken.ai/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
     "model": "gpt-5",
+    "stream": false,
     "messages": [{"role": "user", "content": "Say hello in one word."}]
   }'
 ```
 
 ## Errors & rate limits
 
-Errors come back in the shape of whichever surface you called (OpenAI vs Anthropic vs Gemini) and always carry enough context to trace the request. The common status codes and the right way to react to each are in `references/errors.md` — read it before building retry logic.
+Errors come back in the shape of whichever surface you called (OpenAI vs Anthropic vs Gemini). Every response carries an `x-request-id` header — the one handle for tracing a request; one you send yourself is not used. Read 4xx messages, not just the status: the model's own 4xx is passed through as-is and usually names the field and the valid values. The common status codes and the right way to react to each are in `references/errors.md` — read it before building retry logic.
 
 Quick summary:
-- **401** — missing/invalid `atp-` key.
+- **401** `token_revoked` — missing/invalid `atp-` key (no key at all returns this too).
 - **402** `insufficient_quota` — balance/quota exhausted; don't retry until topped up. (Chat Gemini surface reports this as a native 429.)
 - **429** — request rate exceeded (`Retry-After` tells you how long) or all providers in cooldown; back off.
-- **403** — the model isn't in your allowed list (check `/v1/models`).
+- **403** — the model isn't in your project's allowed list (check `/v1/project/models`). Not billed.
+- **422** — the model isn't served on this entrypoint; the message names the right one.
+- **Billing is per request, not per attempt** — one request can show several rows in your records; don't add them up.
 - **503** — all providers temporarily unavailable; retry after ~60s.
 - **5xx from a provider** is passed through with the provider's status and message.
 

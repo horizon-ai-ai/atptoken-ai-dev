@@ -6,7 +6,9 @@ Each model on the platform is served by a pool of one or more upstream providers
 
 ## One model id, a pool behind it
 
-The provider set for each model — and its order — is configured on the platform side, not per request. Your client only ever names the model (from [GET /v1/models](https://atptoken.ai/docs/models/)); which provider actually serves it is handled for you and can change between requests without any code change on your side.
+The provider set for each model — and its order — is configured on the platform side, not per request. Your client only ever names the model (from `GET /v1/project/models`, the project's full list — see [Model discovery](https://atptoken.ai/docs/models/)); which provider actually serves it is handled for you and can change between requests without any code change on your side.
+
+Being on the list and being servable right now are separate things: a listed model can be temporarily without anywhere to run, and a request for it is then refused with a routing error.
 
 ## Fallback behavior
 
@@ -18,7 +20,7 @@ When a provider fails or times out, the Gateway moves on to the next available p
 | `503` | Every provider for the model is circuit-open. Honor `Retry-After` (60s). |
 | `429` | Upstream rate limit, quota, or provider cooldown. Honor `Retry-After` if present. |
 
-See [Error codes](https://atptoken.ai/docs/errors/) for the full list. All responses carry a `request_id` you can quote to support when a route behaves unexpectedly.
+See [Error codes](https://atptoken.ai/docs/errors/) for the full list. Every response carries an `x-request-id` header — quote it to support when a route behaves unexpectedly. It is the only handle for a request; one you send yourself is not used.
 
 > **Settings that are not public**
 >

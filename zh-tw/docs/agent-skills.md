@@ -6,14 +6,14 @@ ATP Agent Skills 是提供給 Codex、Claude Code 與其他支援 `SKILL.md` 的
 
 ## 想用 MCP？ATP 有 MCP 伺服器
 
-同一套指引也有 MCP 版本：`atptoken-api-docs`，網址 `https://mcp.atptoken.ai/mcp`（Streamable HTTP）。它提供 API 文件、即時查模型、送影片任務前的檢查。加上它不需要金鑰：
+同一套指引也有 MCP 版本：`atptoken-api-docs`，網址 `https://mcp.atptoken.ai/mcp`（Streamable HTTP）。它提供 API 文件、即時查模型、送影片任務前的檢查。加上它不需要金鑰，只有「即時查模型」要帶金鑰。裝進一個 agent 之後，它的 `atptoken_install` 工具可以再幫你裝到別的 agent：
 
 ```
-claude mcp add --transport http atptoken-api-docs https://mcp.atptoken.ai/mcp
+claude mcp add --transport http --scope user atptoken-api-docs https://mcp.atptoken.ai/mcp
 codex mcp add atptoken-api-docs --url https://mcp.atptoken.ai/mcp
 ```
 
-想讓 agent 自己接好，把這句話貼給它：`照 https://atptoken.ai/connect.md 的步驟，幫我把 ATP Token 接上。`
+Claude 應用程式、ChatGPT、Cursor 等工具的設定見[加入 ATP MCP 伺服器](https://atptoken.ai/zh-tw/docs/mcp/)。想讓 agent 自己接好，把這句話貼給它：`照 https://atptoken.ai/connect.md 的步驟，幫我把 ATP Token 接上。`
 
 ## 開始之前
 
@@ -63,7 +63,7 @@ sh /tmp/install-atptoken-skills.sh codex
 | `atptoken-openai` | OpenAI-compatible chat 與 Responses-style 工作流 |
 | `atptoken-anthropic` | Anthropic Messages 格式與 Claude 工具 |
 | `atptoken-gemini` | Gemini 原生 `generateContent` 格式 |
-| `atptoken-image` | 同步圖像生成 |
+| `atptoken-image` | 圖像生成與改圖（非同步任務） |
 | `atptoken-video` | 文生影／圖生影、task 建立與輪詢 |
 | `atptoken-audio` | TTS、語音與音訊任務 |
 
@@ -83,11 +83,11 @@ find "${CLAUDE_HOME:-$HOME/.claude}/skills" -maxdepth 2 -name SKILL.md \
   -path "*/atptoken-*"
 ```
 
-接著在 agent 中要求「使用 ATP 產生一張圖片」或「用 ATP 建立 Wan 影片任務」。agent 應先以同一把專案金鑰呼叫 `GET https://api.atptoken.ai/v1/models`，再選擇該專案已啟用的模型——也就是 [把任何 coding agent 接上 ATP](https://atptoken.ai/zh-tw/docs/agents/) 講的同一個第一步。如果 agent 跳過這一步、自己寫死一個模型名，那就是要糾正的行為。
+接著在 agent 中要求「使用 ATP 產生一張圖片」或「用 ATP 建立 Wan 影片任務」。agent 應先以同一把專案金鑰呼叫 `GET https://api.atptoken.ai/v1/project/models`（專案的完整清單，媒體模型也在裡面），再選擇該專案已啟用的模型——也就是 [把任何 coding agent 接上 ATP](https://atptoken.ai/zh-tw/docs/agents/) 講的同一個第一步。這裡不能用 `GET /v1/models`：它只列 OpenAI 格式的 chat 模型，圖像與影片模型永遠不會出現在上面。如果 agent 跳過這一步、自己寫死一個模型名，那就是要糾正的行為。
 
 > **模型權限仍由專案控管**
 >
-> 安裝 Skill 不會自動啟用模型，也不會繞過 allowed models。`GET /v1/models` 沒有出現的模型不能用；請先到主控台的「資源」調整專案模型。
+> 安裝 Skill 不會自動啟用模型，也不會繞過 allowed models。專案沒開權限的模型，建立請求時會回 `403`（不收費）；請先到主控台的「資源」調整專案模型。專案允許哪些模型，看 `GET /v1/project/models`——`GET /v1/models` 上沒有的模型，可能只是走別的入口。
 
 ## 下一步
 

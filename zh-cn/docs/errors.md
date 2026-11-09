@@ -2,26 +2,35 @@
 
 > Source: https://atptoken.ai/zh-cn/docs/errors/
 
-查 Gateway 回传的状态码代表什么、该先检查哪里，以及怎么处理。
+查 Gateway 回传的状态码代表什么、该先检查哪里，以及怎么处理。**遇到 4xx，要读消息，不要只看状态码。** Gateway 会把模型自己的 4xx 原样转给你，那些消息通常直接写出是哪个栏位、合法值是什么。
 
 ## 状态码
 
-跳到：[400](#status-400) · [401](#status-401) · [402](#status-402) · [403](#status-403) · [429](#status-429) · [502](#status-502) · [503](#status-503) · [5xx](#status-5xx)
+跳到：[400](#status-400) · [401](#status-401) · [402](#status-402) · [403](#status-403) · [404](#status-404) · [409](#status-409) · [422](#status-422) · [429](#status-429) · [502](#status-502) · [503](#status-503) · [5xx](#status-5xx)
 
-> **联络支持时附上 request_id**
+> **联络支持时附上 x-request-id**
 >
-> 每个错误回应都带 `request_id`。联络支持时附上它，我们就能找到这一笔。
+> 每个回应都有 `x-request-id` header，这是回报问题唯一的依据，联络支持时请附上。自己送一个 request id 不会被采用。
 
 | 状态码 | 代表什么 | 先检查 | 怎么处理 |
 |---|---|---|---|
-| `400` | 请求格式错误 | 缺栏位、JSON 格式错误，或用了该格式不支持的写法 | 对照该端点的参数表修正后再送 |
-| `401` | 密钥无效 | 有没有带密钥、是否以 `atp-` 开头、是否已停用或过期 | 到「API 密钥」确认或重新建立；header 位置见[验证方式](https://atptoken.ai/zh-cn/docs/auth/) |
-| `402` | 点数用完 | 控制台「用量」的可用点数 | 到「账单」充值；团队组织再到「资源」拨点数 |
-| `403` | 模型未在此项目开通 | `GET /v1/models` 回传的模型 ID | 改用清单内的模型，或到「资源」替项目加上模型 |
-| `429` | 速率限制、配额或供应商冷却中 | 回应的 `Retry-After` | 依 `Retry-After` 等待后重试 |
-| `502` | 供应商连线失败或逾时 | — | 可以直接重试 |
-| `503` | 这个模型的所有供应商暂时无法使用 | `Retry-After: 60` | 60 秒后重试 |
-| `5xx` | 供应商或 Gateway 错误 | 回应里的 `request_id` | 在控制台「请求记录」用 request ID 查询；联络支持时附上 |
+| `400` | 请求格式错误。媒体请求常见：缺 `model` 或 prompt、混用不同来源的资产、`asset_not_ready`、`asset_failed` | 错误消息——通常会指出是哪个栏位 | 对照该端点的参数表修正后再送 |
+| `401` | 密钥无效或过期：`token_revoked`，消息是「API key has been revoked or does not exist」。**完全没送密钥也是这个错误** | 先确认 header 真的有送出去，再看是否以 `atp-` 开头、是否已停用或过期 | 到「API 密钥」确认或重新建立；header 位置见[验证方式](https://atptoken.ai/zh-cn/docs/auth/) |
+| `402` | `insufficient_quota`：点数用完 | 控制台「用量」的可用点数 | 这不是暂时性限流，不要重试。到「账单」充值；团队组织再到「资源」拨点数 |
+| `403` | `permission_denied`：这个模型受控，你的项目不在允许清单上。不是密钥或余额的问题 | `GET /v1/project/models` 回传的模型 ID | 换一个模型，或请管理员到「资源」替项目加上模型。不收费 |
+| `404` | 网域或路径打错。消息会写 `This domain serves only the LLM Gateway API (/v1, /v1beta)` | base URL 和路径前缀——这个网域只服务 `/v1*` 与 `/omni/*` | 修正 base URL 或路径 |
+| `409` | 这把 `Idempotency-Key` 已经指向**另一个**媒体端点的任务 | 是不是把同一把 key 用在影片、图像、语音不同端点 | 换一把新的；每个端点用各自的 key |
+| `422` | 这个模型不在这个端点服务（消息会**指名正确的端点**），或这个资产不能给你指定的模型使用 | 消息里写的端点 | 改打那个端点，或改用直接网址而不是资产 |
+| `429` | 速率限制（RPM），或这个模型此刻没有可用容量 | 回应的 `Retry-After` | 退避：依 `Retry-After` 等待后重试 |
+| `502` | 模型的服务回传错误，或连线失败、逾时 | — | 可以重试 |
+| `503` | 两种原因：此刻没有可用容量；或 `balance_check_unavailable`——余额读不到（**不是**余额不足），请求没有开始，也没有扣款 | `Retry-After` | 依 `Retry-After` 等待后重试 |
+| `5xx` | 供应商或 Gateway 错误 | 回应的 `x-request-id` header | 在控制台「请求记录」用 request ID 查询；联络支持时附上 |
+
+## 怎么计费
+
+计费以「请求」为单位，不是以「尝试」为单位。一个请求在你的记录里可能有好几列，**不要相加**。
+
+点数在请求开始前先预留，完成后才实际扣款。`403` 在建立请求时就被挡下，不收费。`503 balance_check_unavailable` 的请求没有开始，也没有扣款。
 
 ## 看请求在哪里被挡下
 
@@ -53,8 +62,10 @@
 
 在本平台上，这种请求通常会显示**零 token 用量、也不会扣点数**——空的 `200` 加上空的 `usage`，就是这个情况的特征，不是计费 bug。解法：把 `max_tokens` 调高到「思考预算 + 预期输出」都够用，或关闭 extended thinking。在假设有文字前，一律先检查 `finish_reason` / `stop_reason` 与 `usage`。
 
+拿到 `200` 也不代表模型看到了你送的全部内容。少一则消息的请求依然合法、依然 `200`；不属于这个端点的写法（例如把 OpenAI 的 `role: "tool"` 送到 `/v1/messages`）会被原样转送——有的模型读得到，有的回 `200` 却当作没收到。要确认内容真的送到，在消息里放一个模型猜不到的值，再请它回答出来。
+
 ## 下一步
 
-- [验证方式](https://atptoken.ai/zh-cn/docs/auth/) — 三种可接受的密钥位置，以及 `401` 代表什么。
+- [验证方式](https://atptoken.ai/zh-cn/docs/auth/) — 密钥放在哪里，以及 `401` 代表什么。
 - [/v1/chat/completions](https://atptoken.ai/zh-cn/docs/chat/) — 设好 `max_tokens`，让 reasoning 模型产生可见输出。
 - [请求记录](https://atptoken.ai/zh-cn/docs/console-api-logs/) — 用 request ID 查出失败的那一笔请求。
