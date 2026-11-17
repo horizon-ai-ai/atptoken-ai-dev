@@ -1,6 +1,6 @@
 ---
 name: atptoken-video
-description: Generate video (text-to-video / image-to-video / video edit) through the Atptoken LLM Gateway media surface at /omni/media/v1. Video is asynchronous — create a task, poll until it is terminal, then download a signed URL within 24 hours. The model decides the body shape. Two client dialects (ModelArk-compatible and DashScope-native). Use for Seedance / Kling / Wan / HappyHorse / MiniMax video models via Atptoken with an atp- key. See atptoken-gateway for auth and errors.
+description: Generate video (text-to-video / image-to-video / video edit) through the Atptoken LLM Gateway media surface at /omni/media/v1. Video is asynchronous — create a task, poll until it is terminal, then download a signed URL within 24 hours. The model decides the body shape. Two client dialects (ModelArk-compatible and DashScope-native). Use for Seedance / Kling / Wan / HappyHorse / MiniMax video models via Atptoken with an atp- key. See atptoken-gateway for auth and errors. Includes a Wan 3.0 prompt-writing guide.
 ---
 
 # Atptoken video generation
@@ -251,6 +251,7 @@ curl https://api.atptoken.ai/omni/media/v1/contents/generations/tasks \
 - `resolution` uppercase: `480P` `720P` `1080P` (default `480P`); `-pro` also `2K` `4K`. `duration` `-1` (model default length, usually follows the input video) or 2–30 (default 4). `ratio` `16:9` `9:16` `4:3` `3:4` `1:1` `adaptive`. `audio` (not `generate_audio`, default `false`). `prompt_extend` (default `false`).
 - Frame mode (`first_frame` / `last_frame`) **or** reference mode (`reference_images` ≤ 10, `reference_videos` ≤ 5, `reference_audios` ≤ 5), never both.
 - A `content` array is dropped; a body left empty returns `missing_prompt_or_image`. `input` is flattened into the top level — use neither. Sending `aspect_ratio`, `generate_audio`, `watermark` or `media` returns `400 Extra inputs are not permitted`.
+- **Writing the prompt:** see `references/wan-3-prompting.md` (https://atptoken.ai/skills/atptoken-video/references/wan-3-prompting.md): action before style, one camera move per shot, 3–5 identity anchors repeated in every shot, one job per reference, the fix for each common failure, and a full example.
 
 ## MiniMax H3
 

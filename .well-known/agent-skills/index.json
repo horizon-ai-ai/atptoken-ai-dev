@@ -6,7 +6,7 @@
       "type": "skill-md",
       "description": "Get an agent from zero to a working ATP Token integration — one API key, then OpenAI-, Anthropic-, or Gemini-compatible calls to text, image, video, audio, and embedding models. Read this first; it tells you which of the detailed skills to load next.",
       "url": "/.well-known/agent-skills/atptoken-onboarding/SKILL.md",
-      "digest": "sha256:69724d9e994d2c023ce43490b527813a36c7d098941da04c6a40d85f44544a5c"
+      "digest": "sha256:b496e8be1f33c335baca1e2fcca1e03851d10f9a29cb56d5fc950be387ce8bab"
     },
     {
       "name": "atptoken-gateway",
@@ -46,9 +46,9 @@
     {
       "name": "atptoken-video",
       "type": "skill-md",
-      "description": "Generate video (text-to-video / image-to-video / video edit) through the Atptoken LLM Gateway media surface at /omni/media/v1. Video is asynchronous — create a task, poll until it is terminal, then download a signed URL within 24 hours. The model decides the body shape. Two client dialects (ModelArk-compatible and DashScope-native). Use for Seedance / Kling / Wan / HappyHorse / MiniMax video models via Atptoken with an atp- key. See atptoken-gateway for auth and errors.",
+      "description": "Generate video (text-to-video / image-to-video / video edit) through the Atptoken LLM Gateway media surface at /omni/media/v1. Video is asynchronous — create a task, poll until it is terminal, then download a signed URL within 24 hours. The model decides the body shape. Two client dialects (ModelArk-compatible and DashScope-native). Use for Seedance / Kling / Wan / HappyHorse / MiniMax video models via Atptoken with an atp- key. See atptoken-gateway for auth and errors. Includes a Wan 3.0 prompt-writing guide.",
       "url": "/.well-known/agent-skills/atptoken-video/SKILL.md",
-      "digest": "sha256:1955eace1c2921e08fe78b486caa348d6846b02aa166d0487bc859e9950e0ad5"
+      "digest": "sha256:5034ace72bdb4379202a26d653b96386618c2e4a4a141c3e33a112729e65ff33"
     },
     {
       "name": "atptoken-audio",

@@ -46,9 +46,10 @@
     },
     {
       "name": "atptoken-video",
-      "description": "Generate video (text-to-video / image-to-video / video edit) through the Atptoken LLM Gateway media surface at /omni/media/v1. Video is asynchronous — create a task, poll until it is terminal, then download a signed URL within 24 hours. The model decides the body shape. Two client dialects (ModelArk-compatible and DashScope-native). Use for Seedance / Kling / Wan / HappyHorse / MiniMax video models via Atptoken with an atp- key. See atptoken-gateway for auth and errors.",
+      "description": "Generate video (text-to-video / image-to-video / video edit) through the Atptoken LLM Gateway media surface at /omni/media/v1. Video is asynchronous — create a task, poll until it is terminal, then download a signed URL within 24 hours. The model decides the body shape. Two client dialects (ModelArk-compatible and DashScope-native). Use for Seedance / Kling / Wan / HappyHorse / MiniMax video models via Atptoken with an atp- key. See atptoken-gateway for auth and errors. Includes a Wan 3.0 prompt-writing guide.",
       "files": [
-        "SKILL.md"
+        "SKILL.md",
+        "references/wan-3-prompting.md"
       ]
     },
     {

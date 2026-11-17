@@ -32,7 +32,10 @@
     },
     {
       "id": "atptoken-video",
-      "file": "/skills/atptoken-video/SKILL.md"
+      "file": "/skills/atptoken-video/SKILL.md",
+      "references": [
+        "/skills/atptoken-video/references/wan-3-prompting.md"
+      ]
     },
     {
       "id": "atptoken-audio",

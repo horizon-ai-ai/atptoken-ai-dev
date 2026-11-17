@@ -41,6 +41,10 @@ install_root() {
   mkdir -p "$references"
   install_file "$BASE_URL/atptoken-gateway/references/errors.md" "$references/errors.md"
   install_file "$BASE_URL/atptoken-gateway/references/files.md" "$references/files.md"
+
+  video_references="$root/atptoken-video/references"
+  mkdir -p "$video_references"
+  install_file "$BASE_URL/atptoken-video/references/wan-3-prompting.md" "$video_references/wan-3-prompting.md"
 }
 
 case "$TARGET" in

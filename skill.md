@@ -101,7 +101,7 @@ skill file:
 | Messages via the Anthropic SDK | `https://atptoken.ai/skills/atptoken-anthropic/SKILL.md` |
 | generateContent via the Gemini SDK | `https://atptoken.ai/skills/atptoken-gemini/SKILL.md` |
 | Image generation and editing | `https://atptoken.ai/skills/atptoken-image/SKILL.md` |
-| Video generation (async: create task, then poll) | `https://atptoken.ai/skills/atptoken-video/SKILL.md` |
+| Video generation (async: create task, then poll; includes a Wan 3.0 prompt-writing guide) | `https://atptoken.ai/skills/atptoken-video/SKILL.md` |
 | Text to speech | `https://atptoken.ai/skills/atptoken-audio/SKILL.md` |
 
 A machine-readable index of all of them, with their reference files, is at
