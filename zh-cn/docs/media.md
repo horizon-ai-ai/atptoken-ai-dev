@@ -70,7 +70,7 @@ TTS 是非同步任务，结果在 `audio_url`。按输入文字的**字元数**
 
 ## Embeddings
 
-Embedding 是同步的一步呼叫（`POST /v1/embeddings`），只按 **input tokens** 计费——没有 output 计量。费率见[价格页](https://atptoken.ai/zh-cn/pricing/)。
+Embedding 是同步的一步呼叫（`POST /v1/embeddings`），只按 **input tokens** 计费——没有 output 计量。费率见[价格页](https://atptoken.ai/zh-cn/pricing/)；请求格式与模型见[向量](https://atptoken.ai/zh-cn/docs/embeddings/)。
 
 ## 下一步
 

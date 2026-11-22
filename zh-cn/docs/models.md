@@ -48,7 +48,7 @@ curl https://api.atptoken.ai/v1/project/models \
 
 - **大部分 `claude-*` 模型。** 它们在 [/v1/messages](https://atptoken.ai/zh-cn/docs/messages/) 呼叫，而 Anthropic 没有自己的清单端点。Anthropic SDK 的 `models.list()` 会去打 `/v1/models`，格式刚好相容，所以不会报错，只会少东西。
 - **媒体模型**（影片、图像、语音）。它们在 `/omni/media/v1/...` 的任务路由呼叫。
-- **向量模型。** 它们在 `/v1/embeddings` 呼叫。
+- **向量模型。** 它们在 [/v1/embeddings](https://atptoken.ai/zh-cn/docs/embeddings/) 呼叫。
 
 Gemini 客户端如果钉在 `apiVersion: "v1"`，会去 `/v1/models` 拿清单，拿到 OpenAI 格式，结果解析出 0 个模型。请用 `apiVersion: "v1beta"`，见 [Gemini](https://atptoken.ai/zh-cn/docs/gemini/)。
 

@@ -23,7 +23,7 @@ ATP Token centralizes AI usage governance and billing: organizations, workspaces
 - Billing: pay-as-you-go credits, no monthly fee, USD 5 minimum top-up (USD 1 = 100 credits). List rates are published per model.
 
 ## Models
-Browse the catalog (93 public models; text: 50, image: 10, video: 30, audio: 1, embedding: 2):
+Browse the catalog (97 public models; text: 50, image: 10, video: 30, audio: 1, embedding: 6):
 - [Model catalog](https://atptoken.ai/models/)
 - [Model price table](https://atptoken.ai/models/?view=table): every model's price, filterable by type, vendor and positioning
 - [Pricing: how credits work](https://atptoken.ai/pricing/)
@@ -84,6 +84,7 @@ Every documentation page is also served as plain Markdown: append `.md` to the p
 - [/v1/messages](https://atptoken.ai/docs/messages.md): POST /v1/messages takes Anthropic Messages requests. Use the official anthropic SDK (Python or Node) unchanged: set base_url to https://api.atptoken.…
 - [/v1/models/{model}:generateContent](https://atptoken.ai/docs/gemini.md): Gemini REST-style generateContent and streamGenerateContent routes are supported under both /v1 and /v1beta.
 - [/v1/files](https://atptoken.ai/docs/files.md): Upload a file to the Gateway and reference it in subsequent chat or messages requests by the returned id (format an_<ULID>). The id is for chat only…
+- [/v1/embeddings](https://atptoken.ai/docs/embeddings.md): Turn text, images, audio or video into vectors with one synchronous call. The request body follows OpenAI's embeddings schema, so the official openai…
 - [OpenAI SSE](https://atptoken.ai/docs/sse-openai.md): When you set stream: true on /v1/chat/completions, the Gateway streams the upstream provider response as OpenAI-format SSE chunks.
 - [Anthropic SSE](https://atptoken.ai/docs/sse-anthropic.md): /v1/messages with stream: true emits the event sequence below regardless of which upstream provider served the request.
 - [Error codes](https://atptoken.ai/docs/errors.md): Look up a status code the Gateway returned to see what it means, what to check first, and what to do next. For a 4xx, read the message, not just the…

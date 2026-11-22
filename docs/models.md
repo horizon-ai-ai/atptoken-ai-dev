@@ -48,7 +48,7 @@ What these two lists leave out:
 
 - **Most `claude-*` models.** They are called on [/v1/messages](https://atptoken.ai/docs/messages/), and there is no Anthropic list endpoint. The Anthropic SDK's `models.list()` calls `/v1/models`, gets a compatible shape, and returns a shorter list without any error.
 - **Media models** (video, image, audio). They are called on the `/omni/media/v1/...` task routes.
-- **Embedding models.** They are called on `/v1/embeddings`.
+- **Embedding models.** They are called on [/v1/embeddings](https://atptoken.ai/docs/embeddings/).
 
 A Gemini client pinned to `apiVersion: "v1"` asks for its list at `/v1/models`, gets the OpenAI shape, and parses zero models. Use `apiVersion: "v1beta"` — see [Gemini](https://atptoken.ai/docs/gemini/).
 

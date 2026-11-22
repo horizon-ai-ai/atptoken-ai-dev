@@ -70,7 +70,7 @@ TTS is an asynchronous task; the result is in `audio_url`. It bills **per charac
 
 ## Embeddings
 
-Embeddings are a single synchronous call (`POST /v1/embeddings`) and bill on **input tokens only** — there is no output meter. Rates are on the [pricing page](https://atptoken.ai/pricing/).
+Embeddings are a single synchronous call (`POST /v1/embeddings`) and bill on **input tokens only** — there is no output meter. Rates are on the [pricing page](https://atptoken.ai/pricing/); request shape and models are on [Embeddings](https://atptoken.ai/docs/embeddings/).
 
 ## Next steps
 
