@@ -10,34 +10,34 @@ ATP Token 网页控制台看得到的数据，都有对应的 REST API：`https:
 
 > **两种凭证，不要混用**
 >
-> **`atp-` API 密钥** 只用于数据面（`api.atptoken.ai`——chat、媒体、embeddings）。控制台 API 使用 **`POST /api/users/login` 取得的 session token**（控制台账号密码）。对控制台 API 端点送 `atp-` 密钥一律回 `401`，换哪个端点都一样。
+> **`atp-` API 密钥** 只用于数据面（`api.atptoken.ai`——chat、媒体、embeddings）。控制台 API 使用 **某个已登录真人的 session token**。对控制台 API 端点送 `atp-` 密钥一律回 `401`，换哪个端点都一样。
 
-#### 请求
+### 要有一个真人登录
 
-```
-curl -sS -X POST https://admin.atptoken.ai/api/users/login \
-  -H "Content-Type: application/json" \
-  -d '{"email":"you@example.com","password":"********"}'
-# → { "token": "<JWT>", "exp": ..., "user": { ... } }
-```
+`POST /api/users/login` 的 body 必须带人机验证的答案，而只有浏览器产生得出来。控制台 API 没有 API 密钥、没有服务账号，也没有给机器登录的端点：这几页上的每一个呼叫，用的都是某个真人在 [atptoken.ai](https://atptoken.ai) 登录后拿到的 session token。
 
-回传的 `token` 为 Bearer token，效期约 **2 小时**。长期执行的脚本遇到 `401` 应重新登录，不要永久快取 token。`POST /api/users/logout` 可撤销当前 session。
+这是一个决定，不是还没做完的功能。登录页正是脚本猜密码会打的地方，而原本唯一的防线——单一账号的失败次数上限——罚错了人：脚本换下一个账号继续猜，被锁在外面的却是真正的持有人。人机验证在第一个请求就挡下整轮，所以它对每一次登录都生效，没有门槛可以跨过，也没有例外可以申请。
+
+在浏览器登录之后，控制台把那个 session token 放在 `localStorage` 的 `atp_token`——它就是以下范例里的 `$TOKEN`。这是 Bearer token，效期约 **2 小时**，`POST /api/users/logout` 可以提前结束它。
+
+### 这代表什么事做不到
+
+脚本不能自己登录，也就不能让自己一直保持认证：token 过期之后，要有一个人重新登录。控制台 API 适合「手上有 session 时才跑」的工作——出报表、对账、追一个失败的请求——而不是一个长期无人看管的服务。
+
+如果你要的是完全不需要 session 的花费上限，请改用点数分配，而不是监看余额：项目只能花掉被分配到的额度，而且是 Gateway 在每一个请求上执行。见[建立带预算上限的团队](https://atptoken.ai/zh-cn/docs/cb-budget-caps/)。
 
 ## 轮询余额、切换模型
 
-最常见的整合情境：监看项目即时余额，低于门槛时切换到较便宜的模型。
+最常见的整合情境：监看项目即时余额，低于门槛时切换到较便宜的模型。它能跑多久取决于 session token 的效期：token 过期之后，要有一个人重新登录。
 
 ```
-# 1) Login (console credentials, NOT the atp- API key)
-TOKEN=$(curl -sS -X POST https://admin.atptoken.ai/api/users/login \
-  -H "Content-Type: application/json" \
-  -d '{"email":"you@example.com","password":"********"}' | jq -r .token)
+# $TOKEN is one signed-in person's session token (see Authentication)
 
-# 2) Real-time project balance (Redis-backed, reflects every request instantly)
+# 1) Real-time project balance (Redis-backed, reflects every request instantly)
 curl -sS "https://admin.atptoken.ai/api/quota/balance?org_id=<org>&workspace_id=<ws>&project_id=<proj>" \
   -H "Authorization: Bearer $TOKEN"
 
-# 3) Current-month usage per model
+# 2) Current-month usage per model
 curl -sS "https://admin.atptoken.ai/api/billing/summary?org_id=<org>" \
   -H "Authorization: Bearer $TOKEN"
 ```
@@ -63,6 +63,7 @@ curl -sS "https://admin.atptoken.ai/api/projects?workspace=<workspace_id>" -H "A
 ## 错误
 
 - 400 — 参数缺漏或格式错误（多数端点必带 `org_id`）。
+- 400 — `POST /api/users/login` 回 `captcha_required` 或 `captcha_invalid`：人机验证没有通过。脚本过不了，请在浏览器登录。
 - 401 — session token 缺失／过期，或误用了 `atp-` API 密钥。
 - 403 — 已认证但无此范围的存取权。
 - 404 — 可见范围内找不到资源。

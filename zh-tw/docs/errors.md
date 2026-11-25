@@ -26,6 +26,14 @@
 | `503` | 兩種原因：此刻沒有可用容量；或 `balance_check_unavailable`——餘額讀不到（**不是**餘額不足），請求沒有開始，也沒有扣款 | `Retry-After` | 依 `Retry-After` 等待後重試 |
 | `5xx` | 供應商或 Gateway 錯誤 | 回應的 `x-request-id` header | 在主控台「請求紀錄」用 request ID 查詢；聯絡支援時附上 |
 
+## 主控台登入的錯誤
+
+這些來自主控台這一面（`admin.atptoken.ai`），不是 Gateway。你會在 `POST /api/users/login`、以及把外部登入方式連結到帳號時遇到它們：兩者都要你證明自己是人，而只有瀏覽器答得出來。見[驗證方式](https://atptoken.ai/zh-tw/docs/auth/)。
+
+- 400 — `captcha_required`：請求裡沒有人機驗證的答案。腳本產生不出來，請在瀏覽器登入。你帳號的失敗次數不會增加。
+- 400 — `captcha_invalid`：送了答案但驗不過，通常是重複使用或已經過期。回到登入頁重新登入一次。
+- 503 — `captcha_unavailable` 或 `captcha_unconfigured`：驗證在我們這邊跑不起來。你送的東西沒有錯，請重試。
+
 ## 怎麼計費
 
 計費以「請求」為單位，不是以「嘗試」為單位。一個請求在你的紀錄裡可能有好幾列，**不要相加**。

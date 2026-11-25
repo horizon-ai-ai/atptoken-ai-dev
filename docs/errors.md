@@ -26,6 +26,14 @@ Jump to: [400](#status-400) · [401](#status-401) · [402](#status-402) · [403]
 | `503` | Two causes: no capacity right now; or `balance_check_unavailable` — the balance could not be read (**not** a low balance), so the request never started and nothing was charged | `Retry-After` | Retry after `Retry-After` |
 | `5xx` | Provider or Gateway error | The `x-request-id` response header | Look up the request ID under "Request logs" in the Console; include it when you contact support |
 
+## Console sign-in errors
+
+These come from the console plane (`admin.atptoken.ai`), not from the Gateway. You meet them on `POST /api/users/login` and when attaching a sign-in provider to your account: both ask you to prove you are human, and a browser is the only thing that can answer. See [Authentication](https://atptoken.ai/docs/auth/).
+
+- 400 — `captcha_required`: the request carried no human-verification answer. A script cannot produce one; sign in in the browser. Your account's failed-attempt counter does not move.
+- 400 — `captcha_invalid`: an answer was sent and did not check out, usually one that was reused or had expired. Go back to the sign-in page and sign in again.
+- 503 — `captcha_unavailable` or `captcha_unconfigured`: the check could not be run on our side. Nothing you sent is wrong; retry.
+
 ## How requests are billed
 
 Billing is per request, not per attempt. One request can appear as several rows in your logs — do not add them up.
